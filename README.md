@@ -53,16 +53,23 @@ __Credits__: 3
 
 You must have completed BI 283 or have the permission of the instructor.
 
+## Textbook
+
+This course will rely heavily on [R for Data Science](http://r4ds.had.co.nz) by [Hadley Wickham](http://hadley.nz) and [Garrett Grolemund](http://twitter.com/statgarrett). The text
+is freely available online. The book will serve as a tutorial for some readings and a source
+of assignment questions.
+
+
 ## Reading Notes and Assignments
 
-Read the notes, and then complete the assignments. Assignments must be submitted by 23:59 of the date assigned.
+Read the notes, and then complete the assignments. You will have three assignments per week. Assignments are due two days after they are assigned (e.g., assignments given on Monday are due on Wednesday) by 23:59.
 
 *Warning:* adjustments are still being made!
 
 | Reading   | Assignment     | Due&nbsp;(23:59) | Resources |
 |:----------|:---------------|:---------|:----------|
-| [01 Intro to course and software](notes/cm001.nb.html) | | 19 Dec (W) | |
-| [02 Markdown and GitHub](notes/cm002.nb.html) | |  21 Dec (F)  | Tutorials for getting started with [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/)
+| [01 Install software; GitHub; Markdown](notes/cm001.nb.html) | | 19 Dec (W) | Tutorials for [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/). |
+| [02 RMarkdown; Introduction to R](notes/cm002.nb.html) | |  21 Dec (F)  | Tutorial for getting started with  and 
 | [03 Getting familiar with R & RMarkdown](notes/cm003.nb.html) | |  24 Dec (M) | R: [stat545: hello r](http://stat545.com/block002_hello-r-workspace-wd-project.html), or [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro. Rmd: [stat545: Rmd test drive](http://stat545.com/block007_first-use-rmarkdown.html). |
 | [04 The git workflow; collab with GitHub](notes/cm004.nb.html) | |  26 Dec (W) | |
 | [05 working with data in R; `dplyr` and the `tidyverse`](notes/cm005.nb.html) | |  28 Dec (F) | |
