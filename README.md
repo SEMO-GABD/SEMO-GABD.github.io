@@ -1,16 +1,9 @@
-# BI 485 / BI 685
-
-## Graphical Analysis of Biological Data
-
 This is the course outline and schedule for the 2018-2019 Winter Intersession
-course Graphical Analysis of Biological Data.
+course Graphical Analysis of Biological Data (BI 486 / 685).
 
 The official syllabus is on the [course Moodle page.](https://learning.semo.edu)
 
 This course is based on the content of the [original](http://stat545.com) and [current](http://stat545.com/Classroom/) versions of Stat545A offered at the University of British Columbia. This course includes considerable material developed in full or in part by [Dr. Jenny Bryan](https://github.com/jennybc). I am grateful to her and all of the other people who developed the original content. I have modified it as necessary to suit the needs of this course.
-
-1. find information about the course, and
-2. navigate the course.
 
 ## Quick Navigation
 
@@ -28,7 +21,7 @@ We will make use of the following tools:
 
 This framework of tools is under construction, as we move to a solution that's more scalable in terms of future iterations and multiple collaborators. We appreciate your patience and welcome your feedback!
 
-## About STAT 545
+## About the course
 
 STAT 545 is "Part I" of learning how to
 
@@ -36,7 +29,7 @@ STAT 545 is "Part I" of learning how to
 - make all of that reproducible, reusable, and shareable
 - using R
 
-__Credits__: 3
+**Credits:** 3
 
 ## Selected Topics
 
