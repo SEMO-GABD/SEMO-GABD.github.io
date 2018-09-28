@@ -7,7 +7,7 @@ course Graphical Analysis of Biological Data.
 
 The official syllabus is on the [course Moodle page.](https://learning.semo.edu)
 
-This course is based on the content of the [original](http://stat545.com) and [current](http://stat545.com/Classroom/) versions of Stat545a offered at the University of British Columbia. This course includes considerable material developed in full or in part by [Dr. Jenny Bryan](https://github.com/jennybc). I am grateful to all who developed the original content. I have modified it as necessary to suit the needs of this course.
+This course is based on the content of the [original](http://stat545.com) and [current](http://stat545.com/Classroom/) versions of Stat545A offered at the University of British Columbia. This course includes considerable material developed in full or in part by [Dr. Jenny Bryan](https://github.com/jennybc). I am grateful to her and all of the other people who developed the original content. I have modified it as necessary to suit the needs of this course.
 
 1. find information about the course, and
 2. navigate the course.
@@ -86,21 +86,21 @@ Complete the assignments individuals and on time.
 
 To gain marks in this course, you'll be completing five assignments, and submitting two peer reviews for each assignment. Participation counts too!
 
-__NOTE__: You must have a GitHub account (free) to earn marks in this course, and then [complete the course survey](https://goo.gl/forms/UPvRA6a9WRod8JPb2).
+**NOTE:** You must have a GitHub account (free) to earn marks in this course, and then [complete the course survey](https://goo.gl/forms/UPvRA6a9WRod8JPb2).
 
 Here's the breakdown of your course grade:
 
 | Assessment | Weight |
-|------------|--------|
+|:-----------|:-------|
 | 5 Assignments | 75% (15% per assignment) |
 | 10 Peer Reviews | 15% (3% per assignment) |
 | Participation | 10% |
 
 There are no exams. 
 
-_Assignments and peer review_: For information about and links to assignments and peer reviews, go to [the assignments page](http://stat545.com/Classroom/assignments/). 
+**Assignments and peer review:** For information about and links to assignments and peer reviews, go to [the assignments page](http://stat545.com/Classroom/assignments/). 
 
-_Participation_: See the [participation](participation.html) page.
+**Participation:** See the [participation](participation.html) page.
 
 ## Conversation, and Getting Help
 
