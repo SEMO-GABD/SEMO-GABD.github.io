@@ -55,7 +55,7 @@ You must have completed BI 283 or have the permission of the instructor.
 
 ## Textbook
 
-This course will rely heavily on [R for Data Science](http://r4ds.had.co.nz) by [Hadley Wickham](http://hadley.nz) and [Garrett Grolemund](http://twitter.com/statgarrett). The text
+This course will rely heavily on [R for Data Science](http://r4ds.had.co.nz) by [Hadley Wickham](https://twitter.com/hadleywickham) and [Garrett Grolemund](https://twitter.com/statgarrett). The text
 is freely available online. The book will serve as a tutorial for some readings and a source
 of assignment questions.
 
@@ -68,20 +68,20 @@ Read the notes, and then complete the assignments. You will have three assignmen
 
 | Reading   | Assignment     | Due&nbsp;(23:59) | Resources |
 |:----------|:---------------|:---------|:----------|
-| [01 Install software; GitHub; Markdown](notes/cm001.nb.html) | | 19 Dec (W) | Tutorials for [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/). |
-| [02 RMarkdown; Introduction to R](notes/cm002.nb.html) | |  21 Dec (F)  | Tutorial for getting started with  and 
-| [03 Getting familiar with R & RMarkdown](notes/cm003.nb.html) | |  24 Dec (M) | R: [stat545: hello r](http://stat545.com/block002_hello-r-workspace-wd-project.html), or [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro. Rmd: [stat545: Rmd test drive](http://stat545.com/block007_first-use-rmarkdown.html). |
+| [01 Install software;<br/> GitHub;  Markdown](notes/cm002.nb.html) | [HW 01](assignments/hw01/hw01.html) | 19 Dec (W) | Tutorials for [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/). |
+| [02 Getting familiar with R & RMarkdown](notes/cm003.nb.html) | |  21 Dec (F)  | R: [stat545: hello r](http://stat545.com/block002_hello-r-workspace-wd-project.html), or [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro. Rmd: [stat545: Rmd test drive](http://stat545.com/block007_first-use-rmarkdown.html). | 
+| 03  | |  24 Dec (M) |  |
 | [04 The git workflow; collab with GitHub](notes/cm004.nb.html) | |  26 Dec (W) | |
 | [05 working with data in R; `dplyr` and the `tidyverse`](notes/cm005.nb.html) | |  28 Dec (F) | |
 | [06 ggplot2, Part I](notes/cm006.nb.html) | |  31 Dec (M) | |
 | [07 ggplot2, Part II](notes/cm007.nb.html) | |  02 Jan (W) | |
 | [08 Grouping of tibbles](notes/cm008.nb.html) | |  04 Jan (F) | |
 | [09 Tidy data, reshaping](notes/cm009.nb.html) | |  07 Jan (M) | |
-| [10 Guest Lecture: Rashedul, on table joins](notes/cm010.nb.html) | |  09 Jan (W) | |
-| [11 Advanced R programming; file I/O](notes/cm011.nb.html) | |  11 Jan (F) | |
-| [12 The joy of Factors](notes/cm012.nb.html) | | Date | |
-| [13 Revisit ggplot; plotly; practicalities of daily figure-making](notes/cm013.nb.html) | | Date | |
+| [10 Table joins?](notes/cm010.nb.html); [Advanced R programming; file I/O](notes/cm011.nb.html) | | 09 Jan (W) | |
+| [11 The joy of Factors](notes/cm012.nb.html) | | 11 Jan (F) | |
+| [12 Revisit ggplot; plotly; practicalities of daily figure-making](notes/cm013.nb.html) | | Date | |
 | [14 The model-fitting paradigm in R; `broom`; deep thoughts about data analytic work](notes/cm014.nb.html) | | Date | |
+| Maps? | | | Date | |
 
 ## Expectations
 
