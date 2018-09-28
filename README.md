@@ -59,22 +59,22 @@ Read the notes, and then complete the assignments. Assignments must be submitted
 
 *Warning:* adjustments are still being made!
 
-| Date         | Reading   | Assignment     | Due&nbsp;Date (23:59) | Resources |
-|:-------------|:----------|:---------------|:---------|:----------|
-| 17 Dec (M) | [01 Intro to course and software](notes/cm001.nb.html) | | 19 Dec (W) | |
-| 19 Dec (W) | [02 Markdown and GitHub](notes/cm002.nb.html) | |  21 Dec (F)  | Tutorials for getting started with [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/)
-| 21 Dec (F) | [03 Getting familiar with R & RMarkdown](notes/cm003.nb.html) | |  24 Dec (M) | R: [stat545: hello r](http://stat545.com/block002_hello-r-workspace-wd-project.html), or [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro. Rmd: [stat545: Rmd test drive](http://stat545.com/block007_first-use-rmarkdown.html). |
-| 24 Dec (M) | [04 The git workflow; collab with GitHub](notes/cm004.nb.html) | |  26 Dec (W) | |
-| 26 Dec (W) | [05 working with data in R; `dplyr` and the `tidyverse`](notes/cm005.nb.html) | |  28 Dec (F) | |
-| 28 Dec (F) | [06 ggplot2, Part I](notes/cm006.nb.html) | |  31 Dec (M) | |
-| 31 Dec (M) | [07 ggplot2, Part II](notes/cm007.nb.html) | |  02 Jan (W) | |
-| 02 Jan (W) | [08 Grouping of tibbles](notes/cm008.nb.html) | |  04 Jan (F) | |
-| 04 Jan (F) | [09 Tidy data, reshaping](notes/cm009.nb.html) | |  07 Jan (M) | |
-| 07 Jan (M) | [10 Guest Lecture: Rashedul, on table joins](notes/cm010.nb.html) | |  09 Jan (W) | |
-| 09 Jan (W) | [11 Advanced R programming; file I/O](notes/cm011.nb.html) | |  11 Jan (F) | |
-| 11 Jan (F) | [12 The joy of Factors](notes/cm012.nb.html) | | Date | |
-| oct-16 tues  | [13 Revisit ggplot; plotly; practicalities of daily figure-making](notes/cm013.nb.html) | | Date | |
-| oct-18 thurs | [14 The model-fitting paradigm in R; `broom`; deep thoughts about data analytic work](notes/cm014.nb.html) | | Date | |
+| Reading   | Assignment     | Due&nbsp;(23:59) | Resources |
+|:----------|:---------------|:---------|:----------|
+| [01 Intro to course and software](notes/cm001.nb.html) | | 19 Dec (W) | |
+| [02 Markdown and GitHub](notes/cm002.nb.html) | |  21 Dec (F)  | Tutorials for getting started with [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/)
+| [03 Getting familiar with R & RMarkdown](notes/cm003.nb.html) | |  24 Dec (M) | R: [stat545: hello r](http://stat545.com/block002_hello-r-workspace-wd-project.html), or [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro. Rmd: [stat545: Rmd test drive](http://stat545.com/block007_first-use-rmarkdown.html). |
+| [04 The git workflow; collab with GitHub](notes/cm004.nb.html) | |  26 Dec (W) | |
+| [05 working with data in R; `dplyr` and the `tidyverse`](notes/cm005.nb.html) | |  28 Dec (F) | |
+| [06 ggplot2, Part I](notes/cm006.nb.html) | |  31 Dec (M) | |
+| [07 ggplot2, Part II](notes/cm007.nb.html) | |  02 Jan (W) | |
+| [08 Grouping of tibbles](notes/cm008.nb.html) | |  04 Jan (F) | |
+| [09 Tidy data, reshaping](notes/cm009.nb.html) | |  07 Jan (M) | |
+| [10 Guest Lecture: Rashedul, on table joins](notes/cm010.nb.html) | |  09 Jan (W) | |
+| [11 Advanced R programming; file I/O](notes/cm011.nb.html) | |  11 Jan (F) | |
+| [12 The joy of Factors](notes/cm012.nb.html) | | Date | |
+| [13 Revisit ggplot; plotly; practicalities of daily figure-making](notes/cm013.nb.html) | | Date | |
+| [14 The model-fitting paradigm in R; `broom`; deep thoughts about data analytic work](notes/cm014.nb.html) | | Date | |
 
 ## Expectations
 
