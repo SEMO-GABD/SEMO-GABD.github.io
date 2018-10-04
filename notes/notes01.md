@@ -2,8 +2,7 @@ Welcome to Graphical Analysis of Data Analysis.
 
 ## Who am I?
 
-![](cm001_files/vincenzo.jpg)
-**Mike Photo**
+![](../img/mike_taylor.jpg)
 
 Dr. Mike Taylor   
 Department of Biology   
@@ -11,9 +10,9 @@ Southeast Missouri State University
 
 My educational background:
 
+- B.S. in Biology (Chemistry minor) from [Central Missouri State University.](https://www.ucmo.edu/index.php)
+- Ph.D. in Zoology from [Louisiana State University](https://www.lsu.edu/science/biosci/) in the lab of [Dr. Mike Hellberg.](https://sites01.lsu.edu/faculty/mhellbe/)
 - Postdoctral Researcher at the [University of Notre Dame](https://science.nd.edu/departments/biological-sciences/) in the lab of [Dr. Jeff Feder.](https://federlab.nd.edu)
-- PhD in Zoology from [Louisiana State University](https://www.lsu.edu/science/biosci/) in the lab of [Dr. Mike Hellberg.](https://sites01.lsu.edu/faculty/mhellbe/)
-- BS in Biology (Chemistry minor) from [Central Missouri State University.](https://www.ucmo.edu/index.php)
 
 ## Who are you?
 
@@ -21,7 +20,7 @@ Post to the forum **Develop**
 
 ## Philosophy (move to separate / different place?
 
-I expect that you will be curious. The notes and assignments will have links to various sources of additional information. *Follow the links!* Read. Learn. Remember.
+I expect that you will be curious. The notes and assignments will have links to sources of additional information. *Follow the links!* Read. Learn. Remember.
 
 **Text files:** Why use text files?
 
