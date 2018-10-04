@@ -18,5 +18,19 @@ List of resources that I or the students may find useful. Links will probbaly fi
 
 ### RStudio
 
+[R Studio](https://www.rstudio.com)
+
+[R Studio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/) are recommended.
+
 [Tufte style in R Markdown](http://rstudio.github.io/tufte/)
+
+### Stack
+
+[Stack Overflow](https://stackoverflow.com)
+
+### Tidyverse
+
+[Tidyverse](https://www.tidyverse.org) home pages for many of the R packages we will be using.
+
+[Style Guide](http://style.tidyverse.org) for naming files and variables and formatting your code for maximum legibility by humans.
 
