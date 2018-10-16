@@ -1,0 +1,99 @@
+---
+title: "Introduction to R Markdown and R"
+output:
+  html_notebook:
+    df_print: paged
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: inline
+---
+
+### Read
+
+[Hadley: Chapter 4](http://r4ds.had.co.nz/workflow-basics.html)
+
+[Hadley: Chapter 26](http://r4ds.had.co.nz/communicate-intro.html)
+
+[Hadley: Chapter 27](http://r4ds.had.co.nz/r-markdown.html)
+
+[Hadley: Chapter 29](http://r4ds.had.co.nz/r-markdown-formats.html), sections 1-4. Skim the remaining sections to get a sense of what you can accomplish with R Markdown.
+
+### Resources
+
+DataCamp [R Tutorial ![](../img/external.png)](https://www.datacamp.com/courses/free-introduction-to-r) (requires free registration.)
+
+### Notes
+
+The markdown commands that you learned in the [previous exercise](week01a.md) can also be used in R to make documents like web (HTML) pages and PDF documents. R Markdown is an enhanced version of markdown with additional features so you can include the results of your analyses. R Studio provides many features that make using R Markdown easy.
+
+For this course, you will use R Notebooks, which create interactive HTML documents. In R Studio, choose `File > New File > R Notebook` from the menu. R Studio creates a new document with example R Markdown text. You will see familiar markdown commands, like `* … *` for *italics.* 
+
+You probably noticed the YAML Header at the top of the document. 
+
+```
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+```
+
+### Load the Tidyverse packages.
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+View the Anscombe data set.
+
+```{r}
+anscombe
+```
+
+
+```{r wrangle}
+dat <-
+  bind_cols(
+    anscombe %>% select(matches("x")) %>% gather(set, "x"),
+    anscombe %>% select(matches("y")) %>% gather(key, "y")
+  ) %>%
+  select(-key) %>% 
+  mutate(set = gsub("x", "", set)) %>%  
+  as_tibble()
+
+
+```
+
+Now view the wrangled data set.
+
+```{r}
+dat
+```
+
+
+
+Calculate the mean and standard deviation for x and y of each set.
+
+```{r summarize}
+dat %>%
+  group_by(set) %>%
+  summarize(
+    mean_x = mean(x),
+    stdev_x = sd(x), 
+    mean_y = mean(y),
+    stdev_y = sd(y)
+    ) 
+```
+Notice that each set has the same mean and standard deviation for variables *x* and *y*. 
+
+
+Next, create a graph of each plot.
+```{r plot}
+
+dat %>% ggplot(aes(x, y, color = set)) + 
+  geom_point() +
+  facet_wrap(~set, ncol = 2)
+
+```
+
