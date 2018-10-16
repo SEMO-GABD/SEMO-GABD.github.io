@@ -31,7 +31,7 @@ For this course, you will use R Notebooks, which create interactive HTML documen
 
 You probably noticed the YAML Header at the top of the document. 
 
-```{eval=FALSE}
+```{}
 ---
 title: "R Notebook"
 output: html_notebook
@@ -40,23 +40,66 @@ editor_options:
 ---
 ```
 
-YAML stands for "Yet Another Markup Language," and is used to set options for making the different types of documents. Many options are available but the default options are suitable for most needs of this course. We might explore additional options, as necessary.
+YAML (Yet Another Markup Language) is used to set options for different types of documents. The `title:` option is the one you will change most often, as you should give your document a title that reflects the contents of the document. `output:` makes an R Notebook in HTML format, and  `editor_options:` places the output of a chunk of R code after the actual code. 
 
-The `title:` option is the one you will change most often, as you should give your document a title that reflects the contents of the document. You shoud also add two other 
+You should add two other options, `author:` with your name, and `date:` to show the date you made the document. You can set the date automatically using R's `Sys.time()` function to get the current date, as shown in the example below. We might explore other YAML options in the future, as necessary.
+```yaml
+  ---
+  title: "Useful Title"
+  author: "Your Name"
+  date: "`r format(Sys.time(), '%d %B %Y')`"
+  output: html_notebook
+  editor_options: 
+    chunk_output_type: inline
+  ---
+```
+
+
+You may have also noticed the following block in your new notebook document.
+```{r echo=FALSE}
+cat(htmltools::includeText("r_chunk.txt"))
+```
+
+    ```{r}
+    ## insert your brilliant WORKING code here
+    ```
+    
+This is an R code chunk. A code chunk begins with three back ticks ` ```{r} ` on a line, followed by your R code, then three more back ticks ` ``` ` to end the chunk. When you make your document, the code will be evaluated, and the output will be included after the chunk (as specified by the `editor_options:` in the YAML header). In the case of `plot(cars)`, the code tells R to plot the data from the `cars` data set, which is then shown below the chunk.
+
+
+```{r}
+ plot(cars)
+```
+
+You will use R code chunks extensively in your assignment notebooks.  You can type them manually but the easier way is to press `Cmd-opt-i` while in your R Notebook document. R Studio will automatically insert a blank chunk, ready for you to enter your code.
+
+Your R Markdown Notebook is an interactive document. You can run blocks of code separately or all at once. For example, click the right-most icon (green arrow; ![](../img/run_chunk_arrow.png)) in the upper right of the code chunk to plot the cars data set. The plot will appear below the code chunk. You can also click the Preview button just above your R Notebook source document.
+
+In many cases, you will want to run some code that depends on the results of code earlier in your document. In that case, click on the downward-pointed arrow in your code chunk, just left of the green arrow you just clicked. That runs all chunks above the current chunk. You can learn the function of these buttons if you hold your cursor over the button without clicking. 
+
+## R Notebook: a case study
+
+I strongly encourage you to type the commands below as you read through the case study. **Do not copy and paste!** Typing the commands is the best way to *drill your fingers* so that they remember the different commands and short cuts.
+
 
 ### Load the Tidyverse packages.
-```{r message=FALSE, warning=FALSE}
+
+We will spend nearly all of our time during this course in the [Tidyverse](https://www.tidyverse.org), which is a series of packages that adds functionality to the base R program. You will learn more in the coming days. For now, though, choose `Tools > Install Packages...` from the menu. Type `tidyverse` into the space provided. Be sure that `Repository (CRAN)` is selected and that the `Install dependencies` box is checked. Click the `Install` button. R Studio will automatically install everything you need for now from the Tidyverse.
+
+You only need to install packages once but you must load them for each session that needs them. In your notebook, Press `cmd-opt-i` to enter a blank code chunk. Then, type `library(tidyverse)` in the blank space between the starting and ending tick marks. The `library()` function loads the tidyverse packages.
+```{r}
 library(tidyverse)
 ```
 
-View the Anscombe data set.
+This case study will use the Anscombe data, which has carefully constructed pairs of values to illustrate the importance of visualizing your data. You view the entire data set by typing the same, as shown below.  When you run the code chunk, you should see a table like that below. If you do not see the table, did you remember to put the command in a code chunk? Also, *case matters.* `anscombe` will show you the table but `Anscombe` will not.
 
 ```{r}
 anscombe
 ```
+The data are arranged as four *x* columns (*x1* to *x4*), and four y columns (*y1* to *y4*). For graphing,*x1* pairs with *y1*, *x2* pairs with *y2*, and so on. For reasons that will become clear later, graphing is easier if there is only one column for x values and one column for y values. The following code uses functions from the tidyverse packages to rearrange the data. The code adds a `set` column to track the four sets (pairs) of values. Carefully type in the following code chunk, remembering that spelling and punctuation matter. 
 
-
-```{r wrangle}
+Hint: Typing `Cmd/ctl-shift-m` will enter the `%>%` pipe combination in a single stroke.
+```{r}
 dat <-
   bind_cols(
     anscombe %>% select(matches("x")) %>% gather(set, "x"),
@@ -65,21 +108,15 @@ dat <-
   select(-key) %>% 
   mutate(set = gsub("x", "", set)) %>%  
   as_tibble()
-
-
 ```
 
-Now view the wrangled data set.
-
+Now view the wrangled data set. If you entered the code correctly, you should see the following table. If you got an error instead, review the code *carefully* to find the error and fix it. 
 ```{r}
 dat
 ```
 
-
-
-Calculate the mean and standard deviation for x and y of each set.
-
-```{r summarize}
+Now, apply some common R functions to calculate the mean and standard deviation for each set of *x/y* pairs.
+```{r}
 dat %>%
   group_by(set) %>%
   summarize(
@@ -89,15 +126,12 @@ dat %>%
     stdev_y = sd(y)
     ) 
 ```
-Notice that each set has the same mean and standard deviation for variables *x* and *y*. 
+Notice that each set has the same mean and standard deviation for variables *x* and *y*. That is, each set of *x* values has the same mean and standard deviation, as does each set of *y* values. 
 
-
-Next, create a graph of each plot.
-```{r plot}
-
+If these were your data, you might be tempted to think that that data do not differ among the four sets. Confirm that by creating a separate plot of each data set.
+```{r}
 dat %>% ggplot(aes(x, y, color = set)) + 
   geom_point() +
   facet_wrap(~set, ncol = 2)
-
 ```
-
+Even though the four data sets were *statistically* identical, the graphs show that the data sets are actually very different from one another. These data were carefully constructed to make a very important point that underlies this course: **Always visualize your data!**
