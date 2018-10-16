@@ -31,7 +31,7 @@ For this course, you will use R Notebooks, which create interactive HTML documen
 
 You probably noticed the YAML Header at the top of the document. 
 
-```
+```{eval=FALSE}
 ---
 title: "R Notebook"
 output: html_notebook
@@ -39,6 +39,10 @@ editor_options:
   chunk_output_type: inline
 ---
 ```
+
+YAML stands for "Yet Another Markup Language," and is used to set options for making the different types of documents. Many options are available but the default options are suitable for most needs of this course. We might explore additional options, as necessary.
+
+The `title:` option is the one you will change most often, as you should give your document a title that reflects the contents of the document. You shoud also add two other 
 
 ### Load the Tidyverse packages.
 ```{r message=FALSE, warning=FALSE}
