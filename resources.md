@@ -16,6 +16,8 @@ List of resources that I or the students may find useful. Links will probbaly fi
 
 [Happy Git with R](http://happygitwithr.com)
 
+[Pro Git](https://git-scm.com/book/en/v2) Free, open-source text. Available online as HTML and downloadable PDF, ePub, and mobi formats.
+
 ### RStudio
 
 [R Studio](https://www.rstudio.com)
