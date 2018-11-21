@@ -24,7 +24,7 @@ I have been and continue to work hard behind the scenes to make this a good cour
 
 **24 Dec assignment 4:** Graphing. Complete Chapter 3 of R4ds. Graphs of the iris data sets, perhaps mammal sleep (msleep) from the ggplot data set.
 
-**26 Dec assignment 5:** Importing Data. R4ds Chapters 10 and 11. Submit 10 and 11.
+**26 Dec assignment 5:** Importing Data. R4ds Chapters 10 and 11. Submit 10 and 11. Include how to read files via the internet, not just importing from local files.
 
 **28 Dec assignment 6:** R4ds Chapter 7
 
