@@ -11,35 +11,34 @@ We will make use of the following tools:
 
 | Tool + Link | Description |
 |:------------|:------------|
-| <http://stat545.com/Classroom> (here) | Think of this as the course "home" -- and this syllabus as your launch pad to other destinations. Contains lecture notes, assignments, and course information. |
-| [assignments](http://stat545.com/Classroom/assignments), [peer review](http://stat545.com/Classroom/assignments/peer-review.html), and [participation](participation.html) information | Info for Assignments, Peer Review, and Participation assessments can be found here. |
-| [Discussion-Internal](https://github.com/STAT545-UBC/Discussion-Internal) GitHub repository | For internal discussion. The world cannot see this. |
-| [Discussion](https://github.com/STAT545-UBC/Discussion) GitHub repository. | For public discussion. The world can see this. |
+| <https://semo-gabd.github.io> (here) | Think of this as the course "home" -- and as your launch pad to other destinations. Contains notes, assignments, and course information. |
+| [assignments](https://semo-gabd.github.io/assignments) | Info for Assignments and other activities can be found here. |
+| [Internal Discussion](https://github.com/SEMO-GABD/internal_discussion/issues) GitHub repository | For internal discussion. The world cannot see this. |
+| [Public Discussion](https://github.com/SEMO-GABD/public_discussion) GitHub repository. | For public discussion. The world can see this. |
 | [STAT545-UBC-students](https://github.com/STAT545-UBC-students) GitHub Organization | This will contain one GitHub repository per student, for you to submit homework to and give peer reviews. |
-| [UBC canvas](http://canvas.ubc.ca/) | This is for grade management. You'll be interacting with it by submitting a link to your homework. |
-| <http://stat545.com> | This holds course content, such as tutorials. Think of this as a textbook. We'll point you there when needed. This previously contained the information contained in `Classroom`, but that eventually became confusing. Some headers there are becoming deprecated.  |
+| [Moodle](http://learning.semo.edu/) | This is for grade management. You'll be interacting with it by submitting a link to your homework. |
 
-This framework of tools is under construction, as we move to a solution that's more scalable in terms of future iterations and multiple collaborators. We appreciate your patience and welcome your feedback!
 
 ## About the course
 
-STAT 545 is "Part I" of learning how to
+Graphical Analysis of Biological Data will teach you how to
 
-- explore, groom, visualize, and analyze data
+- explore, groom, and visualize data,
 - make all of that reproducible, reusable, and shareable
-- using R
+- use R to accomplish these tasks.
+
+This course is built on and emphasizes [open access](https://en.wikipedia.org/wiki/Open_access) to data, analysis, and reproducible results.
 
 **Credits:** 3
 
-## Selected Topics
+## Learning outcomes
 
-* Introduction to [R](http://www.r-project.org) and the [RStudio IDE](http://www.rstudio.com/products/rstudio/): scripts, the workspace, RStudio Projects, daily workflow
-* Generate reports from R scripts and [R Markdown](http://rmarkdown.rstudio.com)
-* Coding style, file and project organization
-* Data frames or "tibbles" are the core data structure for data analysis: care for them with the tidyverse
-* Data visualization with [`ggplot2`](http://ggplot2.org)
-* How to write functions and work with R in a functional style
-* Version control with Git; collaboration via [GitHub](https://github.com)
+By the end of this course, you will be able to
+
+- Import, manage, and prepare data for analyses using [R](http://www.r-project.org) and [RStudio IDE](http://www.rstudio.com/products/rstudio/); 
+- use [ggplot2](http://ggplot2.org) to display data using appropriate graphical techniques, such as boxplots, histograms, and Cleveland plots; 
+- create reports of reproducible analyses using [R Markdown](http://rmarkdown.rstudio.com); and
+- manage your data and R scripts via the Git version control system.
 
 
 ## Prerequisites
@@ -48,16 +47,20 @@ You must have completed BI 283 or have the permission of the instructor.
 
 ## Textbook
 
-This course will rely heavily on [R for Data Science](http://r4ds.had.co.nz) by [Hadley Wickham](https://twitter.com/hadleywickham) and [Garrett Grolemund](https://twitter.com/statgarrett). The text
-is freely available online. The book will serve as a tutorial for some readings and a source
-of assignment questions.
+This course will rely heavily on [R for Data Science](http://r4ds.had.co.nz) by [Hadley Wickham](https://twitter.com/hadleywickham) and [Garrett Grolemund](https://twitter.com/statgarrett) (hereafter, R4ds). The text
+is freely available online. R4ds will serve as a tutorial for some readings and a source
+of assignment questions. Other open-source resources will be used as needed.
 
 
-## Reading Notes and Assignments
+## Assignments and Notes
 
-Read the notes, and then complete the assignments. You will have three assignments per week. Assignments are due two days after they are assigned (e.g., assignments given on Monday are due on Wednesday) by 23:59.
+Assignments will consist of readings from notes provided by the instructor, readings and questions to answer from R4ds, and exercise sets for you to develop and practice your R scripting skills. In some cases, notes and assignments will be provided separately. In other cases, they will be provided together.
 
-*Warning:* adjustments are still being made!
+You will have three assignments per week. Assignments are due two days after they are assigned (e.g., assignments given on Monday are due on Wednesday) by 23:59.
+
+I will *probably* release each's week's assignments on Sunday. You may work ahead but you may not work behind.weekly batches of 3 overall assignments weekly (batches of 3). For example, a "Wednesday" assignment released on Sunday evening is officially assigned on Wednesday and due on Friday. You can submit it before Friday but not after.
+
+**Warning:** adjustments are still being made!
 
 | Reading   | Assignment     | Due&nbsp;(23:59) | Resources |
 |:----------|:---------------|:---------|:----------|
@@ -78,13 +81,27 @@ Read the notes, and then complete the assignments. You will have three assignmen
 
 ## Expectations
 
-Complete the assignments individuals and on time.
+This course crams a 16 week semester into 4 weeks. During this time, you will have to complete 11 assignments. Assignments will be released on Mondays, Wednesdays, and Fridays. The assignments will be due two days later, on Wednesdays, Fridays, and Sundays. For example, an assignment given on Monday will be due Wednesday. An assignment given on Friday will be due Sunday.  
+
+Most assignments will take several hours to complete, including reading time and coding time.  Start each assignment as soon as possible so that you have plenty of time to ask questions, solve problems, and complete the assignment before it is due. If you start an assignment too late, you will run out of time.
+
+## Reality Check For You
+
+A regular semester is 15 weeks longs, not counting final exams. During that time, a 3 credit hour course will have 37.5 hours of class time. The university expects two hours of additional work by the student for each hour of class time. That is another 75 hours, for a a total 112.5 hours. The Winter Intersession lasts 26 *days.* Thus, to meet the work requirements for a regular semester, you will need to work an average of 4.3 hours per day.
+
+Be realistic. You have a lot of learning to do in the coming four weeks. Odds are, you will be learning a new skill set in an unfamiliar setting. You will have a lot of exercises to complete that will drill those skills into your fingers and your brain. The exercises will go slowly at first but you will get faster with practice. Do not cheat yourself by copying and pasting. You will not learn the skills and you will start to struggle.
+
+## Reality Check For Me
+
+I have never taught a programming-style course before. I have based this course on similar successful courses but I still lack first-hand experience. I expect glitches; hopefully fewer rather than more. I anticipate most problems will arise early while learning Git and GitHub, as I have never used this GitHub Classroom format and you have (probably) never used Git. Once learned, however, we should not have to think again about it. We'll just be able to do it.
+
+I have been and continue to work hard behind the scenes to make this a good course. I expect that you will work hard to get the most from this course. The skills you will learn are real and valued by employers. 
 
 ## Evaluation
 
 [(Navigation link to Assignments)](http://stat545.com/Classroom/assignments/)
 
-To gain marks in this course, you'll be completing five assignments, and submitting two peer reviews for each assignment. Participation counts too!
+To gain marks in this course, you'll be completing ten assignments, and submitting two peer reviews for each assignment. Participation counts too!
 
 **NOTE:** You must have a GitHub account (free) to earn marks in this course, and then [complete the course survey](https://goo.gl/forms/UPvRA6a9WRod8JPb2).
 
@@ -92,9 +109,7 @@ Here's the breakdown of your course grade:
 
 | Assessment | Weight |
 |:-----------|:-------|
-| 5 Assignments | 75% (15% per assignment) |
-| 10 Peer Reviews | 15% (3% per assignment) |
-| Participation | 10% |
+| 10 Assignments | 100% (10% per assignment) |
 
 There are no exams. 
 
@@ -166,7 +181,4 @@ Resources for more specific topics:
 4. [RMarkdown book](https://bookdown.org/yihui/rmarkdown/), by Yihui Xie et al.
     - Comprehensive resource for everything R Markdown related. 
 
-
-
-Three groups of assignments will be given each week.
 
