@@ -15,7 +15,7 @@ This course is based on the content of the [original](http://stat545.com) and [c
 | [Public Discussion](https://github.com/SEMO-GABD/public_discussion) GitHub repository. | For public discussion. The world can see this. |
 | [Course GitHub organization](https://github.com/SEMO-GABD/)  | Contain one GitHub repository per student, for you to submit homework. You can also find the repository for the overall course. |
 | [Moodle](http://learning.semo.edu/) | This is for grade management. You'll be interacting with it by submitting a link to your homework. |
-| Resources | A page of various resources that you may find helpful. |
+| [Resources](https://semo-gabd.github.io/resources.html) | A page of various resources that you may find helpful. |
 
 ## About the course
 
