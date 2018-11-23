@@ -7,12 +7,10 @@ This course is based on the content of the [original](http://stat545.com) and [c
 
 ## Quick Navigation
 
-We will make use of the following tools:
-
 | Tool + Link | Description |
 |:------------|:------------|
 | <https://semo-gabd.github.io> (here) | Think of this as the course "home" -- and as your launch pad to other destinations. Contains notes, assignments, and course information. |
-| [assignments](https://semo-gabd.github.io/assignments) | Info for assignments, notes, and other activities can be found here. |
+| [Assignments](https://semo-gabd.github.io/assignments) | Info for assignments, notes, and other activities can be found here. |
 | [Internal Discussion](https://github.com/SEMO-GABD/internal_discussion/issues) GitHub repository | For internal discussion. The world cannot see this. |
 | [Public Discussion](https://github.com/SEMO-GABD/public_discussion) GitHub repository. | For public discussion. The world can see this. |
 | [Course GitHub organization](https://github.com/SEMO-GABD/)  | Contain one GitHub repository per student, for you to submit homework. You can also find the repository for the overall course. |
@@ -47,9 +45,9 @@ You must have completed BI 283 or have the permission of the instructor.
 
 ## Textbook
 
-This course will rely heavily on [R for Data Science](http://r4ds.had.co.nz) by [Hadley Wickham](https://twitter.com/hadleywickham) and [Garrett Grolemund](https://twitter.com/statgarrett) (hereafter, R4ds). The text
-is freely available online. R4ds will serve as a tutorial for some readings and a source
-of assignment questions. Other open-source resources will be used as needed.
+We will us [R for Data Science](http://r4ds.had.co.nz) by [Hadley Wickham](https://twitter.com/hadleywickham) and [Garrett Grolemund](https://twitter.com/statgarrett) (hereafter, R4ds) as a tutorial for some readings and a source
+of assignment questions. The text
+is freely available online. Other open-source resources will be used as needed.
 
 
 ## Assignments and Notes
@@ -58,7 +56,7 @@ Assignments will consist of readings from notes provided by the instructor, read
 
 You will have three assignments per week. Assignments are due two days after they are assigned (e.g., assignments given on Monday are due on Wednesday) by 23:59. Most assignments will take several hours to complete, including reading and coding time.  Start each assignment as soon as possible so that you have plenty of time to ask questions, solve problems, and complete the assignment before it is due. If you start an assignment too late, you will run out of time.
 
-I will *probably* release each's week's assignments on Sunday. You may work ahead but you may not work behind.weekly batches of 3 overall assignments weekly (batches of 3). For example, a "Wednesday" assignment released on Sunday evening is officially assigned on Wednesday and due on Friday. You can submit it before Friday but not after.
+I will *probably* release all three assignments for each week on Sunday. You may work ahead but you may not work behind. For example, a "Wednesday" assignment released on Sunday evening is officially assigned on Wednesday and due on Friday. You can submit it before Friday but not after.
 
 **Warning:** adjustments to this schedule are still being made!
 
@@ -81,17 +79,13 @@ I will *probably* release each's week's assignments on Sunday. You may work ahea
 
 ## Expectations
 
-This course crams a 16 week semester into 4 weeks. During this time, you will have to complete 11 assignments.  
-
-
-
-## Reality Check For You
+#### Reality Check For You
 
 A regular semester is 15 weeks longs, not counting final exams. During that time, a 3 credit hour course will have 37.5 hours of class time. The university expects two hours of additional work by the student for each hour of class time. That is another 75 hours, for a a total 112.5 hours. The Winter Intersession lasts 26 *days.* Thus, to meet the work requirements for a regular semester, you will need to work an average of 4.3 hours per day.
 
 Be realistic. You have a lot of learning to do in the coming four weeks. Odds are, you will be learning a new skill set in an unfamiliar setting. You will have a lot of exercises to complete that will drill those skills into your fingers and your brain. The exercises will go slowly at first but you will get faster with practice. Do not cheat yourself by copying and pasting. You will not learn the skills and you will begin to struggle.
 
-## Reality Check For Me
+#### Reality Check For Me
 
 I have never taught a programming-style course before. I have based this course on similar successful courses but I still lack first-hand experience. I expect glitches; hopefully fewer rather than more. I anticipate most problems will arise early while learning Git and GitHub, as I have never used this GitHub Classroom format and you have (probably) never used Git. Once learned, however, we should not have to think again about it. We'll just be able to do it.
 
