@@ -7,9 +7,6 @@ This course is based on the content of the [original](http://stat545.com) and [c
 
 ## Quick Navigation
 
-| [STAT545-UBC-students](https://github.com/STAT545-UBC-students) GitHub Organization | This will contain one GitHub repository per student, for you to submit homework to and give peer reviews. |
-
-
 | Tool + Link | Description |
 |:------------|:------------|
 | <http://gabd.semo.edu> (here) | Think of this as the course "home" -- and as your launch pad to other destinations. Contains notes, assignments, and course information. |
