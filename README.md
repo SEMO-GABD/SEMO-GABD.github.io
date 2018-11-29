@@ -7,15 +7,18 @@ This course is based on the content of the [original](http://stat545.com) and [c
 
 ## Quick Navigation
 
+| [STAT545-UBC-students](https://github.com/STAT545-UBC-students) GitHub Organization | This will contain one GitHub repository per student, for you to submit homework to and give peer reviews. |
+
+
 | Tool + Link | Description |
 |:------------|:------------|
 | <https://semo-gabd.github.io> (here) | Think of this as the course "home" -- and as your launch pad to other destinations. Contains notes, assignments, and course information. |
 | [Assignments](https://semo-gabd.github.io/assignments) | Info for assignments, notes, and other activities can be found here. |
 | [Internal Discussion](https://github.com/SEMO-GABD/internal_discussion/issues) GitHub repository | For internal discussion. The world cannot see this. |
 | [Public Discussion](https://github.com/SEMO-GABD/public_discussion) GitHub repository. | For public discussion. The world can see this. |
-| [Course GitHub organization](https://github.com/SEMO-GABD/)  | Contain one GitHub repository per student, for you to submit homework. You can also find the repository for the overall course. |
-| [Moodle](http://learning.semo.edu/) | This is for grade management. You'll be interacting with it by submitting a link to your homework. |
-| [Resources](https://semo-gabd.github.io/resources.html) | A page of various resources that you may find helpful. |
+| [GABD Students](https://github.com/gabd-students/) Organization | Contain one GitHub repository per student, for you to submit homework. |
+| [Moodle](http://learning.semo.edu/) | This is for grade management and the official syllabus. |
+| [Resources](https://semo-gabd.github.io/resources.html) | A page of external resources that you may find helpful during the course and beyond. |
 
 ## About the course
 
