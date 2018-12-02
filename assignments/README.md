@@ -3,32 +3,30 @@ Assignments
 
 Assignments will be posted here as they are made available.
 
-(Information about the peer review can now be found on the [peer review page](peer-review.html).)
 
 Schedule
 --------
 
 Here are the deadlines for assignments, with links (to appear after assignments are released). All submissions are due by 23:59.
 
-### STAT 545
+**Warning:** adjustments to this schedule are still being made!
 
-| Assignment                    | Assignment Due Date |
-|-------------------------------|---------------------|
-| [Homework 01](hw01/hw01.html) | September 18, 2018  |
-| [Homework 02](hw02/hw02.html) | September 25, 2018  |
-| [Homework 03](hw03/hw03.html) | October 02, 2018    |
-| [Homework 04](hw04/hw04.html) | October 09, 2018    |
-| Homework 05                   | October 19, 2018    |
-
-### STAT 547
-
-| Assignment  | Assignment Due Date |
-|-------------|---------------------|
-| Homework 06 | November 09, 2018   |
-| Homework 07 | November 13, 2018   |
-| Homework 08 | November 20, 2018   |
-| Homework 09 | November 27, 2018   |
-| Homework 10 | December 06, 2018   |
+| Reading   | Assignment     | Due&nbsp;(23:59) | Resources |
+|:----------|:---------------|:---------|:----------|
+| [01 Install software;<br/> GitHub;  Markdown](notes/cm002.nb.html) | [HW 01](assignments/hw01/hw01.html) | 19 Dec (W) | Tutorials for [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/). |
+| [02 Getting familiar with R & RMarkdown](notes/cm003.nb.html) | |  21 Dec (F)  | R: [stat545: hello r](http://stat545.com/block002_hello-r-workspace-wd-project.html), or [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro. Rmd: [stat545: Rmd test drive](http://stat545.com/block007_first-use-rmarkdown.html). | 
+| 03  | |  24 Dec (M) |  |
+| [04 The git workflow; collab with GitHub](notes/cm004.nb.html) | |  26 Dec (W) | |
+| [05 working with data in R; `dplyr` and the `tidyverse`](notes/cm005.nb.html) | |  28 Dec (F) | |
+| [06 ggplot2, Part I](notes/cm006.nb.html) | |  31 Dec (M) | |
+| [07 ggplot2, Part II](notes/cm007.nb.html) | |  02 Jan (W) | |
+| [08 Grouping of tibbles](notes/cm008.nb.html) | |  04 Jan (F) | |
+| [09 Tidy data, reshaping](notes/cm009.nb.html) | |  07 Jan (M) | |
+| [10 Table joins?](notes/cm010.nb.html); [Advanced R programming; file I/O](notes/cm011.nb.html) | | 09 Jan (W) | |
+| [11 The joy of Factors](notes/cm012.nb.html) | | 11 Jan (F) | |
+| [12 Revisit ggplot; plotly; practicalities of daily figure-making](notes/cm013.nb.html) | | Date | |
+| [14 The model-fitting paradigm in R; `broom`; deep thoughts about data analytic work](notes/cm014.nb.html) | | Date | |
+| Maps? | | | Date | |
 
 Logistics
 ---------
@@ -108,11 +106,6 @@ The grade mapping is as follows:
 | 2     | 80%        |
 | 3     | 100%       |
 
-Intermediate points are allowed, and follow a linear scale in between each point, so that the full mapping is depicted in the following chart:
+Intermediate points (e.g., 2.3) are allowed, and follow a linear scale in between each point, so that the full mapping is depicted in the following chart:
 
 <img src="README_files/figure-markdown_github/unnamed-chunk-1-1.png" style="display: block; margin: auto;" />
-
-Peer Review
------------
-
-Information about the peer review can now be found on the [peer review page](peer-review.html).
