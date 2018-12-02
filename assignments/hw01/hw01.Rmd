@@ -2,8 +2,7 @@
 title: "Homework 1"
 subtitle: "Graphical Analysis of Biological Data"
 output: 
-  html_document:
-    keep_md: TRUE
+  html_document: default
   pdf_document: default    
 urlcolor: blue
 ---
