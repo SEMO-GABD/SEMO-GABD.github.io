@@ -18,7 +18,7 @@ I encourage you to take advantage of this resource when you run into difficultie
 
 [Tidyverse](https://www.tidyverse.org) home pages for many of the R packages we will be using.
 
-[Style Guide](http://style.tidyverse.org) for naming files and variables and formatting your code for maximum legibility by humans.
+[Style Guide](http://style.tidyverse.org) for naming files and variables and formatting your code for maximum legibility by humans. I expect that your code will closely follow this guide.
 
 ### Markdown
 
