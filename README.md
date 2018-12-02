@@ -1,5 +1,5 @@
 This is the course outline and schedule for the 2018-2019 Winter Intersession
-course Graphical Analysis of Biological Data (BI 486 / 685).
+course Graphical Analysis of Biological Data (BI 485 / 685).
 
 The official syllabus is on the [course Moodle page.](https://learning.semo.edu)
 
@@ -24,7 +24,7 @@ Graphical Analysis of Biological Data will teach you how to
 - explore, groom, and visualize data;
 - make all of that reproducible, reusable, and shareable;
 - use R to accomplish these tasks; and
-- use Git to maintain your code and data.
+- use basic Git functions to maintain your code and data.
 
 This course is built on and emphasizes [open access](https://en.wikipedia.org/wiki/Open_access) to data, analysis, and reproducible results.
 
