@@ -1,22 +1,24 @@
 ---
 title: "Homework 1"
+subtitle: "Graphical Analysis of Biological Data"
 output: 
   html_document:
     keep_md: TRUE
-  pdf_document: default
+  pdf_document: default    
+urlcolor: blue
 ---
 
 By the end of this assignment, you should
 
 - have a GitHub account;
 - installed Git, R, and R Studio; and
-- learned Markdown.
+- edited your README.md file with Markdown.
+
+**Click on any blue text to visit the external website.**
 
 ***
 
-This assignment has two parts. 
-
-## Part 1
+## Part 1 of 2
 
 ### Register for a free GitHub account
 
@@ -34,7 +36,9 @@ Register for a *free* [GitHub account](http://www.github.com), and then, fill ou
 
 - Follow [Chapter 6](http://happygitwithr.com/install-r-rstudio.html) to install R and R Studio. The preview version mentioned in the chapter is a reasonably stable development version, which will have the latest versions. For the current stable release, you can download the [desktop version.] https://www.rstudio.com/products/rstudio/#Desktop Either is OK for this course.
 
-- Launch RStudio. You should see a screen that looks similar to the image below, although the console window may use the entire left side. ![](../../img/rstudio_startup.png)
+- Launch RStudio. You should see a screen that looks similar to the image below, although the console window may use the entire left side.
+
+![](../../img/rstudio_startup.png)
 
 - In the console window, type `x <- 2 * 4` and press Enter. (`<-` is the less than symbol, followed by a dash.) Nothing will happen. Now, type `x` and press Enter , and you should see `[1] 8`. That indicates success!  You have installed R and RStudio.
 
@@ -58,7 +62,7 @@ git config --global core.editor "atom --wait"
 
 ## Claim Your Course Repository
 
-I have created a public GitHub repository for your use during the course. I am the owner but you are a collaborator, which means you can edit (push) files in this repository. You should also have received an invitation from me to join this repository. All students can see all of the student repositories, but only you can push files to your repository. 
+I have created a public GitHub repository for your use during the course. I am the owner but you are a collaborator, which means you can edit (push) files in this repository. You should also have received an invitation to join this repository. All students can see all of the student repositories, including yours, but only you can push files to your repository. 
 
 First, go to https://github.com/gabd-students to verify that you can see a repository in your name. It will be in the format `lastname_firstname`. You will see repositories for other students, too. If you do not see a repository with your name, send me an email telling me you do not see the repository. 
 
@@ -90,30 +94,32 @@ If you do see your directory, then please do *all* of the following steps.
   
   - **Remember the location of this repository.** You will do all of your homework in this folder.
   
-8. R Studio should look similar to this. Notice the list of files in the lower right window. Click once on the `README.md` file. It will open in the upper left window of R Studio. You will edit this file in Part 2 of this assignment.
+  - I will refer to this repository on your computer as the **local repository** or **local repo.** The equivalent repository stored on GitHub is called the **remote repo.**
+  
+8. R Studio should look similar to this. Notice the list of files in the lower right window. Click once on the `README.md` file. It will open in the upper left window of R Studio. You will edit this file in Part 2 of this assignment. 
+
+  - If you have any problems, please send me an email describing in detail any problems you had.
 
 ![](../../img/rstudio_ready.png)
 
 *Pipit the Cat cannot spell, apparently.*
 
-1. If you have any problems, please send me an email describing in detail any problems you had.
 
-## Optional
+### Optional
 
-- [Chapter 9](http://happygitwithr.com/git-client.html) is optional. You will probably use RStudio most often to interact with Git and GitHub. Later, you may find that a standalone Git client is helpful, especially as your Git-Fu grows stronger. I use [Git Kraken](https://www.gitkraken.com/git-client) because, well...[kraken.](https://en.wikipedia.org/wiki/Kraken)
+- [Chapter 9](http://happygitwithr.com/git-client.html) is optional. You will use RStudio most often to interact with Git and GitHub for this course. Later, you may find that a standalone Git client is helpful, especially as your Git-Fu grows stronger. I use [Git Kraken](https://www.gitkraken.com/git-client) because, well...[kraken.](https://en.wikipedia.org/wiki/Kraken)
 
+- Read other chapters in [Happy Git With R](http://happygitwithr.com/) at your leisure. We may use part or all of some chapters in future exercises.
 
 ***
 
-## Part 2
+## Part 2 of 2
 
 ### Introduction to Markdown
 
 Markdown is a way of formatting plain text with bold, italics, links to web pages, and more.
 
 - Complete this [markdown tutorial.](https://commonmark.org/help/tutorial/) You can also download this [markdown cheatsheet.](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
-### Connect to your Git repository
 
 ### Edit the README file
 
@@ -151,9 +157,7 @@ If none of the requirements seem familiar, then take (or re-take) the [markdown 
 
 You will use markdown in all subsequent exercises so get comfortable with it.
 
-
 ### Commit and push the README file to your GitHub account.
-
 
 The following steps will `push` your README.md file to GitHub for the world to see. Get used to this process because you will use it. A lot.
 
@@ -165,9 +169,13 @@ The following steps will `push` your README.md file to GitHub for the world to s
 
 ![](../../img/rstudio_initial_commit.png)
 
-12. Click on the `Commit` button. You should see a line that begins `>>> git commit -F` and some other computer-y looking things. This indicates your changes have been stored locally, but they are not yet on GitHub. Close that box.
+12. Click on the `Commit` button. You should see a line that begins `>>> git commit -F` and some other computer-y looking things. This indicates your changes have been stored in your local repo, but they are not yet on GitHub. Close that box.
 
-13. In the very upper right, click on the `Push` button. You should see `>>> git push origin refs/heads/master`, followed shortly by other computer-y looking stuff. You have just pushed your edits to GitHub. 
+13. In the very upper right, click on the `Push` button. You can also choose `Tools > Version Control > Push Branch`. You should see `>>> git push origin refs/heads/master`, followed shortly by other computer-y looking stuff. Notice the short sequence of apparently random numbers and letters, like the `9cd54625` highlighted below. That is the SHA or "hash," a unique ID created each time you commit a change. This ID is what allows you to back up to any version of any file you track in Git.
+
+![](../../img/rstudio_git_sha.png)
+
+  - In the future, you will point me to a specific SHA so that I will grade the specific version of a file that you want me to grade. You can also get the commit history of any file by clicking on the `History` tab in the upper left of R Studio's Commit dialog.
 
 12. Open your browser and go to your repository at `https://github.com/gabd-students/<lastname_firstname>/` substituting your name, of course. You should see a list of your files and the formatted README.md file. 
 
