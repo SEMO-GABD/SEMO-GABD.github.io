@@ -9,7 +9,7 @@ This course is based on the content of the [original](http://stat545.com) and [c
 
 | Tool + Link | Description |
 |:------------|:------------|
-| <http://gabd.semo.edu> (here) | Think of this as the course "home" -- and as your launch pad to other destinations. Contains notes, assignments, and course information. |
+| <http://gabd.semo.edu> (here) | The course "home" -- and as your launch pad to other destinations. Contains notes, assignments, and course information. |
 | [Assignments](https://semo-gabd.github.io/assignments) | Info for assignments, notes, and other activities can be found here. |
 | [Internal Discussion](https://github.com/SEMO-GABD/internal_discussion/issues) GitHub repository | For internal discussion. The world cannot see this. |
 | [Public Discussion](https://github.com/SEMO-GABD/public_discussion) GitHub repository. | For public discussion. The world can see this. |
@@ -53,30 +53,13 @@ is freely available online. Other open-source resources may be used as needed.
 
 ## Assignments and Notes
 
-Assignments will consist of readings from notes provided by the instructor, readings and questions to answer from R4ds, and exercise sets for you to develop and practice your R scripting skills. In some cases, notes and assignments will be provided separately. In other cases, they will be provided together.
+Assignments will consist of readings from notes provided by the instructor, readings and questions to answer from [R4ds](https://r4ds.had.co.nz), and exercise sets for you to develop and practice your R scripting skills. In some cases, notes and assignments will be provided separately. In other cases, they will be provided together.
 
-You will have three assignments per week. Assignments are due two days after they are assigned (e.g., assignments given on Monday are due on Wednesday) by 23:59. Most assignments will take several hours to complete, including reading and coding time.  Start each assignment as soon as possible so that you have plenty of time to ask questions, solve problems, and complete the assignment before it is due. If you start an assignment too late, you will run out of time.
+You will have three assignments per week for the first three weeks, and two assignments on the final week. Assignments are due two days after they are assigned (e.g., assignments given on Monday are due on Wednesday) by 23:59. Most assignments will take several hours to complete, including reading and coding time.  Start each assignment as soon as possible so that you have plenty of time to ask questions, solve problems, and complete the assignment before it is due. If you start an assignment too late, you will run out of time.
 
 I will *probably* release all three assignments for each week on Sunday. You may work ahead but you may not work behind. For example, a "Wednesday" assignment released on Sunday evening is officially assigned on Wednesday and due on Friday. You can submit it before Friday but not after.
 
-**Warning:** adjustments to this schedule are still being made!
-
-| Reading   | Assignment     | Due&nbsp;(23:59) | Resources |
-|:----------|:---------------|:---------|:----------|
-| [01 Install software;<br/> GitHub;  Markdown](notes/cm002.nb.html) | [HW 01](assignments/hw01/hw01.html) | 19 Dec (W) | Tutorials for [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/). |
-| [02 Getting familiar with R & RMarkdown](notes/cm003.nb.html) | |  21 Dec (F)  | R: [stat545: hello r](http://stat545.com/block002_hello-r-workspace-wd-project.html), or [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro. Rmd: [stat545: Rmd test drive](http://stat545.com/block007_first-use-rmarkdown.html). | 
-| 03  | |  24 Dec (M) |  |
-| [04 The git workflow; collab with GitHub](notes/cm004.nb.html) | |  26 Dec (W) | |
-| [05 working with data in R; `dplyr` and the `tidyverse`](notes/cm005.nb.html) | |  28 Dec (F) | |
-| [06 ggplot2, Part I](notes/cm006.nb.html) | |  31 Dec (M) | |
-| [07 ggplot2, Part II](notes/cm007.nb.html) | |  02 Jan (W) | |
-| [08 Grouping of tibbles](notes/cm008.nb.html) | |  04 Jan (F) | |
-| [09 Tidy data, reshaping](notes/cm009.nb.html) | |  07 Jan (M) | |
-| [10 Table joins?](notes/cm010.nb.html); [Advanced R programming; file I/O](notes/cm011.nb.html) | | 09 Jan (W) | |
-| [11 The joy of Factors](notes/cm012.nb.html) | | 11 Jan (F) | |
-| [12 Revisit ggplot; plotly; practicalities of daily figure-making](notes/cm013.nb.html) | | Date | |
-| [14 The model-fitting paradigm in R; `broom`; deep thoughts about data analytic work](notes/cm014.nb.html) | | Date | |
-| Maps? | | | Date | |
+The [Assignments](https://semo-gabd.github.io/assignments) page has all assignments as they become available.
 
 ## Expectations
 
