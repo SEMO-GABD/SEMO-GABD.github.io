@@ -1,8 +1,3 @@
-
-**17 Dec assignment 1:** Install software, register for GitHub. Markdown tutorial, edit README.md with markdown commands. Commit README.md to class account. 
-
-**19 Dec assignment 2:** DataCamp R tutorial. Submit certificate. Read and practice R4ds Chapter 4.
-
 **21 Dec assignment 3:** R Studio introduction. R4ds Chapter 6. R Markdown Tutorial (R4ds 27). Submit complete assignment. Read R4ds chapter 1 Introduction and Chapter 2 Introduction. R4ds Chapter 8. **SET ORDER**
 
 
