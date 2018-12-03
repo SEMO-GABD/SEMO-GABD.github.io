@@ -13,8 +13,6 @@ editor_options:
   chunk_output_type: inline
 ---
 
-Welcome to Graphical Analysis of Data Analysis.
-
 ### Who am I?
 
 ![](../img/mike_taylor.jpg)
@@ -40,7 +38,7 @@ I have formal training in the [Pascal](https://en.wikipedia.org/wiki/Pascal_(pro
 
 You will tell me and the rest of the class a little bit about yourself in the first homework assignment.
 
-### Philosophy (move to separate / different place?
+### Approach the course with curiosity
 
 I expect that you will be curious. The notes for this course will be brief but they will have links scattered throughout. Follow the links and read the material. Do not follow the [tl;dr](https://www.urbandictionary.com/define.php?term=tl%3Bdr) way of thinking. Others have written tutorials, exercises, and other helpful information far better than I could write. Become a better you and take advantage of these resources. If you do not, you will not be successful in this course.
 
@@ -48,18 +46,17 @@ I expect that you will be curious. The notes for this course will be brief but t
 
 Data analysis requires coding. To learn proper coding, you will have to type R code. *Lots* of R code. Do not give in to the temptation to copy and paste from examples. You will not learn the R language well that way. Typing the code yourself will "drill" the language into your muscle memory and your brain memory. You will learn it better. You will retain it longer. You will have a better chance of getting a job. Just type it!
 
-### Reproducibility: can other scientists reproduce your results?
+### Make your work reproducible
 
 A central tenet of science is reproducibility. Yet, often it is not. Read this [introduction to reproducible science](http://ropensci.github.io/reproducibility-guide/sections/introduction/) from [rOpenSci.](https://ropensci.org) Follow the other links at your leisure. The tools you will use during this course emphasize the principle of open science. I feel strongly that you should adopt this philosophy in your scientific endeavors.
 
 Your work should be reproducible. Document it, test it, and leave a breadcrumb trail (version control), even when you are the only collaborator.
 
-### Text files: why use them?
+### Embrace text files
 
 Use plain text files for all of your documents. Plain text files are small. Plain text files are portable. Text files can be opened and read on any computer plaform (e.g., OS X, PC, Linux), unlike (for example) Word documents, which use a [proprietary format,](http://opendatahandbook.org/glossary/en/terms/proprietary/), subject to change at any time. Text files are the common currency of reproducibility and open science.
 
-This course, and in fact nearly everything I do in academics, is built from text files. Text files are a base that can be converted into a variety of formats, including web pages, PDF files, and even (gasp!) Word documents. This webpage was generated from [this markdown source file](https://raw.githubusercontent.com/SEMO-GABD/semoClassroom/master/notes/cm001.Rmd) on GitHub.
-
+This course, and in fact nearly everything I use for teaching, is built from plain text. Text files are the base that can be converted into a variety of formats, including web pages, PDF files, and even (gasp!) Word documents. This webpage was generated from [this markdown source file](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/notes/notes01.Rmd) on GitHub.
 
 
 RStudio, which you will use throughout this course, has a built-in text editor, and it will suffice for this course. In the future, or even during this course, you may also want to install a stand alone text editor. Browse this list of [free text editors](https://www.keycdn.com/blog/best-text-editors) to find one that works on your computer platform and suits your needs. Atom works on all platforms and has a good reputation. I've been using it to write this assignment. Nice features are that you can live preview your markdown documents and it can interact directly with Git and GitHub (more on both of these later).
@@ -70,9 +67,9 @@ For PC, [Notepad++](https://notepad-plus-plus.org) has a [good reputation](https
 
 **Do not use Microsoft Word to export plain text files.** They are not truly plain text. Cut your umbilical cord. Leave Microsoft for the business world and the less enlightened SEMO community.
 
-### Git and GitHub
+### Use Git and GitHub
 
-During this course, you will write some code. Your code may even work. You may think you can do better. You pursue a thread of an idea, and edit your code. You follow that thread down the rabbit hole, and write even more code. You test your code and realize it does not do what you wanted. The Mad Hatter laughs at you. You try to back out of the rabbit hole but you are lost. You have a jumble of non-working code that even a hookah-smoking caterpillar cannot understand.
+During this course, you will write lots of R code. Your code may even work. You may think you can do better. You pursue a thread of an idea, and edit your code. You follow that thread down the rabbit hole, and write even more code. You test your code and realize it does not do what you wanted. The Mad Hatter laughs at you. You try to back out of the rabbit hole but you are lost. You have a jumble of non-working code that even a hookah-smoking caterpillar cannot understand.
 
 You can avoid [falling through the looking glass](https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland) by using Git. Git is a [version control system](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (VCS) that tracks the changes you make to files through time. You can go back in time to any previous version. You can branch into a copy of a working program to try a new idea. Does your new code work? Awesome, merge it into to the main file. Disaster? No problem, because the original is intact. You laugh at the Mad Hatter and seek further adventures with the White Rabbit.
 
@@ -84,14 +81,15 @@ Git and GitHub have a bit of a learning curve so we'll focus on it first. You wi
 
 [Why Git?](https://peerj.com/preprints/3159/) by Jennifer Bryan.
 
+### Save that which is real
 
+As you interact with Git and GitHub, you will be tempted to commit and push all files. Do you really need to do that? As long as you have the source files, like the R scripts and R Notebooks, you can generate the output. If you lose the source, then you lose the output. Think in terms of source and output, and remember that *source is real.* You only need to commit and push source files.
 
-- Think in terms of source and output, and remember that source is real.
+If you find yourself tempted to commit output files (e.g., HTML files), that is OK. You will get over it eventually.
 
+### Using the Shell
 
-# The Shell
-
-We will avoid this when we can, but we'll at least need it to install _git_ later. Here is the minimum need-to-know about the __shell__:
+We will avoid this when we can, but you will at least need it to install _git_ as part of the first assignment. Here is the minimum need-to-know about the __shell__:
 
 - Way to control your computer.
 - OS-specific language!
