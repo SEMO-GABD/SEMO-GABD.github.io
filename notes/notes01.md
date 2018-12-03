@@ -29,9 +29,9 @@ You will tell me and the rest of the class a little bit about yourself in the fi
 
 I expect that you will be curious. The notes for this course will be brief but they will have links scattered throughout. Follow the links and read the material. Do not follow the [tl;dr](https://www.urbandictionary.com/define.php?term=tl%3Bdr) way of thinking. Others have written tutorials, exercises, and other helpful information far better than I could write. Become a better you and take advantage of these resources. If you do not, you will not be successful in this course.
 
-*Follow the links!* Read. Learn. Remember.
+*Follow the links!* Read. Learn. Practice!
 
-Data analysis requires coding. To learn proper coding, you will have to type R code. *Lots* of R code. Do not give in to the temptation to copy and paste from examples. You will not learn the R language well taht way. Typing the code yourself will "type" the language into your muscle memory and your brain memory. You will learn it much better. You will retain it much longer. You will have a better chance of getting a job. Just type it!
+Data analysis requires coding. To learn proper coding, you will have to type R code. *Lots* of R code. Do not give in to the temptation to copy and paste from examples. You will not learn the R language well that way. Typing the code yourself will "drill" the language into your muscle memory and your brain memory. You will learn it better. You will retain it longer. You will have a better chance of getting a job. Just type it!
 
 ### Reproducibility: can other scientists reproduce your results?
 
@@ -39,12 +39,9 @@ A central tenet of science is reproducibility. Yet, often it is not. Read this [
 
 ### Text files: why use them?
 
-Use plain text files for all of your documents. Plain text files are small. Plain text files are universal.  Text files can be opened and read on any computer plaform (e.g., OS X, PC, Linux), unlike (for example) Word documents, which are use a [proprietary format,](http://opendatahandbook.org/glossary/en/terms/proprietary/), subject to change at any time. Text files are the common currency of reproducibility and open science.
+Use plain text files for all of your documents. Plain text files are small. Plain text files are portable. Text files can be opened and read on any computer plaform (e.g., OS X, PC, Linux), unlike (for example) Word documents, which use a [proprietary format,](http://opendatahandbook.org/glossary/en/terms/proprietary/), subject to change at any time. Text files are the common currency of reproducibility and open science.
 
-Plain text files do not contain any special formatting commands such as bold face **COMPLETE**
-
-
-RStudio, which you will use throughout this course, has a built-in text editor, but you may also want to install a stand alone text editor. Browse this list of [free text editors](https://www.keycdn.com/blog/best-text-editors) to find one that works on your computer platform and suits your needs. Atom works on all platforms and has a good reputation. I've been using it to write this assignment. Nice features are that you can live preview your markdown documents and it can interact directly with Git and GitHub (more on both of these later).
+RStudio, which you will use throughout this course, has a built-in text editor, and it will suffice for this course. In the future, or even during this course, you may also want to install a stand alone text editor. Browse this list of [free text editors](https://www.keycdn.com/blog/best-text-editors) to find one that works on your computer platform and suits your needs. Atom works on all platforms and has a good reputation. I've been using it to write this assignment. Nice features are that you can live preview your markdown documents and it can interact directly with Git and GitHub (more on both of these later).
 
 I have used [BBEdit](https://www.barebones.com/products/bbedit/) for OS X since version 4 (now at version 12+) as a good general purpose text editor. You can use the full feature set free for 30 days. After that time, you can still use most of its important functions for free.
 
@@ -56,13 +53,11 @@ For PC, [Notepad++](https://notepad-plus-plus.org) has a [good reputation](https
 
 During this course, you will write some code. Your code may even work. You may think you can do better. You pursue a thread of an idea, and edit your code. You follow that thread down the rabbit hole, and write even more code. You test your code and realize it does not do what you wanted. The Mad Hatter laughs at you. You try to back out of the rabbit hole but you are lost. You have a jumble of non-working code that even a hookah-smoking caterpillar cannot understand.
 
-You can avoid [falling through the looking glass](https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland) by using Git. Git is a [version control system](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) that tracks the changes you make to files through time. You can go back in time to any previous version. You can branch into a copy of a working program to try a new idea. Does your new code work? Awesome, merge it into to the main file. Disaster? No problem, because the original is intact. You laugh at the Mad Hatter and seek further adventures with the White Rabbit.
+You can avoid [falling through the looking glass](https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland) by using Git. Git is a [version control system](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (VCS) that tracks the changes you make to files through time. You can go back in time to any previous version. You can branch into a copy of a working program to try a new idea. Does your new code work? Awesome, merge it into to the main file. Disaster? No problem, because the original is intact. You laugh at the Mad Hatter and seek further adventures with the White Rabbit.
 
 You may have used some form of version control when writing a report. You start the report, then you make a copy, add a date or version number, edit the copy, then make another copy with a new date or version number. You may have multiple copies spread across flash drives or even emailed to yourself.  Git makes that process much more efficient, in terms of time and storage.
 
-[GitHub](https://github.com/) is a hosting service where you can store and access all of the projects that you maintain by Git version control. I use Git and Github to maintain all of [my course materials](https://github.com/mtaylor-semo) and other bits of code that I write.
-
-This course is run through GitHub. You can view the repository.
+[GitHub](https://github.com/) is a hosting service where you can store and access all of the projects that you maintain by Git version control. I use Git and Github to maintain all of [my course materials](https://github.com/mtaylor-semo) and other bits of code that I write. I am using GitHub tools and web services to manage this course. We will touch on the basics of version control for this course but we will not go very far down the rabbit ho;e.
 
 Git and GitHub have a bit of a learning curve so we'll focus on it first. You will get soon get familiar with the basics of Git. Also, RStudio integrates well with Git and GitHub, which makes version control of your R projects very easy.
 
