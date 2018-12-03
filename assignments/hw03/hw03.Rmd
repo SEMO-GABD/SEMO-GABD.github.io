@@ -1,0 +1,30 @@
+---
+title: "Homework 3"
+subtitle: "Graphical Analysis of Biological Data"
+output: 
+  html_document: default
+  pdf_document: default    
+urlcolor: blue
+bibliography: small_bib.bib
+---
+
+By the end of this assignment, you will be able to 
+
+- create an R Notebook;
+- include prose and code chunks in your R Notebook;
+- control outout with chunk options; and
+- submit complete reports in R Notebook to GitHub.
+
+**Click on any blue text to visit the external website.**
+
+***
+
+### Complete Chapter 27 of R for Data Science
+
+Few amino acid chances are necessary to change wavelengths absorbed [@yokoyama1994aa; @yokoyama2000aa]
+
+
+
+***
+
+*et Voilà*
