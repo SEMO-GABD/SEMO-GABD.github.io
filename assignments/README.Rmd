@@ -3,14 +3,14 @@ title: "Assignment Schedule"
 output: github_document
 ---
 
-Here is the schedule of assignments, with links to appear after assignments are released. Your completed assignments are due by 23:59 of the scheduled due date.
+Here is the schedule of assignments, with links to appear after assignments are released. Your completed assignments are due by 23:55 of the scheduled due date.
 
 
 **Warning:** I am still changing this schedule! Order and content is highly susceptible to change.
 
-| Reading   | Assignment     | Due&nbsp;(23:59) | Resources |
+| Reading   | Assignment     | Due&nbsp;(23:55) | Resources |
 |:----------|:---------------|:---------|:----------|
-| 01 Install software; GitHub;  Markdown | HTML \ PDF | 19 Dec (W) | Markdown Tutorial<br/> GitHub Tutorial |
+| [01 Install software;<br/> GitHub;  Markdown](notes/notes01.html) | [HTML](assignments/hw01/hw01.html) \ [PDF](assignments/hw01/hw01.pdf) | 19 Dec (W) | Tutorials for [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/). |
 | 02 Get familiar with R | HTML \ PDF |  21 Dec (F)  | DataCamp; R4ds Chapter 4 | 
 | 03 R Studio and R Markdown | HTML \ PDF |  24 Dec (M) | R4ds Chapter 6. R Markdown Tutorial (R4ds 27). Submit complete assignment. Read R4ds chapter 1 Introduction and Chapter 2 Introduction. R4ds Chapter 8. **SET ORDER** |
 | 04 ggplot2 | HTML \ PDF |  26 Dec (W) | Complete Chapter 3 of R4ds. Graphs of the iris data sets, perhaps mammal sleep (msleep) from the ggplot data set. |
