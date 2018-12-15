@@ -1,9 +1,11 @@
 ---
-title: "Homework 1"
-subtitle: "Graphical Analysis of Biological Data"
+title: "Graphical Analysis of Biological Data"
+subtitle: "Homework 01"
 output: 
-  html_document: default
-  pdf_document: default    
+  pdf_document: default
+  html_document:
+    df_print: paged
+    toc: yes
 urlcolor: blue
 ---
 
@@ -13,7 +15,11 @@ By the end of this assignment, you should
 - installed Git, R, and R Studio; and
 - edited your README.md file with Markdown.
 
-**Click on any blue text to visit the external website.**
+Click on any blue text to visit the external website.
+
+**Problems?** If you have a problem at any point during this assignment, please email me (mtaylor@semo.edu) with *specific details* of the problem. The more detailed your explanation of your problem, the quicker I can help you. *Help me help you!*
+
+The grading rubric is at the end of this document.
 
 ***
 
@@ -25,7 +31,7 @@ Register for a *free* [GitHub account](http://www.github.com), and then, fill ou
 
 - Follow the advice given in [Chapter 5](http://happygitwithr.com/github-acct.html) to register for your free GitHub account. *Do not pay for private repositories for this course.* 
 
-- Optional: complete this [GitHub tutorial](https://guides.github.com/activities/hello-world/), using your GitHub account (e.g., https://github.com/\<your_github_username\>). You do not have to complete this tutorial now but I recommend that you complete it sometime to help you understand Git.
+- Optional: complete this [GitHub tutorial](https://guides.github.com/activities/hello-world/), using your GitHub account (e.g., `https://github.com/<your_github_username>`). You do not have to complete this tutorial now but I recommend that you complete it sometime to help you understand Git.
 
 ### Software Installation
 
@@ -33,7 +39,7 @@ Register for a *free* [GitHub account](http://www.github.com), and then, fill ou
 
 - Read [Chapter 1](http://happygitwithr.com/big-picture.html) and [Chapter 4](http://happygitwithr.com/installation-pain.html) for some background information and mental preparation.
 
-- Follow [Chapter 6](http://happygitwithr.com/install-r-rstudio.html) to install R and R Studio. The preview version mentioned in the chapter is a reasonably stable development version, which will have the latest versions. For the current stable release, you can download the [desktop version.] https://www.rstudio.com/products/rstudio/#Desktop Either is OK for this course.
+- Follow [Chapter 6](http://happygitwithr.com/install-r-rstudio.html) to install R and R Studio. The preview version mentioned in the chapter is a reasonably stable development version, which will have the latest versions. For the current stable release, you can download the [desktop version.](https://www.rstudio.com/products/rstudio/#Desktop) Either is OK for this course.
 
 - Launch RStudio. You should see a screen that looks similar to the image below, although the console window may use the entire left side.
 
@@ -41,17 +47,22 @@ Register for a *free* [GitHub account](http://www.github.com), and then, fill ou
 
 - In the console window, type `x <- 2 * 4` and press Enter. (`<-` is the less than symbol, followed by a dash.) Nothing will happen. Now, type `x` and press Enter , and you should see `[1] 8`. That indicates success!  You have installed R and RStudio.
 
+- **NOTE:** Whenever you quit RStudio, you might be asked if you want to save your workspace. Just say no!  R project files automatically restore your R workspace when you open them.
+
 - Follow the [Chapter 7 instructions](http://happygitwithr.com/install-git.html) *carefully* to install Git for your computer platform.  You may have to follow instructions in [Appendix A](http://happygitwithr.com/shell.html) to intall a command shell or command line tools. Take your time. It is not difficult but you must follow the instructions carefully.
 
 - **Mac users:** You *must* have the command line tools installed for R Studio to work with GitHub. If you do not get the prompt to install the command line tools described in Chapter 7 or Appendix A, you can install them following [these instructions](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/). You must have an active internet connection.
 
   1. Open `terminal` from the `/Applications/Utilities` folder.
+  
   2. Type the following command into the terminal and press the Enter key.
   
-  ```
-  xcode-select --install
-  ```
+    ```
+    xcode-select --install
+    ```
+    
   3. Click the `Install` button in the dialog box. Wait for the installation to finish.
+
 
 - Complete [Chapter 8](http://happygitwithr.com/hello-git.html) to configure Git. You do not need to configure a default editor yet because you will do most of your work in R Studio. If you did download a text editor to use, you can tell Git to use your editor. You can find specific configurations from [Software Carpentry](http://swcarpentry.github.io/git-novice/02-setup/). If you use Atom, for example, configure git with
 
@@ -59,15 +70,15 @@ Register for a *free* [GitHub account](http://www.github.com), and then, fill ou
 git config --global core.editor "atom --wait"
 ```
 
-## Claim Your Course Repository
+### Claim Your Course Repository
 
 I have created a public GitHub repository for your use during the course. I am the owner but you are a collaborator, which means you can edit (push) files in this repository. You should also have received an invitation to join this repository. All students can see all of the student repositories, including yours, but only you can push files to your repository. 
 
 First, go to https://github.com/gabd-students to verify that you can see a repository in your name. It will be in the format `lastname_firstname`. You will see repositories for other students, too. If you do not see a repository with your name, send me an email telling me you do not see the repository. 
 
-If you do see your directory, then please do *all* of the following steps. 
+If you do see your directory, then do *all* of the following steps. 
 
-1. Make a folder on your computer for your work for this course. You can put it anywhere but keep track where you put it. For example, you can make a folder called "bi485" and put it inside `~/Documents` or `C:\Documents` folder. **I recommend that you keep the folder name short and without spaces.**
+1. Make a folder on your computer for your work for this course. You can put it anywhere but keep track where you put it. For example, you can make a folder called "bi485" and put it inside `~/Documents` or `C:\Documents` folder. **I recommend that you keep the folder name short and without spaces.** For Mac users,  ~ is the tilde mark, not a dash. It represents the Documents folder on your computer.
 
 1. Launch RStudio (if it is not still running from above). 
 
@@ -82,7 +93,7 @@ If you do see your directory, then please do *all* of the following steps.
   
   - Enter `lastname_firstname` for the project directory name. It may appear automatically when you fill in the first blank.
   
-  - Enter the directory you created at the start of this exercise as the main folder (e.g., `~/Documents/bi485` or `C:\Documents\bi485`). The dialog should look something like this.
+  - Enter the directory you created at the start of this exercise as the main folder (e.g., `~/Documents/bi485` or `C:\Documents\bi485`). The dialog should look something like this. Mac users must include the tilde symbol.
   
   ![](../../img/rstudio_clone_repository.png)
 
@@ -91,22 +102,23 @@ If you do see your directory, then please do *all* of the following steps.
 
   - If prompted, enter the GitHub user name and password you used when you created your GitHub account. Your screen should look similar to that shown on the next page.
   
-  - **Remember the location of this repository.** You will do all of your homework in this folder.
+  - **Remember the location of this repository and project file.** You will do all of your homework in this folder, using this project file.
   
   - I will refer to this repository on your computer as the **local repository** or **local repo.** The equivalent repository stored on GitHub is called the **remote repo.**
   
 8. R Studio should look similar to this. Notice the list of files in the lower right window. Click once on the `README.md` file. It will open in the upper left window of R Studio. You will edit this file in Part 2 of this assignment. 
 
-  - If you have any problems, please send me an email describing in detail any problems you had.
 
 ![](../../img/rstudio_ready.png)
 
 *Pipit the Cat cannot spell, apparently.*
 
 
-### Optional
+### Optional steps
 
-- [Chapter 9](http://happygitwithr.com/git-client.html) is optional. You will use RStudio most often to interact with Git and GitHub for this course. Later, you may find that a standalone Git client is helpful, especially as your Git-Fu grows stronger. I use [Git Kraken](https://www.gitkraken.com/git-client) because, well...[kraken.](https://en.wikipedia.org/wiki/Kraken)
+- Download this [RStudio Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf) and keep it handy. It will help you learn to use RStudio quickly and efficiently. Other cheatsheets are [also available.](https://www.rstudio.com/resources/cheatsheets/) I will provide links to the most relevant sheets as we proceed but feel free to download any that you want. I have laminated sets at home and at work.
+
+- [Chapter 9](http://happygitwithr.com/git-client.html) is optional. You will use RStudio most often to interact with Git and GitHub for this course. Later, you may find that a standalone Git client is helpful, especially as your Git-Fu grows stronger. I sometimes use [Git Kraken](https://www.gitkraken.com/git-client) because, well...[kraken.](https://en.wikipedia.org/wiki/Kraken)
 
 - Read other chapters in [Happy Git With R](http://happygitwithr.com/) at your leisure. We may use part or all of some chapters in future exercises.
 
@@ -116,15 +128,17 @@ If you do see your directory, then please do *all* of the following steps.
 
 ### Introduction to Markdown
 
-Markdown is a way of formatting plain text with bold, italics, links to web pages, and more.
+Markdown is a way of formatting plain text with bold, italics, links to web pages, and more. You will use markdown extensively during this course.
 
 - Complete this [markdown tutorial.](https://commonmark.org/help/tutorial/) You can also download this [markdown cheatsheet.](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+- Open the Rproj file you created in Part 1 (if not still open). Click on the README.md file in the file list in the lower right panel of RStudio. If you do not see a list of files, first click on the "Files" tab (or press `ctrl-5`). If you see a list of files, but do not see the README.md file, then click on the "Git" tab of the upper right panel (or press `ctrl-9`). Click the `Pull` button with the downward-pointing green arrow. That should pull the README.md file from your remote repo to your local repo. *If you still do not see the README.md file, contact me immediately.*
 
 ### Edit the README file
 
 README files generally describe what is in the repository. For this assignment, your README.md file should tell a little about you and also reflect who you are as a person.  You will also use various `markdown` commands to practice using them. 
 
-Edit your README.md file to include the requirements below.
+Edit the README.md file in your local repo to include the requirements below.
 
 If none of the requirements seem familiar, then take (or re-take) the [markdown tutorial](https://commonmark.org/help/tutorial/) and reference the [markdown cheatsheet.](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) Also, the `Help` menu in R Studio has a `Markdown Quick Reference` help item. `Help > Cheatsheets` has a link to an R Markdown cheatsheet PDF.
 
@@ -150,7 +164,7 @@ If none of the requirements seem familiar, then take (or re-take) the [markdown 
 
 7. Include a block quote from your favorite author, a favorite song lyric, or a favorite line from a movie, or some other inspiring source.
 
-8. Separate each section with a horizontal line, like the one at the end of this list.
+8. Separate each section with a horizontal line, like the one below.
 
 ***
 
@@ -180,4 +194,25 @@ The following steps will `push` your README.md file to GitHub for the world to s
 
 ***
 
+## Grading Rubric
+
+#### Part 1
+
+This part is all or none.
+
+| No work: 0 | Needs work: 1 | Satisfactory: 2 | Excellent: 3 |
+|:-----------|:--------------|:----------------|:-------------|
+| Did not install software. | Does not apply. | Does not apply. | Installed all software. |
+| Did not claim repository. | Does not apply. | Does not apply. | Claimed repository. |
+
+#### Part 2
+
+| No work: 0 | Needs work: 1 | Satisfactory: 2 | Excellent: 3 |
+|:-----------|:--------------|:----------------|:-------------|
+| Did not edit and push README to remote repo. | At least one task not completed. | All tasks completed but at least one not completed as directed. | Completed all tasks correctly. |
+
+
+***
+
 *et Voilà*
+
