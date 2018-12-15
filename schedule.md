@@ -16,9 +16,9 @@
 
 
 ## Developing schedule
-| Reading   | Assignment     | Due&nbsp;(23:59) | Resources |
+| Reading   | Assignment     | Due&nbsp;(23:55) | Resources |
 |:----------|:---------------|:---------|:----------|
-| [01 Install software;<br/> GitHub;  Markdown](notes/cm002.nb.html) | [HTML](assignments/hw01/hw01.html) \ [PDF](assignments/hw01/hw01.pdf) | 19 Dec (W) | Tutorials for [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/). |
+| [01 Install software;<br/> GitHub;  Markdown](notes/notes01.html) | [HTML](assignments/hw01/hw01.html) \ [PDF](assignments/hw01/hw01.pdf) | 19 Dec (W) | Tutorials for [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/). |
 | [02 Get familiar with R](notes/cm003.nb.html) | [HTML](assignments/hw02/hw02.html) \ [PDF](assignments/hw01/hw01.pdf) |  21 Dec (F)  | [DataCamp](https://www.datacamp.com)<br/> R: [R4ds Chapter 4](https://r4ds.had.co.nz/workflow-basics.html); <br/> [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro.  | 
 | 03  | |  24 Dec (M) | Rmd: [stat545: Rmd test drive](http://stat545.com/block007_first-use-rmarkdown.html). |
 | [04 The git workflow; collab with GitHub](notes/cm004.nb.html) | |  26 Dec (W) | |
