@@ -55,7 +55,7 @@ is freely available online. Other open-source resources may be used as needed.
 
 Assignments will consist of readings from notes provided by the instructor, readings and questions to answer from [R4ds](https://r4ds.had.co.nz), and exercise sets for you to develop and practice your R scripting skills. In some cases, notes and assignments will be provided separately. In other cases, they will be provided together.
 
-You will have three assignments per week for the first three weeks, and two assignments on the final week. Assignments are due two days after they are assigned (e.g., assignments given on Monday are due on Wednesday) by 23:59. Most assignments will take several hours to complete, including reading and coding time.  Start each assignment as soon as possible so that you have plenty of time to ask questions, solve problems, and complete the assignment before it is due. If you start an assignment too late, you will run out of time.
+You will have three assignments per week for the first three weeks, and two assignments on the final week. Assignments are due two days after they are assigned (e.g., assignments given on Monday are due on Wednesday) by 23:55. Most assignments will take several hours to complete, including reading and coding time.  Start each assignment as soon as possible so that you have plenty of time to ask questions, solve problems, and complete the assignment before it is due. If you start an assignment too late, you will run out of time.
 
 I will *probably* release all three assignments for each week on Sunday. You may work ahead but you may not work behind. For example, a "Wednesday" assignment released on Sunday evening is officially assigned on Wednesday and due on Friday. You can submit it before Friday but not after.
 
@@ -77,13 +77,13 @@ I have been and continue to work hard behind the scenes to make this a good cour
 
 ## Assessment
 
-You earn your grade in this course by completing 10-11 assignments. All assignments will given given by me and submitted by you via GitHub. **You must have a free GitHub account.** You should also have [filled out and submitted this form.](https://semo-gabd.shinyapps.io/485info/)
+You earn your grade in this course by completing 11 assignments. All assignments will given given by me and submitted by you via GitHub. **You must have a free GitHub account.** You should also have [filled out and submitted this form.](https://semo-gabd.shinyapps.io/485info/)
 
 Here's the breakdown of your course grade:
 
 | Assessment | Weight |
 |:-----------|:-------|
-| 10-11 Assignments ([link](https://semo-gabd.github.io/assignments/)) | 100% (10-9.1% per assignment) |
+| 11 Assignments ([link](https://semo-gabd.github.io/assignments/)) | 100% (10% per assignment) |
 | 0 exams | 0% |
 | | |
 
