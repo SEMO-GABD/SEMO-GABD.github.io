@@ -1,21 +1,22 @@
 ---
-title: "Notes 01"
+title: "Graphical Analysis of Biological Data"
 output:
   html_document:
     df_print: paged
     toc: yes
-  html_notebook:
-    number_sections: yes
-    theme: cerulean
+  pdf_document:
     toc: yes
-subtitle: Graphical Analysis of Biological Data
+subtitle: "Notes 01"
+urlcolor: blue
 editor_options:
   chunk_output_type: inline
 ---
 
+This web page is available as a [PDF file](./notes01.pdf)
+
 ### Who am I?
 
-![](../img/mike_taylor.jpg)
+![](../img/mike_taylor.jpg){ width=30% }
 
 Dr. Mike Taylor   
 Department of Biology   
@@ -31,12 +32,12 @@ Southeast Missouri State University
 
 My first computer was a [Macintosh SE](https://en.wikipedia.org/wiki/Macintosh_SE) with 4 (!) megabytes (MB) of RAM, a 20 MB hard drive, and one 800K [3.5" floppy](https://en.wikipedia.org/wiki/Floppy_disk#/media/File:Floppy_disk_2009_G1.jpg) disk drive (they weren't actually "floppy"). Compare that your laptop or desktop computer. Or your smart phone. Back then (ca. 1988), I ran a [bulletin board system](https://en.wikipedia.org/wiki/Bulletin_board_system) on that computer with a [U.S. Robotics Courier 14.4K Dual Standard  modem.](https://commons.wikimedia.org/wiki/File:Modem_US_Robotics_Courier_Dual_Standard.jpg) In comparison, typical broadband wireless is at least 17X faster. Back then, my system was the [shiznit.](https://www.urbandictionary.com/define.php?term=shiznit)
 
-I have formal training in the [Pascal](https://en.wikipedia.org/wiki/Pascal_(programming_language)) and [C](https://en.wikipedia.org/wiki/C_(programming_language) programming languages. I am self-taught in R and in [Python.](https://www.python.org) If you find yourself wanting to learn another language after R, learn Python.
+I have formal training in the [Pascal](https://en.wikipedia.org/wiki/Pascal_(programming_language)) and [C](https://en.wikipedia.org/wiki/C_(programming_language)) programming languages. I am self-taught in R and in [Python.](https://www.python.org) If you find yourself wanting to learn another language after R, learn Python.
 
 
 ### Who are you?
 
-You will tell me and the rest of the class a little bit about yourself in the first homework assignment.
+You will tell me and the rest of the class a little bit about yourself as part of the first homework assignment.
 
 ### Approach the course with curiosity
 
@@ -54,12 +55,12 @@ Your work should be reproducible. Document it, test it, and leave a breadcrumb t
 
 ### Embrace text files
 
-Use plain text files for all of your documents. Plain text files are small. Plain text files are portable. Text files can be opened and read on any computer plaform (e.g., OS X, PC, Linux), unlike (for example) Word documents, which use a [proprietary format,](http://opendatahandbook.org/glossary/en/terms/proprietary/), subject to change at any time. Text files are the common currency of reproducibility and open science.
+Use plain text files for all of your documents. Plain text files are small. Plain text files are portable. Text files can be opened and read on any computer plaform (e.g., OS X, PC, Linux) with any text editor, unlike (for example) Word documents, which use a [proprietary format,](http://opendatahandbook.org/glossary/en/terms/proprietary/) and are subject to change at any time. Text files are the common currency of reproducibility and open science.
 
 This course, and in fact nearly everything I use for teaching, is built from plain text. Text files are the base that can be converted into a variety of formats, including web pages, PDF files, and even (gasp!) Word documents. This webpage was generated from [this markdown source file](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/notes/notes01.Rmd) on GitHub.
 
 
-RStudio, which you will use throughout this course, has a built-in text editor, and it will suffice for this course. In the future, or even during this course, you may also want to install a stand alone text editor. Browse this list of [free text editors](https://www.keycdn.com/blog/best-text-editors) to find one that works on your computer platform and suits your needs. Atom works on all platforms and has a good reputation. I've been using it to write this assignment. Nice features are that you can live preview your markdown documents and it can interact directly with Git and GitHub (more on both of these later).
+RStudio, which you will use throughout this course, has a built-in text editor, and it will suffice for this course. In the future, or even during this course, you may decide to install a stand alone text editor. Browse this list of [free text editors](https://www.keycdn.com/blog/best-text-editors) to find one that works on your computer platform and suits your needs. Atom works on all platforms and has a good reputation. I used it to write this part of these notes. Nice features are that you can live preview your markdown documents and it can interact directly with Git and GitHub (more on both of these later).
 
 I have used [BBEdit](https://www.barebones.com/products/bbedit/) for OS X since version 4 (now at version 12+) as a good general purpose text editor. You can use the full feature set free for 30 days. After that time, you can still use most of its important functions for free.
 
@@ -69,7 +70,7 @@ For PC, [Notepad++](https://notepad-plus-plus.org) has a [good reputation](https
 
 ### Use Git and GitHub
 
-During this course, you will write lots of R code. Your code may even work. You may think you can do better. You pursue a thread of an idea, and edit your code. You follow that thread down the rabbit hole, and write even more code. You test your code and realize it does not do what you wanted. The Mad Hatter laughs at you. You try to back out of the rabbit hole but you are lost. You have a jumble of non-working code that even a hookah-smoking caterpillar cannot understand.
+During this course, you will write lots of R code. Your code will run. Eventually. But, you think you can do better. You pursue a thread of an idea, and edit your code. You follow that thread down the rabbit hole, and write even more code. You test your code and realize it does not do what you wanted. The Mad Hatter laughs at you. You try to back out of the rabbit hole but you are lost. You have a jumble of non-working code that even a hookah-smoking caterpillar cannot understand.
 
 You can avoid [falling through the looking glass](https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland) by using Git. Git is a [version control system](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (VCS) that tracks the changes you make to files through time. You can go back in time to any previous version. You can branch into a copy of a working program to try a new idea. Does your new code work? Awesome, merge it into to the main file. Disaster? No problem, because the original is intact. You laugh at the Mad Hatter and seek further adventures with the White Rabbit.
 
@@ -77,19 +78,19 @@ You may have used some form of version control when writing a report. You start 
 
 [GitHub](https://github.com/) is a hosting service where you can store and access all of the projects that you maintain by Git version control. I use Git and Github to maintain all of [my course materials](https://github.com/mtaylor-semo) and other bits of code that I write. I am using GitHub tools and web services to manage this course. We will touch on the basics of version control for this course but we will not go very far down the rabbit hole.
 
-Git and GitHub have a bit of a learning curve so we'll focus on it first. You will get soon get familiar with the basics of Git. Also, RStudio integrates well with Git and GitHub, which makes version control of your R projects very easy.
+Git and GitHub have a bit of a learning curve. We will start gently and add something new every so often. You will get soon get familiar with the basics of Git. Also, RStudio integrates well with Git and GitHub, which makes version control of your R projects very easy.
 
-[Why Git?](https://peerj.com/preprints/3159/) by Jennifer Bryan.
+An excellent document to read is [Why Git?](https://peerj.com/preprints/3159/) by Dr. Jennifer Bryan. She provides a good overview of how Git works and why you should use Git (even if not collaborating).
 
 ### Save that which is real
 
-As you interact with Git and GitHub, you will be tempted to commit and push all files. Do you really need to do that? As long as you have the source files, like the R scripts and R Notebooks, you can generate the output. If you lose the source, then you lose the output. Think in terms of source and output, and remember that *source is real.* You only need to commit and push source files.
+As you interact with Git and GitHub, you will be tempted to commit and push all files. Do you really need to do that? As long as you have the source files, like the R scripts and R Notebooks, you can generate the output. If you lose the source, then you lose the output. Think in terms of source and output, and remember that *source is real.* Output can be recreated from the source. You only need to commit and push source files.
 
-If you find yourself tempted to commit output files (e.g., HTML files), that is OK. You will get over it eventually.
+If you find yourself tempted to commit output files (e.g., HTML files), that is OK. You will get over it. Eventually.
 
-### Using the Shell
+### Using the terminal or shell
 
-We will avoid this when we can, but you will at least need it to install _git_ as part of the first assignment. Here is the minimum need-to-know about the __shell__:
+We will avoid this when we can, but you will at least need it to install _git_ as part of the first assignment. Here is the minimum need-to-know about the **terminal** or **shell**:
 
 - Way to control your computer.
 - OS-specific language!
@@ -98,5 +99,8 @@ We will avoid this when we can, but you will at least need it to install _git_ a
 - Navigate with `cd`, `pwd`, and `ls`. `.` and `..`.
 
 A great introduction to this stuff is in [happygitwithr: Appendix A](http://happygitwithr.com/shell.html).
+
+You can even use the shell from within RStudio.
+
 
 
