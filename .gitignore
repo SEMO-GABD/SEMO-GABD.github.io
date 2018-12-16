@@ -13,8 +13,6 @@
 
 # Session Data files
 .RData
-*.html
-*.pdf
 
 # Example code in package build process
 *-Ex.R
