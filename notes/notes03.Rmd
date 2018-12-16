@@ -1,0 +1,89 @@
+---
+title: "Introduction to R Markdown and R"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    df_print: paged
+    toc: yes
+subtitle: Graphical Analysis of Biological Data
+urlcolor: blue
+editor_options:
+  chunk_output_type: inline
+---
+
+## Read
+
+[Hadley: Chapter 4](http://r4ds.had.co.nz/workflow-basics.html)
+
+[Hadley: Chapter 26](http://r4ds.had.co.nz/communicate-intro.html)
+
+[Hadley: Chapter 27](http://r4ds.had.co.nz/r-markdown.html)
+
+[Hadley: Chapter 29](http://r4ds.had.co.nz/r-markdown-formats.html), sections 1-3. Skim the remaining sections to get a sense of what you can accomplish with R Markdown.
+
+## Resources
+
+DataCamp [R Tutorial ![](../img/external.png)](https://www.datacamp.com/courses/free-introduction-to-r) (requires free registration.)
+
+
+
+## Notes
+
+The markdown commands that you learned in the [previous exercise](http://../hw/hw01.html) can also be used in R to make documents like web (HTML) pages and PDF documents. R Markdown is an enhanced version of markdown with additional features so you can include the results of your analyses. RStudio provides many features that make using R Markdown easy.
+
+For this course, you will use R Notebook documents for all of your assignments. In RStudio, choose `File > New File > R Notebook` from the menu.  RStudio creates a new document with example R Markdown text. You will see familiar markdown commands, like `##` for section headers and `** … **` for **bold text.** 
+
+You probably noticed the header at the top of the document. 
+
+```
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+```
+
+The header is written in Yet Another Markup Language (YAML), which you use to set options for different types of documents. The `title:` option should reflect the contents of the document. `output:` tells R Studio to make an HTML notebook format from your R Markdown document. R Studio uses the date that you create your document but you should change the `date:` field to exactly that shown below, paying *careful attention* to the double quotes, single quotes, and back ticks. This will use R's `Sys.time()` function to get the current date, as shown in the example below. Your final document will then always show the date you made the final document. We might explore other YAML options in the future, as necessary.
+
+```{eval=FALSE}
+  ---
+  title: "Useful Title"
+  author: "Your Name"
+  date: "`r format(Sys.time(), '%d %B %Y')`"
+  output: html_notebook
+  editor_options: 
+    chunk_output_type: inline
+  ---
+```
+
+You may have also noticed the following block in your new document.
+
+<!-- Enclosing a code chunk in 4 ticks to show
+a complete code chunk is from:
+https://yihui.name/en/2017/11/knitr-verbatim-code-chunk/ -->
+
+````
+```{r}`r ''` 
+summary(cars)  
+```
+````
+
+This is an R code chunk. A code chunk begins with three back ticks ` ```{r} ` on a line, followed by your R code, then three more back ticks ` ``` ` to end the chunk. When you make your document, the code will be evaluated in R, and the output will be included after the chunk (as specified by the `editor_options:` in the YAML header). In the case of `summary(cars)`, the `summary()` function calculates basic statistics for each variable in the data from the `cars` data set, which is then shown below the chunk.
+
+
+```{r plot_cars}
+ summary(cars)
+```
+
+You will use R code chunks extensively in your assignment documents.  You can type them manually but the easier way is to press `cmd + option + i` (Mac) or `ctrl + alt + i` (PC) while in your R Markdown document. RStudio will automatically insert a blank chunk, ready for you to enter your code.
+
+Your R Notebook is an interactive document. You can run blocks of code separately or all at once. For example, click the right-most icon (green arrow; ![](../img/run_chunk_arrow.png)) in the upper right of the code chunk to plot the cars data set. The plot will appear below the code chunk. You can also click the Preview button just above your R Notebook source document.
+
+In many cases, you will want to run some code that depends on the results of code earlier in your document. In that case, click on the downward-pointed arrow in your code chunk, just left of the green arrow you just clicked. That runs all chunks above the current chunk. You can learn the function of these buttons if you hold your cursor over the button without clicking. 
+
+To make the final document, click on ![](../img/knit_button.png) above your document. Click on Knit to make the HTML document from the R Notebook you just made. You will be prompted to save the file first. 
+
+Time for your assignment. Keep this new R Notebook open, then go [get and complete HW 03.](../assignments/hw03/hw03.html)
+
