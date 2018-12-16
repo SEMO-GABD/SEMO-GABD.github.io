@@ -76,8 +76,20 @@ For PC, [Notepad++](https://notepad-plus-plus.org) has a [good reputation](https
 
 ## Use Git and GitHub
 
-During this course, you will write lots of R code. Your code will run. Eventually. But, you think you can do better. You pursue a thread of an idea, and edit your code. You follow that thread down the rabbit hole, and write even more code. You test your code and realize it does not do what you wanted. The Mad Hatter laughs at you. You try to back out of the rabbit hole but you are lost. You have a jumble of non-working code that even a hookah-smoking caterpillar cannot understand.
+During this course, you will write lots of R code. Your code will run. Eventually. But, you think you can do better. You pursue a thread of an idea, and edit your code. You follow that thread down the rabbit hole, and write even more code. You test your code and realize it does not do what you wanted. The [Mad Hatter](https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/MadlHatterByTenniel.svg/422px-MadlHatterByTenniel.svg.png) laughs at you. You try to back out of the rabbit hole but you are lost. You have a jumble of non-working code that even a [hookah-smoking caterpillar](https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Alice_05a-1116x1492.jpg/448px-Alice_05a-1116x1492.jpg) cannot understand.
 
+<!-- This section inspired by this site:
+https://recompilermag.com/issues/issue-1/how-to-teach-git/ -->
+
+Git is a way of [protecting yourself](https://recompilermag.com/issues/issue-1/how-to-teach-git/) from the maddest of the Hatters: you. With Git, you create several "safety nets" while you write your code. You can continue to work on your code but, if (when?) something goes wrong, you can fall back at any time on to one of your safety nets, and start fresh. 
+
+You may not realize it now, but having a safety net for your R code, data, and other projects, opens up the doors to your programming creativity. You can safely try ideas, fail miserably, then try again, eventually to success. Failing miserably is one of the best ways to improve your skills. Ask me how I know.
+
+Git protects your files on your local computer. GitHub provides a cloud-based solution to protect your files, but also allows you to share your code with others, a key part of the open-access philosophy that we have embraced for this course.
+
+You will use Git and GitHub as part of your first two assignments. You will not necessarily understand what you are doing or why. But, once you have done it a couple of times, I think it will then be easier for you to understand the what and why of the process. You will gain that understanding in the third assignment.
+
+<!--
 You can avoid [falling through the looking glass](https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland) by using Git. Git is a [version control system](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (VCS) that tracks the changes you make to files through time. You can go back in time to any previous version. You can branch into a copy of a working program to try a new idea. Does your new code work? Awesome, merge it into to the main file. Disaster? No problem, because the original is intact. You laugh at the Mad Hatter and seek further adventures with the White Rabbit.
 
 You may have used some form of version control when writing a report. You start the report, then you make a copy, add a date or version number, edit the copy, then make another copy with a new date or version number. You may have multiple copies spread across flash drives or even emailed to yourself.  Git makes that process much more efficient, in terms of time and storage.
@@ -87,12 +99,13 @@ You may have used some form of version control when writing a report. You start 
 Git and GitHub have a bit of a learning curve. We will start gently and add something new every so often. You will get soon get familiar with the basics of Git. Also, RStudio integrates well with Git and GitHub, which makes version control of your R projects very easy.
 
 An excellent document to read is [Why Git?](https://peerj.com/preprints/3159/) by Dr. Jennifer Bryan. She provides a good overview of how Git works and why you should use Git (even if not collaborating).
+-->
 
 ## Save that which is real
 
-As you interact with Git and GitHub, you will be tempted to commit and push all files. Do you really need to do that? As long as you have the source files, like the R scripts and R Notebooks, you can generate the output. If you lose the source, then you lose the output. Think in terms of source and output, and remember that *source is real.* Output can be recreated from the source. You only need to commit and push source files.
+As you interact with Git and GitHub, you will be tempted to make "safety nets" for all of your files. Do you really need to do that? As long as you have the source files, like the R scripts and R Notebooks, you can generate the output. If you lose the source, then you lose the output. Think in terms of source and output, and remember that *source is real.* Output can be recreated from the source. You only need safety nets for source files.
 
-If you find yourself tempted to commit output files (e.g., HTML files), that is OK. You will get over it. Eventually.
+If you find yourself tempted to protect your output files (e.g., HTML files), that is OK. You will get over it. Eventually.
 
 ## The terminal or shell
 
