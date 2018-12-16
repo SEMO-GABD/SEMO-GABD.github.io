@@ -94,7 +94,7 @@ Are you stuck? First, try to get unstuck by yourself by following this advice:
 
 - Open an issue in the [Public Discussion](https://github.com/SEMO-GABD/public_discussion) repository and ask your question. Peer-to-peer help is a powerful way to share ideas and help each other. 
 
-- Search Google. [Google is your friend.](https://xkcd.com/627/)
+- Search Google. [Google is your friend.](https://xkcd.com/627/) Also, [this.](http://bfy.tw/8NPu)
 
 - Search [Stackoverflow](https://stackoverflow.com). Include the `r` tag, the `ggplot2` tag, `dplyr` tag, or other tag as needed to limit your search.
 
