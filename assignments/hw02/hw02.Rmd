@@ -1,11 +1,14 @@
 ---
-title: "Graphical Analysis of Biological Data"
-subtitle: "Homework 2"
+title: "HW 02: Introduction to R"
+subtitle: "Graphical Analysis of Biological Data"
 output: 
   html_document: 
     toc: yes
-  pdf_document: default    
+  pdf_document: 
+    latex_engine: lualatex    
 urlcolor: blue
+linkcolor: blue
+mainfont: Linux Libertine O
 ---
 
 By the end of this assignment, you will be able to perform the following tasks in R.
@@ -61,6 +64,6 @@ This assignment is all or none.
 
 | No work: 0 | Needs work: 1 | Satisfactory: 2 | Excellent: 3 |
 |:-----------|:--------------|:----------------|:-------------|
-| Did not upload certificate indicating successful completion of DataCamp course. | Does not apply. | Does not apply. | Successfully completed DataCamp course. |
+| Did not upload certificate indicating successful completion of DataCamp course. | Does not apply. | Does not apply. | Successfully completed DataCamp course. Uploaded certificate to remote repo.|
 
 *et Voilà*
