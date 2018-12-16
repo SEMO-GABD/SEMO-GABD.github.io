@@ -1,0 +1,66 @@
+---
+title: "Graphical Analysis of Biological Data"
+subtitle: "Homework 2"
+output: 
+  html_document: 
+    toc: yes
+  pdf_document: default    
+urlcolor: blue
+---
+
+By the end of this assignment, you will be able to perform the following tasks in R.
+
+- assign values to variables;
+- create and manipulate vectors;
+- create and perform computations on arrays;
+- create, subset, and compare factors;
+- create data frames, extract data from rows, columns, and cells; and
+- create and manipulate lists.
+
+**Click on any blue text to visit the external website.**
+
+***
+
+## Assignment
+
+This exercise will teach you basic commands and types of data objects in R, using an interactive website provided by DataCamp. DataCamp offers a range of beginning to advanced courses, most of which target programming for the data sciences. Some courses are free, and you will use one of them.
+
+1. Create a `hw02` folder inside your local repo.
+
+2. Register for a *free* [DataCamp account](http://www.datacamp.com). If you get subsequent email from them, just click on the `unsubscribe` link at the bottom of the email.
+
+3. Complete all six parts of this [free Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r) course. It took me about 2 hours but I knew what I was doing. You should allow about 3--4 hours. You do not have to do it all at once but finish them all by the due date.
+
+4. After you have completed successfully all six parts, you will be able to download a Statement of Accomplishment PDF. Download the PDF, and place it in your `hw02` folder.
+
+5. Do _one_ of the following. After you do one, the other will not work. The second choice will help you become more familiar with [Git commands](https://xkcd.com/1597/) and increase your [Git-Fu.](https://memegenerator.net/img/instances/67233533/strong-in-this-one-the-git-fu-is.jpg)
+
+    - Launch R Studio, open the Project file, commit the PDF file to your local repo, and then push it to the remote repo (GitHub). 
+  
+    **or instead**
+
+    - Choose `Tools > New Terminal`, which will open a terminal / shell in the lower left console panel. It will automatically switch you into the same folder as your R project file. 
+
+    - Type `git status` and press return. You should see your statement of accomplishment listed in red, inside the `hw02` folder.
+
+    - Type `git add *.pdf` and press return. This will add your statement for commit but it must still be committed.
+
+    - Type `git commit -m "Proof I finished homework 2."` and press return. You can type any meaningful but *short* statement between the quotes. This commits the file to your local repository.
+
+    - Type `git push origin master` and press return. This will push the file from your local repo to your remote GitHub repo.
+
+    - These are the steps that occur when you do commit and push files from R Studio.
+
+6. For more practice, I recommend that you read and work through [R for Data Science Chapter 4](https://r4ds.had.co.nz/workflow-basics.html) (R4ds), and answer the three questions at the end of the chapter.
+
+***
+
+## Grading Rubric
+
+This assignment is all or none.
+
+| No work: 0 | Needs work: 1 | Satisfactory: 2 | Excellent: 3 |
+|:-----------|:--------------|:----------------|:-------------|
+| Did not upload certificate indicating successful completion of DataCamp course. | Does not apply. | Does not apply. | Successfully completed DataCamp course. |
+
+*et Voilà*
