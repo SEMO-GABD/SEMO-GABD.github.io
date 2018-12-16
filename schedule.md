@@ -2,8 +2,8 @@
 | Reading   | Assignment     | Due&nbsp;(23:59) | Resources |
 |:----------|:---------------|:---------|:----------|
 | 01 Install software; GitHub;  Markdown | HTML \ PDF | 19 Dec (W) | Markdown Tutorial<br/> GitHub Tutorial |
-| 02 Get familiar with R | HTML \ PDF |  21 Dec (F)  | DataCamp; R4ds Chapter 4 | 
-| 03 R Studio and R Markdown | HTML \ PDF |  24 Dec (M) | R4ds Chapter 6. R Markdown Tutorial (R4ds 27). Submit complete assignment. Read R4ds chapter 1 Introduction and Chapter 2 Introduction. R4ds Chapter 8. **SET ORDER** |
+| 02 Introduction to R | HTML \ PDF |  21 Dec (F)  | R4ds: [Chapter 1](https://r4ds.had.co.nz/introduction.html), [Chapter 2](http://r4ds.had.co.nz/communicate-intro.html), [Chapter 4](https://r4ds.had.co.nz/workflow-basics.html), [Chapter 6](https://r4ds.had.co.nz/workflow-scripts.html), [Chapter 8](https://r4ds.had.co.nz/workflow-projects.html); [DataCamp](http://www.datacamp.com) | 
+| 03 R Studio and R Markdown | HTML \ PDF |  24 Dec (M) | Chapter 6. R Markdown Tutorial (R4ds 27). R4ds Chapter 8. **SET ORDER** |
 | 04 ggplot2 | HTML \ PDF |  26 Dec (W) | Complete Chapter 3 of R4ds. Graphs of the iris data sets, perhaps mammal sleep (msleep) from the ggplot data set. |
 | 05 Importing Data. | HTML \ PDF |  28 Dec (F) | R4ds Chapters 10 and 11. Submit 10 and 11. Include how to read files via the internet, not just importing from local files. |
 | 06  | HTML \ PDF |  31 Dec (M) | R4ds Chapter 7 |
@@ -19,7 +19,7 @@
 | Reading   | Assignment     | Due&nbsp;(23:55) | Resources |
 |:----------|:---------------|:---------|:----------|
 | [01 Install software;<br/> GitHub;  Markdown](notes/notes01.html) | [HTML](assignments/hw01/hw01.html) \ [PDF](assignments/hw01/hw01.pdf) | 19 Dec (W) | Tutorials for [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/). |
-| [02 Get familiar with R](notes/cm003.nb.html) | [HTML](assignments/hw02/hw02.html) \ [PDF](assignments/hw01/hw01.pdf) |  21 Dec (F)  | [DataCamp](https://www.datacamp.com)<br/> R: [R4ds Chapter 4](https://r4ds.had.co.nz/workflow-basics.html); <br/> [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro.  | 
+| [02 Introduction to R](notes/notes02.html) | [HTML](assignments/hw02/hw02.html) \ [PDF](assignments/hw01/hw01.pdf) |  21 Dec (F)  |  21 Dec (F)  | R4ds: [Chapter 1](https://r4ds.had.co.nz/introduction.html)<br/> [Chapter 2](http://r4ds.had.co.nz/communicate-intro.html)<br/> [Chapter 4](https://r4ds.had.co.nz/workflow-basics.html)<br/> [Chapter 6](https://r4ds.had.co.nz/workflow-scripts.html)<br/> [Chapter 8](https://r4ds.had.co.nz/workflow-projects.html)<br/> [DataCamp](http://www.datacamp.com)<br/> [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro.  | 
 | 03  | |  24 Dec (M) | Rmd: [stat545: Rmd test drive](http://stat545.com/block007_first-use-rmarkdown.html). |
 | [04 The git workflow; collab with GitHub](notes/cm004.nb.html) | |  26 Dec (W) | |
 | [05 working with data in R; `dplyr` and the `tidyverse`](notes/cm005.nb.html) | |  28 Dec (F) | |
