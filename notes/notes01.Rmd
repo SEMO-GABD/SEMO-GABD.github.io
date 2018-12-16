@@ -1,26 +1,31 @@
 ---
-title: "Graphical Analysis of Biological Data"
+title: "Introduction and Background"
+subtitle: "Graphical Analysis of Biological Data"
 output:
+  pdf_document:
+    latex_engine: lualatex
   html_document:
     df_print: paged
     toc: yes
-  pdf_document:
-    toc: yes
-subtitle: "Notes 01"
 urlcolor: blue
+linkcolor: blue
 editor_options:
   chunk_output_type: inline
+mainfont: Linux Libertine O
 ---
 
 This web page is available as a [PDF file](./notes01.pdf)
 
-### Who am I?
+## Introductions
+
+#### Who am I?
 
 ![](../img/mike_taylor.jpg){ width=30% }
 
 Dr. Mike Taylor   
 Department of Biology   
-Southeast Missouri State University
+Southeast Missouri State University  
+mtaylor@semo.edu
 
 **My educational background:**
 
@@ -35,11 +40,11 @@ My first computer was a [Macintosh SE](https://en.wikipedia.org/wiki/Macintosh_S
 I have formal training in the [Pascal](https://en.wikipedia.org/wiki/Pascal_(programming_language)) and [C](https://en.wikipedia.org/wiki/C_(programming_language)) programming languages. I am self-taught in R and in [Python.](https://www.python.org) If you find yourself wanting to learn another language after R, learn Python.
 
 
-### Who are you?
+#### Who are you?
 
 You will tell me and the rest of the class a little bit about yourself as part of the first homework assignment.
 
-### Approach the course with curiosity
+## Be curious
 
 I expect that you will be curious. The notes for this course will be brief but they will have links scattered throughout. Follow the links and read the material. Do not follow the [tl;dr](https://www.urbandictionary.com/define.php?term=tl%3Bdr) way of thinking. Others have written tutorials, exercises, and other helpful information far better than I could write. Become a better you and take advantage of these resources. If you do not, you will not be successful in this course.
 
@@ -47,13 +52,14 @@ I expect that you will be curious. The notes for this course will be brief but t
 
 Data analysis requires coding. To learn proper coding, you will have to type R code. *Lots* of R code. Do not give in to the temptation to copy and paste from examples. You will not learn the R language well that way. Typing the code yourself will "drill" the language into your muscle memory and your brain memory. You will learn it better. You will retain it longer. You will have a better chance of getting a job. Just type it!
 
-### Make your work reproducible
+## Reproducibility
 
 A central tenet of science is reproducibility. Yet, often it is not. Read this [introduction to reproducible science](http://ropensci.github.io/reproducibility-guide/sections/introduction/) from [rOpenSci.](https://ropensci.org) Follow the other links at your leisure. The tools you will use during this course emphasize the principle of open science. I feel strongly that you should adopt this philosophy in your scientific endeavors.
 
-Your work should be reproducible. Document it, test it, and leave a breadcrumb trail (version control), even when you are the only collaborator.
+**Make your work reproducible.** Document it, test it, and leave a breadcrumb trail (version control), even when you are the only collaborator.
 
-### Embrace text files
+
+## Use plain text
 
 Use plain text files for all of your documents. Plain text files are small. Plain text files are portable. Text files can be opened and read on any computer plaform (e.g., OS X, PC, Linux) with any text editor, unlike (for example) Word documents, which use a [proprietary format,](http://opendatahandbook.org/glossary/en/terms/proprietary/) and are subject to change at any time. Text files are the common currency of reproducibility and open science.
 
@@ -68,7 +74,7 @@ For PC, [Notepad++](https://notepad-plus-plus.org) has a [good reputation](https
 
 **Do not use Microsoft Word to export plain text files.** They are not truly plain text. Cut your umbilical cord. Leave Microsoft for the business world and the less enlightened SEMO community.
 
-### Use Git and GitHub
+## Use Git and GitHub
 
 During this course, you will write lots of R code. Your code will run. Eventually. But, you think you can do better. You pursue a thread of an idea, and edit your code. You follow that thread down the rabbit hole, and write even more code. You test your code and realize it does not do what you wanted. The Mad Hatter laughs at you. You try to back out of the rabbit hole but you are lost. You have a jumble of non-working code that even a hookah-smoking caterpillar cannot understand.
 
@@ -82,25 +88,28 @@ Git and GitHub have a bit of a learning curve. We will start gently and add some
 
 An excellent document to read is [Why Git?](https://peerj.com/preprints/3159/) by Dr. Jennifer Bryan. She provides a good overview of how Git works and why you should use Git (even if not collaborating).
 
-### Save that which is real
+## Save that which is real
 
 As you interact with Git and GitHub, you will be tempted to commit and push all files. Do you really need to do that? As long as you have the source files, like the R scripts and R Notebooks, you can generate the output. If you lose the source, then you lose the output. Think in terms of source and output, and remember that *source is real.* Output can be recreated from the source. You only need to commit and push source files.
 
 If you find yourself tempted to commit output files (e.g., HTML files), that is OK. You will get over it. Eventually.
 
-### Using the terminal or shell
+## The terminal or shell
 
-We will avoid this when we can, but you will at least need it to install _git_ as part of the first assignment. Here is the minimum need-to-know about the **terminal** or **shell**:
+We will avoid the **terminal** or **shell** when we can, but you will at least need it to install *git* as part of the first assignment. Here is the minimum need-to-know about using them:
 
-- Way to control your computer.
+- They are a (powerfule) way to control your computer.
 - OS-specific language!
-    - Mac/linux/unix are about the same.
-    - Windows has its own
+    - Mac/linux/unix are about the same. In fact, Mac OS X, at its heart, is a [BSD UNIX-based operating system](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) called Darwin.
+    - Windows has its own commands based on the [Microsoft Disk Operating System](https://en.wikipedia.org/wiki/MS-DOS) (MS-DOS).
 - Navigate with `cd`, `pwd`, and `ls`. `.` and `..`.
 
-A great introduction to this stuff is in [happygitwithr: Appendix A](http://happygitwithr.com/shell.html).
+A great introduction to this is in [happygitwithr: Appendix A](http://happygitwithr.com/shell.html).
 
-You can even use the shell from within RStudio.
+You can even use the shell from within RStudio (`Tools > Terminal > New Terminal`), which opens a terminal window in the lower left console panel. **PC Users: If this does not work, please let me know.**
+
+***
+
 
 
 
