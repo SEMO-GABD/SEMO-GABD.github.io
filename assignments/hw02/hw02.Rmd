@@ -34,11 +34,30 @@ This exercise will teach you basic commands and types of data objects in R, usin
 
 3. Complete all six parts of this [free Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r) course. It took me about 2 hours but I knew what I was doing. You should allow about 3--4 hours. You do not have to do it all at once but finish them all by the due date.
 
+<<<<<<< HEAD
 4. After you have completed successfully all six parts, you will be able to download a Statement of Accomplishment PDF. Download the PDF, and place it in your `hw02` folder.
 
 5. Do _one_ of the following. After you do one, the other will not work. The second choice will help you become more familiar with [Git commands](https://xkcd.com/1597/) and increase your [Git-Fu.](https://memegenerator.net/img/instances/67233533/strong-in-this-one-the-git-fu-is.jpg)
 
     - Launch R Studio, open the Project file, commit the PDF file to your local repo, and then push it to the remote repo (GitHub). 
+=======
+4. After you have completed successfully all six parts, you will be able to download a Statement of Accomplishment PDF. Download the PDF, rename it to `certificate_of_completion.pdf`and place it in your `hw02` folder.
+
+5. Launch R Studio and open the Project file you made for this course.
+
+6. Choose `Tools > Version Control > Commit...` from the menu.    
+
+7. You should see an entry on the left that looks like `hw02/certificate_of_completition.pdf` or similar. Click the checkbox to the left. If you see only `hw02`, then click that checkbox. That should show the file, already checked.
+
+8.In the `Commit message` box on the right type "Proof I finished homework 2." and press the `Commit` button.
+
+9. Finally, 
+
+
+
+
+, commit the PDF file to your local repo, and then push it to the remote repo (GitHub). 
+>>>>>>> d3ee8196a63fd3163d87ce0e882b1fbce16c6e68
   
     **or instead**
 
