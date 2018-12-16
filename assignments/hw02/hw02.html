@@ -332,24 +332,18 @@ $(document).ready(function () {
 <h2>Assignment</h2>
 <p>This exercise will teach you basic commands and types of data objects in R, using an interactive website provided by DataCamp. DataCamp offers a range of beginning to advanced courses, most of which target programming for the data sciences. Some courses are free, and you will use one of them.</p>
 <ol style="list-style-type: decimal">
-<li><p>Create a <code>hw02</code> folder inside your local repo.</p></li>
+<li><p>Create a <code>hw02</code> folder inside your local repo (the folder you created for this course).</p></li>
 <li><p>Register for a <em>free</em> <a href="http://www.datacamp.com">DataCamp account</a>. If you get subsequent email from them, just click on the <code>unsubscribe</code> link at the bottom of the email.</p></li>
 <li><p>Complete all six parts of this <a href="https://www.datacamp.com/courses/free-introduction-to-r">free Introduction to R</a> course. It took me about 2 hours but I knew what I was doing. You should allow about 3–4 hours. You do not have to do it all at once but finish them all by the due date.</p></li>
-<li><p>After you have completed successfully all six parts, you will be able to download a Statement of Accomplishment PDF. Download the PDF, and place it in your <code>hw02</code> folder.</p></li>
-<li><p>Do <em>one</em> of the following. After you do one, the other will not work. The second choice will help you become more familiar with <a href="https://xkcd.com/1597/">Git commands</a> and increase your <a href="https://memegenerator.net/img/instances/67233533/strong-in-this-one-the-git-fu-is.jpg">Git-Fu.</a></p>
-<ul>
-<li>Launch R Studio, open the Project file, commit the PDF file to your local repo, and then push it to the remote repo (GitHub).</li>
-</ul>
-<p><strong>or instead</strong></p>
-<ul>
-<li><p>Choose <code>Tools &gt; New Terminal</code>, which will open a terminal / shell in the lower left console panel. It will automatically switch you into the same folder as your R project file.</p></li>
-<li><p>Type <code>git status</code> and press return. You should see your statement of accomplishment listed in red, inside the <code>hw02</code> folder.</p></li>
-<li><p>Type <code>git add *.pdf</code> and press return. This will add your statement for commit but it must still be committed.</p></li>
-<li><p>Type <code>git commit -m &quot;Proof I finished homework 2.&quot;</code> and press return. You can type any meaningful but <em>short</em> statement between the quotes. This commits the file to your local repository.</p></li>
-<li><p>Type <code>git push origin master</code> and press return. This will push the file from your local repo to your remote GitHub repo.</p></li>
-<li><p>These are the steps that occur when you do commit and push files from R Studio.</p></li>
-</ul></li>
-<li><p>For more practice, I recommend that you read and work through <a href="https://r4ds.had.co.nz/workflow-basics.html">R for Data Science Chapter 4</a> (R4ds), and answer the three questions at the end of the chapter.</p></li>
+<li><p>After you have completed successfully all six parts, you will be able to download a Statement of Accomplishment PDF. Download the PDF, rename it to <code>certificate_of_completion.pdf</code>and place it in your <code>hw02</code> folder.</p></li>
+<li><p>Launch R Studio and open the Project file you made for this course.</p></li>
+<li><p>Choose <code>Tools &gt; Version Control &gt; Commit...</code> from the menu.</p></li>
+<li><p>You should see an entry on the left that looks like <code>hw02/certificate_of_completition.pdf</code> or similar. Click the checkbox to the left. If you see only <code>hw02</code>, then click that checkbox. That should show your certificate file, already checked.</p></li>
+<li><p>In the <code>Commit message</code> box on the right type “Proof I finished homework 2.” and press the <code>Commit</code> button.</p></li>
+<li><p>Close the confirmation box, then click the <code>Push</code> button with the green, upward-pointed arrow (upper right in RStudio). This will place your certificate on the remote repo (GitHub) for me to view.</p>
+<p>Notes 03 will cover what is actually going on when you do these steps.</p></li>
+<li><p>For more practice, I recommend that you read and work through <a href="https://r4ds.had.co.nz/workflow-basics.html">R4ds Chapter 4</a> (R4ds), and answer the questions 1 and 3 at the end of the chapter.</p></li>
+<li><p>You should also read <a href="https://r4ds.had.co.nz/workflow-scripts.html">Chapter 6</a> and <a href="https://r4ds.had.co.nz/workflow-projects.html">Chapter 8</a>.</p></li>
 </ol>
 <hr />
 </div>
