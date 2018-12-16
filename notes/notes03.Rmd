@@ -26,6 +26,8 @@ editor_options:
 
 DataCamp [R Tutorial ![](../img/external.png)](https://www.datacamp.com/courses/free-introduction-to-r) (requires free registration.)
 
+
+
 ## Notes
 
 The markdown commands that you learned in the [previous exercise](http://../hw/hw01.html) can also be used in R to make documents like web (HTML) pages and PDF documents. R Markdown is an enhanced version of markdown with additional features so you can include the results of your analyses. RStudio provides many features that make using R Markdown easy.
@@ -58,8 +60,7 @@ The header is written in Yet Another Markup Language (YAML), which you use to se
 
 You may have also noticed the following block in your new document.
 
-
-<!--The following trick of enclosing a code chunk in 4 ticks to show
+<!-- Enclosing a code chunk in 4 ticks to show
 a complete code chunk is from:
 https://yihui.name/en/2017/11/knitr-verbatim-code-chunk/ -->
 
