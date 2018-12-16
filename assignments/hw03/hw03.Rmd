@@ -1,0 +1,109 @@
+## R Notebook: a case study
+
+The following simple example highlights the steps typical of the early stages of data analysis.
+
+Use the new R Notebook document that you just created to recreate the case study below. Delete all of the example information **except for the YAML header and the first code block.**
+  
+  As you work through this case study, enter all code into code chunks, as shown. I suggest you knit your document after every block to be sure you are entering the code correctly. You will be required to submit your completed markdown document as part of the assignment for this block.
+
+I strongly encourage you to type the commands below as you read through the case study. **Do not copy and paste!** Typing the commands is the best way to *drill your fingers* so that they remember the different commands and short cuts.
+
+
+#### Install the Tidyverse packages.
+
+**You must do this step but only once.**
+  
+  We will spend nearly all of our time during this course in the [Tidyverse](https://www.tidyverse.org), which is a series of packages that adds functionality to the base R program. You must install them first. Choose `Tools > Install Packages...` from the menu. Type `tidyverse` into the space provided. Be sure that `Repository (CRAN)` is selected and that the `Install dependencies` box is checked. Click the `Install` button. R Studio will automatically install everything you need for now from the Tidyverse. You only need to install packages once.
+
+**Note:** Whenever you update R, you will have to reinstall the packages that you use, like tidyverse. While this can be a bit of a pain, it is essential for reproducibility. As software versions change, bugs are fixed, algorithms are improved, and other changes occur. Thus, someone using different combinations of R and associated packages might get a result different from you, the antithesis of reproducibility. Fortunately, installing packages is easy and you do not have to upgrade often.
+
+#### Load the Tidyverse packages.
+
+You must load the tidyverse packages (and any other packages) for each session that needs them. In your document, Press `cmd-opt-i` to enter a blank code chunk. Then, type `library(tidyverse)` in the blank space between the starting and ending tick marks. The `library()` function loads the tidyverse packages.
+```{r}
+library(tidyverse)
+```
+
+You see which tidyverse packages were loaded. You are also warned that the `filter()` and `lag()` functions in the dplyr package conflict with R's built-in functions of the same name. You do not need to worry about these conflicts.
+
+We will use the Anscombe data set, which has four sets of numbers. Each set has 11 pairs of carefully chosen values to illustrate the importance of visualizing your data. You view the entire data set by typing the name, as shown below.  When you run the code chunk (click on the green arrow), you should see a table like that below. If you do not see the table, did you remember to put the command in a code chunk? Also, *case matters.* `anscombe` will show you the table but `Anscombe` or `ANSCOMBE` will not.
+
+```{r}
+anscombe
+```
+
+The data are arranged as four *x* columns (*x1* to *x4*), and four *y* columns (*y1* to *y4*). For graphing,*x1* pairs with *y1*, *x2* pairs with *y2*, and so on. For reasons that will become clear later, graphing is easier if there is only one column for *x* values and one column for *y* values. 
+
+Also notice the HMTL links at the bottom of the table. R defaults to showing the first ten rows of a table, with links to view the rest of the table.
+
+#### Wrangle the data
+
+Data are often not in a format suitable for efficient analysis in the tidyverse, and so must be rearranged or "wrangled" into a suitable format. Wrangle the anscombe data with the following functions from the tidyverse packages. The code adds a `set` column to track the four sets (pairs) of values. The rearranged data are stored in a variable called `ansc.` 
+
+Carefully type in the following code chunk, remembering that spelling and punctuation matter. You will learn more about each of the functions later.
+
+*Hint:* Typing `option/alt -` (dash) will enter the ` <- ` with suitable spacing. Typing `Cmd/ctrl-shift-m` will enter the `%>%` pipe combination in a single stroke. You will learn more about pipes later in this exercise. You will learn more about the other commands in upcoming exercises.
+
+```{r}
+ansc <-
+bind_cols(
+anscombe %>% 
+select(matches("x")) %>% 
+gather(set, "x"),
+anscombe %>% 
+select(matches("y")) %>% 
+gather(key, "y")
+) %>%
+select(-key) %>% 
+mutate(set = gsub("x", "", set)) %>%  
+as_tibble()
+```
+
+View the wrangled data set. If you entered the code correctly, you should see the following table. If you have an error instead, review the code *carefully* to find the error and fix it. Also, if you click on the `Environment` tab (or press `ctrl-8`), you'll see `ansc` listed as an environmental variable.
+
+```{r}
+ansc
+```
+
+
+Next, apply some common R functions to calculate the mean and standard deviation for each set of *x/y* pairs.
+
+```{r}
+ansc %>%
+  group_by(set) %>%
+  summarize(
+    mean_x = mean(x),
+    stdev_x = sd(x), 
+    mean_y = mean(y),
+    stdev_y = sd(y)
+  ) 
+```
+
+Notice that each set of *x* values has the same mean and standard deviation (to two decimal places), as does each set of *y* values. 
+
+If these were your data, you might be tempted to think that that data do not differ among the four sets. Confirm that by creating a separate plot of each data set.
+
+```{r}
+ansc %>% ggplot(aes(x, y, color = set)) + 
+  geom_point() +
+  facet_wrap(~set, ncol = 2)
+```
+
+Although the four data sets were *statistically* identical, the graphs show that the data sets are actually very different from one another. These data were carefully constructed to make a very important point that underlies this course: **Always visualize your data!**
+  
+  
+***
+
+library(tidyverse)
+library(datasauRus)
+
+datasaurus_dozen %>% 
+  group_by(dataset) %>% 
+  summarize(avg_x = mean(x), 
+            stdev_x = sd(x),
+            avg_y = mean(y),
+            stdev_y = sd(y))
+
+ggplot(datasaurus_dozen, aes(x, y, color = dataset)) +
+  geom_point() +
+  facet_wrap(~ dataset, ncol = 3)
