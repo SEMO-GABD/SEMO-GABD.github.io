@@ -98,7 +98,7 @@ We will avoid this when we can, but you will at least need it to install _git_ a
     - Windows has its own
 - Navigate with `cd`, `pwd`, and `ls`. `.` and `..`.
 
-A great introduction to this stuff is in [happygitwithr: Appendix A](http://happygitwithr.com/shell.html).
+A great introduction to this is in [happygitwithr: Appendix A](http://happygitwithr.com/shell.html).
 
 You can even use the shell from within RStudio.
 
