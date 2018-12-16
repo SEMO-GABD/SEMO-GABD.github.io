@@ -1,0 +1,39 @@
+---
+title: "Introduction to R"
+subtitle: Graphical Analysis of Biological Data
+output:
+  pdf_document:
+    latex_engine: lualatex
+  html_document:
+    df_print: paged
+    toc: yes
+urlcolor: blue
+linkcolor: blue
+editor_options:
+  chunk_output_type: inline
+mainfont: Linux Libertine O
+---
+
+This web page is available as a [PDF file](./notes03.pdf)
+
+## Read
+
+As a reminder, R4ds is our textbook, *R for Data Science.*  The book is written for people who want to develop a career in [data science](https://en.wikipedia.org/wiki/Data_science), which applies computer science and scientific methods to data analysis, often to so-called ["big data"](https://en.wikipedia.org/wiki/Big_data) sets.
+
+We will not be going that far down the rabbit hole. We will peer into the hole, But, this is a good book written by the authors of the R packages we will use throughout this course and it provides many examples and exercises that we will apply to biological data.
+
+[R4ds: Chapter 1](https://r4ds.had.co.nz/introduction.html)
+
+We will focus on making data tidy, transforming and wrangling data, and visualizing it (section 1.1). We will leave modeling to the data scientists and your own future development.
+
+**Note:** Section 1.4: Prerequisites mentions that having some programming skills is helpful, it is not essential for this course. You will learn those programming skills as part of this course. I will try to clarify places where I think it might get a bit too far down the rabbit hole. You can also ask questions in the [internal discussion](https://github.com/SEMO-GABD/internal_discussion/issues) repo on the course website.
+
+[R4ds: Chapter 2](http://r4ds.had.co.nz/communicate-intro.html)
+
+[R4ds: Chapter 4](https://r4ds.had.co.nz/workflow-basics.html) covers material related to the assignment. After you complete the assignment, you should try to answer questions 1 and 3 in Section 4.4: Practice. Question 2 might not make sense until after we finish Chapter 3.
+
+[R4ds: Chapter 6](https://r4ds.had.co.nz/workflow-scripts.html) where you can practice some of your new-found R skills in RStudio. Practice some of the code from [Chapter 4](https://r4ds.had.co.nz/workflow-basics.html) in RStudio. Find some other code online and practice with it. I stress again that typing code again and again is the best way to learn it.
+
+Remember in [Notes 01](./notes01.html), I said to "save that which is real?" [R4ds: Chapter 8](https://r4ds.had.co.nz/workflow-projects.html) ties that philosophy to R Projects and organization of your R scripts. Study this chapter carefully and follow it closely.
+
+On to [the assignment!](../assignments/hw02/hw02.html)
