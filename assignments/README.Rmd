@@ -7,7 +7,7 @@ Here is the schedule of assignments, with links to appear after assignments are 
 
 Follow links in the Reading column for background information. The Reading webpage will have a link to a PDF file with the same content.
 
-Assignments are available in HTML and PDF formats. They have the same content so you only need to complete one. Resources has links to places necessary to complete an assignment or to supporting information.
+Assignments are available in HTML and PDF formats. They have the same content so you only need to complete one. Resources has links to places necessary to complete an assignment or to supporting information. The readings listed in the Notes and Assignments pages are the officially assigned readings that you *must* completed. 
 
 **Note:** Click on any blue links in PDF files to visit that website.
 
@@ -15,17 +15,17 @@ Assignments are available in HTML and PDF formats. They have the same content so
 
 | Reading   | Assignment     | Due&nbsp;(23:55) | Resources |
 |:----------|:---------------|:---------|:----------|
-| [01 Install software;<br/> GitHub;  Markdown](notes/notes01.html) | [HTML](hw01/hw01.html) \ [PDF](hw01/hw01.pdf) | 19 Dec (W) | Tutorials for [markdown](https://commonmark.org/help/tutorial/) and [GitHub](https://guides.github.com/activities/hello-world/). |
-| [02 Introduction to R](notes/notes02.html) | [HTML](assignments/hw02/hw02.html) \ [PDF](assignments/hw01/hw01.pdf) |  21 Dec (F)  |  21 Dec (F)  | R4ds: [Chapter 1](https://r4ds.had.co.nz/introduction.html)<br/> [Chapter 2](http://r4ds.had.co.nz/communicate-intro.html)<br/> [Chapter 4](https://r4ds.had.co.nz/workflow-basics.html)<br/> [Chapter 6](https://r4ds.had.co.nz/workflow-scripts.html)<br/> [Chapter 8](https://r4ds.had.co.nz/workflow-projects.html)<br/> [DataCamp](http://www.datacamp.com)<br/> [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro.  | 
-| 03 R Studio and R Markdown | HTML \ PDF |  24 Dec (M) | R4ds Chapter 6. R Markdown Tutorial (R4ds 27). Submit complete assignment. Read R4ds chapter 1 Introduction and Chapter 2 Introduction. R4ds Chapter 8. **SET ORDER** |
-| 04 ggplot2 | HTML \ PDF |  26 Dec (W) | Complete Chapter 3 of R4ds. Graphs of the iris data sets, perhaps mammal sleep (msleep) from the ggplot data set. |
-| 05 Importing Data. | HTML \ PDF |  28 Dec (F) | R4ds Chapters 10 and 11. Submit 10 and 11. Include how to read files via the internet, not just importing from local files. |
-| 06  | HTML \ PDF |  31 Dec (M) | R4ds Chapter 7 |
-| 07  | HTML \ PDF |  02 Jan (W) | Read R4ds Chapter 4. Complete and submit R4ds Chapter 5 through 5.4. Give biological data, manipulate, graph. |
-| 08  | HTML \ PDF |  04 Jan (F) | Complete and submit R4ds Chapter 5 sections 5.5 to 5.7. Give biological data, manipulate, graph. |
-| 09  | HTML \ PDF |  07 Jan (M) | Functions here? |
-| 10  | HTML \ PDF | 09 Jan (W) | Functions here? |
-| 11 Maps | HTML \ PDF | 11 Jan (F) | |
+| [01 Install software;<br/> Markdown](../notes/notes01.html) | [HTML](hw01/hw01.html) / [PDF](hw01/hw01.pdf) | 19 Dec (W) | [Markdown](https://commonmark.org/help/tutorial/) tutorial |
+| [02 Intro to R](../notes/notes02.html) | [HTML](hw02/hw02.html) / [PDF](hw02/hw02.pdf) |  21 Dec (F)  |  [R4ds Chapter 1](https://r4ds.had.co.nz/introduction.html)<br/> [R4ds Chapter 2](http://r4ds.had.co.nz/communicate-intro.html)<br/> [R4ds Chapter 4](https://r4ds.had.co.nz/workflow-basics.html)<br/> [R4ds Chapter 6](https://r4ds.had.co.nz/workflow-scripts.html)<br/> [R4ds Chapter 8](https://r4ds.had.co.nz/workflow-projects.html)<br/> [DataCamp](http://www.datacamp.com)<br/> [adv-r: data structures](http://adv-r.had.co.nz/Data-structures.html) for a more advanced intro.  | 
+| [03 R Studio<br/>R Markdown](notes/notes03.html) | [HTML](hw03/hw03.html) / [PDF](hw03/hw03.pdf) |  24 Dec (M) | [R4ds: Chapter 4](http://r4ds.had.co.nz/workflow-basics.html) (review)<br/>[R4ds: Chapter 26](http://r4ds.had.co.nz/communicate-intro.html)<br/>[R4ds: Chapter 27](http://r4ds.had.co.nz/r-markdown.html)<br/>[R4ds: Chapter 29](http://r4ds.had.co.nz/r-markdown-formats.html), sections 1-3<br/> [R Markdown tutorial](https://rmarkdown.rstudio.com/lesson-1.html)<br/> [GitHub Tutorial](https://guides.github.com/activities/hello-world/) |
+| 04 ggplot2 | HTML / PDF |  26 Dec (W) | Complete Chapter 3 of R4ds.<br/> Graph irises, mammal sleep. |
+| 05 Importing Data. | HTML / PDF |  28 Dec (F) | Chapters 10,  11.<br/> Include reading files from internet. |
+| 06  | HTML / PDF |  31 Dec (M) | R4ds Chapter 7 |
+| 07  | HTML / PDF |  02 Jan (W) | Chapter 5 through 5.4 or all?. |
+| 08  | HTML / PDF |  04 Jan (F) | Chapter 5 sections 5.5 to 5.7? |
+| 09  | HTML / PDF |  07 Jan (M) | Functions here? |
+| 10  | HTML / PDF | 09 Jan (W) | Functions here? |
+| 11 Maps | HTML / PDF | 11 Jan (F) | |
 
 
 ## Logistics
