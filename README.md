@@ -2,7 +2,7 @@
 This is the course outline and schedule for the 2018-2019 Winter Intersession
 course Graphical Analysis of Biological Data (BI 485 / 685).
 
-The official syllabus is on the [course Moodle page.](https://learning.semo.edu)
+The official syllabus and grades are on the [course Moodle page.](https://learning.semo.edu)
 
 This course is based on the content of the [original](http://stat545.com) and [current](http://stat545.com/Classroom/) versions of Stat545A offered at the University of British Columbia, and [other courses](http://socviz.github.io/soc880/) courses with [similar content.](http://uc-r.github.io/data_wrangling) Our course includes considerable material developed in full or in part by [Dr. Jenny Bryan](https://github.com/jennybc). I am grateful to her and all of the other people who developed the original content. I have modified it as necessary to suit the needs of our course.
 
@@ -10,7 +10,7 @@ This course is based on the content of the [original](http://stat545.com) and [c
 
 | Tool + Link | Description |
 |:------------|:------------|
-| <http://gabd.semo.edu> (here) | The course "home" -- and as your launch pad to other destinations. Contains notes, assignments, and course information. |
+| <http://gabd.semo.edu> (here) | The course "home" and your launch pad to other destinations. Contains notes, assignments, and course information. |
 | [Assignments](https://semo-gabd.github.io/assignments) | Info for assignments, notes, and other activities can be found here. |
 | [Internal Discussion](https://github.com/SEMO-GABD/internal_discussion/issues) GitHub repository | For internal discussion. The world cannot see this. |
 | [Public Discussion](https://github.com/SEMO-GABD/public_discussion) GitHub repository. | For public discussion. The world can see this. |
