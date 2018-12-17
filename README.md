@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 This is the course outline and schedule for the 2018-2019 Winter Intersession
 course Graphical Analysis of Biological Data (BI 485 / 685).
 
@@ -132,7 +131,3 @@ Once the problem is resolved, the issue can be closed. Note that closed issues r
 
 I've assembled a [page of resources](https://semo-gabd.github.io/resources.html) that will help you develop your R programming skills for years to come. 
 
-=======
-# gabd_setup
-Working repo for GABD to keep things out of student view until ready.
->>>>>>> d3ee8196a63fd3163d87ce0e882b1fbce16c6e68
