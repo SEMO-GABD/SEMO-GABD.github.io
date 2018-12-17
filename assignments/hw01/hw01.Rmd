@@ -2,11 +2,11 @@
 title: "HW 01: Install software, edit and push README"
 subtitle: "Graphical Analysis of Biological Data"
 output: 
+  pdf_document: 
+    latex_engine: lualatex
   html_document:
     df_print: paged
     toc: yes
-  pdf_document: 
-    latex_engine: lualatex
 urlcolor: blue
 linkcolor: blue
 mainfont: Linux Libertine O
@@ -181,15 +181,15 @@ The following steps will `push` your README.md file to GitHub for the world to s
 
 10. Choose `Tools > Version Control > Commit` from the menu. In the future, you can also use the appropriate keyboard shortcut, such as \<ctrl-option-m\> on the Mac, which I think is \<ctrl-alt-m\> in Windows.
 
-11. Click the checkboxes next to the (probably) three files, shown in the upper left. Type "Initial commit." in the blank box in the upper right. Your screen should look similar to Pipit's.
+11. Click the checkboxes next to any files that are listed in the upper left. Type "Initial commit." in the blank box in the upper right. Your screen should look similar to Pipit's. Only files that have changed will appear so you may see only the README.md file.
 
-![](../../img/rstudio_initial_commit.png)
+    ![](../../img/rstudio_initial_commit.png)
 
 12. Click on the `Commit` button. You should see a line that begins `>>> git commit -F` and some other computer-y looking things. This indicates your changes have been stored in your local repo, but they are not yet on GitHub. Close that box.
 
 13. In the very upper right, click on the `Push` button. You can also choose `Tools > Version Control > Push Branch`. You should see `>>> git push origin refs/heads/master`, followed shortly by other computer-y looking stuff. Notice the short sequence of apparently random numbers and letters, like the `9cd54625` highlighted below. That is the SHA or "hash," a unique ID created each time you commit a change. This ID is what allows you to back up to any version of any file you track in Git.
 
-![](../../img/rstudio_git_sha.png)
+    ![](../../img/rstudio_git_sha.png)
 
   - In the future, you will point me to a specific SHA so that I will grade the specific version of a file that you want me to grade. You can also get the commit history of any file by clicking on the `History` tab in the upper left of R Studio's Commit dialog.
 
