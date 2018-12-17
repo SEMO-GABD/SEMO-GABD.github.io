@@ -2,11 +2,11 @@
 title: "Introduction to R Markdown and Notebooks"
 subtitle: Graphical Analysis of Biological Data
 output:
+  pdf_document:
+    latex_engine: lualatex
   html_document:
     df_print: paged
     toc: yes
-  pdf_document:
-    latex_engine: lualatex
 urlcolor: blue
 linkcolor: blue
 editor_options:
@@ -158,7 +158,7 @@ The Git tab in RStudio (ctrl + 9) shows the status of your files. Compare this i
 
 ![](../img/git_status.png)
 
-- Both `hw03.Rmd` and `notes03.Rmd` (this file, in fact) have been modified, indicated by the "M" in the small blue square left of the path.  - `hw03.Rmd` has been staged but not yet commited. 
+- Both `hw03.Rmd` and `notes03.Rmd` have been modified, indicated by the "M" in the small blue square left of the path.  - `hw03.Rmd` has been staged but not yet commited. 
 - `notes03.Rmd` is being tracked but is not yet staged. Notice the difference in the position of the blue squares. 
 
     If I made a commit now, a snapshot of `hw03.Rmd` would be permanently recorded in the local Git repo but a snapshot of `notes03.Rmd` would not be made.
