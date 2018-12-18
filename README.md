@@ -11,7 +11,7 @@ This course is based on the content of the [original](http://stat545.com) and [c
 |:------------|:------------|
 | <http://gabd.semo.edu> (here) | The course "home" and your launch pad to other destinations. Contains notes, assignments, and course information. |
 | [Assignments](https://semo-gabd.github.io/assignments) | Info for assignments, notes, and other activities can be found here. |
-| [Internal Discussion](https://github.com/SEMO-GABD/internal_discussion/issues) GitHub repository | For internal discussion. The world cannot see this. Click the "Watch" button to be notified when someone posts here.|
+| [Internal Discussion](https://github.com/SEMO-GABD/internal_discussion/) GitHub repository | For internal discussion. The world cannot see this. Click the "Watch" button to be notified when someone posts here.|
 | [Public Discussion](https://github.com/SEMO-GABD/public_discussion) GitHub repository. | For public discussion. The world can see this.  Click the "Watch" button to be notified when someone posts here. |
 | [GABD Students](https://github.com/gabd-students/) Organization | Contain one GitHub repository per student, for you to submit homework. Go to your repo and click the "Watch" button to be notified when your instructor posts here.|
 | [Moodle](http://learning.semo.edu/) | This is for grade management and the official syllabus. |
