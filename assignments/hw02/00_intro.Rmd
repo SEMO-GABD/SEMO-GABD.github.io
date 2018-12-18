@@ -1,8 +1,8 @@
 ---
 title: "0: How to do this assignment"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 editor_options:
   chunk_output_type: inline
 ---
@@ -31,16 +31,21 @@ First, create a folder called `hw02` inside your local repo (the folder you crea
 
 This assignment consists of six parts:
 
-- 1: Intro to Basics
-- 2: Vectors
-- 3: Matrices
-- 4: Factors
-- 5: Data frames
-- 6: Lists
+- 1: Intro to Basics ([download Part 1 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/01_intro_to_basics_answers.Rmd))
 
-Each part has two files, the instructions (in HTML and PDF) and an R Notebook answer sheet where you type your code. The notebook files have a `.Rmd` file extension. You will download the `.Rmd` notebook files from the course website. **Place the `.Rmd` files in your `hw02` folder.**
+- 2: Vectors ([download Part 2 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/02_vectors_answers.Rmd))
 
-The R Notebook has code chunks, like that shown below, where you will type and run your code. A code chunk has instructions or commands that tell R to do things. You will learn more about these commands in the first exercise.
+- 3: Matrices ([download Part 3 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/03_matrices_answers.Rmd))
+
+- 4: Factors ([download Part 4 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/04_factors_answers.Rmd))
+
+- 5: Data frames ([download Part 5 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/05_data_frames_answers.Rmd))
+
+- 6: Lists ([download Part 6 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/06_lists_answers.Rmd))
+
+Each part has two files, the instructions (in HTML and PDF) and an R Notebook answer sheet where you type your code. Download the answer sheets by **right-clicking* on the link above, and saving them with the `.Rmd` extension in your `hw02` folder. (On Macs, do not hide the extension.)
+
+The R Notebooks have code chunks, like that shown below, where you will type and run your code. A code chunk has instructions or commands that tell R to do things. You will learn more about these commands in the first exercise.
 
 ````
 ```{r}`r ""`
