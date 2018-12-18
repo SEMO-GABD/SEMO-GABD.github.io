@@ -11,9 +11,9 @@ This course is based on the content of the [original](http://stat545.com) and [c
 |:------------|:------------|
 | <http://gabd.semo.edu> (here) | The course "home" and your launch pad to other destinations. Contains notes, assignments, and course information. |
 | [Assignments](https://semo-gabd.github.io/assignments) | Info for assignments, notes, and other activities can be found here. |
-| [Internal Discussion](https://github.com/SEMO-GABD/internal_discussion/issues) GitHub repository | For internal discussion. The world cannot see this. |
-| [Public Discussion](https://github.com/SEMO-GABD/public_discussion) GitHub repository. | For public discussion. The world can see this. |
-| [GABD Students](https://github.com/gabd-students/) Organization | Contain one GitHub repository per student, for you to submit homework. |
+| [Internal Discussion](https://github.com/SEMO-GABD/internal_discussion/issues) GitHub repository | For internal discussion. The world cannot see this. Click the "Watch" button to be notified when someone posts here.|
+| [Public Discussion](https://github.com/SEMO-GABD/public_discussion) GitHub repository. | For public discussion. The world can see this.  Click the "Watch" button to be notified when someone posts here. |
+| [GABD Students](https://github.com/gabd-students/) Organization | Contain one GitHub repository per student, for you to submit homework. Go to your repo and click the "Watch" button to be notified when your instructor posts here.|
 | [Moodle](http://learning.semo.edu/) | This is for grade management and the official syllabus. |
 | [Resources](https://semo-gabd.github.io/resources) | A page of external resources that you may find helpful during the course and beyond. |
 
@@ -92,7 +92,7 @@ Here's the breakdown of your course grade:
 
 Are you stuck? First, try to get unstuck by yourself by following this advice:
 
-- Open an issue in the [Public Discussion](https://github.com/SEMO-GABD/public_discussion) repository and ask your question. Peer-to-peer help is a powerful way to share ideas and help each other. 
+- Open an issue in the [Public Discussion](https://github.com/SEMO-GABD/public_discussion) repository and ask your question. Peer-to-peer help is a powerful way to share ideas and help each other. Click the "Watch" button near the upper right to be notified by email whenever someone, including your instructor, posts to this forum.
 
 - Search Google. [Google is your friend.](https://xkcd.com/627/) Also, [this.](http://bfy.tw/8NPu)
 
