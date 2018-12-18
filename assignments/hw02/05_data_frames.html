@@ -311,7 +311,6 @@ $(document).ready(function () {
 </div>
 
 
-<p>I took the following from the Free Introduction to R tutorial from DataCamp(<a href="http://datacamp.com/courses/free-introduction-r" class="uri">http://datacamp.com/courses/free-introduction-r</a>). It was free but they started charging for five of the modules sometime before I started my course. This is a one-off in case I can’t get free access for my students.</p>
 <p>This assignment consists of six parts:</p>
 <ul>
 <li>Intro to Basics</li>
@@ -321,9 +320,8 @@ $(document).ready(function () {
 <li>Data frames (this document)</li>
 <li>Lists</li>
 </ul>
-<p>Each part has two files, the instructions (this document) and an R Notebook answer sheet where you type your code. You must have both files.</p>
-<p>This document contains a number of small exercises that will help you learn the basics of R. Each exercise contains information about some aspect about R, instructions for you to follow. The R Notebook has code chunks where you will type and run your code. You can run each block by clicking the small green arrow in the upper right of each block. When you click the arrow, every line of code is interpreted and executed by R. If your code is correct, it will appear below the block of code. If the code is incorrect, you will get an error message. If you get an error, fix the code</p>
-<p>After you complete each exercise, push the R Notebook to your remote repo. Do <em>not</em> push this document.</p>
+<p>If you haven’t already, <a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/05_data_frames_answers.Rmd">download the answer sheet for this document</a> (<strong>Note:</strong> right-click and save the file with the <code>.Rmd</code> extension to your <code>hw02</code> folder.)</p>
+<p>After you complete each exercise, push the R Notebook to your remote repo. See <a href="./00_intro.html">Part 0</a> for instructions. Do <em>not</em> push this document.</p>
 <hr />
 <div id="what-is-a-data-frame" class="section level2">
 <h2>5.1 What is a data frame?</h2>
@@ -391,8 +389,8 @@ mtcars </code></pre>
 </ul>
 <p>After doing some high-quality research on Wikipedia, you feel confident enough to create the necessary vectors: <code>name</code>, <code>type</code>, <code>diameter</code>, <code>rotation</code> and <code>rings</code>; these vectors have already been coded up below. The first element in each of these vectors correspond to the first observation.</p>
 <p>You construct a data frame with the <code>data.frame()</code> function. As arguments, you pass the vectors from before: they will become the different columns of your data frame. Because every column has the same length, the vectors you pass should also have the same length. But don’t forget that it is possible (and likely) that they contain different types of data.</p>
-<div id="instructions-3" class="section level3">
-<h3>Instructions</h3>
+<div id="instructions-3" class="section level4">
+<h4>Instructions</h4>
 <p>Use the function <code>data.frame()</code> to construct a data frame. Pass the vectors <code>name</code>, <code>type</code>, <code>diameter</code>, <code>rotation</code> and <code>rings</code> as arguments to <code>data.frame()</code>, in this order. Call the resulting data frame <code>planets_df</code>.</p>
 <pre class="r"><code># Definition of vectors
 name &lt;- c(&quot;Mercury&quot;, &quot;Venus&quot;, &quot;Earth&quot;, &quot;Mars&quot;, &quot;Jupiter&quot;, &quot;Saturn&quot;, &quot;Uranus&quot;, &quot;Neptune&quot;)
@@ -411,11 +409,14 @@ rings &lt;- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
 <div id="creating-a-data-frame-2" class="section level2">
 <h2>5.5 Creating a data frame (2)</h2>
 <p>The <code>planets_df</code> data frame should have 8 observations and 5 variables. It is in your workspace now, so you do not have to recreate it again.</p>
+<div id="instructions-4" class="section level4">
+<h4>Instructions</h4>
 <p>Use <code>str()</code> to investigate the structure of the new <code>planets_df</code> variable.</p>
 <pre class="r"><code># Check the structure of planets_df
 
 
 #</code></pre>
+</div>
 </div>
 <div id="selection-of-data-frame-elements" class="section level2">
 <h2>5.6 Selection of data frame elements</h2>
@@ -425,7 +426,7 @@ rings &lt;- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
 <li><p><code>my_df[1:3,2:4]</code> selects rows 1, 2, 3 and columns 2, 3, 4 in my_df</p></li>
 </ul>
 <p>Sometimes you want to select all elements of a row or column. For example, <code>my_df[1, ]</code> selects all elements of the first row. Let us now apply this technique on <code>planets_df</code>!</p>
-<div id="instructions-4" class="section level4">
+<div id="instructions-5" class="section level4">
 <h4>Instructions</h4>
 <ul>
 <li><p>From <code>planets_df</code>, select the diameter of Mercury: this is the value at the first row and the third column. Simply print out the result.</p></li>
@@ -449,7 +450,7 @@ rings &lt;- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
 <pre class="r"><code>planets_df[1:3,2]</code></pre>
 <p>A possible disadvantage of this approach is that you have to know (or look up) the column number of type, which gets hard if you have a lot of variables. It is often easier to just make use of the variable name:</p>
 <pre class="r"><code>planets_df[1:3,&quot;type&quot;]</code></pre>
-<div id="instructions-5" class="section level4">
+<div id="instructions-6" class="section level4">
 <h4>Instructions</h4>
 <p>Select and print out the first 5 values in the <code>&quot;diameter&quot;</code> column of <code>planets_df</code>.</p>
 <pre class="r"><code># The planets_df data frame from the previous exercise is available
@@ -467,7 +468,7 @@ rings &lt;- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
 planets_df[,&quot;diameter&quot;]</code></pre>
 <p>However, there is a short-cut. If your columns have names, you can use the <code>$</code> sign:</p>
 <pre class="r"><code>planets_df$diameter</code></pre>
-<div id="instructions-6" class="section level4">
+<div id="instructions-7" class="section level4">
 <h4>Instructions</h4>
 <ul>
 <li><p>Use the <code>$</code> sign to select the rings variable from <code>planets_df</code>. Store the vector that results as <code>rings_vector</code>.</p></li>
@@ -490,7 +491,7 @@ planets_df[,&quot;diameter&quot;]</code></pre>
 <p>If you type <code>rings_vector</code> in the console, you get:</p>
 <pre><code>## [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE</code></pre>
 <p>This means that the first four observations (or planets) do not have a ring (<code>FALSE</code>), but the other four do (<code>TRUE</code>). However, you do not get a nice overview of the names of these planets, their diameter, etc. Let’s try to use <code>rings_vector</code> to select the data for the four planets with rings.</p>
-<div id="instructions-7" class="section level4">
+<div id="instructions-8" class="section level4">
 <h4>Instructions</h4>
 <p>The code below selects the <code>name</code> column of all planets that have rings. Adapt the code so that instead of only the <code>name</code> column, all columns for planets that have rings are selected.</p>
 <pre class="r"><code># planets_df and rings_vector are pre-loaded in your workspace
@@ -507,7 +508,7 @@ planets_df[name, ]</code></pre>
 <p>The first argument of <code>subset()</code> specifies the data set for which you want a subset. By adding the second argument, you give R the necessary information and conditions to select the correct subset.</p>
 <p>The code below will give the exact same result as you got in the previous exercise, but this time, you didn’t need the <code>rings_vector</code>!</p>
 <pre class="r"><code>subset(planets_df, subset = rings)</code></pre>
-<div id="instructions-8" class="section level4">
+<div id="instructions-9" class="section level4">
 <h4>Instructions</h4>
 <p>Use <code>subset()</code> on <code>planets_df</code> to select planets that have a diameter smaller than Earth. Because the <code>diameter</code> variable is a relative measure of the planet’s diameter w.r.t that of planet Earth, your condition is <code>diameter &lt; 1</code>.</p>
 <pre class="r"><code># planets_df is pre-loaded in your workspace
@@ -543,7 +544,7 @@ head(mtcars[mpg_rank, ], 8)</code></pre>
 ## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
 ## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2</code></pre>
 <p>Clearly, the Cadillac and Lincoln are good gas guzzlers. What if you want a more economical option?</p>
-<div id="instructions-9" class="section level4">
+<div id="instructions-10" class="section level4">
 <h4>Instructions</h4>
 <ul>
 <li>Read and run this example. What does the argument <code>decreasing = TRUE</code> do?</li>
@@ -555,7 +556,7 @@ head(mtcars[mpg_rank, ], 8)</code></pre>
 <div id="sorting-your-data-frame" class="section level2">
 <h2>5.12 Sorting your data frame</h2>
 <p>Alright, now that you understand the <code>order()</code> function, let us do something useful with it. You would like to rearrange your data frame such that it starts with the smallest planet and ends with the largest one. A sort on the diameter column.</p>
-<div id="instructions-10" class="section level4">
+<div id="instructions-11" class="section level4">
 <h4>Instructions</h4>
 <ul>
 <li><p>Call <code>order()</code> on <code>planets_df$diameter</code> (the diameter column of planets_df). Store the result as <code>positions.</code></p></li>
