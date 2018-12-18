@@ -1,0 +1,124 @@
+---
+title: "0: How to do this assignment"
+output:
+  html_document: default
+  pdf_document: default
+editor_options:
+  chunk_output_type: inline
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval=FALSE, include=TRUE)
+```
+
+I adapted this exercise from the Free Introduction to R tutorial from DataCamp (http://datacamp.com/courses/free-introduction-r). It was free but they just started charging for five of the modules.
+
+This exercise will teach you basic commands and types of data objects in R. By the end, you will be able to perform the following tasks in R.
+
+- assign values to variables;
+- create and manipulate vectors;
+- create and perform computations on matrices;
+- create, subset, and compare factors;
+- create data frames, extract data from rows, columns, and cells; and
+- create and manipulate lists.
+
+
+***
+
+## How this works
+
+First, create a folder called `hw02` inside your local repo (the folder you created for this course). 
+
+This assignment consists of six parts:
+
+- 1: Intro to Basics
+- 2: Vectors
+- 3: Matrices
+- 4: Factors
+- 5: Data frames
+- 6: Lists
+
+Each part has two files, the instructions (in HTML and PDF) and an R Notebook answer sheet where you type your code. The notebook files have a `.Rmd` file extension. You will download the `.Rmd` notebook files from the course website. **Place the `.Rmd` files in your `hw02` folder.**
+
+The R Notebook has code chunks, like that shown below, where you will type and run your code. A code chunk has instructions or commands that tell R to do things. You will learn more about these commands in the first exercise.
+
+````
+```{r}`r ""`
+a <- 2
+x <- a * 14
+x
+```
+````
+
+R Notebooks are interactive. In the upper right of each code chunk (not visible here) are a few controls, including a small green arrow  (![](../../img/run_chunk_arrow.png)) You can run each code chunk by clicking the small green arrow. When you click the arrow, every line of code in the chunk is interpreted and executed by R. If your code is correct, it will appear below the code. If the code is incorrect, you will get an error message. If you get an error, fix the code until it is correct.
+
+**Important:** If you stop an exercise part way through and come back later, click the downward-pointing gray arrow just left of the green arrow. That will execute all of the code chunks from the start of the document up to the current chunk. Then, click the green arrow and continue.
+
+Most code chunks in the R Notebook will have some code already present, and then a place for you to type more code. The example below assigns the value 2 to variable `a`. You are then given instructions to add more code. The instructions are comments, which begin with the hashtag (`#`) symbol.
+
+````
+```{r}`r ''`
+a <- 2
+
+# Multiply a by 12 and assign it to variable b.
+
+
+# Divide variable b by 3 and assign it to variable c
+
+
+# Print out variables b and c
+```
+````
+
+Your final answer should look like this, with the result appearing below the code chunk.
+
+````
+```{r}`r ''`
+a <- 2
+
+# Multiply a by 12 and assign it to variable b.
+
+b <- a * 2
+
+# Divide variable b by 3 and assign it to variable c
+
+c <- b / 3
+
+# Print out variables b and c
+b
+c
+
+#
+```
+````
+
+```{r echo=FALSE, eval=TRUE}
+a <- 2
+
+# Multiply a by 12 and assign it to variable b.
+
+b <- a * 12
+
+# Divide variable b by 3 and assign it to variable c
+
+c <- b / 3
+
+# Print out variables b and c
+b
+c
+```
+
+***
+
+After you complete each assignment, you must push that Notebook answer sheet to your remote repository.  Follow these steps:
+
+1. Choose `Tools > Version Control > Commit...` from the menu.    
+
+1. You should see an entry on the left that looks like `hw02/01_intro_to_basics.Rmd` or similar. The exact file name will depend on the the part you just completed. Click the checkbox to the left. If you see only `hw02`, then click that checkbox. That should show your notebook file, already checked.
+
+8. In the `Commit message` box on the right type "Finished Part 1." and press the `Commit` button. Change the part number to match the part you just completed.
+
+9. Close the confirmation box, then click the `Push` button with the green, upward-pointed arrow (upper right in RStudio). This will place your completed notebook on the remote repo (GitHub) for me to view.
+
+Notes 03 will cover what is actually going on when you do these steps.
+
