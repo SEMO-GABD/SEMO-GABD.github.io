@@ -13,10 +13,6 @@ knitr::opts_chunk$set(eval=FALSE, include=TRUE)
 ```
 
 
-I took the following from the Free Introduction to R tutorial from DataCamp(http://datacamp.com/courses/free-introduction-r). It was free but they started charging for five of the modules sometime before I started my course. This is a one-off in case I can't get free access for my students.
-
-## How this works
-
 This assignment consists of six parts:
 
 - Intro to Basics (this document)
@@ -26,7 +22,7 @@ This assignment consists of six parts:
 - Data frames
 - Lists
 
-Each part has two files, the instructions (this document) and an R Notebook answer sheet where you type your code. You must have both files.
+[Download the answer sheet for this document.](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/01_intro_to_basics_answers.Rmd)
 
 This document contains a number of small exercises that will help you learn the basics of R. Each exercise contains information about some aspect about R, instructions for you to follow. The R Notebook has code chunks where you will type and run your code. You can run each block by clicking the small green arrow in the upper right of each block. When you click the arrow, every line of code is interpreted and executed by R. If your code is correct, it will appear below the block of code. If the code is incorrect, you will get an error message. If you get an error, fix the code 
 
