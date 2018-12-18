@@ -2,8 +2,8 @@
 title: "1: Intro to Basics"
 subtitle: Introduction to R
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 editor_options:
   chunk_output_type: inline
 urlcolor: blue
@@ -23,8 +23,6 @@ This assignment consists of six parts:
 - Lists
 
 If you haven't already, [download the answer sheet for this document](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/01_intro_to_basics_answers.Rmd) (**Note:** right-click and save the file with the `.Rmd` extension to your `hw02` folder.)
-
-This document contains a number of small exercises that will help you learn the basics of R. Each exercise contains information about some aspect about R, instructions for you to follow. The R Notebook has code chunks where you will type and run your code. You can run each block by clicking the small green arrow in the upper right of each block. When you click the arrow, every line of code is interpreted and executed by R. If your code is correct, it will appear below the block of code. If the code is incorrect, you will get an error message. If you get an error, fix the code 
 
 After you complete each exercise, push the R Notebook to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
 
