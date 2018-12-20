@@ -52,9 +52,9 @@ Basic [Git commands:](http://happygitwithr.com/usage-git-cmds.html) You will not
 
 
 
-## R Markdown and R Notebooks
+## R Notebooks and R Markdown
 
-The markdown commands that you learned in the [previous exercise](http://../hw/hw01.html) can also be used in R to make documents like web (HTML) pages and PDF documents. R Markdown is an enhanced version of markdown with additional features so you can include the results of your analyses in R. RStudio provides many features that make using R Markdown easy.
+You used R Notebooks in [HW02](http://../hw/hw02.html). R Notebooks are interactive documents that allows you to use the markdown commands that you learned in [HW01](http://../hw/hw01.html). R Notebooks use **R Markdown**, an enhanced version of markdown with additional features. These features allow you to produce reports that include tables and graphs from your analyses in RStudio. You can use R Markdown and RStudio together to perform analyses that can be shared and reproduced by anyone. These tools have even been used to write [thesis and dissertations!](http://tysonbarrett.com/jekyll/update/2018/02/11/r_dissertation/)
 
 For this course, you will use R Notebook documents for the rest of your assignments, starting now. In RStudio, choose `File > New File > R Notebook` from the menu.  RStudio creates a new document with example R Markdown text. You will see familiar markdown commands, like `##` for section headers and `** … **` for **bold text.** 
 
@@ -154,11 +154,11 @@ As mentioned above, you have been giving commands to Git through the RStudio int
 
 *You saw the status of your files in the Git tab or when you choose `Tools > Version Control > Commit...` window.*
 
-The Git tab in RStudio (ctrl + 9) shows the status of your files. Compare this information below to this image. 
+The Git tab in the upper right panel of RStudio (View > Show Git) shows the status of your files. Compare the information below to this image. 
 
 ![](../img/git_status.png)
 
-- Both `hw03.Rmd` and `notes03.Rmd` have been modified, indicated by the "M" in the small blue square left of the path.  - `hw03.Rmd` has been staged but not yet commited. 
+- Both `hw03.Rmd` and `notes03.Rmd` (this file, in fact) have been modified, indicated by the "M" in the small blue square left of the path.  - `hw03.Rmd` has been staged but not yet commited. 
 - `notes03.Rmd` is being tracked but is not yet staged. Notice the difference in the position of the blue squares. 
 
     If I made a commit now, a snapshot of `hw03.Rmd` would be permanently recorded in the local Git repo but a snapshot of `notes03.Rmd` would not be made.
