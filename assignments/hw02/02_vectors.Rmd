@@ -2,8 +2,8 @@
 title: "2: Vectors"
 subtitle: Introduction to R
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 editor_options:
   chunk_output_type: inline
 urlcolor: blue
@@ -22,7 +22,7 @@ This assignment consists of six parts:
 - Data frames
 - Lists
 
-If you haven't already, [download the answer sheet for this document](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/02_vectors_answers.Rmd) (**Note:** right-click and save the file with the `.Rmd` extension to your `hw02` folder.)
+If you haven't already, [download the answer sheet for this document](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/02_vectors_answers.Rmd) (**Note:** right-click and save the file with the `.Rmd` extension to your `hw02` folder.)
 
 After you complete each exercise, push the R Notebook to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
 
