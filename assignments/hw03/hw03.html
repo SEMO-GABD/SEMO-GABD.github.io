@@ -1624,7 +1624,7 @@ $(document).ready(function () {
 <p><strong>Type</strong> the commands below into your R Notebook as you read through the case study. <strong>Do not copy and paste!</strong> Typing the commands is the best way to <em>drill your fingers</em> so that they remember the different commands and short cuts.</p>
 <div id="install-the-tidyverse-packages." class="section level3">
 <h3>Install the Tidyverse packages.</h3>
-<p><strong>You must do this step but only once.</strong></p>
+<p><strong>You must do this step only once.</strong></p>
 <p>We will spend the remaining time of this course in the <a href="https://www.tidyverse.org">Tidyverse</a>, which is a series of <strong>packages</strong> that adds functionality to the base R program.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> You must install the packages from the internet so you need internet access. To install <code>tidyverse</code>, choose <code>Tools &gt; Install Packages...</code> from the menu. Type <code>tidyverse</code> into the space provided. Be sure that <code>Repository (CRAN)</code> is selected and that the <code>Install dependencies</code> box is checked. Click the <code>Install</code> button. RStudio will automatically install everything you need from the Tidyverse. You only need to install packages once.</p>
 <p>We will use another package for this exercise too but, this time, use the command line in the RStudio console to install the package. The console is located in the lower left panel of RStudio. You can also choose <code>View &gt; Move Focus to Console</code> from the menu or type <code>ctrl + 2</code>.</p>
 <p>In the console, type <code>install.packages{&quot;xtable&quot;}</code>. Notice that RStudio will offer you a list of commands as your type. Type <code>xtable</code> between the quotes. <em>Case matters.</em> If you get the file name wrong, R will suggest possible (but not necessarily correct) matches. If successful, you will see a few lines informing you where the binary packages are stored. You do not need to remember this information.</p>
@@ -1974,12 +1974,12 @@ summary(chicks_lm)</code></pre>
 </div>
 <div id="equations" class="section level3">
 <h3>Equations</h3>
-<p>You can type set math equations easily, once you learn the format. R Markdown uses LaTeX <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> to typeset <a href="http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html">math symbols.</a>, which means you can type set beautiful, complex equations. Type LaTex math commands between <code>\(</code><span class="math inline">\(\dots\)</span><code>\)</code> (backslash and parentheses) for inline equations (<span class="math inline">\(e = mc^2\)</span>) or between <code>\[</code><span class="math inline">\(\dots\)</span><code>\]</code> (backslashes and brackets) for a centered, standalone equation,</p>
+<p>You can type set math equations easily, once you learn the format. R Markdown uses LaTeX <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> to typeset <a href="http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html">math symbols.</a>, which means you can type set beautiful, complex equations. Type LaTex math commands between <code>$</code><span class="math inline">\(\dots\)</span><code>$</code> (backslash and parentheses) for inline equations (<span class="math inline">\(e = mc^2\)</span>) or between <code>$$</code><span class="math inline">\(\dots\)</span><code>$$</code> (backslashes and brackets) for a centered, standalone equation,</p>
 <p><span class="math display">\[\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).\]</span></p>
 <p>Here are the commands I used to typeset Einstein’s equation for special relativity and for logistic population growth.</p>
-<pre><code>\(e = mc^2\)
+<pre><code>$e = mc^2$
 
-\[\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).\]</code></pre>
+$$\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).$$</code></pre>
 <p>You can typeset chemical equations, like the bicarbonate buffering system so vital to oceans and your blood,</p>
 <p><span class="math display">\[\mathrm{CO}_2 + \mathrm{H_2O} \longleftrightarrow \mathrm{H_2CO_3} \Longleftrightarrow \mathrm{H^+ + HCO_3^- \leftrightharpoons 2H^+ + CO_3^{2-}}. \]</span></p>
 <p>(I used different types of arrows in the equilibrium equation for demonstration, a typographical no-no.)</p>
