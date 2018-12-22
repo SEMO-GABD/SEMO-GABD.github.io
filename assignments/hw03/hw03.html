@@ -1974,12 +1974,12 @@ summary(chicks_lm)</code></pre>
 </div>
 <div id="equations" class="section level3">
 <h3>Equations</h3>
-<p>You can type set math equations easily, once you learn the format. R Markdown uses LaTeX <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> to typeset <a href="http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html">math symbols.</a>, which means you can type set beautiful, complex equations. Type LaTex math commands between one pair of single dollar signs <code>$</code><span class="math inline">\(\dots\)</span><code>$</code> for inline equations (<span class="math inline">\(e = mc^2\)</span>) or between two pairs of dollar signs (<code>$$</code><span class="math inline">\(\dots\)</span><code>$$</code>) for a centered, standalone equation,</p>
+<p>You can type set math equations easily, once you learn the format. R Markdown uses LaTeX <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> to typeset <a href="http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html">math symbols.</a>, which means you can type set beautiful, complex equations. Type LaTex math commands between <code>\(</code><span class="math inline">\(\dots\)</span><code>\)</code> (backslash and parentheses) for inline equations (<span class="math inline">\(e = mc^2\)</span>) or between <code>\[</code><span class="math inline">\(\dots\)</span><code>\]</code> (backslashes and brackets) for a centered, standalone equation,</p>
 <p><span class="math display">\[\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).\]</span></p>
 <p>Here’s the code I used to typeset Einstein’s equation for special relativity and for logistic population growth.</p>
-<pre><code>$e = mc^2$
+<pre><code>\(e = mc^2\)
 
-$$\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).$$</code></pre>
+\[\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).\]</code></pre>
 <p>You can typeset chemical equations, like the bicarbonate buffering system so vital to oceans and your blood,</p>
 <p><span class="math display">\[\mathrm{CO}_2 + \mathrm{H_2O} \longleftrightarrow \mathrm{H_2CO_3} \Longleftrightarrow \mathrm{H^+ + HCO_3^- \leftrightharpoons 2H^+ + CO_3^{2-}}. \]</span></p>
 <p>(I used different types of arrows in the equilibrium equation for demonstration, a typographical no-no.)</p>
@@ -2001,11 +2001,11 @@ $$\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).$$</code></pre>
 <p>There is a lot of power in R Markdown. Harness it! <a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 <hr />
 <p>By the way, did you know that <span class="math inline">\(0.9999\overline{9} = 1?\)</span> You can look it up but here is a simple proof:</p>
-<p><span class="math display">\[ \frac{1}{3} + \frac{1}{3} + \frac{1}{3} = \frac{3}{3} = 1,\]</span></p>
+<p><span class="math display">\[\frac{1}{3} + \frac{1}{3} + \frac{1}{3} = \frac{3}{3} = 1,\]</span></p>
 <p>and because,</p>
 <p><span class="math display">\[ \frac{1}{3} = 0.3333\overline{3},\]</span></p>
 <p>and because,</p>
-<p><span class="math display">\[0.3333\overline{3} + 0.3333\overline{3} + 0.3333\overline{3} = 0.9999\overline{9},\]</span></p>
+<p><span class="math display">\[ 0.3333\overline{3} + 0.3333\overline{3} + 0.3333\overline{3} = 0.9999\overline{9},\]</span></p>
 <p>it follows therefore that,</p>
 <p><span class="math display">\[ 0.9999\overline{9} = 1.\]</span></p>
 <hr />

@@ -2,10 +2,10 @@
 title: "Graphical Analysis of Biological Data"
 subtitle: 'Homework 03: R Markdown'
 output:
-  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
+  pdf_document: default
 #    latex_engine: lualatex
 urlcolor: blue
 ---
@@ -332,21 +332,21 @@ xtable(chicks_lm) %>% kable()
 
 ### Equations
 
-You can type set math equations easily, once you learn the format. R Markdown uses LaTeX ^[LaTeX is pronounced `lah-teck` or `lay-teck` and is really what you should be using instead of MS Word. But, baby steps$\dots$. ] to typeset [math symbols.](http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html), which means you can type set beautiful, complex equations. Type LaTex math commands between one pair of single dollar signs `$`$\dots$`$` for inline equations ($e = mc^2$) or between two pairs of dollar signs (`$$`$\dots$`$$`) for a centered, standalone equation, 
+You can type set math equations easily, once you learn the format. R Markdown uses LaTeX ^[LaTeX is pronounced `lah-teck` or `lay-teck` and is really what you should be using instead of MS Word. But, baby steps$\dots$. ] to typeset [math symbols.](http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html), which means you can type set beautiful, complex equations. Type LaTex math commands between `\(`\(\dots\)`\)` (backslash and parentheses) for inline equations (\(e = mc^2\)) or between  `\[`\(\dots\)`\]` (backslashes and brackets) for a centered, standalone equation, 
 
-$$\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).$$
+\[\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).\]
 
 Here's the code I used to typeset Einstein's equation for special relativity and for logistic population growth.
 
 ```
-$e = mc^2$
+\(e = mc^2\)
 
-$$\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).$$
+\[\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).\]
 ```
 
 You can typeset chemical equations, like the bicarbonate buffering system so vital to oceans and your blood,
 
-$$\mathrm{CO}_2 + \mathrm{H_2O} \longleftrightarrow \mathrm{H_2CO_3} \Longleftrightarrow \mathrm{H^+ + HCO_3^- \leftrightharpoons 2H^+ + CO_3^{2-}}. $$ 
+\[\mathrm{CO}_2 + \mathrm{H_2O} \longleftrightarrow \mathrm{H_2CO_3} \Longleftrightarrow \mathrm{H^+ + HCO_3^- \leftrightharpoons 2H^+ + CO_3^{2-}}. \]
 
 (I used different types of arrows in the equilibrium equation for demonstration, a typographical no-no.)
 
@@ -354,43 +354,43 @@ I want you to use the LaTeX math commands ([link again](http://web.ift.uib.no/Te
 
 1. The Michaelis-Menten equation at top of this [Wikipedia page.](https://en.wikipedia.org/wiki/Michaelis–Menten_kinetics), which is used to model enzyme kinematics.
 
-2. The Chi-square equation shown near the top of [this page.](https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/chi-square/), a commonly used statistical test in Biology and other sciences. Note: You must use the Greek letter Chi ($\chi$), not the letter X.
+2. The Chi-square equation shown near the top of [this page.](https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/chi-square/), a commonly used statistical test in Biology and other sciences. Note: You must use the Greek letter Chi (\(\chi\)), not the letter X.
 
 3. The Bernoulli equation shown at the very top of [this page.](https://www.princeton.edu/~asmits/Bicycle_web/Bernoulli.html), which describes how flow over mounds causes air to flow through Prairie Dog dens and burrowing worm tunnels.
 
-4. Another equation of your choice and of similar complexity. $y = mx + b$ is not sufficient. Besides, I just took it.
+4. Another equation of your choice and of similar complexity. \(y = mx + b\) is not sufficient. Besides, I just took it.
 
 Here are a few things you must know to typeset an equation.
 
-- Use `\frac{numerator}{denomiator}` for fractions. For example, `\frac{3}{4}` yields $\frac{3}{4}$.
+- Use `\frac{numerator}{denomiator}` for fractions. For example, `\frac{3}{4}` yields \(\frac{3}{4}\).
 
-- Use `^` (caret) and `_` (underscore) for superscripts and subscripts. For example, `x_i = y^2` yields $x_i = y^2$. You can use both super- and subscripts on the same variable, such as `Y_i^2` to get $Y_i^2$.
+- Use `^` (caret) and `_` (underscore) for superscripts and subscripts. For example, `x_i = y^2` yields \(x_i = y^2\). You can use both super- and subscripts on the same variable, such as `Y_i^2` to get \(Y_i^2\).
 
-- Use braces to super- or subscript more than one character. For example, use `N_{t + 1} = N_0e^{rt}` to get $N_{t + 1} = N_0e^{rt}$. Notice that only the zero is subscripted after the $N$.
+- Use braces to super- or subscript more than one character. For example, use `N_{t + 1} = N_0e^{rt}` to get \(N_{t + 1} = N_0e^{rt}\). Notice that only the zero is subscripted after the \(N\).
 
-- `\times` gives a very nice $\times$ symbol. If you prefer, you can use `\cdot` for multiplication, e.g., $x \cdot y$. `\div` gives a nice $\div$.
+- `\times` gives a very nice \(\times\) symbol. If you prefer, you can use `\cdot` for multiplication, e.g., \(x \cdot y\). `\div` gives a nice \(\div\).
 
-- `\sqrt{x}` yields $\sqrt{x}$. Need a cube root or some other $nth$ root? Try `\sqrt[3]{x}` for $\sqrt[3]{x}$.
+- `\sqrt{x}` yields \(\sqrt{x}\). Need a cube root or some other \(nth\) root? Try `\sqrt[3]{x}` for \(\sqrt[3]{x}\).
 
 There is a lot of power in R Markdown. Harness it! ^[Did you notice these footnotes? For a bonus pat on the back, include a footnote in your R Markdown document.]
 
 ***
 
-By the way, did you know that $0.9999\overline{9} = 1?$ You can look it up but here is a simple proof:
+By the way, did you know that \(0.9999\overline{9} = 1?\) You can look it up but here is a simple proof:
 
-$$ \frac{1}{3} + \frac{1}{3} + \frac{1}{3} = \frac{3}{3} = 1,$$
-
-and because,
-
-$$ \frac{1}{3} = 0.3333\overline{3},$$
+\[\frac{1}{3} + \frac{1}{3} + \frac{1}{3} = \frac{3}{3} = 1,\]
 
 and because,
 
-$$0.3333\overline{3} + 0.3333\overline{3} + 0.3333\overline{3} = 0.9999\overline{9},$$
+\[ \frac{1}{3} = 0.3333\overline{3},\]
+
+and because,
+
+\[ 0.3333\overline{3} + 0.3333\overline{3} + 0.3333\overline{3} = 0.9999\overline{9},\]
 
 it follows therefore that,
 
-$$ 0.9999\overline{9} = 1.$$
+\[ 0.9999\overline{9} = 1.\]
 
 ***
 
