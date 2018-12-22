@@ -1,0 +1,75 @@
+---
+title: "Data visualization with ggplot2"
+subtitle: Graphical Analysis of Biological Data
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  pdf_document:
+    latex_engine: lualatex
+urlcolor: blue
+linkcolor: blue
+editor_options:
+  chunk_output_type: inline
+mainfont: Linux Libertine O
+---
+
+This web page is available as a [PDF file](./notes04.pdf)
+
+## Read
+
+[R4ds: Chapter 3](https://r4ds.had.co.nz/data-visualisation.html)
+
+## Resources
+
+#### Why visualize?
+
+As a young scientist, you should read [A protocol for data exploration to avoid common statistical problems](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2009.00001.x) (free access) by Zuur et al. 2010. The article describes the importance of visualizing your data before you begin your statistical analysis. 
+
+Many of the graphs you will make for this course will relate to the protocol outlined in Figure 1 of this paper.
+
+This paper is part of the underlying philosophy of this course. Read it, even though you may not (yet) understand all of what they are discussing.
+
+
+#### ggplot2
+
+`ggplot2` is one of the `tidyverse` packages. `ggplot2` adopts the principle of a [layered grammar of graphics](http://vita.had.co.nz/papers/layered-grammar.pdf), first developed by Leland Wilkinson in [The Grammar of Graphics](https://www.springer.com/us/book/9780387245447). The layered grammar of graphics allows you to build up graphs in layers, as you will learn in the assignment.
+
+[ggplot2 cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ggplot2)
+
+Dipanjan Sarkar has a [nice web page](https://towardsdatascience.com/a-comprehensive-guide-to-the-grammar-of-graphics-for-effective-visualization-of-multi-dimensional-1f92b4ed4149) on the layered grammar of graphics used by ggplot2.
+
+
+#### Designing good figures
+
+[Edward Tufte](https://twitter.com/EdwardTufte?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor) is a pioneer of innovative graphic design. His graphs maximize the [data-ink ratio](https://www.perceptualedge.com/articles/visual_business_intelligence/sometimes_we_must_raise_our_voices.pdf) by minimizing [chartjunk.](https://en.wikipedia.org/wiki/Chartjunk) Excel and PowerPoint are notoriously bad for chartjunk. Some of his ideas are unusual and debated but the overall theme of reducing unneeded "ink" to increase data signal is widely accepted and one that we will follow.
+
+Another [perspective](https://www.perceptualedge.com/articles/visual_business_intelligence/the_chartjunk_debate.pdf) on ChartJunk by Stephen Few.
+
+[Designing effective tables and graphs](http://www.perceptualedge.com/images/Effective_Chart_Design.pdf) by Stephen Few of the [Perceptual Edge](http://www.perceptualedge.com/). He has several [articles](http://www.perceptualedge.com/library.php#Articles) that are worth looking through.
+
+[Data visualization: a practical introduction](https://socviz.co) by [Kieran Healy](https://kieranhealy.org) is a great reference for graph design with ggplot2. 
+
+[Fundamentals of Data Visualisation](https://serialmentor.com/dataviz/) by [Claus O. Wilke](http://wilkelab.org) is another great reference for graph design. Although Dr. Wilke used ggplot2 for the figures, his book focuses on the elements of good design and not the code.
+
+## A hint or two...
+
+- Use `? <function name` to get help on a particular function. For example, `?geom_point` (space or no space after the question `?` works) will show you the help file for `geom_point` in `ggplot2`.
+
+- Place your cursor on a function name in the RStudio console or in a code chunk, and then press the F1 function key (on Mac laptops, you may have to press the "fn" key when you press F1.) This will also bring up the help for that function.
+
+- Type your code. Do not copy and paste from the assigned reading. You will do yourself a disserve if you copy and paste. Type your code! 
+
+- `ggplot2` builds the graphs in layers. Make sure your line breaks between layers ends with the `+` so that your code runs properly, as shown below. 
+
+```{r warning=FALSE, message=FALSE}
+library(ggplot2)
+ggplot(data = airquality, aes(x = Ozone, y = Temp)) +
+  geom_point() +
+  geom_smooth() +
+  theme_minimal()
+```
+
+
+Now, go make some graphs.
+
