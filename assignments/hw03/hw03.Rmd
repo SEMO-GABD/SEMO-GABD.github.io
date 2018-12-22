@@ -356,7 +356,7 @@ I want you to use the LaTeX math commands ([link again](http://web.ift.uib.no/Te
 
 2. The Chi-square equation shown near the top of [this page.](https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/chi-square/), a commonly used statistical test in Biology and other sciences. Note: You must use the Greek letter Chi (\(\chi\)), not the letter X.
 
-3. The Bernoulli equation shown at the very top of [this page.](https://www.princeton.edu/~asmits/Bicycle_web/Bernoulli.html), which describes how flow over mounds causes air to flow through Prairie Dog dens and burrowing worm tunnels.
+3. The Bernoulli equation shown at the very top of [this page.](https://www.princeton.edu/~asmits/Bicycle_web/Bernoulli.html), which describes how fluid flow over mounds causes air to flow through Prairie Dog dens and water through burrowing marine worm tunnels.
 
 4. Another equation of your choice and of similar complexity. \(y = mx + b\) is not sufficient. Besides, I just took it.
 
