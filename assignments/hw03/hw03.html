@@ -1976,7 +1976,7 @@ summary(chicks_lm)</code></pre>
 <h3>Equations</h3>
 <p>You can type set math equations easily, once you learn the format. R Markdown uses LaTeX <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> to typeset <a href="http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html">math symbols.</a>, which means you can type set beautiful, complex equations. Type LaTex math commands between <code>\(</code><span class="math inline">\(\dots\)</span><code>\)</code> (backslash and parentheses) for inline equations (<span class="math inline">\(e = mc^2\)</span>) or between <code>\[</code><span class="math inline">\(\dots\)</span><code>\]</code> (backslashes and brackets) for a centered, standalone equation,</p>
 <p><span class="math display">\[\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).\]</span></p>
-<p>Here’s the code I used to typeset Einstein’s equation for special relativity and for logistic population growth.</p>
+<p>Here are the commands I used to typeset Einstein’s equation for special relativity and for logistic population growth.</p>
 <pre><code>\(e = mc^2\)
 
 \[\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).\]</code></pre>
@@ -1992,6 +1992,7 @@ summary(chicks_lm)</code></pre>
 </ol>
 <p>Here are a few things you must know to typeset an equation.</p>
 <ul>
+<li><p>These are <em>not</em> part of the R language. Do not put them inside of code chunks.</p></li>
 <li><p>Use <code>\frac{numerator}{denomiator}</code> for fractions. For example, <code>\frac{3}{4}</code> yields <span class="math inline">\(\frac{3}{4}\)</span>.</p></li>
 <li><p>Use <code>^</code> (caret) and <code>_</code> (underscore) for superscripts and subscripts. For example, <code>x_i = y^2</code> yields <span class="math inline">\(x_i = y^2\)</span>. You can use both super- and subscripts on the same variable, such as <code>Y_i^2</code> to get <span class="math inline">\(Y_i^2\)</span>.</p></li>
 <li><p>Use braces to super- or subscript more than one character. For example, use <code>N_{t + 1} = N_0e^{rt}</code> to get <span class="math inline">\(N_{t + 1} = N_0e^{rt}\)</span>. Notice that only the zero is subscripted after the <span class="math inline">\(N\)</span>.</p></li>
