@@ -59,6 +59,10 @@ We will use another package for this exercise too but, this time, use the comman
 
 In the console, type `install.packages{"xtable"}`. Notice that RStudio will offer you a list of commands as your type. Type `xtable` between the quotes. *Case matters.* If you get the file name wrong, R will suggest possible (but not necessarily correct) matches. If successful, you will see a few lines informing you where the binary packages are stored. You do not need to remember this information.
 
+**Note:** If you get an error saying that the `xtable` package is not available for your version of R, then run this command in the console to install the more up-to-date development version.
+
+    install.packages("xtable", repos="http://R-Forge.R-project.org")
+
 **Note:** Whenever you update R, you will have to reinstall the packages that you use, like `tidyverse`. While this can be a bit of a pain, it is essential for reproducibility. As software versions change, bugs are fixed, algorithms are improved, and other changes occur. Thus, someone using different combinations of R and associated packages might get a result different from you, the [antithesis](https://www.dictionary.com/browse/antithesis) of reproducibility. Fortunately, installing packages is easy and you do not have to upgrade R or RStudio often.
 
 ### Load the Tidyverse packages.
