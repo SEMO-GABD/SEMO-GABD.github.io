@@ -25,12 +25,12 @@ Assignments are available in HTML and PDF formats. They have the same content so
 | 02 Lists (Pt. 6) | [HTML](hw02/06_lists.html) / [PDF](hw02/04_lists.pdf) |  21 Dec (F)  | [R4ds Chapter 1](https://r4ds.had.co.nz/introduction.html)<br/> [R4ds Chapter 2](http://r4ds.had.co.nz/communicate-intro.html)<br/> [R4ds Chapter 4](https://r4ds.had.co.nz/workflow-basics.html)<br/> [R4ds Chapter 6](https://r4ds.had.co.nz/workflow-scripts.html)<br/> [R4ds Chapter 8](https://r4ds.had.co.nz/workflow-projects.html) | 
 | [03 R Studio<br/>R Markdown<br/>Git and GitHub](../notes/notes03.html) | [HTML](hw03/hw03.html) / [PDF](hw03/hw03.pdf) |  23 Dec (Su) | [R4ds Chapter 4](http://r4ds.had.co.nz/workflow-basics.html) (review)<br/>[R4ds Chapter 26](http://r4ds.had.co.nz/communicate-intro.html)<br/>[R4ds Chapter 27](http://r4ds.had.co.nz/r-markdown.html)<br/>[R4ds Chapter 29](http://r4ds.had.co.nz/r-markdown-formats.html), sect 1-3<br/> [R Markdown tutorial](https://rmarkdown.rstudio.com/lesson-1.html)<br/> [GitHub Tutorial](https://guides.github.com/activities/hello-world/) |
 | [04 Data Visualization](../notes/notes04.html) | [HTML](hw04/hw04.html) / [PDF](hw04/hw04.pdf) |  26 Dec (W) | [R4ds Chapter 3](https://r4ds.had.co.nz/data-visualisation.html) |
-| 05 Importing Data. | HTML / PDF |  28 Dec (F) | Chapters 10,  11.<br/> Include reading files from internet. |
-| 06  | HTML / PDF |  30 Dec (Su) | R4ds Chapter 7 |
-| 07  | HTML / PDF |  02 Jan (W) | Chapter 5 through 5.4 or all?. |
-| 08  | HTML / PDF |  04 Jan (F) | Chapter 5 sections 5.5 to 5.7? |
-| 09  | HTML / PDF |  06 Jan (Su) | Functions here? |
-| 10  | HTML / PDF | 09 Jan (W) | Functions here? |
+| [05 Importing and Wrangling I](../notes/notes05.html) | [HTML](hw05/hw05.html) / [PDF]((hw05/hw05.pdf)) |  28 Dec (F) | Chapters 10,  11.<br/> Include reading files from internet. |
+| 06  | HTML / PDF |  30 Dec (Su) |  |
+| 07  | HTML / PDF |  02 Jan (W) |  |
+| 08  | HTML / PDF |  04 Jan (F) |  |
+| 09  | HTML / PDF |  06 Jan (Su) |  |
+| 10  | HTML / PDF | 09 Jan (W) |  |
 | 11 Maps | HTML / PDF | 11 Jan (F) | |
 
 
