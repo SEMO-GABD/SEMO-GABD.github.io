@@ -2,8 +2,8 @@
 title: "4: Factors"
 subtitle: Introduction to R
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 editor_options:
   chunk_output_type: inline
 urlcolor: blue
@@ -129,9 +129,7 @@ factor_temperature_vector
 
 When you first get a data set, you will often notice that it contains factors with specific factor levels. However, sometimes you will want to change the names of these levels for clarity or other reasons. R allows you to do this with the function `levels()`:
 
-```{r}
-levels(factor_vector) <- c("name1", "name2",...)
-```
+`levels(factor_vector) <- c("name1", "name2",...)`
 
 A good illustration is the raw data that is provided to you by a survey. A common question for every questionnaire is the sex of the respondent. Here, for simplicity, just two categories were recorded, "M" and "F". (You usually need more categories for survey data; either way, you use a factor to store the categorical data.)
 
@@ -175,9 +173,7 @@ factor_survey_vector
 
 After finishing this course, one of your favorite functions in R will be `summary()`. This will give you a quick overview of the contents of a variable:
 
-```{r}
-summary(my_var)
-```
+`summary(my_var)`
 
 Going back to our survey, you would like to know how many `"Male"` responses you have in your study, and how many `"Female"` responses. The `summary()` function gives you the answer to this question.
 

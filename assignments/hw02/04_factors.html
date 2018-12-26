@@ -387,7 +387,7 @@ factor_temperature_vector</code></pre>
 <div id="factor-levels" class="section level2">
 <h2>4.4 Factor levels</h2>
 <p>When you first get a data set, you will often notice that it contains factors with specific factor levels. However, sometimes you will want to change the names of these levels for clarity or other reasons. R allows you to do this with the function <code>levels()</code>:</p>
-<pre class="r"><code>levels(factor_vector) &lt;- c(&quot;name1&quot;, &quot;name2&quot;,...)</code></pre>
+<p><code>levels(factor_vector) &lt;- c(&quot;name1&quot;, &quot;name2&quot;,...)</code></p>
 <p>A good illustration is the raw data that is provided to you by a survey. A common question for every questionnaire is the sex of the respondent. Here, for simplicity, just two categories were recorded, “M” and “F”. (You usually need more categories for survey data; either way, you use a factor to store the categorical data.)</p>
 <pre class="r"><code>survey_vector &lt;- c(&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;)</code></pre>
 <p>Recording the sex with the abbreviations “M” and “F” can be convenient if you are collecting data with pen and paper, but it can introduce confusion when analyzing the data. At that point, you will often want to change the factor levels to “Male” and “Female” instead of <code>&quot;M&quot;</code> and <code>&quot;F&quot;</code> for clarity.</p>
@@ -411,7 +411,7 @@ factor_survey_vector</code></pre>
 <div id="summarizing-a-factor" class="section level2">
 <h2>4.5 Summarizing a factor</h2>
 <p>After finishing this course, one of your favorite functions in R will be <code>summary()</code>. This will give you a quick overview of the contents of a variable:</p>
-<pre class="r"><code>summary(my_var)</code></pre>
+<p><code>summary(my_var)</code></p>
 <p>Going back to our survey, you would like to know how many <code>&quot;Male&quot;</code> responses you have in your study, and how many <code>&quot;Female&quot;</code> responses. The <code>summary()</code> function gives you the answer to this question.</p>
 <div id="instructions-4" class="section level4">
 <h4>Instructions</h4>
