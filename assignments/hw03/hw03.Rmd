@@ -2,10 +2,10 @@
 title: "Graphical Analysis of Biological Data"
 subtitle: 'Homework 03: R Markdown'
 output:
+  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
-  pdf_document: default
 #    latex_engine: lualatex
 urlcolor: blue
 ---
@@ -318,7 +318,7 @@ summary(chicks_lm)
 
 The summary includes a *lot* of information. You only need the `Coefficients` data to make a table. 
 
-- Insert a code chunk and run `kable()` on `chick_wts`. What happens? Write a 1-2 sentence summary of the results.
+- Insert a code chunk and run `kable()` on `chicks_lm`. What happens? Write a 1-2 sentence summary of the results.
 
 
 `xtable()` is a function from the `xtable` package that "knows" how to extract information from many types of summaries, which can then be given to `kable`, as shown here.

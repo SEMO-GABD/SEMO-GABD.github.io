@@ -1906,7 +1906,7 @@ summary(chicks_lm)</code></pre>
 ## F-statistic: 15.36 on 5 and 65 DF,  p-value: 5.936e-10</code></pre>
 <p>The summary includes a <em>lot</em> of information. You only need the <code>Coefficients</code> data to make a table.</p>
 <ul>
-<li>Insert a code chunk and run <code>kable()</code> on <code>chick_wts</code>. What happens? Write a 1-2 sentence summary of the results.</li>
+<li>Insert a code chunk and run <code>kable()</code> on <code>chicks_lm</code>. What happens? Write a 1-2 sentence summary of the results.</li>
 </ul>
 <p><code>xtable()</code> is a function from the <code>xtable</code> package that “knows” how to extract information from many types of summaries, which can then be given to <code>kable</code>, as shown here.</p>
 <pre class="r"><code>xtable(chicks_lm) %&gt;% kable()</code></pre>
