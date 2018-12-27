@@ -2,10 +2,10 @@
 title: "HW 05: Data Importing and Wrangling 1"
 subtitle: "Graphical Analysis of Biological Data"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
-  pdf_document: default
 #    latex_engine: lualatex
 urlcolor: blue
 ---
@@ -46,6 +46,8 @@ library(tidyverse)
 ## Part 1
 
 - Download this [R Notebook file](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw05/worksheet_hw05a.Rmd). Right-click to save the file as `<lastname>_hw05a.Rmd` inside the "hw05" folder.
+
+- Install the `nycflights13` package. You will need it to complete this assignment and the next.
 
 Read the following sections. As you read the asigned sections, insert a code chunk in your notebook and recreate *every* example in that section, except for those I tell you in the notebook to skip. *Type the code!*  In part 2, you will have to type the code from scratch so typing the code will help you remember it better. The point here is *learn* how to do this! 
 
