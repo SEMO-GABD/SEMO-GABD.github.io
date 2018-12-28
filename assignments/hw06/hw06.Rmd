@@ -43,7 +43,7 @@ library(knitr)
 
 ## Part 1
 
-- Download this [R Notebook file](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw06/worksheet_hw06a.Rmd). Right-click to save the file as `<lastname>_hw06a.Rmd` inside the `hw06` folder.
+- Download this [R Notebook file](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw06/worksheet_hw06a.Rmd). Right-click to save the file as `<lastname>_hw06a.Rmd` inside the `hw06` folder. Make sure the file ends with `.Rmd` and not `.txt`. 
 
 Read the following sections. As you read the asigned sections, insert a code chunk in your notebook and recreate *every* example in that section, except for those I tell you in the notebook to skip. *Type the code!*  In part 2, you will have to type the code from scratch so typing the code will help you remember it better. The point here is *learn* how to do this! 
 
