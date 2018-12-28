@@ -39,6 +39,8 @@ library(smatr)
 library(knitr)
 ```
 
+- Right-click to save [this file](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw06/feathers.csv) as `feathers.csv` in your data folder. Make sure the file ends with `.csv` and not `.txt`.
+
 ## Part 1
 
 - Download this [R Notebook file](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw06/worksheet_hw06a.Rmd). Right-click to save the file as `<lastname>_hw06a.Rmd` inside the `hw06` folder.
