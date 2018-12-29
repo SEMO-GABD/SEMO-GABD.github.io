@@ -19,13 +19,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Read [R4ds Chapter 5: Data transformation](https://r4ds.had.co.nz/transform.html), sections 5-7.
 
+You do not answer any of the questions this week. Just read and run all of the examples.
+
 ### Section 5.5: Add new variables with `mutate()`
 
 Type and run all of the examples.
 
 Pay careful attention to the useful creation functions in section 5.5.1. 
-
-Do not answer any of the questions.
 
 ### Section 5.6: Grouped summaries with `summarise()`
 
