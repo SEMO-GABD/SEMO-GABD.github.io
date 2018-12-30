@@ -2,11 +2,11 @@
 title: "06: Coding Style and Wrangling II"
 subtitle: Graphical Analysis of Biological Data
 output:
-  pdf_document:
-    latex_engine: lualatex
   html_document:
     df_print: paged
     toc: yes
+  pdf_document:
+    latex_engine: lualatex
 urlcolor: blue
 linkcolor: blue
 editor_options:
@@ -15,7 +15,7 @@ mainfont: Linux Libertine O
 ---
 
 
-This web page is available as a [PDF file](./notes05.pdf)
+This web page is available as a [PDF file](./notes06.pdf)
 
 ## Reading and Resources
 
