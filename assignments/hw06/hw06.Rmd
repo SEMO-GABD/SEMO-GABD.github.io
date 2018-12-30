@@ -2,10 +2,10 @@
 title: "HW 06: Wrangling II"
 subtitle: "Graphical Analysis of Biological Data"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
+  pdf_document: default
 #    latex_engine: lualatex
 urlcolor: blue
 ---
@@ -76,7 +76,7 @@ A few things:
 - Load the `tidyverse` and `knitr` libraries.
 - **Install the `smatr` package and then load the `smatr` library.**
 - Define a variable with the path to your `data` folder. This should be the same data path you used last time.
-- [Download this zip file](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw06/data.zip) of data. Unzip the file and place all of the files in your `data` folder. 
+- Make sure the [feathers.csv]((https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw06/feathers.csv)) file is in your `data` folder. 
 - Commit early. Commit often.  Push regularly but at least push your completed assignment.
 
 
