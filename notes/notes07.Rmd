@@ -26,7 +26,7 @@ library(kableExtra)
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-abalone <- read_csv("../data/abalone.csv")
+abalone <- read_csv("data/abalone.csv")
 
 histogram_table <- abalone %>% 
   mutate(
@@ -76,7 +76,7 @@ iqr <- (quants[3] - quants[1]) * 1.5
 iris_mod <- iris %>% 
   mutate(box_group = "1",
          point_group = "2",
-         outlier_color = ifelse(Sepal.Width < 2.2 | Sepal.Width > 4.0, "maroon", "black"))
+         outlier_color = ifelse(Sepal.Width < 2.2 | Sepal.Width > 4.0, "darkorange", "black"))
 
 col <- as.character(iris_mod$outlier_color)
 names(col) <- as.character(iris_mod$outlier_color)
@@ -86,7 +86,7 @@ iris_mod %>%
   geom_boxplot(aes(x = box_group,
                y = Sepal.Width),
                width = 0.4,
-               outlier.color = "maroon") +
+               outlier.color = "darkorange") +
   geom_jitter(aes(x = point_group,
                   y = Sepal.Width,
                   color = outlier_color),
@@ -110,7 +110,7 @@ iris_mod %>%
   labs(y = "Sepal Width (mm)")
 ```
 
-A typical boxplot has several key features. The **median** is the middle value of the data set. 50% of the data are less than the median and 50% of the data are greater than the median. 25% of the data fall between the median and lower boundary of the box(**lower hinge**), and 25% of the data fall between the median and the upper box boundary (**upper hinge**). In other words, the height of the box contains 50% of the data. The box height is known as the **interquartile range** (IQR).  The whiskers are the thin lines that extend below and above the box. The whiskers extend to the minumum and maximum values in the data *unless* some values fall outside of the IQR \* 1.5, known as the "fence." Values outside of the fences are possible **outliers** and identified as individual points, here colored maroon. 
+A typical boxplot has several key features. The **median** is the middle value of the data set. 50% of the data are less than the median and 50% of the data are greater than the median. 25% of the data fall between the median and lower boundary of the box(**lower hinge**), and 25% of the data fall between the median and the upper box boundary (**upper hinge**). In other words, the height of the box contains 50% of the data. The box height is known as the **interquartile range** (IQR).  The whiskers are the thin lines that extend below and above the box. The whiskers extend to the minumum and maximum values in the data *unless* some values fall outside of the IQR \* 1.5, known as the "fence." Values outside of the fences are possible **outliers** and identified as individual points, here colored orange. 
 
 
 As you will see in the assignment, outliers identified by boxplots are *possible* outliers but must be explored in more depth.
@@ -274,5 +274,5 @@ Scatterplots are useful to detect relationships between data, as you observed in
 
 ***
 
-For this assignment you will use the same dataset used by Zuur et al. (2010) to generate some of their figures. You will then use these techniques to explore another dataset.
+For this [assignment](../assignments/hw07/hw07.html) you will use the same dataset used by Zuur et al. (2010) to generate some of their figures. You will then use these techniques to explore another dataset.
 
