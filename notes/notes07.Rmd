@@ -192,6 +192,7 @@ knitr::kable(histogram_table, booktabs = TRUE) %>%
   kable_styling(full_width = FALSE,
                 position = "float_right")
 ```
+
 Many statistical analyses assume that your data are [normally distributed,](https://www.mathsisfun.com/data/standard-normal-distribution.html) with a particular distribution around the average of your sample. You should always determine whether your data approximate a normal distribution. You can do this with statistical tests but you should begin by plotting your data. One useful plot to see if your  data are normally distributed is a **histogram.** Histograms show the number of individuals (sometimes proportions or frequencies) that occur in categories that you specify.  
 
 A histogram-like plot is a grade distribution that shows the number of students that earned A, B, C, D, or F. Each grade is a distinct category. Nominal data like these are often shown as a column chart. But, column charts cannot be used (at least practically) for continuous data, like the data shown at right, taken from the abalone data you used previously. The age categories, or *bins* was specified by me. I used 5-year bins but I could have used 2-year, 3-year, etc. $N$ represents the number of individuals in each age group.  The data in the table clearly show that most individuals sampled are between 6-15 years old. 
@@ -268,7 +269,7 @@ abalone %>%
 
 ### Relationships: scatterplots
 
-Read [Scatter plots](https://serialmentor.com/dataviz/visualizing-associations.html#associations-scatterplots)from *Fundamentals of Data Visualization* by [Claus O. Wilke.](http://wilkelab.org)
+Read [Scatter plots](https://serialmentor.com/dataviz/visualizing-associations.html#associations-scatterplots) from *Fundamentals of Data Visualization* by [Claus O. Wilke.](http://wilkelab.org)
 
 Scatterplots are useful to detect relationships between data, as you observed in previous assignments. If some variables in your data have a strong relationship, then using all of the related variables will bias your analyses. You would then choose carefully which variables to discard and which to use.
 
