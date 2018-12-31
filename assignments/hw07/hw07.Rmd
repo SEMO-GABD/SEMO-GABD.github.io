@@ -2,10 +2,10 @@
 title: "HW 07: Data Visualization"
 subtitle: "Graphical Analysis of Biological Data"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
-  pdf_document: default
 #    latex_engine: lualatex
 urlcolor: blue
 ---
@@ -181,7 +181,7 @@ p_culmen <- sparrows %>%
         axis.ticks.y=element_blank())
 ```
 
-The other five variables are `nalospi`, `wt`, `wingcrd`, `tarsus`, and `head`. Make a new code chunk and include the code above plus the code to produce the other five graphs, and then lay them out as shown in the figure. If successful, your plot should look like this.
+The other five variables are `nalospi`, `wt`, `wingcrd`, `tarsus`, and `head`. **Make a new code chunk and include the code above plus the code to produce the other five graphs, and then lay them out as shown in the figure.** If successful, your plot should look like this.
 
 ```{r echo=FALSE}
 # Recreate Zuur et al 2010 Fig 3
