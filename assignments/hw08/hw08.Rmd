@@ -1,0 +1,480 @@
+---
+title: "HW 08: Dates"
+subtitle: "Graphical Analysis of Biological Data"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+    latex_engine: lualatex
+  pdf_document: default
+urlcolor: blue
+---
+
+<!--
+```{r include=FALSE}
+knitr::opts_chunk$set(include = FALSE, eval = TRUE, message=FALSE)
+```
+-->
+
+By the end of this assignment, you should demonstrate an ability to 
+
+- make dates from different input formats,
+- use the dates for calculations, and
+- extract date components for graphing, 
+
+Click on any blue text to visit the external website.
+
+This assignment has two parts. 
+
+**Note:** If you contact me for help or (better yet) open an issue in the [public discussion forum,](https://github.com/SEMO-GABD/public_discussion) please include the code that is not working and also tell me what you have tried.
+
+## Preparation
+
+- Read [R4ds Chapter 16: Dates and times](https://r4ds.had.co.nz/dates-and-times.html) sections 1-3. I suggest you run the examples but I am not requiring that you do so.
+
+- Open your `.Rproj` project file in RStudio.
+
+- Right-click and save these three files to your `data` folder.
+
+    - [lake_ice.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw08/lake_ice.csv)
+    - [soil_co2.txt](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw08/soil_co2.txt)
+    - [thebes_discharge.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw08/thebes_discharge.csv)
+
+- Create an `hw08` folder inside the same folder as your project file.
+
+- Make a file called `lastname_08.Rmd` and save it in your `hw08` folder. Use this file for Parts 2 and 3.
+
+- Add the YAML header as usual.
+
+- Load the `tidyverse` and `lubridate` libraries. You *may* have to install the `lubridate` package first, but I do not think so.
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(ggthemes)
+```
+
+- Commit early. Commit often.  Push regularly.
+
+- [Lubridate cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf)
+
+***
+
+## Part 1: Play date
+
+- The following code chunk includes a list of pioneer women scientists. Add the code chunk to your file. You may copy and paste.
+
+- Change `birth_date` to your actual birth date between the quotes. Use whatever format you normally use.
+
+```{r include=TRUE, eval=FALSE}
+birth_date <- ""
+
+# Elizabeth Garret Anderson was the first female physician
+anderson <- "9 June 1836"
+
+# Mary Anning discovered the first complete Plesiosaur fossil, 
+# and other important Jurassic fossils
+anning <-  "1799/05/21"
+
+# Alice Augusta Ball was a chemist who developed the
+# first injectable treatment for leprosy.
+ball <- "July 24, 1892"
+
+# Sylvia Earle was the first chieft scientist at NOAA
+earle <- "August, 30 (1935)"
+
+# Rosalind Franklin used x-ray diffraction to 
+# discover DNA structure. Watson and Crick claimed credit.
+franklin <- "25th of July, 1920"
+
+# Ester Lederberg was the first to discover that viruses 
+# infect bacteria. Led to discovery of lambda bacteriophage
+lederberg <- "December 18, 1922"
+
+# Barbara McClintock discovered transposable elements (jumping genes),
+# and developed staining techniques to study chromosomes
+mcclintock <- "16061902"
+
+# Martin Luther King's birthday is coming up. Let's remember a dream
+mlk_birth <- "1/15/29"
+mlk_dream <- "1963 August 08"
+
+```
+
+
+```{r}
+# ANSWERS
+birth_date <- "09/06/1961"
+iso_birth_date <- mdy(birth_date)
+
+anderson <- "9 June 1836"
+iso_anderson <- dmy(anderson)
+
+anning <-  "1799/05/21"
+iso_anning <- ymd(anning)
+
+ball <- "07 24 1892"
+iso_ball <- mdy(ball)
+
+earle <- "August, 30 (1935)"
+iso_earle <- mdy(earle)
+
+franklin <- "25th of July, 1920"
+iso_franklin <- dmy(franklin)
+
+lederberg <- "December 18th, 1922"
+iso_lederberg <- mdy(lederberg)
+
+mcclintock <- "16061902"
+iso_mcclintock <- dmy(mcclintock)
+
+mlk_birth <- "1/15/29"
+iso_mlk <- mdy(mlk_birth)
+
+dream <- "1963 August 08"
+iso_dream <- ymd(dream)
+
+```
+
+#### Answer these question. Insert code chunk with the answer after each question.
+
+1. Convert each date to POSIXct format, using `lubridate` functions, saving each to a unique variable. Print each result.
+
+1. Check yours dates to be sure they are correct. If you spot any errors, correct them now using the proper `lubridate` function(s).
+
+```{r}
+# MLKjr will be 100 years too high.
+
+iso_mlk <- mdy(mlk_birth) - years(100)
+```
+
+
+1. What day of the week were you born on? Show the full day name, not the abbreviated name or the day number.
+
+```{r}
+wday(birth_date, label = TRUE, abbr = FALSE)
+```
+
+
+1. What day of the week will your birthday be on *this* year? Use lubridate's `update` function. You can hard code this year but you must figure out how to do it entirely by code for full points. In other words, you code should work just as well next year or five years in the future, without editing.
+
+```{r}
+this_year_bday <- update(iso_birth_date, year = year(today()))
+wday(this_year_bday, label = TRUE, abbr = FALSE)
+```
+
+1. What day of the week would your birthday be on in the [Year 2525, if Man is still alive?](https://www.youtube.com/watch?v=yesyhQkYrQM) How old would you be? Here you may hard-code `2525`. Show the abbreviated day of the week.
+
+```{r}
+new_bday <- update(iso_birth_date, year = 2525)
+wday(new_bday, abbr = FALSE)
+year(new_bday) - year(iso_birth_date)
+```
+
+1. How many days was it between the birth of Dr. Elizabeth Garrett Anderson and Alice Augusta Ball?
+
+```{r}
+# 20499 days
+iso_ball - iso_anderson
+```
+
+2. What is the duration between Martin Luther King Jr.'s birth date and his *I Had a Dream* speech.
+
+```{r}
+# Approx ~34 years
+as.duration(iso_mlk - iso_dream)
+```
+
+Enter the eight POSIXct compatible birth dates into a vector, including your own, in the order they are given above. Name each element of the vector with the last name of each person (review Assignment 2, part 2). You can but do not have to enter the date of the *Dream* speech.
+
+1. Of the eight birth dates from above, including your own, which of them are leap years? You *must* 
+    - start with the POSIXct dates in your vector, and
+    - display the final result as *only* the years of the leap years, not the date. You should end up with 3-4 years, depending on whether your birth year was a leap year. If your results show the full birth dates, then you need to apply one of the `lubridate` functions.
+
+
+```{r}
+all_years <- c(iso_birth_date, 
+               iso_anderson, 
+               iso_anning, 
+               iso_ball,
+               iso_earle,
+               iso_franklin, 
+               iso_lederberg, 
+               iso_mcclintock,
+               iso_mlk,
+               iso_dream)
+names(all_years) <- c("Mine", "Anderson", "Anning", "Ball", "Earle", "Franklin", "Lederberg", "McClintock", "King Jr.", "Dream")
+
+is_leap_year <- leap_year(all_years)
+year(all_years[is_leap_year])
+```
+
+1. Subtract each birth date in the vector from your own to calculate the number of days that have passed between their birth dates and yours. Sort the results from greatest number of days to fewest. You should be listed last (or near the end) with a difference of 0 days.
+
+```{r}
+sort(iso_birth_date - all_years, decreasing = TRUE)
+```
+
+- Stage, commit, and push.
+
+***
+
+## Part 2: Wrangling and plotting with dates
+
+### Lake Ice
+
+- Your goal is to match this plot.
+
+```{r eval=TRUE, include=TRUE, echo=FALSE}
+lakes_raw <- read_csv("data/lake_ice.csv", na = "-999")
+
+mendota <- lakes_raw %>% 
+  filter(lakecode == "DMR1") %>%  # Or "LAKE MENDOTA" upper case
+  select(contains("ice")) %>% 
+  mutate(on_date = make_date(iceon_year, iceon_month, iceon_day),
+         off_date = make_date(iceoff_year, iceoff_month, iceoff_day),
+         duration = as.numeric(off_date - on_date))
+
+mendota %>%
+  ggplot() +
+  geom_line(aes(x = iceoff_year, 
+                y = duration),
+            na.rm = TRUE) +
+  labs(x = "Year",
+       y = "Ice Duration (days)")
+```
+
+- Import `lake_ice.csv`
+
+- Filter the data to save only Lake Mendota. Use the lake code of `DMR1` or the lake name of `LAKE MENDOTA`. Case matters!
+
+- Select these six columns. You can do this in one of a few different ways but you should be able to do this very efficiently. Look back at [Section 5.4](https://r4ds.had.co.nz/transform.html#select) to review.
+    - iceon_year
+    - iceon_month
+    - iceon_day
+    - iceoff_year
+    - iceoff_month
+    - iceoff_day
+
+- Use `lubridate` functions to assemble the ice on year, month, and date into an `ice_on` date column. Use the same process to assemble the ice off information to make an `ice_off` date column.
+
+- Create a new `duration` column by subtracting `ice_on` from `ice_off`. Make a note of the unit of time for `duration`.
+
+    **Important:** Subtracting the dates will result in a `difftime` object. Use `as.numeric(ice_off - ice_on)` to convert the result to a numeric object.
+
+- Make a line graph to show how `duration` changed over `iceoff_year`. Use `na.rm = TRUE` where needed to remove durations with no data. 
+
+- Make appropriate labels for the X- and Y-axes. Remember to include the unit of measurement for ice duration.
+
+- Stage, commit and push.
+
+### Soil Carbon Dioxide
+
+- Import the `soil_co2.txt` dataset.
+
+- Establish a POSIXct-compatible date variable for 01 January 2006.
+
+- Rename the columns so that they are syntactic. 
+
+- Make a `Date` column that adds the day of CO<sub>2</sub> measurement to the 01 Jan 2006 reference date. Make sure `lubridate` is loaded.
+
+- Create a Year column that extracts just the year from your new `Date` column.
+
+- Create a `Month` column that extracts just the month from your new `Date` column. The month should be the three-letter text form (e.g., "Jan").
+
+- Group your data by Year and Month.
+
+- Summarize mean CO<sub>2</sub> and standard error of the mean. You had to calculate standard error for a previous assignment so you can review your previous code.
+
+- Make a column chart of mean CO<sub>2</sub> for each month. Use either `geom_errorbar` or `geom_linerange` to plot the standard error of the mean. Use `facet_wrap` on Year to make plots the results by year. If you use `geom_errorbar`, then use the `width` argument to make reasonable horizontal lines.
+
+- Make the same plot but use points instead of columns, and use only `geom_linerange`.
+
+- Your final plots should look like these. To me, the "dot version" is much cleaner. 
+
+```{r eval=TRUE, include=TRUE, echo=FALSE}
+reference_date <- ymd("2006-01-01")
+
+soil_raw <- read_tsv("data/soil_co2.txt")
+soil <- soil_raw %>% 
+  rename(DayN = `DayN[]`,
+         Datecode = `Datecode[]`,
+         Min = `Min[]`,
+         Veg = `Veg[]`,
+         Plot = `Plot[]`,
+         Group = `Group[]`,
+         CorrCO2 = `CorrCO2[]`,
+         SoilT = `SoilT[]`)
+
+soil <- soil %>% 
+  drop_na() %>% 
+  mutate(date = reference_date + DayN,
+         SoilT = SoilT - 273.15,
+         Year = year(date),
+         Month = month(date, label = TRUE))
+
+soil_sum <- soil %>% 
+  group_by(Year, Month) %>% 
+  summarize(n = n(),
+            mean_co2 = mean(CorrCO2),
+            se_co2 = sd(CorrCO2)/sqrt(n),
+            mean_temp = mean(SoilT),
+            se_temp = sd(SoilT)/sqrt(n))
+
+soil_sum  %>% 
+  ggplot(aes(x = Month)) +
+  geom_col(aes(y = mean_co2)) +
+  geom_errorbar(aes(ymin = mean_co2 - se_co2,
+                    ymax = mean_co2 + se_co2),
+                width = 0.2) +
+  facet_wrap( ~Year)
+
+soil_sum  %>% 
+  ggplot(aes(x = Month)) +
+  geom_point(aes(y = mean_co2)) +
+  geom_linerange(aes(ymin = mean_co2 - se_co2,
+                     ymax = mean_co2 + se_co2)) +
+  facet_wrap( ~Year)
+
+```
+
+- Stage, commit, and push.
+
+### Mississippi River Discharge
+
+#### Import and wrangle
+
+The [USGS National Water Information Service](https://waterdata.usgs.gov/nwis) monitors river depth and volume on rivers across the country. One monitoring gauge is located at [Thebes, IL](https://waterdata.usgs.gov/il/nwis/uv?site_no=07022000), a few miles southeast of Cape Girardeau. 
+
+The `thebes_discharge.csv` dataset contains the average daily discharge from 01 January 1988 to 31 December 2018.  During that time, two major flood events occurred in this region, in 1993 and in 2011. Two major droughts also occurred across the regions, in 1988 and in 2012. Discharge is measured in cubic feet/second $(\mathrm{cf}\cdot\mathrm{s}^{-1})$
+
+This exercise will help you plot data to show overall trends in a larger data set and highlight the flood and drought events.
+
+- Save `thebes_discharge.csv` into your `data` folder.
+
+- Tidy the data. Use `Year` for the key and `discharge` for the value.
+
+- I recommend dividing the discharge by 1000 to improve interpretation of the y-axis.
+
+- Group by Year and Month.
+
+- Summarize the mean discharge. If you end up with `NA` for Feb 2012, then you forgot to do something. Remember it and fix it.
+
+- Add an Event column using `mutate` and `case_when`. If the year equals 1993 or 2011, then the value should be "Flood". If the year equals 1988 or 2012, then the value should be "Drought". Otherwise, the value should be "Normal". 
+
+```{r}
+msr_thebes <- read_csv("data/thebes_discharge.csv")
+
+thebes <- msr_thebes %>%
+  gather(key = Year, value = discharge, -(1:2)) %>% 
+  mutate(discharge = discharge/1000,
+         Month = month(Month, label = TRUE)) %>% 
+  group_by(Year, Month) %>% 
+  summarize(mean_discharge = mean(discharge, na.rm = TRUE))
+
+
+thebes <- thebes %>% 
+  mutate(Event = case_when(
+    Year == "1993" |
+      Year == "2011" ~ "Flood",
+    Year == "1988" |
+      Year == "2012" ~ "Drought",
+    TRUE ~ "Normal"
+  ))
+```
+
+#### Make a second data set
+- Filter your data set to include only the data for the four flood or drought event years. This smaller data set should have the same columns as the larger data set but only 48 rows (4 years, 12 months each). Your code should look something like the following. Try to think of the most efficient way of filtering your data. *Hint:* `%in%`.
+
+```{r eval=FALSE, include=TRUE}
+events <- big_data_set %>% 
+  filter(...)
+```
+
+```{r}
+events <- thebes %>% 
+  filter(Year %in% c("1988", "1993", "2011", "2012"))
+```
+
+#### Plot the data
+
+We will build the plot in layers. The first layer will show the overall trend for discharge for all years in the data set. These data are *not* the primary focus so we will use gray, thinner lines to deemphasize them.
+
+- Plot a line graph of the mean discharge by month.  
+
+- Use `0.3` for size and `gray70` for color. Adjust the axis labels like that shown here. *Bonus pudding for dessert if you figure out how to make the Y-axis label like that in the final plot below.*
+
+- Once you have this plot looking good like that shown here, save it in an object, e.g., `p1 <- plot code`.
+
+```{r include=TRUE}
+p1 <- thebes %>% 
+  filter(!Year %in% c("1988", "1993", "2011", "2012")) %>% 
+  ggplot() +
+  geom_line(aes(x = Month, y = mean_discharge, group = Year),
+            color = "gray70",
+            size = 0.3) +
+  labs(x = NULL,
+       y = "Discharge (cf/s, thousands)")
+p1
+```
+
+- We will now add the second layer using the smaller data set., by using this code format. Mapping and grouping is the same as above, but add a `color = Event` argument to the `aes()` mapping function. **Important:** If you did not use `Event` as your event column name, then you must substitute the column name that you did use.
+
+```{r eval=FALSE, echo=TRUE}
+p1 + geom_line(data = events,
+               aes(x = ..., y = ...))
+```
+
+Your final plot should look like this.
+
+```{r eval=TRUE, include=TRUE, echo=FALSE}
+# This part optional for students
+aes_tbl <- events %>% 
+  filter(Month == "Jan")
+
+p1 + geom_line(data = events,
+               aes(x = Month, 
+                   y = mean_discharge, 
+                   group = Year, 
+                   color = Event))
+```
+
+Here is a bonus plot with further tweaks that coincides more with my tastes in plots and (I think) improves interpretation and the data-ink ratio. I think it still needs a few tweaks, but this is good for now. You will learn more about some of these tweaks in the next assignment.
+
+```{r eval=TRUE, include=TRUE, echo=FALSE}
+p1 <- thebes %>% 
+  filter(!Year %in% c("1988", "1993", "2011", "2012")) %>% 
+  ggplot() +
+  geom_line(aes(x = Month, y = mean_discharge, group = Year),
+            color = "gray70",
+            size = 0.3) +
+  labs(x = NULL,
+       y = expression("Discharge ("*cf%.%s^{-1}*", thousands)"))
+
+
+# This part optional for students
+aes_tbl <- events %>% 
+  filter(Month == "Jan")
+
+p1 + geom_line(data = events,
+               aes(x = Month, 
+                   y = mean_discharge, 
+                   group = Year, 
+                   color = Event)) + 
+  scale_colour_few(palette = "Dark") +
+  geom_text(data = aes_tbl,
+            aes(x = "Jan", y = mean_discharge,
+                label = Year,
+                color = Event),
+            hjust = 1,
+            show.legend = FALSE) +
+  theme_tufte() +
+  scale_x_discrete(expand = c(0.1, 0))
+```
+
+- Stage, commit, and push.
+
+***
+
+*et Vóila*
+
