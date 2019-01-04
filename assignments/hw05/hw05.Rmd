@@ -2,16 +2,16 @@
 title: "HW 05: Data Importing and Wrangling 1"
 subtitle: "Graphical Analysis of Biological Data"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
+  pdf_document: default
 #    latex_engine: lualatex
 urlcolor: blue
 ---
 
 ```{r include=FALSE}
-knitr::opts_chunk$set(include = FALSE, eval = FALSE)
+knitr::opts_chunk$set(include = TRUE, eval = TRUE)
 ```
 
 
@@ -184,7 +184,7 @@ names <- c("id",
            "majtype",
            "mintype")
 
-darter <- read_fwf(file.path(file_path, "darter.txt"), 
+darter <- read_fwf(file.path(file_path, "darters.txt"), 
                    skip = 13,
                    fwf_widths(widths,
                    col_names = names))
