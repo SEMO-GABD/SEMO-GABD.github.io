@@ -42,7 +42,7 @@ This assignment has two parts.
 
 - Create an `hw08` folder inside the same folder as your project file.
 
-- Make a file called `lastname_08.Rmd` and save it in your `hw08` folder. Use this file for Parts 2 and 3.
+- Make a file called `lastname_08.Rmd` and save it in your `hw08` folder. Use this file for both parts of the assignment.
 
 - Add the YAML header as usual.
 
