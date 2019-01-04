@@ -2,10 +2,11 @@
 title: "HW 06: Wrangling II"
 subtitle: "Graphical Analysis of Biological Data"
 output:
+  pdf_document: 
+    latex_engine: lualatex
   html_document:
     df_print: paged
     toc: yes
-  pdf_document: default
 #    latex_engine: lualatex
 urlcolor: blue
 ---
@@ -17,7 +18,7 @@ knitr::opts_chunk$set(include = FALSE, eval = FALSE)
 
 By the end of this assignment, you should demonstrate an ability to
 
-- mutate, sumamrize, and group data;
+- mutate, summarize, and group data;
 - Use a typical workflow to wrangle and plot data.
 
 Click on any blue text to visit the external website.
