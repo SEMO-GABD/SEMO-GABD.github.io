@@ -29,7 +29,7 @@ Assignments are available in HTML and PDF formats. They have the same content so
 | [06  Wrangling II](../notes/notes06.html) | [HTML](hw06/hw06.html) / [PDF](hw06/hw06.pdf) |  30 Dec (Su) | [R4ds Chapter 5](https://r4ds.had.co.nz/transform.html)<br/> [Tidyverse Style Guide](https://style.tidyverse.org) |
 | [07 Data Visualization](../notes/notes07.html)  | [HTML](hw07/hw07.html) / [PDF](hw07/hw07.pdf) |  04 Jan (F) | [Zuur et al.](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2009.00001.x) (required!) <br/> [Look at Data](https://socviz.co/lookatdata.html#lookatdata) <br/> [Visualizing distributions](https://serialmentor.com/dataviz/boxplots-violins.html#boxplots-violins-vertical) <br/> [Cleveland dot plots](https://www.perceptualedge.com/articles/b-eye/dot_plots.pdf) <br/> [Scatter plots](https://serialmentor.com/dataviz/visualizing-associations.html#associations-scatterplots) |
 | [08 Dates](../notes/notes08.html) | [HTML](hw08/hw08.html) / [PDF](hw08/hw08.pdf) |  06 Jan (Su) | [R4ds Chapter 16](https://r4ds.had.co.nz/dates-and-times.html)<br/> [Lubridate cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf) |
-| 09 Strings and graphing | HTML / PDF |  07 Jan (W) |  |
+| [09 Strings and things](../notes/notes09.html) | [HTML](hw09/hw09.html) / [PDF](hw09/hw09.pdf) |  07 Jan (W) | See notes and assignment. |
 | 10 Maps | HTML / PDF | 11 Jan (F) |  |
 <!--
 | 11 Maps | HTML / PDF | 11 Jan (F) | |
