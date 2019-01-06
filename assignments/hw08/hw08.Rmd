@@ -2,11 +2,11 @@
 title: "HW 08: Dates"
 subtitle: "Graphical Analysis of Biological Data"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
     latex_engine: lualatex
+  pdf_document: default
 urlcolor: blue
 ---
 
@@ -406,7 +406,7 @@ We will build the plot in layers. The first layer will show the overall trend fo
 
 - Once you have this plot looking good like that shown here, save it in an object, e.g., `p1 <- plot code`.
 
-```{r include=TRUE}
+```{r include=FALSE}
 p1 <- thebes %>% 
   filter(!Year %in% c("1988", "1993", "2011", "2012")) %>% 
   ggplot() +
