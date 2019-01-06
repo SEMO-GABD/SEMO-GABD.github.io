@@ -2,8 +2,8 @@
 title: '09: Strings and things'
 author: "Graphical Analysis of Biological Data"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 urlcolor: blue
 linkcolor: blue
 ---
@@ -17,6 +17,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(lubridate)
 ```
+
+This web page is available as a [PDF file](./notes09.pdf)
 
 ## Strings
 
