@@ -1777,11 +1777,11 @@ sparrows %&gt;%
 <div id="data-exploration-crabs" class="section level3">
 <h3>Data exploration: crabs</h3>
 <p><em>Aegla</em> is a genus of South American freshwater crabs. Satterlee et al., as part of his research, collected water quality parameters. Those data are included in <a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw07/aegla_crabs.csv">aegla_crabs.csv</a>.</p>
-<p>The variables are - Site (sampling locations) - Width, Depth (stream width and depth) - Flow (rate of water movement) - AT, WT (air and water temperature) - pH (pH. What did you expect me to say, log molar hydrogen ion concentration?) - TDS (total dissolved solids) - Cond (conductivity) - N, Ni, Nt (Nitrogen, Nitrate, Nitrite concentrations) - Phos, Mg, Ca (phosphate, magnesium, calcium concentrations) - Shrimp, Aeglam, AeglaFe, AeglaFo (number of shrimp and crabs sampled)</p>
+<p>The variables are - Site (sampling locations) - Width, Depth (stream width and depth) - Flow (rate of water movement) - AT, WT (air and water temperature) - pH (pH. What did you expect me to say, log molar hydrogen ion concentration?) - TDS (total dissolved solids) - Cond (conductivity) - N, Ni, Nt (Nitrogen, Nitrate, Nitrite concentrations) - Phos, Mg, Ca (phosphate, magnesium, calcium concentrations) - Crab, Shrimp, Aeglam, AeglaFe, AeglaFo (number of shrimp and crabs sampled)</p>
 <p>Your goal is simple but it will take time.</p>
 <ul>
 <li><p>Import the raw data from <code>aegla_crabs.csv</code>.</p></li>
-<li><p>Use <code>select()</code> to remove the Site, AT, WT, Shrimp, Aeglam, AeglaFe, AeglaFo columns.</p></li>
+<li><p>Use <code>select()</code> to remove the Site, AT, WT, Crab, Shrimp, Aeglam, AeglaFe, AeglaFo columns.</p></li>
 <li><p>Use <code>drop_na()</code> to remove the one row with missing water quality data.</p></li>
 <li><p>Create a <code>row_order</code> dummy variable like we did for the sparrows.</p></li>
 <li><p>Its up to you whether to use the <em>more efficient</em> pipes or the less efficient method of creating new variables for each step.</p></li>

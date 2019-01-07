@@ -376,13 +376,13 @@ The variables are
 - Cond (conductivity)
 - N, Ni, Nt (Nitrogen, Nitrate, Nitrite concentrations)
 - Phos, Mg, Ca (phosphate, magnesium, calcium concentrations)
-- Shrimp, Aeglam, AeglaFe, AeglaFo (number of shrimp and crabs sampled)
+- Crab, Shrimp, Aeglam, AeglaFe, AeglaFo (number of shrimp and crabs sampled)
 
 Your goal is simple but it will take time.
 
 - Import the raw data from `aegla_crabs.csv`.
 
-- Use `select()` to remove the Site, AT, WT, Shrimp, Aeglam, AeglaFe, AeglaFo columns.
+- Use `select()` to remove the Site, AT, WT, Crab, Shrimp, Aeglam, AeglaFe, AeglaFo columns.
 
 - Use `drop_na()` to remove the one row with missing water quality data.
 
