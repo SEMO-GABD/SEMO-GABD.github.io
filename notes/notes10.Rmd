@@ -1,0 +1,21 @@
+---
+title: '10: Maps'
+author: "Graphical Analysis of Biological Data"
+output:
+  html_document: default
+  pdf_document: default
+urlcolor: blue
+linkcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r echo=FALSE, message=FALSE}
+library(tidyverse)
+library(lubridate)
+```
+
+This assignment is a combination of tutorial and practical so the notes are folded into the assignment. You can [just go there.](https://youtu.be/dQw4w9WgXcQ) 
