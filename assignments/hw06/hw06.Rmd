@@ -109,7 +109,7 @@ names <- c("id",
            "majtype",
            "mintype")
 
-darter_raw <- read_fwf(file.path(file_path, "darter.txt"), 
+darter_raw <- read_fwf(file.path(file_path, "darters.txt"), 
                    skip = 13,
                    fwf_widths(widths,
                    col_names = names))
@@ -212,18 +212,13 @@ You decide that you could display the data more effectively. You want to show th
 
 ```{r}
 darter %>%
-  ggplot() +
-  geom_point(aes(x = species,
-                 y = length),
-             color = "gray60") +
-  stat_summary(aes(x = species,
-                   y = length),
-               fun.y = median,
+  ggplot(aes(x = species,
+                 y = length)) +
+  geom_point(color = "gray60") +
+  stat_summary(fun.y = median,
                geom = "point",
                size = 2.2) +
-  stat_summary(aes(x = species,
-                   y = length),
-               fun.y = mean,
+  stat_summary(fun.y = mean,
                geom = "point",
                size = 3,
 #               pch = 15,
@@ -304,11 +299,11 @@ feather <- feather %>%
   mutate(new_smi = mass * (tarsus_mean/tarsus)^b)
 ```
 
-#### Summarie data
+#### Summarize data
 
 Next, summarize the basal and stress corticosterone data.
 
-- Group by site, and calculate the mean and standard error of the mean $(SE_Y)$ for `basal_cort` and `stress_cort`. Standard error of the mean is calculated as,
+- Group by site, and then use `summarize()` to calculate the mean and standard error of the mean $(SE_Y)$ for `basal_cort` and `stress_cort` for each site. Standard error of the mean is calculated as,
 
 $$SE_Y = \frac{s}{\sqrt{n}},$$
 
