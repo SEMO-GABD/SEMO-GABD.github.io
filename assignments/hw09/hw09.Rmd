@@ -2,11 +2,11 @@
 title: "HW 09: Strings and things"
 subtitle: "Graphical Analysis of Biological Data"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
     latex_engine: lualatex
+  pdf_document: default
 urlcolor: blue
 ---
 
@@ -459,7 +459,7 @@ head(flower_size)
 ```
 
 
-- Group the data by genus and species to summarize the `mean()` and `max()` lengths and widths for each species.
+- Group the data by genus and species, and then use `summarize` to summarize the `mean()` and `max()` lengths and widths for each species.
 
 ```{r include=TRUE}
 flower_size_summary <- flower_size %>% 
