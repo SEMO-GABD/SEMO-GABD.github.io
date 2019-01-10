@@ -1744,11 +1744,11 @@ $(document).ready(function () {
 <li>Use mutate to calculate SMI and store the values in a new column called <code>new_smi</code>. Compare your new column with the column you imported. Your values should be nearly identical, differing by no more than 0.1. <em>Hint (optional):</em> Use the <code>select()</code> function of <code>dplyr</code> to rearrange your columns so that <code>smi</code> and <code>new_smi</code> are side by side. Or, print them out together. <strong>Note:</strong> If your numbers are not correct, figure out where you made a mistake and correct it.</li>
 </ul>
 </div>
-<div id="summarie-data" class="section level4">
-<h4>Summarie data</h4>
+<div id="summarize-data-1" class="section level4">
+<h4>Summarize data</h4>
 <p>Next, summarize the basal and stress corticosterone data.</p>
 <ul>
-<li>Group by site, and calculate the mean and standard error of the mean <span class="math inline">\((SE_Y)\)</span> for <code>basal_cort</code> and <code>stress_cort</code>. Standard error of the mean is calculated as,</li>
+<li>Group by site, and then use <code>summarize()</code> to calculate the mean and standard error of the mean <span class="math inline">\((SE_Y)\)</span> for <code>basal_cort</code> and <code>stress_cort</code> for each site. Standard error of the mean is calculated as,</li>
 </ul>
 <p><span class="math display">\[SE_Y = \frac{s}{\sqrt{n}},\]</span></p>
 <p>where <span class="math inline">\(s\)</span> is the standard deviation and <span class="math inline">\(n\)</span> is the number of individuals. You can calculate the standard deviation in R with the <code>sd()</code> function. Do not forgot to include <code>na.rm = TRUE</code> in the arguments for <code>mean()</code> and <code>sd()</code>, as shown in the text.</p>
