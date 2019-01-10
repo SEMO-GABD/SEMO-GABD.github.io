@@ -356,10 +356,10 @@ Repeat the above plot but with two differences. Use the `mean_stress` and its st
 ```{r}
 ggplot(feather_sum) +
   geom_linerange(aes(x = site,
-                    ymax = mean_basal + se_basal,
-                    ymin = mean_basal - se_basal)) +
+                    ymax = mean_stress + se_stress,
+                    ymin = mean_stress - se_stress)) +
   geom_point(aes(x = site,
-                 y = mean_basal),
+                 y = mean_stress),
              size = 3,
              color = "maroon") +
   labs(x = "Site",
