@@ -54,7 +54,7 @@ This assignment has three parts.
     - `map_data`
     - `rgeos`
     - `sp`
-    - `ggmap`: Install running `devtools::install_github("dkahle/ggmap")` in the console.  
+    - `ggmap`: Run `devtools::install_github("dkahle/ggmap")` in the console. Do not install the cran version. 
     - `raster`
     - `marmap`
 
