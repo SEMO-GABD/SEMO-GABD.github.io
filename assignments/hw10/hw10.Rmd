@@ -6,7 +6,6 @@ output:
   html_document:
     df_print: paged
     toc: yes
-    latex_engine: lualatex
 urlcolor: blue
 editor_options: 
   chunk_output_type: inline
@@ -55,7 +54,7 @@ This assignment has three parts.
     - `map_data`
     - `rgeos`
     - `sp`
-    - `ggmap`
+    - `ggmap`: Install running `devtools::install_github("dkahle/ggmap")` in the console.  
     - `raster`
     - `marmap`
 
