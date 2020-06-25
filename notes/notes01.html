@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -235,7 +235,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -1525,9 +1525,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -1541,7 +1539,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1552,22 +1549,81 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -1577,7 +1633,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Introduction and Background</h1>
-<h3 class="subtitle"><em>Graphical Analysis of Biological Data</em></h3>
+<h3 class="subtitle">Graphical Analysis of Biological Data</h3>
 
 </div>
 
@@ -1610,7 +1666,7 @@ Southeast Missouri State University<br />
 <li>Postdoctral Researcher at the <a href="https://science.nd.edu/departments/biological-sciences/">University of Notre Dame</a> in the lab of <a href="https://federlab.nd.edu">Dr. Jeff Feder.</a></li>
 </ul>
 <p><strong>My computer background:</strong></p>
-<p>My first computer was a <a href="https://en.wikipedia.org/wiki/Macintosh_SE">Macintosh SE</a> with 4 (!) megabytes (MB) of RAM, a 20 MB hard drive, and one 800K <a href="https://en.wikipedia.org/wiki/Floppy_disk#/media/File:Floppy_disk_2009_G1.jpg">3.5&quot; floppy</a> disk drive (they weren’t actually “floppy”). Compare that your laptop or desktop computer. Or your smart phone. Back then (ca. 1988), I ran a <a href="https://en.wikipedia.org/wiki/Bulletin_board_system">bulletin board system</a> on that computer with a <a href="https://commons.wikimedia.org/wiki/File:Modem_US_Robotics_Courier_Dual_Standard.jpg">U.S. Robotics Courier 14.4K Dual Standard modem.</a> In comparison, typical broadband wireless is at least 17X faster. Back then, my system was the <a href="https://www.urbandictionary.com/define.php?term=shiznit">shiznit.</a></p>
+<p>My first computer was a <a href="https://en.wikipedia.org/wiki/Macintosh_SE">Macintosh SE</a> with 4 (!) megabytes (MB) of RAM, a 20 MB hard drive, and one 800 K <a href="https://en.wikipedia.org/wiki/Floppy_disk#/media/File:Floppy_disk_2009_G1.jpg">3.5&quot; floppy</a> disk drive (they weren’t actually “floppy”). Compare that your laptop or desktop computer. Or your smart phone. Back then (ca. 1988), I ran a <a href="https://en.wikipedia.org/wiki/Bulletin_board_system">bulletin board system</a> on that computer with a <a href="https://commons.wikimedia.org/wiki/File:Modem_US_Robotics_Courier_Dual_Standard.jpg">U.S. Robotics Courier 14.4K Dual Standard modem.</a> In comparison, typical broadband wireless is at least 17X faster. Back then, my system was the <a href="https://www.urbandictionary.com/define.php?term=shiznit">shiznit.</a></p>
 <p>I have formal training in the <a href="https://en.wikipedia.org/wiki/Pascal_(programming_language)">Pascal</a> and <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> programming languages. I am self-taught in R and in <a href="https://www.python.org">Python.</a> If you find yourself wanting to learn another language after R, learn Python.</p>
 </div>
 <div id="who-are-you" class="section level4">
@@ -1622,7 +1678,7 @@ Southeast Missouri State University<br />
 <h2>Be curious</h2>
 <p>I expect that you will be curious. The notes for this course will be brief but they will have links scattered throughout. Follow the links and read the material. Do not follow the <a href="https://www.urbandictionary.com/define.php?term=tl%3Bdr">tl;dr</a> way of thinking. Others have written tutorials, exercises, and other helpful information far better than I could write. Become a better you and take advantage of these resources. If you do not, you will not be successful in this course.</p>
 <p><em>Follow the links!</em> Read. Learn. Practice!</p>
-<p>Data analysis requires coding. To learn proper coding, you will have to type R code. <em>Lots</em> of R code. Do not give in to the temptation to copy and paste from examples. You will not learn the R language well that way. Typing the code yourself will “drill” the language into your muscle memory and your brain memory. You will learn it better. You will retain it longer. You will have a better chance of getting a job. Just type it!</p>
+<p>Data analysis requires coding. The code you will learn in this class is R, widely used by biologists of all stripes. To learn proper coding, you will have to type R code. <em>Lots</em> of R code. Do not give in to the temptation to copy and paste from examples. You will not learn the R language well that way. Typing the code yourself will “drill” the language into your muscle memory and your brain memory. You will learn it better. You will retain it longer. You will have a better chance of getting a job. Just type it!</p>
 </div>
 <div id="reproducibility" class="section level2">
 <h2>Reproducibility</h2>
@@ -1631,7 +1687,7 @@ Southeast Missouri State University<br />
 </div>
 <div id="use-plain-text" class="section level2">
 <h2>Use plain text</h2>
-<p>Use plain text files for all of your documents. Plain text files are small. Plain text files are portable. Text files can be opened and read on any computer plaform (e.g., OS X, PC, Linux) with any text editor, unlike (for example) Word documents, which use a <a href="http://opendatahandbook.org/glossary/en/terms/proprietary/">proprietary format,</a> and are subject to change at any time. Text files are the common currency of reproducibility and open science.</p>
+<p>Use plain text files for all of your documents. Plain text files are small. Plain text files are portable. Text files can be opened and read on any computer plaform (e.g., OS X, PC, Linux) with any text editor, unlike (for example) Word and Excel documents that use <a href="http://opendatahandbook.org/glossary/en/terms/proprietary/">proprietary formats,</a> and are subject to change at any time. Text files are the common currency of reproducibility and open science.</p>
 <p>This course, and in fact nearly everything I use for teaching, is built from plain text. Text files are the base that can be converted into a variety of formats, including web pages, PDF files, and even (gasp!) Word documents. This webpage was generated from <a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/notes/notes01.Rmd">this markdown source file</a> on GitHub.</p>
 <p>RStudio, which you will use throughout this course, has a built-in text editor, and it will suffice for this course. In the future, or even during this course, you may decide to install a stand alone text editor. Browse this list of <a href="https://www.keycdn.com/blog/best-text-editors">free text editors</a> to find one that works on your computer platform and suits your needs. Atom works on all platforms and has a good reputation. I used it to write this part of these notes. Nice features are that you can live preview your markdown documents and it can interact directly with Git and GitHub (more on both of these later).</p>
 <p>I have used <a href="https://www.barebones.com/products/bbedit/">BBEdit</a> for OS X since version 4 (now at version 12+) as a good general purpose text editor. You can use the full feature set free for 30 days. After that time, you can still use most of its important functions for free.</p>
@@ -1645,8 +1701,8 @@ Southeast Missouri State University<br />
 https://recompilermag.com/issues/issue-1/how-to-teach-git/ -->
 <p>Git is a way of <a href="https://recompilermag.com/issues/issue-1/how-to-teach-git/">protecting yourself</a> from the maddest of the Hatters: you. With Git, you create several “safety nets” while you write your code. You can continue to work on your code but, if (when?) something goes wrong, you can fall back at any time on to one of your safety nets, and start fresh.</p>
 <p>You may not realize it now, but having a safety net for your R code, data, and other projects, opens up the doors to your programming creativity. You can safely try ideas, fail miserably, then try again, eventually to success. Failing miserably is one of the best ways to improve your skills. Ask me how I know.</p>
-<p>Git protects your files on your local computer. GitHub provides a cloud-based solution to protect your files, but also allows you to share your code with others, a key part of the open-access philosophy that we have embraced for this course.</p>
-<p>You will use Git and GitHub as part of your first two assignments. You will not necessarily understand what you are doing or why. But, once you have done it a couple of times, I think it will then be easier for you to understand the what and why of the process. You will gain that understanding in the third assignment.</p>
+<p>Git protects your files on your local computer. GitHub provides a cloud-based solution to protect your files, but also allows you to share your code with others, a key part of the open-access philosophy that we embrace for this course.</p>
+<p>You will use Git and GitHub as part of your assignments. At first, you will not necessarily understand what you are doing or why. But, once you have done it a couple of times, I think it will then be easier for you to understand the what and why of the process. You will gain more understanding in an upcoming assignment.</p>
 <!--
 You can avoid [falling through the looking glass](https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland) by using Git. Git is a [version control system](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (VCS) that tracks the changes you make to files through time. You can go back in time to any previous version. You can branch into a copy of a working program to try a new idea. Does your new code work? Awesome, merge it into to the main file. Disaster? No problem, because the original is intact. You laugh at the Mad Hatter and seek further adventures with the White Rabbit.
 
@@ -1668,7 +1724,7 @@ An excellent document to read is [Why Git?](https://peerj.com/preprints/3159/) b
 <h2>The terminal or shell</h2>
 <p>We will avoid the <strong>terminal</strong> or <strong>shell</strong> when we can, but you will at least need it to install <em>git</em> as part of the first assignment. Here is the minimum need-to-know about using them:</p>
 <ul>
-<li>They are a (powerfule) way to control your computer.</li>
+<li>They are a (powerful) way to control your computer.</li>
 <li>OS-specific language!
 <ul>
 <li>Mac/linux/unix are about the same. In fact, Mac OS X, at its heart, is a <a href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD UNIX-based operating system</a> called Darwin.</li>
@@ -1698,6 +1754,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

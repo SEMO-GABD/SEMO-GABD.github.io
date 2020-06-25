@@ -35,7 +35,7 @@ mtaylor@semo.edu
 
 **My computer background:**
 
-My first computer was a [Macintosh SE](https://en.wikipedia.org/wiki/Macintosh_SE) with 4 (!) megabytes (MB) of RAM, a 20 MB hard drive, and one 800K [3.5" floppy](https://en.wikipedia.org/wiki/Floppy_disk#/media/File:Floppy_disk_2009_G1.jpg) disk drive (they weren't actually "floppy"). Compare that your laptop or desktop computer. Or your smart phone. Back then (ca. 1988), I ran a [bulletin board system](https://en.wikipedia.org/wiki/Bulletin_board_system) on that computer with a [U.S. Robotics Courier 14.4K Dual Standard  modem.](https://commons.wikimedia.org/wiki/File:Modem_US_Robotics_Courier_Dual_Standard.jpg) In comparison, typical broadband wireless is at least 17X faster. Back then, my system was the [shiznit.](https://www.urbandictionary.com/define.php?term=shiznit)
+My first computer was a [Macintosh SE](https://en.wikipedia.org/wiki/Macintosh_SE) with 4 (!) megabytes (MB) of RAM, a 20 MB hard drive, and one 800 K [3.5" floppy](https://en.wikipedia.org/wiki/Floppy_disk#/media/File:Floppy_disk_2009_G1.jpg) disk drive (they weren't actually "floppy"). Compare that your laptop or desktop computer. Or your smart phone. Back then (ca. 1988), I ran a [bulletin board system](https://en.wikipedia.org/wiki/Bulletin_board_system) on that computer with a [U.S. Robotics Courier 14.4K Dual Standard  modem.](https://commons.wikimedia.org/wiki/File:Modem_US_Robotics_Courier_Dual_Standard.jpg) In comparison, typical broadband wireless is at least 17X faster. Back then, my system was the [shiznit.](https://www.urbandictionary.com/define.php?term=shiznit)
 
 I have formal training in the [Pascal](https://en.wikipedia.org/wiki/Pascal_(programming_language)) and [C](https://en.wikipedia.org/wiki/C_(programming_language)) programming languages. I am self-taught in R and in [Python.](https://www.python.org) If you find yourself wanting to learn another language after R, learn Python.
 
@@ -50,7 +50,7 @@ I expect that you will be curious. The notes for this course will be brief but t
 
 *Follow the links!* Read. Learn. Practice!
 
-Data analysis requires coding. To learn proper coding, you will have to type R code. *Lots* of R code. Do not give in to the temptation to copy and paste from examples. You will not learn the R language well that way. Typing the code yourself will "drill" the language into your muscle memory and your brain memory. You will learn it better. You will retain it longer. You will have a better chance of getting a job. Just type it!
+Data analysis requires coding. The code you will learn in this class is R, widely used by biologists of all stripes. To learn proper coding, you will have to type R code. *Lots* of R code. Do not give in to the temptation to copy and paste from examples. You will not learn the R language well that way. Typing the code yourself will "drill" the language into your muscle memory and your brain memory. You will learn it better. You will retain it longer. You will have a better chance of getting a job. Just type it!
 
 ## Reproducibility
 
@@ -61,7 +61,7 @@ A central tenet of science is reproducibility. Yet, often it is not. Read this [
 
 ## Use plain text
 
-Use plain text files for all of your documents. Plain text files are small. Plain text files are portable. Text files can be opened and read on any computer plaform (e.g., OS X, PC, Linux) with any text editor, unlike (for example) Word documents, which use a [proprietary format,](http://opendatahandbook.org/glossary/en/terms/proprietary/) and are subject to change at any time. Text files are the common currency of reproducibility and open science.
+Use plain text files for all of your documents. Plain text files are small. Plain text files are portable. Text files can be opened and read on any computer plaform (e.g., OS X, PC, Linux) with any text editor, unlike (for example) Word and Excel documents that use [proprietary formats,](http://opendatahandbook.org/glossary/en/terms/proprietary/) and are subject to change at any time. Text files are the common currency of reproducibility and open science. 
 
 This course, and in fact nearly everything I use for teaching, is built from plain text. Text files are the base that can be converted into a variety of formats, including web pages, PDF files, and even (gasp!) Word documents. This webpage was generated from [this markdown source file](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/notes/notes01.Rmd) on GitHub.
 
@@ -72,7 +72,7 @@ I have used [BBEdit](https://www.barebones.com/products/bbedit/) for OS X since 
 
 For PC, [Notepad++](https://notepad-plus-plus.org) has a [good reputation](https://www.lifewire.com/best-free-text-editors-4155819) but you may want to try a few to find a text editor that suits your style and needs.
 
-**Do not use Microsoft Word to export plain text files.** They are not truly plain text. Cut your umbilical cord. Leave Microsoft for the business world and the less enlightened SEMO community.
+**Do not use Microsoft Word to export plain text files.** They are not truly plain text. Cut your umbilical cord. Leave Microsoft for the business world and the less enlightened SEMO community. 
 
 ## Use Git and GitHub
 
@@ -85,9 +85,9 @@ Git is a way of [protecting yourself](https://recompilermag.com/issues/issue-1/h
 
 You may not realize it now, but having a safety net for your R code, data, and other projects, opens up the doors to your programming creativity. You can safely try ideas, fail miserably, then try again, eventually to success. Failing miserably is one of the best ways to improve your skills. Ask me how I know.
 
-Git protects your files on your local computer. GitHub provides a cloud-based solution to protect your files, but also allows you to share your code with others, a key part of the open-access philosophy that we have embraced for this course.
+Git protects your files on your local computer. GitHub provides a cloud-based solution to protect your files, but also allows you to share your code with others, a key part of the open-access philosophy that we embrace for this course.
 
-You will use Git and GitHub as part of your first two assignments. You will not necessarily understand what you are doing or why. But, once you have done it a couple of times, I think it will then be easier for you to understand the what and why of the process. You will gain that understanding in the third assignment.
+You will use Git and GitHub as part of your assignments. At first, you will not necessarily understand what you are doing or why. But, once you have done it a couple of times, I think it will then be easier for you to understand the what and why of the process. You will gain more understanding in an upcoming assignment.
 
 <!--
 You can avoid [falling through the looking glass](https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland) by using Git. Git is a [version control system](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (VCS) that tracks the changes you make to files through time. You can go back in time to any previous version. You can branch into a copy of a working program to try a new idea. Does your new code work? Awesome, merge it into to the main file. Disaster? No problem, because the original is intact. You laugh at the Mad Hatter and seek further adventures with the White Rabbit.
@@ -111,7 +111,7 @@ If you find yourself tempted to protect your output files (e.g., HTML files), th
 
 We will avoid the **terminal** or **shell** when we can, but you will at least need it to install *git* as part of the first assignment. Here is the minimum need-to-know about using them:
 
-- They are a (powerfule) way to control your computer.
+- They are a (powerful) way to control your computer.
 - OS-specific language!
     - Mac/linux/unix are about the same. In fact, Mac OS X, at its heart, is a [BSD UNIX-based operating system](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) called Darwin.
     - Windows has its own commands based on the [Microsoft Disk Operating System](https://en.wikipedia.org/wiki/MS-DOS) (MS-DOS).
