@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -235,7 +235,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -1525,9 +1525,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -1541,7 +1539,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1552,22 +1549,81 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -1577,7 +1633,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Introduction to R</h1>
-<h3 class="subtitle"><em>Graphical Analysis of Biological Data</em></h3>
+<h3 class="subtitle">Graphical Analysis of Biological Data</h3>
 
 </div>
 
@@ -1587,17 +1643,21 @@ $(document).ready(function () {
 </ul>
 </div>
 
-<p>This web page is available as a <a href="./notes03.pdf">PDF file</a></p>
+<p>This web page is available as a <a href="./notes02.pdf">PDF file</a></p>
 <div id="read" class="section level2">
 <h2>Read</h2>
-<p>As a reminder, R4ds is our textbook, <em>R for Data Science.</em> The book is written for people who want to develop a career in <a href="https://en.wikipedia.org/wiki/Data_science">data science</a>, which applies computer science and scientific methods to data analysis, often to so-called <a href="https://en.wikipedia.org/wiki/Big_data">“big data”</a> sets.</p>
-<p>We will not be going that far down the rabbit hole. We will peer into the hole, But, this is a good book written by the authors of the R packages we will use throughout this course and it provides many examples and exercises that we will apply to biological data.</p>
-<p><a href="https://r4ds.had.co.nz/introduction.html">R4ds: Chapter 1</a></p>
-<p>We will focus on making data tidy, transforming and wrangling data, and visualizing it (section 1.1). We will leave modeling to the data scientists and your own future development.</p>
-<p><strong>Note:</strong> Section 1.4: Prerequisites mentions that having some programming skills is helpful, it is not essential for this course. You will learn those programming skills as part of this course. I will try to clarify places where I think it might get a bit too far down the rabbit hole. You can also ask questions in the <a href="https://github.com/SEMO-GABD/internal_discussion/issues">internal discussion</a> repo on the course website.</p>
-<p><a href="http://r4ds.had.co.nz/communicate-intro.html">R4ds: Chapter 2</a></p>
-<p><a href="https://r4ds.had.co.nz/workflow-basics.html">R4ds: Chapter 4</a> covers material related to the assignment. After you complete the assignment, you should try to answer questions 1 and 3 in Section 4.4: Practice. Question 2 might not make sense until after we finish Chapter 3.</p>
+<p>As you read these chapters, you should type some of the examples into your console for practice.</p>
+<p><a href="https://r4ds.had.co.nz/workflow-basics.html">R4ds: Chapter 4</a> covers material related to the assignment. A few things to note:</p>
+<ul>
+<li><p>4.1: Mac users should use the <code>option</code> key instead of the <code>Alt</code> key. For example, to type the <code>&lt;-</code> assignment operator, Mac users will hold down the <code>option</code> key and then press the <code>-</code> key (the minus sign). PC users will hold down the <code>Alt</code> key and then press the <code>-</code> key (the minus sign). Remember this throughout the course: the option and alt keys are for Mac and PC computers, respectively.</p></li>
+<li><p>4.2: Pay careful attention to object names. Like the authors of the text, <code>i_use_snake_case</code> with lowercase letters and underscores for spacing. <em>Never</em> use actual spaces. Numbers are okay, too.</p></li>
+<li><p>4.2: Case matters. <code>A</code> and <code>a</code> are two different things (objects) in R.</p></li>
+<li><p>4.4: Try to answer questions 1 and 3. Question 2 might not make sense until after we finish Chapter 3. You do not have to turn in answers for these questions but you should do them to learn an important point (question 1) and an important feature of RStudio (question 3).</p></li>
+</ul>
 <p><a href="https://r4ds.had.co.nz/workflow-scripts.html">R4ds: Chapter 6</a> where you can practice some of your new-found R skills in RStudio. Practice some of the code from <a href="https://r4ds.had.co.nz/workflow-basics.html">Chapter 4</a> in RStudio. Find some other code online and practice with it. I stress again that typing code again and again is the best way to learn it.</p>
+<ul>
+<li>6.1: Do remember to <em>not</em> include <code>install.packages()</code> commands in your scripts. Use the command in the console window or from the <code>Tools</code> menu. Otherwise, RStudio will try install the package(s) every time you run your script. You’ll probably forget once or twice but you’ll soon remember after you realize you are wasting time.</li>
+</ul>
 <p>Remember in <a href="./notes01.html">Notes 01</a>, I said to “save that which is real?” <a href="https://r4ds.had.co.nz/workflow-projects.html">R4ds: Chapter 8</a> ties that philosophy to R Projects and organization of your R scripts. Study this chapter carefully and follow it closely.</p>
 <p>On to <a href="../assignments/hw02/hw02.html">the assignment!</a></p>
 </div>
@@ -1619,6 +1679,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

@@ -2,11 +2,11 @@
 title: "Introduction and Background"
 subtitle: "Graphical Analysis of Biological Data"
 output:
+  pdf_document:
+    latex_engine: lualatex
   html_document:
     df_print: paged
     toc: yes
-  pdf_document:
-    latex_engine: lualatex
 urlcolor: blue
 linkcolor: blue
 editor_options:
@@ -123,6 +123,26 @@ You can even use the shell from within RStudio (`Tools > Terminal > New Terminal
 
 ***
 
+## First reading assignment
 
+As a reminder, R4ds is our textbook, *R for Data Science.*  The book is written for people who want to develop a career in [data science](https://en.wikipedia.org/wiki/Data_science), which applies computer science and scientific methods to data analysis, often to so-called ["big data"](https://en.wikipedia.org/wiki/Big_data) sets.
+
+We will not be going that far down the rabbit hole. We will peer into the hole, But, this is a good book written by the authors of the R packages we will use throughout this course and it provides many examples and exercises that we will apply to biological data.
+
+[R4ds: Chapter 1](https://r4ds.had.co.nz/introduction.html)
+
+We will focus on making data tidy, transforming and wrangling data, and visualizing it (section 1.1). We will do just a little bit of modeling, leaving most of it to the data scientists and your own future growth. Here are a few things to note from this chapter.
+
+* Section 1.3.3: Rectangular data refers to rows and columns, like a spreadsheet. The data you will most often come across for biological analysis will be in rectangular form.
+
+* Section 1.4: Prerequisites mentions that having some programming skills is helpful, it is not essential for this course. You will learn those programming skills as part of this course. I will try to clarify places where I think it might get a bit too far down the rabbit hole. You can also ask questions in the [internal discussion](https://github.com/SEMO-GABD/internal_discussion/issues) repo on the course website.
+
+* Section 1.4.3: We will use Tidyverse throughout this course so install it now. You can type the command given in the text into your RStudio console window (lower left) or use the `Tools > Install Packages...` menu. Enter `tidyverse` into the space provided, be sure `Install dependencies` is checked, then click the `Install` button. 
+
+* Section 1.4.4: Use the same process to install only the `nycflights` package. Use the `Install Packages...` menu or enter `install.packages("nycflights13")` in the console. You can enter the slightly different command given in the chapter but you'll install packages that you do not need for this course.
+
+[R4ds: Chapter 2](http://r4ds.had.co.nz/communicate-intro.html)
+
+This chapter is very short.
 
 

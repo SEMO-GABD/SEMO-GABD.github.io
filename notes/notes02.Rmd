@@ -14,25 +14,25 @@ editor_options:
 mainfont: Linux Libertine O
 ---
 
-This web page is available as a [PDF file](./notes03.pdf)
+This web page is available as a [PDF file](./notes02.pdf)
 
 ## Read
 
-As a reminder, R4ds is our textbook, *R for Data Science.*  The book is written for people who want to develop a career in [data science](https://en.wikipedia.org/wiki/Data_science), which applies computer science and scientific methods to data analysis, often to so-called ["big data"](https://en.wikipedia.org/wiki/Big_data) sets.
+As you read these chapters, you should type some of the examples into your console for practice.
 
-We will not be going that far down the rabbit hole. We will peer into the hole, But, this is a good book written by the authors of the R packages we will use throughout this course and it provides many examples and exercises that we will apply to biological data.
+[R4ds: Chapter 4](https://r4ds.had.co.nz/workflow-basics.html) covers material related to the assignment. A few things to note:
 
-[R4ds: Chapter 1](https://r4ds.had.co.nz/introduction.html)
+* 4.1: Mac users should use the `option` key instead of the `Alt` key. For example, to type the `<-` assignment operator, Mac users will hold down the `option` key and then press the `-` key (the minus sign). PC users will hold down the `Alt` key and then press the `-` key (the minus sign). Remember this throughout the course: the option and alt keys are for Mac and PC computers, respectively. 
 
-We will focus on making data tidy, transforming and wrangling data, and visualizing it (section 1.1). We will leave modeling to the data scientists and your own future development.
+* 4.2: Pay careful attention to object names. Like the authors of the text, `i_use_snake_case` with lowercase letters and underscores for spacing. *Never* use actual spaces. Numbers are okay, too. 
 
-**Note:** Section 1.4: Prerequisites mentions that having some programming skills is helpful, it is not essential for this course. You will learn those programming skills as part of this course. I will try to clarify places where I think it might get a bit too far down the rabbit hole. You can also ask questions in the [internal discussion](https://github.com/SEMO-GABD/internal_discussion/issues) repo on the course website.
+* 4.2: Case matters. `A` and `a` are two different things (objects) in R.
 
-[R4ds: Chapter 2](http://r4ds.had.co.nz/communicate-intro.html)
-
-[R4ds: Chapter 4](https://r4ds.had.co.nz/workflow-basics.html) covers material related to the assignment. After you complete the assignment, you should try to answer questions 1 and 3 in Section 4.4: Practice. Question 2 might not make sense until after we finish Chapter 3.
+* 4.4: Try to answer questions 1 and 3. Question 2 might not make sense until after we finish Chapter 3. You do not have to turn in answers for these questions but you should do them to learn an important point (question 1) and an important feature of RStudio (question 3).
 
 [R4ds: Chapter 6](https://r4ds.had.co.nz/workflow-scripts.html) where you can practice some of your new-found R skills in RStudio. Practice some of the code from [Chapter 4](https://r4ds.had.co.nz/workflow-basics.html) in RStudio. Find some other code online and practice with it. I stress again that typing code again and again is the best way to learn it.
+
+* 6.1: Do remember to *not* include `install.packages()` commands in your scripts. Use the command in the console window or from the `Tools` menu. Otherwise, RStudio will try install the package(s) every time you run your script.  You'll probably forget once or twice but you'll soon remember after you realize you are wasting time.
 
 Remember in [Notes 01](./notes01.html), I said to "save that which is real?" [R4ds: Chapter 8](https://r4ds.had.co.nz/workflow-projects.html) ties that philosophy to R Projects and organization of your R scripts. Study this chapter carefully and follow it closely.
 
