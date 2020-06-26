@@ -2,11 +2,11 @@
 title: "Introduction and Background"
 subtitle: "Graphical Analysis of Biological Data"
 output:
-  pdf_document:
-    latex_engine: lualatex
   html_document:
     df_print: paged
     toc: yes
+  pdf_document:
+    latex_engine: lualatex
 urlcolor: blue
 linkcolor: blue
 editor_options:
@@ -50,7 +50,7 @@ I expect that you will be curious. The notes for this course will be brief but t
 
 *Follow the links!* Read. Learn. Practice!
 
-Data analysis requires coding. The code you will learn in this class is R, widely used by biologists of all stripes. To learn proper coding, you will have to type R code. *Lots* of R code. Do not give in to the temptation to copy and paste from examples. You will not learn the R language well that way. Typing the code yourself will "drill" the language into your muscle memory and your brain memory. You will learn it better. You will retain it longer. You will have a better chance of getting a job. Just type it!
+Data analysis requires coding. The code you will learn in this class is R, widely used by biologists across all disciplines. To learn proper coding, you will have to type R code. *Lots* of R code. Do not give in to the temptation to copy and paste from examples. You will not learn the R language well that way. Typing the code yourself will "drill" the language into your muscle memory and your brain memory. You will learn it better. You will retain it longer. You will have a better chance of getting a job. Just type it!
 
 ## Reproducibility
 
