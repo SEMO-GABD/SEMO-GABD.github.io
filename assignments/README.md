@@ -12,7 +12,7 @@ Assignments are available in HTML and PDF formats. They have the same
 content so you only need to complete one. Resources has links to places
 necessary to complete an assignment or to supporting information. The
 readings listed in the Notes and Assignments pages are the officially
-assigned readings that you *must* completed.
+assigned readings that you *must* complete.
 
 **Note:** Click on blue links in PDF files to visit those web sites.
 
@@ -47,7 +47,7 @@ change.
 
 Here is the general flow that will happen for the assignments.
 
-1.  When a assignments are released, I will post a GitHub Issue in the
+1.  When an assignment is released, I will post a GitHub Issue in the
     [Internal
     Discussion](https://github.com/semo-gabd/internal_discussion) repo,
     tagging the students (you should get an email notification, too,
@@ -57,7 +57,8 @@ Here is the general flow that will happen for the assignments.
     computer that you created for this class. Replace the `##` with the
     assignment number, e.g., `hw01`, `hw02`, etc. **Use a separate
     folder for each assignment.** By the end of the course, you should
-    have folders labeled `hw01` through `hw11`.
+    have folders labeled `hw01` through `hw16` (or whatever the final
+    homework number ends up being).
 3.  Download any `.Rmd` or other files associated with the assignment
     and place them in your new homework folder.
 4.  Complete the assignment. Push your edits to your GitHub repository
@@ -90,6 +91,9 @@ grade.
 | Presentation: tables                                                                 | Table(s) carefully constructed to make it easy to perform important comparisons. Careful styling highlights important features.                                                                                                            | Table(s) generally appropriate but possibly some minor formatting deficiencies.                                                                                      | Table(s) with too many, or inconsistent, decimal places. Table(s) not appropriate for questions and findings. Major display problems.    |
 | Achievement, mastery, cleverness, creativity                                         | Student has gone beyond what was expected and required, e.g., extraordinary effort, additional tools not addressed by this course, unusually sophisticated application of tools from course.                                               | Tools and techniques from the course are applied very competently and, perhaps,somewhat creatively. Chosen task was acceptable, but fairly conservative in ambition. | Student does not display the expected level of mastery of the tools and techniques in this course. Chosen task was too limited in scope. |
 | Ease of access for instructor, compliance with course conventions for submitted work | Access as easy as possible, code runs\!                                                                                                                                                                                                    | Satisfactory                                                                                                                                                         | Not an earnest effort to reduce friction and comply with conventions and/or code does not run                                            |
+
+**Note:** Scores of zero are possible if one or more parts of an
+assignment are not completed.
 
 **Warning:** I will run your code on the original data. You may be
 tempted to modify the data file in Excel or other editor to “ease”
