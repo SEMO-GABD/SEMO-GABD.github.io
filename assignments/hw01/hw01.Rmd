@@ -171,11 +171,11 @@ If none of the requirements seem familiar, then take (or re-take) the [markdown 
 
 ***
 
-You will use markdown in all subsequent exercises so get comfortable with it.
+You will use markdown in later exercises so get comfortable with it.
 
 ### Commit and push the README file to your GitHub account.
 
-The following steps will `push` your README.md file to GitHub for the world to see. Get used to this process because you will use it. A lot.
+The following steps will `push` your README.md file to GitHub for the world to see. Get used to this process because you will use it. A lot. You'll complete an exercise in the near future that will help you to better understand Git and GitHub. For now, just follow these steps carefully.
 
 1. First, just be sure your local repository is up-to-date with your remote repository, choose `Tools > Version Control > Pull Branches` from the menu. You should get a dialog box that says already up-to-date. Close the dialog.
 
