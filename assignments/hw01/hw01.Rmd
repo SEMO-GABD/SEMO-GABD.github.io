@@ -105,7 +105,9 @@ If you do see your directory, then do *all* of the following steps.
 
   - If prompted, enter the GitHub user name and password you used when you created your GitHub account. Your screen should look similar to that shown on the next page.
   
-  - **Remember the location of this repository and project file.** You will do all of your homework in this folder, using this project file.
+  - **Remember the location of this repository and project file.** The project file has the `.Rproj` extension. You will do all of your homework in this folder, using this project file.
+  
+  - **For all future assignments in this course, double-click on your `.Rproj` project file to start RStudio.** This will ensure that RStudio knows where to find your scripts and data. 
   
   - I will refer to this repository on your computer as the **local repository** or **local repo.** The equivalent repository stored on GitHub is called the **remote repo.**
   
