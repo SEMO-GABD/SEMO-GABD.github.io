@@ -22,51 +22,61 @@ This assignment consists of six parts:
 - Data frames
 - Lists
 
-If you haven't already, [download the answer sheet for this document](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/01_intro_to_basics_answers.Rmd) (**Note:** right-click and save the file with the `.Rmd` extension to your `hw02` folder.)
 
-After you complete each exercise, push the R Notebook to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
+Each part introduces you to a fundamental type of *object* that R uses to store data. You will also learn basic R commands necessary to store and access data in the objects. 
+
+Later, you will create an R script, a text file that stores your R commands so that you don't have to rewrite code. You will write scripts for most assignments.
+
+
+After you complete each exercise, push the R script to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
 
 ***
 
 ## 1.1 Comments and calculators
 
-R makes use of the # sign to add comments, so that you and others can understand what the R code is about. Just like Twitter! Comments are not run as R code, so they will not influence your result. For example, Calculate 3 + 4 in the example below is a comment.
+Open R Studio and click in the **Console** panel. It's probably the lower left pane in R Studio. Be sure the Console tab is chosen.
 
-```{r}
-# Calculate 3 + 4
+You should see
+
+```
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+```
+ 
+followed by the `>` (greater than) prompt. The prompt is where you can type commands directly into R. 
+
+Click just to the right of the `>`, type `42`, and press the Enter key. You should see `[1] 42`. That is R's way of responding to your command. You can use R entirely from the console but it's not efficient. Instead, you will write scripts. Scripts are plain text files with all of the commands needed to accomplish one or more related tasks. You can then run (execute) all or some of the commands in your script.
+
+## Writing your first script
+
+Click in the `hw01-1.R` script you created. It should be the upper-left panel in RStudio. 
+
+Type a `#` followed by your name. R uses # sign to add comments, so that you and others can understand what the R code is about.  Comments are not run as R code, so they will not influence your result. For example, the code below shows a comment ("Calculate 2 + 5"), followed by the actual code, then another comment. Only the code is executed by R.  
+
+```{r eval=FALSE}
+# Calculate 2 + 5
+
+2 + 5
+
+# The answer should be 7
 ```
 
-You can execute R commands in your R Notebook but you can also execute R commands straight in the console of RStudio. This is a good way to experiment with R code, to be sure you have it right before you finalize your answers.
+You execute R commands in your R scripts (and later, R Notebooks) in one of two ways. To run a single line, click at the end of line withe the command you want to run (or anywhere in the line) and press the Cmd/Alt-enter (enter or return key). You can also press the small `Run` button just above your script, to the right. You'll see the results appear in the console below the script.
+
+You can select several lines of related code and then do the same thing to execute all of the lines at once. 
 
 #### Instructions
 
-Here is some sample code. Can you see which lines are actual R code and which are comments?
-
-Add a line of code in the space provided that calculates the sum of 6 and 12, and press the green arrow to run your code chunk.
+Add a line of new line code in your script that calculates the sum of 30 and 12. Run the line of code. Write a comment above your line that describes what your code does.
 
 **Note:** Get in the habit of commenting your code. It is better to use too many comments that not enough. You will return to your code at some point in the future. The comments will help you remember what you did and *why* you did it.
 
-```{r}
-# Calculate 3 + 4
-3 + 4
-
-# Calculate 6 + 12
-
-
-
-#
-```
-
-```{r include=FALSE}
-# Answer
-
-# Calculate 3 + 4
-3 + 4
-
-# Calculate 6 + 12
-6 + 12
-```
-
+You would not normally write a comment for every step. The code to add 30 + 12 is obvious. For now, though, write comments for most steps just to develop the habit.
 
 ## 1.2 Arithmetic with R
 
@@ -81,33 +91,29 @@ In its most basic form, R can be used as a simple calculator. Consider the follo
 
 The last two might need some explaining:
 
-- The `^` operator raises the number to its left to the power of the number to its right: for example `3^2` is 9.
+- The `^` (caret) operator raises the number to its left to the power of the number to its right: for example `3^2` is 3 squared, or 9.
 
-- The modulo returns the remainder of the division of the number to the left by the number on its right, for example 5 modulo 3 or `5 %% 3` is 2.
+- The modulo returns the remainder of the division of the number to the left by the number on its right, for example 5 modulo 3 or `5 %% 3` is 2. Five divided by three has a remainder of 2.
 
 With this knowledge, follow the instructions below to complete this exercise.
 
 #### Instructions
 
-- Type `2 ^ 5` in the editor to calculate 2 to the power 5.
+- Enter the comments shown below. 
 
-- Type `28 %% 6` to calculate 28 modulo 6.
+- For Division, enter `121/1.1` to calculate 121 divided by 1.1.
 
-Click the green arrow and have a look at the R output below the code.
-Note how the # symbol is used to add comments on the R code but is not included in the outout.
+- For Exponentiation type `2^5` in your script to calculate 2 to the power 5.
 
-```{r}
-# An addition
-5 + 5 
+- For Modulo, type `28 %% 6` to calculate 28 modulo 6.
 
-# A subtraction
-5 - 5 
+Run the commands to be sure you get the correct results of `r 121/1.1`, `r 2^5`, and `r 28 %% 6`.
 
-# A multiplication
-3 * 5
+```{r eval = FALSE}
+# Section 1.2
 
- # A division
-(5 + 5) / 2 
+# Division
+
 
 # Exponentiation
 
@@ -123,17 +129,8 @@ Note how the # symbol is used to add comments on the R code but is not included 
 ```{r include=FALSE}
 # Answer
 
-# An addition
-5 + 5 
-
-# A subtraction
-5 - 5 
-
-# A multiplication
-3 * 5
-
- # A division
-(5 + 5) / 2 
+# Division 
+121/1.1
 
 # Exponentiation
 2 ^ 5
@@ -143,29 +140,54 @@ Note how the # symbol is used to add comments on the R code but is not included 
 
 ```
 
+R follows the mathematical order of operators, or [precedence](https://mathworld.wolfram.com/Precedence.html). Add these two lines of code to your script to see the result of exponentiation without and with parentheses.
+
+- `49^1/2`
+
+- `49^(1/2)`
+
+```{r}
+# Exponentiation without parentheses
+
+
+# Exponentiation with parentheses
+
+
+#
+```
+
+The results of `r 49^1/2` and `r 49^(1/2)` are very different. *Failure to remember precedence will cause mistakes in your results!*
+
+You can do these simple math problems more quickly on a calculator than it takes to start RStudio and enter the commands.  The next steps begin to reveal the real power of programming with R.
+
 ## 1.3 Variable assignment
 
 A basic concept in (statistical) programming is called a **variable.**
 
-A variable allows you to store a value (e.g., 4) or an object (e.g., a function description) in R. You can then later use this variable's name to easily access the value or the object that is stored within this variable.
+A variable allows you to store a value (e.g., 4) or an object (e.g., a function description) in R. You can then later use this variable's name to  access the value or the object that is stored within this variable.
 
-You can assign a value 4 to a variable `my_var` with the command. In RStudio, press `option/alt + - ` to enter the ` <- ` with appropriate spacing. Or, take the long way and type the less than symbol followed by a dash. Your choice. *Work smart, not hard.*
+You can assign a value 4 to a variable `my_var` with the command `my_var <- 4`. In RStudio, press `option/alt + -` to enter the ` <- ` with appropriate spacing. Or, take the long way and type the less than symbol followed by a dash. Your choice. *Work smart, not hard. Learn the keyboard shortcuts!*
 
-You can see what is stored in a variable by entering the variable name on a line by itself.
+You can see what is stored in a variable by entering the variable name on a line by itself. You can enter `my_var` in the console or run it as part of your script. 
 
 ```{r}
 my_var <- 4
 
 my_var
-````
+```
+
+**Note:** The `<-` symbol is the *assignment operator.* It tells R to store something (like a value) in something else (like a variable). A handy name for `<-` is "gets." For example, read the command `my_var <- 4` as "my_var gets 4."
+
 
 #### Instructions
 
-Complete the code in the chunk such that it assigns the value 42 to the variable `x`, and then view the contents of `x`. You know what to do with the green arrow. Notice that when you ask R to print `x`, the value 42 appears. At least it will if you did this correctly!
+- Add to your script a comment with the number and name of this section  ("1.3 Variable assignment"). 
+- Add to your script the commands that assigns the value 42 to the variable `x`, and then shows the contents of `x`. Notice that when you ask R to print `x`, the value 42 appears in the console. At least it will if you did this correctly!
 
 
 ```{r include=TRUE}
 # Assign the value 42 to x
+
 
 # Print out the value of the variable x
 
@@ -183,228 +205,231 @@ x <- 42
 x
 ```
 
-## 1.4 Variable assignment (2)
+### Let's get biological
 
-Suppose you have a fruit basket with five apples. As a data analyst in training, you want to store the number of apples in a variable with the name `my_apples`.
+Assume you surveyd the number and species of [Kangaroo Rats](https://www.utep.edu/leb/pleistnm/taxaMamm/Dipodomys.htm) (genus *Dipodomys*) from a transect in southern New Mexico. You recorded 24 *Dipodomys merriami* and 9 *Dipodomys ordii*. 
 
 #### Instructions
 
-- Type the following code in the code chunk: `my_apples <- 5`. This will assign the value 5 to `my_apples`.
+- Enter the code to assign the number of *D. merriami* to a variable called `d_merriami`. Assign the number of *D. ordii* recorded to a variable of a similar, suitable name.
 
-- Type `my_apples` below the second comment. This will print out the value of `my_apples`.
+- Enter the two variable names on separate lines in your script so you can inspect the results.
 
-Run the code chunk and look at the console: you see that the number 5 is printed. So R now links the variable `my_apples` to the value 5.
+Run your code and look at the console for the results. You should see each variable name followed by the number of individuals observed (24 *D. merriami* and 9 *D. ordii*.) If the output does not agree, check your code and fix it so that it runs correctly. 
+
 
 ```{r}
-# Assign the value 5 to the variable my_apples
+# Assign the value 24 the variable d_merriami
 
 
-# Print out the value of the variable my_apples
+# Assign the value 9 to d_ordii
 
+
+# Check the results
+```
+
+```{r eval=TRUE, include=FALSE}
+# Assign the value 24 the variable d_merriami
+d_merriami <- 24
+
+# Assign the value 9 to d_ordii
+d_ordii <- 9
 
 #
 ```
 
-```{r include=FALSE}
-# Answer
 
-# Assign the value 5 to the variable my_apples
-my_apples <- 5
+## 1.4 Working with variables
 
-# Print out the value of the variable my_apples
-my_apples
-```
-
-## 1.5 Variable assignment (3)
-
-Every tasty fruit basket needs oranges, so you decide to add six oranges. As a data analyst, your reflex is to immediately create the variable `my_oranges` and assign the value 6 to it. Next, you want to calculate how many pieces of fruit you have in total. Since you have given meaningful names to these values, you can now code this in a clear way:
+Enter a comment with the section number and name of this section shown above. Notice how you are using comment lines to break your code up into logical chunks of related commands. Use multiple `#` on a line to create visual breaks in your code, like
 
 ```{r eval=FALSE}
-my_apples + my_oranges
+### 1.4 Working with variables
+```
+
+You can change the values stored in variables. Let's assume the 24 *D. merriami* should have been 29 so you want to add 5 more individuals. Read the following code and predict the result. What will be the final value of `d_merriami`? Enter the code into your script and run it.
+
+```{r eval=TRUE, include=FALSE}
+d_merriami <- 24
+```
+
+
+```{r}
+# Correcting the mistake
+d_merriami + 5
+
+d_merriami
+```
+
+```{r eval=TRUE, echo=FALSE}
+# Correcting the mistake
+d_merriami + 5
+
+d_merriami
+```
+
+
+The value of `d_merriami` is still 24, even though R output 29 as the result of `d_merriami + 5`. You must use the assignment operator to store your new value. This time, R adds 5 to the initial value stored in `d_merriami` and then assigns the new value to the variable.
+
+```{r eval=TRUE}
+# Correcting the mistake
+d_merriami <- d_merriami + 5
+
+d_merriami
+```
+
+You can apply math operators to variables with numbers. For example, `z` holds the value `42` after the following code is run.
+
+```{r eval=TRUE}
+x <- 30
+y <- 12
+
+z <- x + y
+
+z
 ```
 
 
 #### Instructions
 
-- Assign to `my_oranges` the value 6.
+You will calculate the total number of kangaroo rats observed and then the density of individuals per square meter. Assume that you counted the number of rats in 1000 square meters.
 
-- Add the variables `my_apples` and `my_oranges` and have R simply print the result.
+Be sure you added the extra five *D. merriami* (29 total) from the example above.
 
-- Assign the result of adding `my_apples` and `my_oranges` to a new variable `my_fruit`.
+Add the following code to your script.
+
+- Create a variable called `total_k_rats` and add together the number of each species observed. *Use the variable names for addition, not the numbers.*
+
+- Create a variable called `area_sampled` and assign the value `1000` to it.
+
+- Create a variable called `density`. Divide `total_k_rats` by `area_sampled` to calculate the density of kangaroo rats per square meter. 
 
 ```{r}
-# Assign a value to the variables my_apples and my_oranges
-my_apples <- 5
+# Add together the number of individuals of each species. 
+# Store the result in 'total_k_rats'.
 
 
-# Add these two variables together
+# Assign 1000 to a variable called 'area_sampled'
 
 
-# Create the variable my_fruit
+# Divide 'total_k_rats' by 'area_sampled' to calculate 'density'. 
+
+
+# Show the value stored in density
 
 
 #
 ```
 
-```{r include=FALSE}
-# Answer
+```{r eval=TRUE, include=FALSE}
+## ANSWER
 
-# Assign a value to the variables my_apples and my_oranges
-my_apples <- 5
-my_oranges <- 6
+# Add together the number of individuals of each species. 
+# Store the result in 'total_k_rats'.
+total_k_rats <- d_merriami + d_ordii
 
-# Add these two variables together
-my_apples + my_oranges
+# Assign 1000 to a variable called 'area_sampled'
+area_sampled <- 1000
 
-# Create the variable my_fruit
-my_fruit <- my_apples + my_oranges
+# Divide 'total_k_rats' by 'area_sampled' to calculate 'density'. 
+density <- total_k_rats / area_sampled
 
+# Show the value stored in density
+density
+#
 ```
 
+The correct result should be `r density` kangaroo rats per square meter. If you did not get that result, the most likely mistake is that you didn't properly add the five extra *D. merriami.*
 
-## 1.6 Apples and oranges
-
-Common knowledge tells you not to add apples and oranges. But hey, that is what you just did, no? The `my_apples` and `my_oranges` variables in the previous exercise both contained a number.  The `+` operator works with numeric variables in R. If you really tried to add "apples" and "oranges", and assigned a text value to the variable `my_oranges`, you would be trying to assign the addition of a numeric and a character variable to the variable `my_fruit`. This is not possible.
-
-```{r error=TRUE}
-# Assign a value to the variable my_apples
-my_apples <- 5 
-
-# Fix the assignment of my_oranges
-my_oranges <- "six"
-
-# Create the variable my_fruit and print it out
-my_fruit <- my_apples + my_oranges 
-
-```
-
-#### Instrutions
-
-- Run the code chunk and read the error message. Make sure to understand why this did not work.
-
-- Adjust the code so that R knows you have 6 oranges and thus a fruit basket with 11 pieces of fruit.
-
-```{r}
-# Assign a value to the variable my_apples
-my_apples <- 5 
-
-# Fix the assignment of my_oranges
-my_oranges <- "six"
-
-# Create the variable my_fruit and print it out
-my_fruit <- my_apples + my_oranges 
-
-my_fruit
-```
-
-```{r include=FALSE}
-# Answer
-
-# Assign a value to the variable my_apples
-my_apples <- 5 
-
-# Fix the assignment of my_oranges
-my_oranges <- 6
-
-# Create the variable my_fruit and print it out
-my_fruit <- my_apples + my_oranges 
-
-my_fruit
-```
-
-## 1.7 Basic data types in R
+## 1.5 Basic data types in R
 
 R works with numerous data types. Some of the most basic types to get started are:
 
-- Decimal values like 4.5 are called **numerics**.
+- Decimal values like 4.5 are called **numerics**. 
 
 - Natural numbers like 4 are called **integers**. Integers are also numerics.
 
-- Boolean values (TRUE or FALSE) are called **logical**.
+- Boolean values (TRUE or FALSE) are called **logical**. Note that these are upper case. R is case sensitive so TRUE is a boolean value but True is not. 
 
-- Text (or string) values are called **characters**.
-
-- Note how the quotation marks around the text in the code chunk indicate that `"some text"` is a character.
+- Text (or string) values are called **characters**. Text values in code are surrounded by single or double quotation marks, like `"my text string"`.
 
 #### Instructions
 
 Assign values to the these variables:
 
-- `my_numeric` variable to 42.
+- 42 to the variable `numeric_var`.
 
-- `my_character` variable to "universe". Note that the quotation marks indicate that "universe" is a character.
+- "Dipodomys merriami" to the variable `species_name`. You can use single or double quotation marks but you cannot mix them on the same text string; e.g., `'Dipodomys merriami'` or `"Dipodomys merriami"` but not `"Dipodomys merriami'`.
 
-- `my_logical` variable to `FALSE.` Note that R is case sensitive!
+- `TRUE` to the variable `is_mammal`. Remember that R is case sensitive. Boolean values are not text strings so do not use quotation marks.
 
 
 ```{r}
-# Assign 42 to my_numeric
-my_numeric
+# Assign 42 to numeric_var
 
-# Assign "universe" to my_character
-my_character
 
-# Assign FALSE to my_logical. Remember: Case matters
-my_logical
+# Assign "Dipodomys merriami" to species_name
+
+
+# Assign TRUE to is_mammal Remember: Case matters
+
+
+```
+
+```{r eval=TRUE, include=FALSE}
+## ANSWER
+
+# Assign 42 to numeric_var
+numeric_var <- 42
+
+# Assign "Dipodomys merriami" to species_name
+species_name <- "Dipodomys merriami"
+
+# Assign TRUE to is_mammal Remember: Case matters
+is_mammal <- TRUE
 ```
 
 
-```{r include=FALSE}
-# Answer
+## 1.6 What is the data type?
 
-# Assign 42 to my_numeric
-my_numeric <- 42
+Do you think you can add (or substract, multiply, etc.) variables of different data types? What if tried to run the code `5 + "five"`? Try it in the console to see the result. 
 
-# Assign "universe" to my_character
-my_character <- "universe"
+The error message tells you that you are using a non-numeric argument (`"five"`) witt a binary operator (`+`). Math operators like the plus sign work only with numerics. You cannot mix most data types.
 
-# Assign FALSE to my_logical. Remember: Case matters
-my_logical <- FALSE
-```
-
-## 1.8 What is that data type?
-
-Do you remember that when you added `5 + "six"`, you got an error due to a mismatch in data types? You can avoid such embarrassing situations by checking the data type of a variable beforehand. You can do this with the `class()` function, as the code on the right shows.
+You can use the `class()` function to learn the data type of a variable. For example, enter `class(numeric_var)` to learn the data type of the `numeric_var` variable. 
 
 #### Instructions
 
-- Complete the code to show the classes of `my_character` and `my_logical`.
+- By now, you should be in the habit of using one or more hashtags to create a new section in your code. Be sure you have done so throughout.
+
+- Use the `class()` function to determine the class of the three variables you just created above. Add the code to your script.
 
 ```{r}
-# Declare variables of different types
-my_numeric <- 42
-my_character <- "universe"
-my_logical <- FALSE 
-
-# Check class of my_numeric
-class(my_numeric)
-
-# Check class of my_character
+# Check class of numeric_var
 
 
-# Check class of my_logical
+# Check class of species_name
+
+
+# Check class of is_mammal
 
 
 #
 ```
 
-```{r include=FALSE}
-# Answer
+```{r eval=TRUE, include=FALSE}
+## Answer
 
-# Declare variables of different types
-my_numeric <- 42
-my_character <- "universe"
-my_logical <- FALSE 
+# Check class of numeric_var
+class(numeric_var)
 
-# Check class of my_numeric
-class(my_numeric)
+# Check class of species_name
+class(species_name)
 
-# Check class of my_character
-class(my_character)
+# Check class of is_mammal
+class(is_mammal)
 
-# Check class of my_logical
-class(my_logical)
+
+#
 ```
-
-
 
