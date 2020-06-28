@@ -1,5 +1,5 @@
 ---
-title: "1: Intro to Basics"
+title: "Part 1: Intro to Basics"
 subtitle: Introduction to R
 output:
   pdf_document: default
@@ -56,7 +56,17 @@ Click just to the right of the `>`, type `42`, and press the Enter key. You shou
 
 Click in the `hw01-1.R` script you created. It should be the upper-left panel in RStudio. 
 
-Type a `#` followed by your name. R uses # sign to add comments, so that you and others can understand what the R code is about.  Comments are not run as R code, so they will not influence your result. For example, the code below shows a comment ("Calculate 2 + 5"), followed by the actual code, then another comment. Only the code is executed by R.  
+Type a `#` followed by your name. R uses # sign to add comments, so that you and others can understand what the R code is about.  Add another comment line followed by this assignment number and name. It should look similar to this.
+
+```{r}
+# Mike Taylor
+
+# HW02 Part 1: Intro to Basics
+
+# You can add other comments if you want.
+```
+
+Comments are not run as R code, so they will not influence your results. For example, the code below shows a comment ("Calculate 2 + 5"), followed by the actual code, then another comment. Only the code is executed by R.  
 
 ```{r eval=FALSE}
 # Calculate 2 + 5
@@ -66,17 +76,18 @@ Type a `#` followed by your name. R uses # sign to add comments, so that you and
 # The answer should be 7
 ```
 
+
 You execute R commands in your R scripts (and later, R Notebooks) in one of two ways. To run a single line, click at the end of line withe the command you want to run (or anywhere in the line) and press the Cmd/Alt-enter (enter or return key). You can also press the small `Run` button just above your script, to the right. You'll see the results appear in the console below the script.
 
 You can select several lines of related code and then do the same thing to execute all of the lines at once. 
 
 #### Instructions
 
-Add a line of new line code in your script that calculates the sum of 30 and 12. Run the line of code. Write a comment above your line that describes what your code does.
+Add a line of new line code in your script that calculates 30 + 12. Run the line of code. Write a comment above your new code that describes what your code does.
 
-**Note:** Get in the habit of commenting your code. It is better to use too many comments that not enough. You will return to your code at some point in the future. The comments will help you remember what you did and *why* you did it.
+**Note:** Get in the habit of commenting your code. It is better to use too many comments than not enough. You will return to your code at some point in the future. Comments help you remember what you did and *why* you did it.
 
-You would not normally write a comment for every step. The code to add 30 + 12 is obvious. For now, though, write comments for most steps just to develop the habit.
+You would not normally write a comment for every step. The code to add 30 + 12 is obvious. For now, write comments for most steps to develop good coding habits.
 
 ## 1.2 Arithmetic with R
 
