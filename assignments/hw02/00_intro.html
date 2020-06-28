@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -254,9 +254,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -270,7 +268,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -281,22 +278,81 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -310,9 +366,11 @@ $(document).ready(function () {
 </div>
 
 
-<p>I adapted this exercise from the Free Introduction to R tutorial from DataCamp (<a href="http://datacamp.com/courses/free-introduction-r" class="uri">http://datacamp.com/courses/free-introduction-r</a>). It was free but they just started charging for five of the modules.</p>
+<!-- UNCOMMENT WHEN READY
+I adapted this exercise from the Free Introduction to R tutorial from DataCamp (http://datacamp.com/courses/free-introduction-r). It was free but they just started charging for five of the modules.-->
 <p>This exercise will teach you basic commands and types of data objects in R. By the end, you will be able to perform the following tasks in R.</p>
 <ul>
+<li>Create and save a new R script;</li>
 <li>assign values to variables;</li>
 <li>create and manipulate vectors;</li>
 <li>create and perform computations on matrices;</li>
@@ -323,28 +381,38 @@ $(document).ready(function () {
 <hr />
 <div id="how-this-works" class="section level2">
 <h2>How this works</h2>
-<p>First, create a folder called <code>hw02</code> inside your local repo (the folder you created for this course).</p>
+<p>First, create a folder called <code>hw02</code> inside your local repo (the folder you created for this course). It should be in the same folder as your project file.</p>
+<p>Next, choose <code>File &gt; New File &gt; R Script</code> from the menu to create a new script. Choose <code>File &gt; Save As...</code> to save the script as <code>hw02-1.R</code> inside the <code>hw02</code> folder you just created. Use this script for part 1: Intro to Basics. You’ll make a separate script for each part. Save each script in your <code>hw02</code> folder.</p>
 <p>This assignment consists of six parts:</p>
 <ul>
-<li><p>1: Intro to Basics (<a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/01_intro_to_basics_answers.Rmd">download Part 1 answer sheet</a>)</p></li>
-<li><p>2: Vectors (<a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/02_vectors_answers.Rmd">download Part 2 answer sheet</a>)</p></li>
-<li><p>3: Matrices (<a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/03_matrices_answers.Rmd">download Part 3 answer sheet</a>)</p></li>
-<li><p>4: Factors (<a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/04_factors_answers.Rmd">download Part 4 answer sheet</a>)</p></li>
-<li><p>5: Data frames (<a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/05_data_frames_answers.Rmd">download Part 5 answer sheet</a>)</p></li>
-<li><p>6: Lists (<a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/06_lists_answers.Rmd">download Part 6 answer sheet</a>)</p></li>
+<li><p>1: Intro to Basics (<a href="./01_intro_to_basics.html">HTML</a> | <a href="./01_intro_to_basics.pdf">PDF</a>)</p></li>
+<li><p>2: Vectors (<a href="./02_vectors.html">HTML</a> | <a href="./02_vectors.pdf">PDF</a>)</p></li>
+<li><p>3: Matrices (HTML | PDF)</p></li>
+<li><p>4: Factors (HTML | PDF)</p></li>
+<li><p>5: Data frames (HTML | PDF)</p></li>
+<li><p>6: Lists (HTML | PDF)</p></li>
 </ul>
-<p>Each part has two files, the instructions (in HTML and PDF) and an R Notebook answer sheet where you type your code. Download the answer sheets by **right-clicking* on the link above, and saving them with the <code>.Rmd</code> extension in your <code>hw02</code> folder. (On Macs, do not hide the extension.)</p>
-<p>The R Notebooks have code chunks, like that shown below, where you will type and run your code. A code chunk has instructions or commands that tell R to do things. You will learn more about these commands in the first exercise.</p>
-<pre><code>```{r}
-a &lt;- 2
-x &lt;- a * 14
+<p>Each part has a set of instructions (in HTML and PDF) to guide you through the exercises. I’ll release the parts over 2-3 days to give us all time to work out any kinks with setup and getting comfortable in RStudio. <!--Download the answer sheets by **right-clicking* on the link above, and saving them with the `.Rmd` extension in your `hw02` folder. (On Macs, do not hide the extension.)
+
+The R Notebooks have code chunks, like that shown below, where you will type and run your code. A code chunk has instructions or commands that tell R to do things. You will learn more about these commands in the first exercise.
+
+````
+```{r}
+a <- 2
+x <- a * 14
 x
-```</code></pre>
-<p>R Notebooks are interactive. In the upper right of each code chunk (not visible here) are a few controls, including a small green arrow (<img src="data:image/png;base64,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Hv9WWpyF+XwtMuIaMR9nZ98rA4BrBeCrcHZ25tDs7NdjSLMPAWhPnfflc8Ii/v2IzBx1q2z+D3/8L+5FBjs6w9MsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGL2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDAgNzkuMTYwNDUxLCAyMDE3LzA1LzA2LTAxOjA4OjIxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIGV4aWY6UGl4ZWxYRGltZW5zaW9uPSI3OSIgZXhpZjpQaXhlbFlEaW1lbnNpb249IjMwIiB4bXA6Q3JlYXRlRGF0ZT0iMjAxOC0xMC0xNlQxMzozNTozOS0wNTowMCIgeG1wOk1vZGlmeURhdGU9IjIwMTgtMTAtMTZUMTM6Mzc6NDUtMDU6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMTgtMTAtMTZUMTM6Mzc6NDUtMDU6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0iRGlzcGxheSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1OTdiYjY3OS0zZDI5LTQxZjQtYTNkMy0yODcxZjQzZTc1MGUiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo3M2QxNGVlYS0wZDg3LWUxNGItOTU2My0wNjdhMGQ1NDEzZjMiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4YzI0YTJjZS0yNDdkLTQxMTAtOGE4OC04MjE0OTAzMzk4MTEiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo4YzI0YTJjZS0yNDdkLTQxMTAtOGE4OC04MjE0OTAzMzk4MTEiIHN0RXZ0OndoZW49IjIwMTgtMTAtMTZUMTM6Mzc6NDUtMDU6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChNYWNpbnRvc2gpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo1OTdiYjY3OS0zZDI5LTQxZjQtYTNkMy0yODcxZjQzZTc1MGUiIHN0RXZ0OndoZW49IjIwMTgtMTAtMTZUMTM6Mzc6NDUtMDU6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChNYWNpbnRvc2gpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgY95hAAAAKRSURBVFjD7Zdda9NgFMf3MaxXXot+Grt6IegmCF54Na/UG5WBILtQQb3yali1Qy+UsRUZfUu7rqS0sL6kSdomaZI2r23Xdmu7Nvp3QdluZjoWka2HQzj9Qx6e3znPOU868+M82czOebIprTNjy+UUmeZ4/izT8jxvEzIsi04oMQxiThBUVT1rtI1GA2B1VS0WKU03LMuSJIlmWUVVaZoxDOP415vNZnY7l0yRSfKIb5HpaCwuy7LTbZjap+KG67SiKGJPKOnIGo8tazQeD4bD/mAARRBFTdP+voIsRxOboSgRiv32KLG6FqQoaoKkm+rVwPyrzIrrJzlfKIytMTi7vZ5uNPcGfcSdbrdQKjlNmSRFE0lwhgl4/AC1NNEeFFO/HJjz+L1vsl/coqVopsrzZrOJqgKvRGNO/bLh/v5evw8GdHKJZpwshc4PE4kQEf+2vp7LFSbNOGivBOY9H2Yv+n2vs59b7fbp026R5J9rWq7X7S4tUlS709kfjWw9nck4nXYcH/y+kdvOnaD9bNoL771wVPhrIXL6tIIgoJyNhgIqJBPDqVarYSbbteUR0zSG1vGLyIYqaHVBlUW9zsqCqDcQQ4E+cW39Xs/H2btrz2VNcatvgQdaC8DtNkZxb3cXP3G8KYp28vqDzbc3Io9vRp/eii3OEYt4IoYCfTLalduegO9ecAlz3q0pValUdNMEHiDt04unHVQ5ru2gfxaIl9cSD33xR4cdCvSJaC8tX7+z+qzVark4kwVBrOJAi1KhWDQOsAFJM6xqGKi5kzQvJZYXIi/uh484FOjOtyHrypPIO9M0Xb+BcN/an00cx+GmZZgy4nKlqijKzn9vJ/9OzufzKZIURWn6H2hKO6X9x/YTZ2RPf7J4qvMAAAAASUVORK5CYII=" />) You can run each code chunk by clicking the small green arrow. When you click the arrow, every line of code in the chunk is interpreted and executed by R. If your code is correct, it will appear below the code. If the code is incorrect, you will get an error message. If you get an error, fix the code until it is correct.</p>
-<p><strong>Important:</strong> If you stop an exercise part way through and come back later, click the downward-pointing gray arrow just left of the green arrow. That will execute all of the code chunks from the start of the document up to the current chunk. Then, click the green arrow and continue.</p>
-<p>Most code chunks in the R Notebook will have some code already present, and then a place for you to type more code. The example below assigns the value 2 to variable <code>a</code>. You are then given instructions to add more code. The instructions are comments, which begin with the hashtag (<code>#</code>) symbol.</p>
-<pre><code>```{r}
-a &lt;- 2
+```
+````
+
+R Notebooks are interactive. In the upper right of each code chunk (not visible here) are a few controls, including a small green arrow  (![](../../img/run_chunk_arrow.png)) You can run each code chunk by clicking the small green arrow. When you click the arrow, every line of code in the chunk is interpreted and executed by R. If your code is correct, it will appear below the code. If the code is incorrect, you will get an error message. If you get an error, fix the code until it is correct.
+
+**Important:** If you stop an exercise part way through and come back later, click the downward-pointing gray arrow just left of the green arrow. That will execute all of the code chunks from the start of the document up to the current chunk. Then, click the green arrow and continue.
+
+Most code chunks in the R Notebook will have some code already present, and then a place for you to type more code. The example below assigns the value 2 to variable `a`. You are then given instructions to add more code. The instructions are comments, which begin with the hashtag (`#`) symbol.
+
+````
+```{r}
+a <- 2
 
 # Multiply a by 12 and assign it to variable b.
 
@@ -353,34 +421,47 @@ a &lt;- 2
 
 
 # Print out variables b and c
-```</code></pre>
-<p>Your final answer should look like this, with the result appearing below the code chunk.</p>
-<pre><code>```{r}
-a &lt;- 2
+```
+````
+
+Your final answer should look like this, with the result appearing below the code chunk.
+
+````
+```{r}
+a <- 2
 
 # Multiply a by 12 and assign it to variable b.
 
-b &lt;- a * 2
+b <- a * 2
 
 # Divide variable b by 3 and assign it to variable c
 
-c &lt;- b / 3
+c <- b / 3
 
 # Print out variables b and c
 b
 c
 
 #
-```</code></pre>
-<pre><code>## [1] 24</code></pre>
-<pre><code>## [1] 8</code></pre>
+```
+````
+
+
+```
+## [1] 24
+```
+
+```
+## [1] 8
+```
+--></p>
 <hr />
-<p>After you complete each assignment, you must push that Notebook answer sheet to your remote repository. Follow these steps:</p>
+<p>After you complete each assignment, you must push your script to your remote repository. Follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li><p>Choose <code>Tools &gt; Version Control &gt; Commit...</code> from the menu.</p></li>
-<li><p>You should see an entry on the left that looks like <code>hw02/01_intro_to_basics.Rmd</code> or similar. The exact file name will depend on the the part you just completed. Click the checkbox to the left. If you see only <code>hw02</code>, then click that checkbox. That should show your notebook file, already checked.</p></li>
+<li><p>You should see an entry on the left that looks like <code>hw02/hw02-1.R</code> or similar. The exact file name will depend on the the part you just completed. Click the checkbox to the left. If you see only <code>hw02</code>, then click that checkbox. That should show your script, already checked.</p></li>
 <li><p>In the <code>Commit message</code> box on the right type “Finished Part 1.” and press the <code>Commit</code> button. Change the part number to match the part you just completed.</p></li>
-<li><p>Close the confirmation box, then click the <code>Push</code> button with the green, upward-pointed arrow (upper right in RStudio). This will place your completed notebook on the remote repo (GitHub) for me to view.</p></li>
+<li><p>Close the confirmation box, then click the <code>Push</code> button with the green, upward-pointed arrow (upper right in RStudio). This will place your completed notebook on your remote repo (GitHub) for me to view.</p></li>
 </ol>
 <p>Notes 03 will cover what is actually going on when you do these steps.</p>
 </div>
@@ -402,6 +483,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

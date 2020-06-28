@@ -11,10 +11,12 @@ editor_options:
 knitr::opts_chunk$set(eval=FALSE, include=TRUE)
 ```
 
-I adapted this exercise from the Free Introduction to R tutorial from DataCamp (http://datacamp.com/courses/free-introduction-r). It was free but they just started charging for five of the modules.
+<!-- UNCOMMENT WHEN READY
+I adapted this exercise from the Free Introduction to R tutorial from DataCamp (http://datacamp.com/courses/free-introduction-r). It was free but they just started charging for five of the modules.-->
 
 This exercise will teach you basic commands and types of data objects in R. By the end, you will be able to perform the following tasks in R.
 
+- Create and save a new R script;
 - assign values to variables;
 - create and manipulate vectors;
 - create and perform computations on matrices;
@@ -27,23 +29,25 @@ This exercise will teach you basic commands and types of data objects in R. By t
 
 ## How this works
 
-First, create a folder called `hw02` inside your local repo (the folder you created for this course). 
+First, create a folder called `hw02` inside your local repo (the folder you created for this course). It should be in the same folder as your project file.
+
+Next, choose `File > New File > R Script` from the menu to create a new script. Choose `File > Save As...` to save the script as `hw02-1.R` inside the `hw02` folder you just created. Use this script for part 1: Intro to Basics. You'll make a separate script for each part. Save each script in your `hw02` folder.
 
 This assignment consists of six parts:
 
-- 1: Intro to Basics ([download Part 1 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/01_intro_to_basics_answers.Rmd))
+- 1: Intro to Basics ([HTML](./01_intro_to_basics.html) | [PDF](./01_intro_to_basics.pdf))
 
-- 2: Vectors ([download Part 2 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/02_vectors_answers.Rmd))
+- 2: Vectors ([HTML](./02_vectors.html) | [PDF](./02_vectors.pdf))
 
-- 3: Matrices ([download Part 3 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/03_matrices_answers.Rmd))
+- 3: Matrices (HTML | PDF)
 
-- 4: Factors ([download Part 4 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/04_factors_answers.Rmd))
+- 4: Factors (HTML | PDF)
 
-- 5: Data frames ([download Part 5 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/05_data_frames_answers.Rmd))
+- 5: Data frames  (HTML | PDF)
 
-- 6: Lists ([download Part 6 answer sheet](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/06_lists_answers.Rmd))
+- 6: Lists (HTML | PDF)
 
-Each part has two files, the instructions (in HTML and PDF) and an R Notebook answer sheet where you type your code. Download the answer sheets by **right-clicking* on the link above, and saving them with the `.Rmd` extension in your `hw02` folder. (On Macs, do not hide the extension.)
+Each part has a set of instructions (in HTML and PDF) to guide you through the exercises. I'll release the parts over 2-3 days to give us all time to work out any kinks with setup and getting comfortable in RStudio. <!--Download the answer sheets by **right-clicking* on the link above, and saving them with the `.Rmd` extension in your `hw02` folder. (On Macs, do not hide the extension.)
 
 The R Notebooks have code chunks, like that shown below, where you will type and run your code. A code chunk has instructions or commands that tell R to do things. You will learn more about these commands in the first exercise.
 
@@ -112,18 +116,19 @@ c <- b / 3
 b
 c
 ```
+-->
 
 ***
 
-After you complete each assignment, you must push that Notebook answer sheet to your remote repository.  Follow these steps:
+After you complete each assignment, you must push your script to your remote repository.  Follow these steps:
 
 1. Choose `Tools > Version Control > Commit...` from the menu.    
 
-1. You should see an entry on the left that looks like `hw02/01_intro_to_basics.Rmd` or similar. The exact file name will depend on the the part you just completed. Click the checkbox to the left. If you see only `hw02`, then click that checkbox. That should show your notebook file, already checked.
+1. You should see an entry on the left that looks like `hw02/hw02-1.R` or similar. The exact file name will depend on the the part you just completed. Click the checkbox to the left. If you see only `hw02`, then click that checkbox. That should show your script, already checked.
 
 8. In the `Commit message` box on the right type "Finished Part 1." and press the `Commit` button. Change the part number to match the part you just completed.
 
-9. Close the confirmation box, then click the `Push` button with the green, upward-pointed arrow (upper right in RStudio). This will place your completed notebook on the remote repo (GitHub) for me to view.
+9. Close the confirmation box, then click the `Push` button with the green, upward-pointed arrow (upper right in RStudio). This will place your completed notebook on your remote repo (GitHub) for me to view.
 
 Notes 03 will cover what is actually going on when you do these steps.
 
