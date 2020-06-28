@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -254,9 +254,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -270,7 +268,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -281,22 +278,81 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -306,7 +362,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">2: Vectors</h1>
-<h3 class="subtitle"><em>Introduction to R</em></h3>
+<h3 class="subtitle">Introduction to R</h3>
 
 </div>
 
@@ -321,433 +377,389 @@ $(document).ready(function () {
 <li>Lists</li>
 </ul>
 <p>If you haven’t already, <a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/02_vectors_answers.Rmd">download the answer sheet for this document</a> (<strong>Note:</strong> right-click and save the file with the <code>.Rmd</code> extension to your <code>hw02</code> folder.)</p>
-<p>After you complete each exercise, push the R Notebook to your remote repo. See <a href="./00_intro.html">Part 0</a> for instructions. Do <em>not</em> push this document.</p>
+<p>Open a new script and save it as <code>hw02-2.R</code>. Enter comments with your name and the assignment name like you did in Part 1. Commit and push your new R script to your remote repo. See <a href="./00_intro.html">Part 0</a> for instructions. Do <em>not</em> push this document.</p>
+<p><strong>Note:</strong> The skills with vectors you learn in this exercise apply to other data types so be sure you really understand the techniques. The next exercises will be easier to follow and complete.</p>
 <hr />
-<div id="create-a-vector" class="section level2">
-<h2>2.1 Create a vector</h2>
-<p>Feeling lucky? You had better, because this chapter takes you on a trip to the City of Sins, also known as <em>Statisticians Paradise!</em></p>
-<p>Thanks to R and your new analytical skills, you will learn how to uplift your performance at the tables and fire off your career as a professional gambler. This chapter will show how you can easily keep track of your betting progress and how you can do some simple analyses on past actions. Next stop, Vegas Baby… VEGAS!!</p>
-<div id="instrutions" class="section level4">
-<h4>Instrutions</h4>
-<p>Do you still remember what you have learned in the first chapter? Assign the value “Go!” to the variable <code>vegas</code>. Remember: R is case sensitive!</p>
-<pre class="r"><code># Define the variable vegas</code></pre>
+<div id="vectors-explained" class="section level2">
+<h2>2.1 Vectors explained</h2>
+<p>Vectors are one-dimensional arrays of one data type such as numerics or text strings. Examples of vectors would be the letters of the alphabet or the numbers 1 through 10.</p>
+<p>In R, you create vectors with the <code>c()</code> function, which <strong>c</strong>ombines multiple values of the same data type together. For example, the following code creates a vector for the first six letters of the alphabet and for the first six positive integers.</p>
+<pre class="r"><code>alphabet &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;)
+
+integers &lt;- c(1, 2, 3, 4, 5, 6) </code></pre>
+<p>Notice the use of quotation marks around the letters to indicate they are text strings. What do you think would happen if you ran this code?</p>
+<pre class="r"><code>alphabet &lt;- c(A, B, C, D, E, F)</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;A&#39; not found</code></pre>
+<p>Without the quotation marks, R expects to find variables named <code>A</code>, <code>B</code>, and so on. If you defined the variables first, then you could assign them to a vector, like so.</p>
+<pre class="r"><code>A &lt;- &quot;A&quot;
+B &lt;- &quot;B&quot;
+
+# Note the use of quotes for the last for letters but
+# not for the two variables defined above.
+alphabet &lt;- c(A, B, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;) 
+
+alphabet</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot;</code></pre>
+<p>The variables <code>A</code> and <code>B</code> were defined as text strings so they can be combined with the other letters.</p>
+<p>Recall the different data types from Intro to Basics exercise. What would happen if you ran the following code? The variable <code>G</code> is defined as an numeric class variable.</p>
+<pre class="r"><code>A &lt;- &quot;A&quot;
+B &lt;- &quot;B&quot;
+G &lt;- 7 #  Define G as a numeric class variable.
+  
+# Vectors must have the same data type.
+alphabet &lt;- c(A, B, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, G) 
+
+alphabet</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;7&quot;</code></pre>
+<pre class="r"><code>class(alphabet)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>class(G)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Notice the quotation marks around the 7. <code>G</code> is a numeric class variable still but <code>alphabet</code> is character class. When R created the <code>alphabet</code> vector, it copied the value stored in <code>G</code> and changed the data type to match the data type of the rest of the vector. The change of data type by R (and other languages) is called <em>coercion</em> and is something to be careful of. It’s always best to be sure you—the programmer—control the data type to ensure you get the results you expect.</p>
 </div>
-</div>
-<div id="create-a-vector-2" class="section level2">
-<h2>2.2 Create a vector (2)</h2>
-<p>Let us focus first!</p>
-<p>On your way from rags to riches, you will make extensive use of vectors. Vectors are one-dimension arrays that can hold numeric data, character data, or logical data. In other words, a vector is a simple tool to store data. For example, you can store your daily gains and losses in the casinos.</p>
-<p>In R, you create a vector with the combine function <code>c()</code>. You place the vector elements separated by a comma between the parentheses. For example:</p>
-<pre class="r"><code>numeric_vector &lt;- c(1, 2, 3)
-character_vector &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</code></pre>
-<p>Once you have created these vectors in R, you can use them to do calculations.</p>
+<div id="vector-types" class="section level2">
+<h2>2.2 Vector types</h2>
+<p>Vectors contain data of the same data type. You just saw examples of vectors for numeric and character data.</p>
 <div id="instructions" class="section level4">
 <h4>Instructions</h4>
-<p>Complete the code such that <code>boolean_vector</code> contains the three elements: <code>TRUE</code>, <code>FALSE</code> and <code>TRUE</code> (in that order).</p>
-<pre class="r"><code>numeric_vector &lt;- c(1, 10, 49)
-character_vector &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+<ul>
+<li><p>Add the two lines of code for the alphabet and integers vectors to your scripts.</p></li>
+<li><p>Add a line to your script to make a <code>logical_vector</code> variable that has three boolean elements: <code>FALSE</code>, <code>FALSE</code> and <code>TRUE</code> (in that order). Remember than boolean values are not text strings.</p></li>
+</ul>
+<pre class="r"><code>alphabet &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;)
 
-# Complete the code for boolean_vector</code></pre>
+integers &lt;- c(1, 2, 3, 4, 5, 6) 
+
+# Logical vector
+
+
+#</code></pre>
 </div>
 </div>
-<div id="create-a-vector-3" class="section level2">
-<h2>2.3 Create a vector (3)</h2>
-<p>After one week in Las Vegas and still zero Ferraris in your garage, you decide that it is time to start using your data analytical superpowers.</p>
-<p>Before doing a first analysis, you decide to first collect all the winnings and losses for the last week:</p>
-<p>For <code>poker_vector</code>:</p>
+<div id="biological-vectors-pun-intended" class="section level2">
+<h2>2.3 Biological vectors (pun intended)</h2>
+<p>In 1963, George Kenny and Mary Pollock (Journal of Infectious Diseases 112: 7–16) studied growth of mammalian cells in cultures contaminated with pleuropneumonia-like organisms (PPLO), a persistent problem for lab-grown cell cultures. T</p>
+<p>They counted cells every two days in cultures without and with PPLO contaminants. The values below are the average number of cells (log, base 10) in each culture type.</p>
+<p>For <code>cultures_without_pplo</code>:</p>
 <ul>
-<li>On Monday you won $140</li>
-<li>Tuesday you lost $50</li>
-<li>Wednesday you won $20</li>
-<li>Thursday you lost $120</li>
-<li>Friday you won $240</li>
+<li>Day 0: 4.6</li>
+<li>Day 2: 4.8</li>
+<li>Day 4: 5.1</li>
+<li>Day 6: 5.5</li>
+<li>Day 8: 5.8</li>
 </ul>
-<p>For <code>roulette_vector</code>:</p>
+<p>For <code>cultures_with_pplo</code>:</p>
 <ul>
-<li>On Monday you lost $24</li>
-<li>Tuesday you lost $50</li>
-<li>Wednesday you won $100</li>
-<li>Thursday you lost $350</li>
-<li>Friday you won $10</li>
+<li>Day 0: 4.6</li>
+<li>Day 2: 4.7</li>
+<li>Day 4: 4.8</li>
+<li>Day 6: 4.9</li>
+<li>Day 8: 4.8</li>
 </ul>
-<p>You only played poker and roulette, since there was a delegation of mediums that occupied the craps tables. To be able to use this data in R, you decide to create the variables <code>poker_vector</code> and <code>roulette_vector</code>.</p>
+<p><strong>Note:</strong> The variable names describe their contents. Although they are long, descriptive variable names make your code much easier to read. Plus, you may have noticed that RStudio uses <a href="https://support.rstudio.com/hc/en-us/articles/205273297-Code-Completion">code completion</a> to match variables and function names, which</p>
 <div id="instructions-1" class="section level4">
 <h4>Instructions</h4>
 <ul>
-<li>Assign the winnings/losses for roulette to the variable <code>roulette_vector</code>.</li>
+<li><p>Add the <code>cultures_without_pplo</code> vector shown below to your code.</p></li>
+<li><p>Add another line for the <code>cultures_with_pplo</code> with the data listed above.</p></li>
 </ul>
-<pre class="r"><code># Poker winnings from Monday to Friday
-poker_vector &lt;- c(140, -50, 20, -120, 240)
+<pre class="r"><code># Cultures without pplo contaminant
+cultures_without_pplo &lt;- c(4.6, 4.8, 5.1, 5.5, 5.8)
 
-# Roulette winnings from Monday to Friday
+# Cultures with pplo contaminant
 
 
 #</code></pre>
 </div>
 </div>
-<div id="naming-a-vector" class="section level2">
-<h2>2.4 Naming a vector</h2>
-<p>As a data analyst, it is important to have a clear view on the data that you are using. Understanding what each element refers to is therefore essential.</p>
-<p>In the previous exercise, we created a vector with your winnings over the week. Each vector element refers to a day of the week but it is hard to tell which element belongs to which day. It would be nice if you could show that in the vector itself.</p>
-<p>You can give a name to the elements of a vector with the <code>names()</code> function. Have a look at this example:</p>
-<pre class="r"><code>some_vector &lt;- c(&quot;John Doe&quot;, &quot;poker player&quot;)
-names(some_vector) &lt;- c(&quot;Name&quot;, &quot;Profession&quot;)</code></pre>
-<p>This code first creates a vector <code>some_vector</code> and then gives the two elements a name. The first element is assigned the name <code>Name</code>, while the second element is labeled <code>Profession</code>. Printing the contents to the console yields following output:</p>
+<div id="name-your-vectors" class="section level2">
+<h2>2.4 Name your vectors</h2>
+<p>You should always be able to interpret your data quickly to ease your analysis and understanding. But, it can be hard to remember what each element (individual values) in a long vector represents.</p>
+<p>The vectors in the previous section contain counts obtained on five days but the vectors themselves are not clear which day each value was frpm. You can name the elements so that when you view the vector you see the name and the value, so you can interpret your data easily.</p>
+<p>In R, you use the <code>names()</code> function to name each element in a vector, as shown in this example code. Read at this example.</p>
+<pre class="r"><code>name_vector &lt;- c(&quot;Michael&quot;, &quot;Taylor&quot;)
+names(name_vector) &lt;- c(&quot;First Name&quot;, &quot;Last Name&quot;)
+
+name_vector</code></pre>
+<pre><code>## First Name  Last Name 
+##  &quot;Michael&quot;   &quot;Taylor&quot;</code></pre>
+<p>This code creates the <code>name_vector</code> and then names each element in the vector. The first element “Michael” is named <code>First Name</code>, while the second element “Taylor” is named <code>Last Name</code>.</p>
+<div id="use-a-vector-to-hold-your-names." class="section level3">
+<h3>Use a vector to hold your names.</h3>
+<p>If you think about it, the <code>c(&quot;First Name&quot;, &quot;Last Name&quot;)</code> code used to name the vector elements is the same code you use to <em>create</em> a vector. Thus, you can use <em>a variable</em> to store a vector of names to use again and again. Study this example.</p>
+<pre class="r"><code># Two vectors of staff members from different business divisions
+financial &lt;- c(&quot;Jessica&quot;, &quot;Smith&quot;, &quot;Payroll&quot;, &quot;Supervisor&quot;)
+facilities &lt;- c(&quot;Stephen&quot;, &quot;Jones&quot;, &quot;Electrical&quot;, &quot;Technician&quot;)
+
+# A vector of names needed to name the elements
+names_vector &lt;- c(&quot;First Name&quot;, &quot;Last Name&quot;, &quot;Department&quot;, &quot;Position&quot;)
+
+# Name the elements of each division
+names(financial) &lt;- names_vector
+names(facilities) &lt;- names_vector
+
+financial</code></pre>
+<pre><code>##   First Name    Last Name   Department     Position 
+##    &quot;Jessica&quot;      &quot;Smith&quot;    &quot;Payroll&quot; &quot;Supervisor&quot;</code></pre>
+<pre class="r"><code>facilities</code></pre>
+<pre><code>##   First Name    Last Name   Department     Position 
+##    &quot;Stephen&quot;      &quot;Jones&quot; &quot;Electrical&quot; &quot;Technician&quot;</code></pre>
+<p><strong>Note:</strong> Store information you use multiple times in a variable. Use the variable to access the information when you need it. <strong>Work smart, not hard.</strong></p>
 <div id="instructions-2" class="section level4">
 <h4>Instructions</h4>
+<p>Add the following to your script.</p>
 <ul>
-<li>The code names the elements in <code>poker_vector</code> with the days of the week. Add code to do the same thing for <code>roulette_vector</code>.</li>
+<li><p>Create a <code>days_sampled</code> vector with <code>Day 0</code>, <code>Day 2</code>, <code>Day 4</code>, <code>Day 6</code>, and <code>Day 8</code>.</p></li>
+<li><p>Use the <code>days_sampled</code> vector to name the elements of the <code>cultures_without_pplo</code> and <code>cultures_with_pplo</code> data vectors.</p></li>
+<li><p>Code to show that the elements of each data vector were named properly.</p></li>
+<li><p>Did you use comments to make sections in your code that correspond to the sections of this assignment? If not, go back and do so now. <em>I won’t remind you again but I will expect you to use comments appropriately.</em></p></li>
 </ul>
-<pre class="r"><code># Poker winnings from Monday to Friday
-poker_vector &lt;- c(140, -50, 20, -120, 240)
+<pre class="r"><code># Create a `days_sampled` vector.
 
-# Roulette winnings from Monday to Friday
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
 
-# Assign days as names of poker_vector
-names(poker_vector) &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
+# Name your two data vectors with the `days_sampled` vector.
 
-# Assign days as names of roulette_vector
+
+# Check that your two data vectors were properly named.
 
 
 #</code></pre>
 </div>
 </div>
-<div id="naming-a-vector-2" class="section level2">
-<h2>2.5 Naming a vector (2)</h2>
-<p>If you want to become a good statistician, you have to become lazy. (If you are already lazy, chances are high you are one of those exceptional, natural-born statistical talents.)</p>
-<p>In the previous exercises you probably experienced that it is boring and frustrating to type and retype information such as the days of the week. However, when you look at it from a higher perspective, there is a more efficient way to do this, namely, to assign the days of the week vector to a <em>variable!</em></p>
-<p>Just like you did with your poker and roulette returns, you can also create a variable that contains the days of the week. This way you can use and re-use it.</p>
+</div>
+<div id="calculations-with-vectors" class="section level2">
+<h2>2.5 Calculations with vectors</h2>
+<p>R is designed to work efficiently with vectors. Study this example.</p>
+<pre class="r"><code># Six numbers
+six_numbers &lt;- c(1, 2, 3, 5, 8, 13)
+
+# Add 10 to each value in the vector
+six_numbers &lt;- six_numbers + 10
+
+# Display the values in my_vector
+six_numbers
+
+# Use the square root function to obtain the square root of each value
+six_numbers &lt;- sqrt(six_numbers)
+
+# Display the values
+six_numbers
+
+# Calculate the sum and mean of the values in my_vector
+sum(six_numbers)
+
+mean(six_numbers)</code></pre>
+<p>Notice that 10 was added to <em>each</em> element in the <code>six_numbers</code> vector and that the square root of <em>each</em> element was calculated. The <code>sum()</code> and <code>mean()</code> functions used <em>all</em> elements in the vector.</p>
+<p>R has many built-in functions for numeric vectors including</p>
+<ul>
+<li><code>sum()</code> adds together all of the elements,</li>
+<li><code>mean()</code> calculates the average of the elements,</li>
+<li><code>min()</code> finds the minimum value,</li>
+<li><code>max()</code> finds the maximum value,</li>
+<li><code>sqrt()</code> calculates the square root of each element, and</li>
+<li><code>log10()</code> calculates the logarithm (base 10) of each element.</li>
+</ul>
 <div id="instructions-3" class="section level4">
 <h4>Instructions</h4>
+<p>Add code to your script to do the following.</p>
 <ul>
-<li><p>A variable <code>days_vector</code>that contains the days of the week has already been created for you.</p></li>
-<li><p>Use <code>days_vector</code> to set the names of <code>poker_vector</code> and <code>roulette_vector</code>.</p></li>
+<li><p>Find the maximum value stored in the <code>cultures_without_pplo</code> and <code>cultures_with_pplo</code> vectors. Store the results in <code>max_without_pplo</code> and <code>max_with_pplo</code> variables.</p></li>
+<li><p>Find the minimum values stored in each vector. Replace <code>max</code> in the variable names with <code>min</code>.</p></li>
 </ul>
-<pre class="r"><code># Poker winnings from Monday to Friday
-poker_vector &lt;- c(140, -50, 20, -120, 240)
+<p><strong>Math refresher:</strong> Before continuing with the instructions, let’s recall that the cell counts in your vectors are logarithms (base 10). Logs are exponents (power) that raise the base (10 in this case) to get specific values. For example, if you have a logarithm value of 2, then 10<sup>2</sup> = 100.</p>
+<p>The first value in each of your vectors is 4.6 (day 0); therefore the average number of cells in both culture types is 10<sup>4.6</sup> or about 39,811 cells.</p>
+<ul>
+<li><p>Use exponentiation (<code>^</code>) to raise 10 to each value in your vectors to calculate the actual number of cells. Store the results in <code>cell_counts_without_pplo</code> and <code>cell_counts_with_pplo</code> variables, respectively.</p></li>
+<li><p>Calculate the average number of cells for <code>cell_counts_without_pplo</code> and <code>cell_counts_with_pplo</code>. You do not have to save these results to variables.</p></li>
+</ul>
+<pre class="r"><code># Find the maximum values in cultures_without_pplo and cultures_without_pplo
+# Store in max_without_pplo and max_with_pplo, respectively.
 
-# Roulette winnings from Monday to Friday
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
+  
+# Find the minimum values in cultures_without_pplo and cultures_without_pplo
+# Store in min_without_pplo and min_with_pplo, respectively.
 
-# The variable days_vector
-days_vector &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
- 
-# Assign the names of the day to roulette_vector and poker_vector
+
+# Use 10^ to calculate the actual number of cells for each culture.
+# Store in cell_counts_without_pplo and cell_counts_with_pplo
+
+
+# Calculate the average number of cell counts for each vector.
+# You do not have to save these values to variables
 
 
 #</code></pre>
+<p>As a check, the results for <code>cell_counts_without_pplo</code> should be about 39810.72, 63095.73, 125892.54, 316227.77, 630957.34.</p>
 </div>
 </div>
-<div id="calculating-total-winnings" class="section level2">
-<h2>2.6 Calculating total winnings</h2>
-<p>Now that you have the poker and roulette winnings nicely as named vectors, you can start doing some data analytical magic.</p>
-<p>You want to find out the following type of information:</p>
-<ul>
-<li><p>How much has been your overall profit or loss per day of the week?</p></li>
-<li><p>Have you lost money over the week in total?</p></li>
-<li><p>Are you winning/losing money on poker or on roulette?</p></li>
-</ul>
-<p>To get the answers, you have to do arithmetic calculations on vectors.</p>
-<p>It is important to know that if you sum two vectors in R, it takes the element-wise sum. For example, the following three statements are completely equivalent:</p>
-<pre class="r"><code>c(1, 2, 3) + c(4, 5, 6)
-c(1 + 4, 2 + 5, 3 + 6)
-c(5, 7, 9)</code></pre>
-<p>You can also do the calculations with variables that represent vectors:</p>
-<pre class="r"><code>a &lt;- c(1, 2, 3) 
-b &lt;- c(4, 5, 6)
-c &lt;- a + b</code></pre>
+<div id="extract-individual-elements-from-a-vector" class="section level2">
+<h2>2.6 Extract individual elements from a vector</h2>
+<p>R provides many ways to get a subset of values from a vector, as demonstrated below.</p>
+<pre class="r"><code># Same example from above
+financial &lt;- c(&quot;Jessica&quot;, &quot;Smith&quot;, &quot;Payroll&quot;, &quot;Supervisor&quot;)
+
+names_vector &lt;- c(&quot;First Name&quot;, &quot;Last Name&quot;, &quot;Department&quot;, &quot;Position&quot;)
+
+names(financial) &lt;- names_vector</code></pre>
+<p>R keeps tracks of elements by position. The first element in a vector is position 1, the second element is position 2, and so on. You can put the position number in square brackets to get a single element.</p>
+<pre class="r"><code># Show the second element
+financial[2]</code></pre>
+<pre><code>## Last Name 
+##   &quot;Smith&quot;</code></pre>
+<p>You can specify multiple positions inside the square brackets. You can also put the positions in a vector and then use the vector. You can indicate a range of elements to extract by separating the first and last element positions with a <code>:</code> (colon).</p>
+<pre class="r"><code># Show the first, second, and fourth element
+# Notice that you have to use the c() function.
+financial[c(1, 2, 4)]</code></pre>
+<pre><code>##   First Name    Last Name     Position 
+##    &quot;Jessica&quot;      &quot;Smith&quot; &quot;Supervisor&quot;</code></pre>
+<pre class="r"><code># same result using a vector of positions
+position_vector &lt;- c(1, 2, 4)
+financial[position_vector]</code></pre>
+<pre><code>##   First Name    Last Name     Position 
+##    &quot;Jessica&quot;      &quot;Smith&quot; &quot;Supervisor&quot;</code></pre>
+<pre class="r"><code># Extract elements 2 through 4
+financial[2:4]</code></pre>
+<pre><code>##    Last Name   Department     Position 
+##      &quot;Smith&quot;    &quot;Payroll&quot; &quot;Supervisor&quot;</code></pre>
+<p>You can also use element names in a similar fashion as numbers. Names are much easier to remember than positions. Notice that the names have to be in quotes because they are text strings. But, you can’t do ranges using element names.</p>
+<pre class="r"><code># Extract the last name
+financial[&quot;Last Name&quot;]</code></pre>
+<pre><code>## Last Name 
+##   &quot;Smith&quot;</code></pre>
+<pre class="r"><code># Extract first and last names, and position
+financial[c(&quot;First Name&quot;, &quot;Last Name&quot;, &quot;Position&quot;)]</code></pre>
+<pre><code>##   First Name    Last Name     Position 
+##    &quot;Jessica&quot;      &quot;Smith&quot; &quot;Supervisor&quot;</code></pre>
+<pre class="r"><code># Can&#39;t use the names in a range as it generates an error
+financial[&quot;Last Name&quot;:&quot;Position&quot;]</code></pre>
+<pre><code>## Error in &quot;Last Name&quot;:&quot;Position&quot;: NA/NaN argument</code></pre>
 <div id="instructions-4" class="section level4">
 <h4>Instructions</h4>
+<p>Add code to your script to do the following. You do not have to save the results to new variables for this section. Just enter code to show the elements indicated.</p>
 <ul>
-<li><p>Take the sum of the variables A_vector and B_vector and assign it to <code>total_vector</code>.</p></li>
-<li><p>Inspect the result by printing out <code>total_vector</code>.</p></li>
+<li><p>Select the third element of <code>cultures_without_pplo</code> using position number.</p></li>
+<li><p>Select the odd numbered elements of <code>cell_counts_with_pplo</code> using a vector of position numbers.</p></li>
+<li><p>Select the elements for <code>Day 2</code> and <code>Day 4</code> by name from <code>cultures_with_pplo</code>.</p></li>
 </ul>
-<pre class="r"><code>A_vector &lt;- c(1, 2, 3)
-B_vector &lt;- c(4, 5, 6)
+<pre class="r"><code># Select the third element from cultures_without_pplo by position number
 
-# Take the sum of A_vector and B_vector
 
-  
-# Print out total_vector
+# Select the odd numbered elements of cell_counts_with_pplo using a vector of position numbers.
 
+
+
+# Select the elements for `Day 2` and `Day 4` by name from cultures_with_pplo
 
 
 #</code></pre>
 </div>
 </div>
-<div id="calculating-total-winnings-2" class="section level2">
-<h2>2.7 Calculating total winnings (2)</h2>
-<p>Now you understand how R does arithmetic with vectors, it is time to get those Ferraris in your garage! First, you need to understand what the overall profit or loss per day of the week was. The total daily profit is the sum of the profit/loss you realized on poker per day, and the profit/loss you realized on roulette per day.</p>
-<p>In R, this is just the sum of <code>roulette_vector</code> and <code>poker_vector</code>.</p>
-<div id="instructions-5" class="section level4">
-<h4>Instructions</h4>
+<div id="extraction-by-logical-comparison" class="section level2">
+<h2>2.7 Extraction by logical comparison</h2>
+<p>You can also use logical (boolean) operators to extract elements from a vector. R has several logical operators for comparison.</p>
 <ul>
-<li>Assign to the variable <code>total_daily</code> how much you won or lost on each day in total (poker and roulette combined).</li>
-</ul>
-<pre class="r"><code># Poker and roulette winnings from Monday to Friday:
-poker_vector &lt;- c(140, -50, 20, -120, 240)
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
-days_vector &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
-names(poker_vector) &lt;- days_vector
-names(roulette_vector) &lt;- days_vector
-
-# Assign to total_daily how much you won/lost on each day
-
-
-
-#</code></pre>
-</div>
-</div>
-<div id="calculating-total-winnings-3" class="section level2">
-<h2>2.8 Calculating total winnings (3)</h2>
-<p>Based on the previous analysis, it looks like you had a mix of good and bad days. This is not what your ego expected, and you wonder if there may be a very tiny chance you have lost money over the week in total?</p>
-<p>A function that helps you to answer this question is <code>sum()</code>. It calculates the sum of all elements of a vector. For example, to calculate the total amount of money you have lost/won with poker you do:</p>
-<pre class="r"><code>total_poker &lt;- sum(poker_vector)</code></pre>
-<div id="instructions-6" class="section level4">
-<h4>Instructions</h4>
-<ul>
-<li><p>Calculate the total amount of money that you have won/lost with roulette and assign to the variable <code>total_roulette</code>.</p></li>
-<li><p>Now that you have the totals for roulette and poker, you can easily calculate <code>total_week</code> (which is the sum of all gains and losses of the week).</p></li>
-<li><p>Print out <code>total_week</code>.</p></li>
-</ul>
-<pre class="r"><code># Poker and roulette winnings from Monday to Friday:
-poker_vector &lt;- c(140, -50, 20, -120, 240)
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
-days_vector &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
-names(poker_vector) &lt;- days_vector
-names(roulette_vector) &lt;- days_vector
-
-# Total winnings with poker
-total_poker &lt;- sum(poker_vector)
-
-# Total winnings with roulette
-
-
-# Total winnings overall
-
-
-# Print out total_week
-
-
-#</code></pre>
-</div>
-</div>
-<div id="comparing-total-winnings" class="section level2">
-<h2>2.9 Comparing total winnings</h2>
-<p>Oops, it seems like you are losing money. Time to rethink and adapt your strategy! This will require some deeper analysis…</p>
-<p>After a short brainstorm in your hotel’s jacuzzi, you realize that a possible explanation might be that your skills in roulette are not as well developed as your skills in poker. So maybe your total gains in poker are higher (or <code>&gt;</code> ) than in roulette.</p>
-<div id="instructions-7" class="section level4">
-<h4>Instructions</h4>
-<ul>
-<li><p>Calculate <code>total_poker</code> and <code>total_roulette</code> as in the previous exercise. Use the <code>sum()</code> function twice.</p></li>
-<li><p>Check if your total gains in poker are higher than for roulette by using a comparison. Simply print out the result of this comparison. What do you conclude, should you focus on roulette or on poker?</p></li>
-</ul>
-<pre class="r"><code># Poker and roulette winnings from Monday to Friday:
-poker_vector &lt;- c(140, -50, 20, -120, 240)
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
-days_vector &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
-names(poker_vector) &lt;- days_vector
-names(roulette_vector) &lt;- days_vector
-
-# Calculate total gains for poker and roulette
-
-
-# Check if you realized higher total gains in poker than in roulette 
-
-
-#</code></pre>
-</div>
-</div>
-<div id="vector-selection-the-good-times" class="section level2">
-<h2>2.10 Vector selection: the good times</h2>
-<p>Your hunch seemed to be right. It appears that the poker game is more your cup of tea than roulette.</p>
-<p>Another possible route for investigation is your performance at the beginning of the working week compared to the end of it. You did have a couple of Margarita cocktails at the end of the week….</p>
-<p>To answer that question, you only want to focus on a selection of the <code>total_vector</code>. In other words, our goal is to select specific elements of the vector. To select elements of a vector (and later matrices, data frames, …), you can use square brackets. Between the square brackets, you indicate what elements to select. For example, to select the first element of the vector, you type <code>poker_vector[1]</code>. To select the second element of the vector, you type <code>poker_vector[2]</code>, etc. Notice that the first element in a vector has index 1, not 0 as in many other programming languages.</p>
-<div id="instructions-8" class="section level4">
-<h4>Instructions</h4>
-<ul>
-<li>Assign the poker results of Wednesday to the variable <code>poker_wednesday</code>.</li>
-</ul>
-<pre class="r"><code># Poker and roulette winnings from Monday to Friday:
-poker_vector &lt;- c(140, -50, 20, -120, 240)
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
-days_vector &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
-names(poker_vector) &lt;- days_vector
-names(roulette_vector) &lt;- days_vector
-
-# Define a new variable based on a selection
-
-
-#</code></pre>
-</div>
-</div>
-<div id="vector-selection-the-good-times-2" class="section level2">
-<h2>2.11 Vector selection: the good times (2)</h2>
-<p>How about analyzing your midweek results?</p>
-<p>To select multiple elements from a vector, you can add square brackets at the end of it. You can indicate between the brackets what elements should be selected. For example: suppose you want to select the first and the fifth day of the week: use the vector <code>c(1, 5)</code> between the square brackets. For example, the code below selects the first and fifth element of <code>poker_vector</code>:</p>
-<pre class="r"><code>poker_vector[c(1, 5)]</code></pre>
-<div id="instructions-9" class="section level4">
-<h4>Instructions</h4>
-<ul>
-<li>Assign the poker results of Tuesday, Wednesday and Thursday to the variable <code>poker_midweek</code>.</li>
-</ul>
-<pre class="r"><code># Poker and roulette winnings from Monday to Friday:
-poker_vector &lt;- c(140, -50, 20, -120, 240)
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
-days_vector &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
-names(poker_vector) &lt;- days_vector
-names(roulette_vector) &lt;- days_vector
-
-# Define a new variable based on a selection
-
-
-#</code></pre>
-</div>
-</div>
-<div id="vector-selection-the-good-times-3" class="section level2">
-<h2>2.12 Vector selection: the good times (3)</h2>
-<p>Selecting multiple elements of <code>poker_vector</code> with <code>c(2, 3, 4)</code> is not very convenient. Many statisticians are lazy people by nature, so they created an easier way to do this: <code>c(2, 3, 4)</code> can be abbreviated to <code>2:4</code>, which generates a vector with all natural numbers from 2 up to 4.</p>
-<p>So, another way to find the mid-week results is <code>poker_vector[2:4]</code>. Notice how the vector <code>2:4</code> is placed between the square brackets to select element 2 up to 4.</p>
-<div id="instructions-10" class="section level4">
-<h4>Instructions</h4>
-<p>Assign to <code>roulette_selection_vector</code> the roulette results from Tuesday up to Friday; make use of <code>:</code>.</p>
-<pre class="r"><code># Poker and roulette winnings from Monday to Friday:
-poker_vector &lt;- c(140, -50, 20, -120, 240)
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
-days_vector &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
-names(poker_vector) &lt;- days_vector
-names(roulette_vector) &lt;- days_vector
-
-# Define a new variable based on a selection
-
-
-#</code></pre>
-</div>
-</div>
-<div id="vector-selection-the-good-times-4" class="section level2">
-<h2>2.12 Vector selection: the good times (4)</h2>
-<p>Another way to tackle the previous exercise is by using the names of the vector elements (Monday, Tuesday, …) instead of their numeric positions. For example,</p>
-<pre class="r"><code>poker_vector[&quot;Monday&quot;]</code></pre>
-<p>will select the first element of <code>poker_vector</code> since “Monday” is the name of that first element.</p>
-<p>Just like you did in the previous exercise with numerics, you can also use the element names to select multiple elements, for example:</p>
-<pre class="r"><code>poker_vector[c(&quot;Monday&quot;,&quot;Tuesday&quot;)]</code></pre>
-<div id="instructions-11" class="section level4">
-<h4>Instructions</h4>
-<ul>
-<li><p>Select the first three elements in <code>poker_vector</code> by using their names: “Monday”, “Tuesday” and “Wednesday”. Assign the result of the selection to <code>poker_start</code>.</p></li>
-<li><p>Calculate the average of the values in <code>poker_start</code> with the <code>mean()</code> function. Simply print out the result so you can inspect it.</p></li>
-</ul>
-<pre class="r"><code># Poker and roulette winnings from Monday to Friday:
-poker_vector &lt;- c(140, -50, 20, -120, 240)
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
-days_vector &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
-names(poker_vector) &lt;- days_vector
-names(roulette_vector) &lt;- days_vector
-
-# Select poker results for Monday, Tuesday and Wednesday
-
-  
-# Calculate the average of the elements in poker_start
-
-
-#</code></pre>
-</div>
-</div>
-<div id="selection-by-comparison---step-1" class="section level2">
-<h2>2.13 Selection by comparison - Step 1</h2>
-<p>By making use of comparison operators, we can approach the previous question in a more proactive way.</p>
-<p>The (logical) comparison operators known to R are:</p>
-<ul>
-<li><code>&lt;</code> for less than</li>
 <li><code>&gt;</code> for greater than</li>
-<li><code>&lt;=</code> for less than or equal to</li>
+<li><code>&lt;</code> for less than</li>
 <li><code>&gt;=</code> for greater than or equal to</li>
-<li><code>==</code> for equal to each other (<em>two</em> equal signs)</li>
+<li><code>&lt;=</code> for less than or equal to</li>
+<li><code>==</code> for equal to each other (<em>two</em> equal signs; a very common mistake is to use only one equal sign for comparison.)</li>
 <li><code>!=</code> not equal to each other</li>
 </ul>
-<p>As seen in the previous chapter, stating <code>6 &gt; 5</code> returns <code>TRUE</code>. The nice thing about R is that you can use these comparison operators also on vectors. For example:</p>
-<pre class="r"><code>c(4, 5, 6) &gt; 5</code></pre>
-<pre><code>## [1] FALSE FALSE  TRUE</code></pre>
-<p>This command tests for every element of the vector if the condition stated by the comparison operator is <code>TRUE</code> or <code>FALSE</code>.</p>
-<div id="instructions-12" class="section level4">
+<p>Comparisons using the logical operators return TRUE or FALSE for results. Study these examples.</p>
+<pre class="r"><code># TRUE. 2 is greater than 1
+2 &gt; 1
+
+# FALSE. 2 is not less than 1
+2 &lt; 1
+
+# TRUE. 3 is not equal to 4
+3 != 4
+
+# TRUE
+5 == 5   # Two equal signs!
+
+# FALSE. You can compare strings.
+&quot;ABC&quot; == &quot;AB C&quot;
+
+# TRUE. Sum of 2 and 3 equals 5.
+sum(c(2,3)) &gt;= 5
+
+# Also TRUE. Sum of 1, 2, and 3 equals 6, which is greater than 5.
+sum(c(1, 2, 3)) &gt;= 5
+
+# Returns a vector of TRUE, TRUE, FALSE. The first two values are equal
+# to or less than 2.  Remember that R works very well with vectors.
+c(1, 2, 3) &lt;= 2</code></pre>
+<pre><code>## [1] TRUE
+## [1] FALSE
+## [1] TRUE
+## [1] TRUE
+## [1] FALSE
+## [1] TRUE
+## [1] TRUE
+## [1]  TRUE  TRUE FALSE</code></pre>
+<p>You must remember that logical comparisons return TRUE or FALSE values so you can not use comparisons to obtain elements from a vector directly. You have to create a variable with your boolean values, then use the variable to extract the element(s) that meet your logical conditions. Study this example.</p>
+<pre class="r"><code># Here&#39;s a short cut to make a vector with integers 1 through 10.
+# Notice the use of the colon to indicate a range.
+ten_integers &lt;- c(1:10)
+
+ten_integers</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code># Select integers less than or equal to 5
+low_integers &lt;- ten_integers &lt;= 5
+
+# Vector of boolean values
+low_integers</code></pre>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<pre class="r"><code># Extract the elements
+ten_integers[low_integers]</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code># Boolean vector for even numbers
+# Modulo is the remainder after division. Even numbers divided
+# by two have a remainder of zero.
+even_numbers &lt;- ten_integers %% 2 == 0
+
+# Vector of boolean values
+even_numbers</code></pre>
+<pre><code>##  [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
+<pre class="r"><code># Extract the even numbers
+ten_integers[even_numbers]</code></pre>
+<pre><code>## [1]  2  4  6  8 10</code></pre>
+<pre class="r"><code># Ampersand (&amp;) is a logical AND. This code selects any element that
+# is greater than or equal to 4 AND less than or equal to 7.
+number_range &lt;- ten_integers &gt;=4 &amp; ten_integers &lt;= 7
+
+number_range</code></pre>
+<pre><code>##  [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE</code></pre>
+<pre class="r"><code>ten_integers[number_range]</code></pre>
+<pre><code>## [1] 4 5 6 7</code></pre>
+<div id="instructions-5" class="section level4">
 <h4>Instructions</h4>
+<p>Add code to your script to do the following.</p>
 <ul>
-<li><p>Check which elements in <code>poker_vector</code> are positive (i.e., &gt; 0) and assign this to selection_vector.</p></li>
-<li><p>Print out <code>selection_vector</code> so you can inspect it. The printout tells you whether you won (<code>TRUE</code>) or lost (<code>FALSE</code>) any money for each day.</p></li>
+<li><p>Use <code>cell_counts_without_pplo</code> to create a logical vector for cell counts greater than 100,000 (do not use the comma in your code; use 100000).</p></li>
+<li><p>Use that vector to show the days and log values from <code>cultures_without_pplo</code>. Yes, you can create a logical array from one vector and use it with another vector. You do not have to store this result in a new variable.</p></li>
+<li><p>Use <code>cell_counts_with_pplo</code> to create a logical vector for cells counts greater than 50,000 and less than 75,000. Use the logical <code>&amp;</code> as shown in the example above.</p></li>
+<li><p>Use that logical vector to show the days and log values from <code>cultures_with_pplo</code>. You do not have to store this result in a new variable.</p></li>
 </ul>
-<pre class="r"><code># Poker and roulette winnings from Monday to Friday:
-poker_vector &lt;- c(140, -50, 20, -120, 240)
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
-days_vector &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
-names(poker_vector) &lt;- days_vector
-names(roulette_vector) &lt;- days_vector
+<pre class="r"><code># Use `cell_counts_without_pplo` to create a logical vector for cell counts greater than 100,000 (do not use the comma in your code; use 100000).
 
-# Which days did you make money on poker?
 
-  
-# Print out selection_vector
+# Use that vector to show the days and log values from `cultures_without_pplo`.
+
+
+# Use `cell_counts_with_pplo` and `&amp;` to create a logical vector for cells counts greater than 50,000 and less than 75,000.
+
+
+# Use that logical vector to show the days and log values from `cultures_with_pplo`.
 
 
 #</code></pre>
 </div>
 </div>
-<div id="selection-by-comparison---step-2" class="section level2">
-<h2>2.14 Selection by comparison - Step 2</h2>
-<p>Working with comparisons will make your data analytical life easier. Instead of selecting a subset of days to investigate yourself (like before), you can simply ask R to return only those days where you realized a positive return for poker.</p>
-<p>In the previous exercises you used <code>selection_vector &lt;- poker_vector &gt; 0</code> to find the days on which you had a positive poker return. Now, you would like to know not only the days on which you won, but also how much you won on those days.</p>
-<p>You can select the desired elements, by putting selection_vector between the square brackets that follow <code>poker_vector</code>:</p>
-<pre class="r"><code>poker_vector[selection_vector]</code></pre>
-<p>R knows what to do when you pass a logical vector in square brackets: it will only select the elements that correspond to <code>TRUE</code> in <code>selection_vector</code>.</p>
-<div id="instructions-13" class="section level4">
-<h4>Instructions</h4>
-<ul>
-<li><p>Print the values contained in <code>selection_vector</code></p></li>
-<li><p>Use <code>selection_vector</code> in square brackets to assign the amounts that you won on the profitable days to the variable <code>poker_winning_days</code>.</p></li>
-</ul>
-<pre class="r"><code># Poker and roulette winnings from Monday to Friday:
-poker_vector &lt;- c(140, -50, 20, -120, 240)
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
-days_vector &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
-names(poker_vector) &lt;- days_vector
-names(roulette_vector) &lt;- days_vector
-
-# Which days did you make money on poker?
-selection_vector &lt;- poker_vector &gt; 0
-
-# Print the values contained in selection_vector
-
-
-# Select from poker_vector these days
-
-
-#</code></pre>
-</div>
-</div>
-<div id="advanced-selection" class="section level2">
-<h2>2.15 Advanced selection</h2>
-<p>Just like you did for poker, you also want to know those days where you realized a positive return for roulette.</p>
-<div id="instructions-14" class="section level4">
-<h4>Instructions</h4>
-<ul>
-<li><p>Create the variable <code>selection_vector</code>, this time to see if you made profit with roulette for different days.</p></li>
-<li><p>Assign the amounts that you made on the days that you ended positively for roulette to the variable <code>roulette_winning_days</code>. This vector thus contains the positive winnings of <code>roulette_vector</code>.</p></li>
-</ul>
-<pre class="r"><code># Poker and roulette winnings from Monday to Friday:
-poker_vector &lt;- c(140, -50, 20, -120, 240)
-roulette_vector &lt;- c(-24, -50, 100, -350, 10)
-days_vector &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
-names(poker_vector) &lt;- days_vector
-names(roulette_vector) &lt;- days_vector
-
-# Which days did you make money on roulette?
-
-
-# Select from roulette_vector these days
-
-
-#</code></pre>
-</div>
+<div id="save-to-github" class="section level2">
+<h2>Save to GitHub</h2>
+<p>Be sure you have used comments throughout your code to identify sections and to describe what you are doing, then commit and push your <code>hw02-2.R</code> script to GitHub.</p>
 </div>
 
 
@@ -767,6 +779,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
