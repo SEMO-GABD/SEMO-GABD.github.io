@@ -55,9 +55,9 @@ is freely available online. Other open-source resources may be used as needed.
 
 Assignments will consist of readings from notes provided by the instructor, readings and questions to answer from [R4ds](https://r4ds.had.co.nz), and exercise sets for you to develop and practice your R scripting skills. In some cases, notes and assignments will be provided separately. In other cases, they will be provided together.
 
-You will have three assignments per week for the first three weeks, and two assignments on the final week. Assignments are due two days after they are assigned (e.g., assignments given on Monday are due on Wednesday) by 23:55. Most assignments will take several hours to complete, including reading and coding time.  Start each assignment as soon as possible so that you have plenty of time to ask questions, solve problems, and complete the assignment before it is due. If you start an assignment too late, you will run out of time.
+You will have three assignments per week for the first three weeks, and two assignments on the final week. Assignments are due two days after they are assigned (e.g., assignments given on Tuesday are due on Thursday) by 23:55. Most assignments will take several hours to complete, including reading and coding time.  Start each assignment as soon as possible so that you have plenty of time to ask questions, solve problems, and complete the assignment before it is due. If you start an assignment too late, you will run out of time.
 
-I will *probably* release all three assignments for each week on Sunday. You may work ahead but you may not work behind. For example, a "Wednesday" assignment released on Sunday evening is officially assigned on Wednesday and due on Friday. You can submit it before Friday but not after.
+I will *probably* release all three assignments for each week on Sunday. You may work ahead but you may not work behind. For example, a "Tuesday" assignment released on Sunday evening is officially assigned on Tuesday and due on Thursday. You can submit it before Thursday but not after.
 
 The [Assignments](https://semo-gabd.github.io/assignments) page has all assignments as they become available.
 
@@ -65,7 +65,7 @@ The [Assignments](https://semo-gabd.github.io/assignments) page has all assignme
 
 #### Reality Check For You
 
-A regular semester is 15 weeks long, not counting final exams. During that time, a 3 credit hour course will have 37.5 hours of class time. The university expects two hours of additional work by the student for each hour of class time. That is another 75 hours, for a a total 112.5 hours. This summer course is only 39 *days,* including weekends Thus, to meet the requirements for a regular semester, you will need to average about 2.8 hours of work per day. Some exercises will not need all that time. Others might need more, depending on how fast you work. 
+A regular semester is 15 weeks long, not counting final exams. During that time, a 3 credit hour course will have 37.5 hours of class time. The university expects two hours of additional work by the student for each hour of class time. That is another 75 hours, for a a total 112.5 hours. This summer course is only 39 *days,* including weekends. Thus, to meet the requirements for a regular semester, you will need to average about 2.8 hours of work per day. Some exercises will not need all that time. Others might need more, depending on how fast you work. 
 
 Be realistic. You have a lot of learning to do in the coming six weeks. Odds are, you will be learning a new skill set in an unfamiliar setting. You will have many exercises to complete that will drill those skills into your fingers and your brain. The exercises will go slowly at first but you will get faster with practice. Do not cheat yourself by copying and pasting. You will not learn the skills and you will begin to struggle.
 
