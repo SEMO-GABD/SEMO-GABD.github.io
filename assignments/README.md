@@ -26,7 +26,7 @@ updated.
 | [01 Install software;<br/> Markdown](../notes/notes01.html) | [HTML](hw01/hw01.html) / [PDF](hw01/hw01.pdf)                             | 2 Jul (R)   | [Markdown](https://commonmark.org/help/tutorial/) tutorial |
 | 02 Learn R\! <br/> Assignment Intro (Pt. 0)                 | [HTML](hw02/00_intro.html) / [PDF](hw02/00_intro.pdf)                     | 5 Jul (Su)  | Read this first\!                                          |
 | 02 Basics (Pt 1)                                            | [HTML](hw02/01_intro_to_basics.html) / [PDF](hw02/01_intro_to_basics.pdf) | 5 Jul (Su)  | Do first three parts\!                                     |
-| 02 Vectors (Pt. 2)                                          | [HTML](hw02/02_vectors.html) / [PDF](hw02/02_vetors.pdf)                  | 5 Jul (Su)  | Extra day alloted for                                      |
+| 02 Vectors (Pt. 2)                                          | [HTML](hw02/02_vectors.html) / [PDF](hw02/02_vetors.pdf)                  | 5 Jul (Su)  | Extra day for                                              |
 | 02 Matrices (Pt. 3)                                         | [HTML](hw02/03_matrices.html) / [PDF](hw02/03_matrices.pdf)               | 5 Jul (Su)  | holiday weekend.                                           |
 
 <!--
