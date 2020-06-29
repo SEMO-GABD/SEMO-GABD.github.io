@@ -1,8 +1,8 @@
 ---
 title: "0: How to do this assignment"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 editor_options:
   chunk_output_type: inline
 ---
@@ -39,7 +39,7 @@ This assignment consists of six parts:
 
 - 2: Vectors ([HTML](./02_vectors.html) | [PDF](./02_vectors.pdf))
 
-- 3: Matrices (HTML | PDF)
+- 3: Matrices ([HTML](./03_matrices.html) | [PDF](./03_matrices.pdf))
 
 - 4: Factors (HTML | PDF)
 
