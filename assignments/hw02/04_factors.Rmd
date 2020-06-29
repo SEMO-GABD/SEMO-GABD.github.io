@@ -2,8 +2,8 @@
 title: "Part 4: Factors"
 subtitle: Introduction to R
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 editor_options:
   chunk_output_type: inline
 urlcolor: blue
@@ -47,7 +47,7 @@ genotype_factor
 The output lists the elements of the vector and also **Levels.** Levels are the unique categories that `factor()` found in the vector. 
 
 
-#### Instructions
+#### 4.1 Instructions
 
 For this exercise, you will assume that you counted the number and species of bumble bees (genus *Bombus*) that visitied a single flowering plant in one hour.  Your notes show the order of the visitors:
 
@@ -105,7 +105,7 @@ Study the example below. The *Bacillus* factor is nominal because no order is im
 
 ```{r eval=TRUE}
 # Bacillus bacteria
-bacillus_vector <- c("subtilus", "cereus", "pasteurii", "sphaericus")
+bacillus_vector <- c("subtilis", "cereus", "pasteurii", "sphaericus")
 bacillus_factor <- factor(bacillus_vector)
 bacillus_factor
 
@@ -126,7 +126,7 @@ allozyme_factor <- factor(allozyme_vector, order = TRUE, levels = c("Slow", "Med
 How would you rewrite the call to `factor()` to arrange the allozyme levels from fast to slow?
 
 
-#### Instructions
+#### 4.2 Instructions
 
 Here are the proboscis lengths for the three species of *Bombus* you surveyed.
 
@@ -144,7 +144,6 @@ Add code to your script to
 
 **Hint:** Remember that case matters. 
 
-
 ```{r}
 # Create `proboscis_vector` with seven elements
 
@@ -158,7 +157,7 @@ Add code to your script to
 #
 ```
 
-```{r eval=TRUE}
+```{r answer4.2, eval=TRUE}
 # Create `proboscis_vector` with seven elements
 proboscis_vector <- c("Long", "Long", "Intermediate", "Long", "Short", "Intermediate", "Long")
 
@@ -171,6 +170,9 @@ proboscis_factor
 #
 ```
 
+**Note:** The default for `factor()` is to create unordered (nominal) factors. You must specify levels and pass the `ordered = TRUE` argument to the function to create ordinal factors.
+
+<!--
 ## 4.3 Adding or changing factor levels
 
 What if you have nominal data that is unordered but you decide an order would be appropriate for your analysis? What if you want to change the order of ordinal data? The `levels()` function allows you to change the order of a factor without redefining the factor.  
@@ -179,15 +181,20 @@ For example, say that you were studying photoperiod (light availability) on flow
 
 ```{r eval=TRUE}
 ## Original nominal factor
-state_vector <- c("Louisiana", "Arkansas", "Missouri", "Iowa", "Wisconsin")
-state_factor <- factor(state_vector)
+state_vector <- c("Arkansas", "Iowa", "Louisiana", "Missouri", "Wisconsin")
+state_factor <- factor(state_vector, 
+                       ordered = TRUE, 
+                       levels = c("Louisiana", 
+                                  "Arkansas", 
+                                  "Missouri", 
+                                  "Iowa", 
+                                  "Wisconsin"))
 
-# Levels defaults to alphabetical order
-state_factor
-
+## LEVELS() doesn't do what I thought it did, so not using this section.
+##
 
 # Use levels to reorder the states from south to north.
-levels(state_factor) <- c("Louisiana", "Arkansas", "Missouri", "Iowa", "Wisconsin")
+levels(state_factor) <- c("Louisiana", "Arkansas", "Missouri", "Iowa", "Wisconsis")
 
 # The state now appear in latitudinal order from south to north
 state_factor
@@ -200,167 +207,125 @@ Add code (and comments, right?) to your script to
 - Use `levels()` to change proboscis length order from short to long.
 
 *Be careful:* If you do not specify the new order as a vector, then `levels()` changes the factor to unordered nominal. This is useful if you need to change an ordinal factor to nominal but if you are changing order, then be sure you provide the new order as a vector.
+-->
 
+## 4.3 Summarizing a factor
 
-## 4.4 Summarizing a factor
+A useful function that you will use often is `summary()` which provides a summary of the information contained in a variable. The example below shows how to apply `summary()` to `allozyme_factor` to summarize the number of observations of each level.
 
-A useful function that you will use often is `summary()` which provides a summary of the information contained in a variable. For example, `summary(allozyme_factor)` summarizes how many observations of each level are stored in the variable.
-
-```{r eval=TRUE, echo=FALSE}
+```{r eval=TRUE}
 summary(allozyme_factor)
 ```
 
-#### Instructions
+#### 4.3 Instructions
 
 Add code to your script to 
 
-- Use the `summary()` function on the `bee_visitors_factor` and the `proboscis_factor`. You do not have to save the results to a variable.
+- apply the `summary()` function to `bee_visitors_factor` and `proboscis_factor`. You do not have to save the results to a variable.
 
+## 4.4 Extracting from and comparing factors
 
-
-## 4.6 Battle of the sexes
-
-You might wonder what happens when you try to compare elements of a factor. In `factor_survey_vector` you have a factor with two levels: `"Male"` and `"Female"`. But how does R value these relative to each other?
-
-#### Instructions
-
-- Read the code in the editor and then run it to test if `male` is greater than (`>`) `female`.
+Factors are simply categorical vectors. If you want to extract a particular element, you can use square brackets `[]` like you would with other vectors. Study these examples.
 
 ```{r}
-# Build factor_survey_vector with clean levels
-survey_vector <- c("M", "F", "F", "M", "M")
-factor_survey_vector <- factor(survey_vector)
-levels(factor_survey_vector) <- c("Female", "Male")
+# Show all the elements for review
+allozyme_factor
 
-# Male
-male <- factor_survey_vector[1]
+# Extract specific elements
+allozyme_factor[4]     # Get the fourth element
+allozyme_factor[2:4]   # Get elements 2 through 4
+allozyme_factor[c(1,3,5)] # Get elements 1, 3, and 5
 
-# Female
-female <- factor_survey_vector[2]
-
-# Battle of the sexes: Male 'larger' than female?
-male > female
+# Extract slow allozyme elements using a boolean vector
+slow_allozymes <- allozyme_factor == "Slow" 
+allozyme_factor[slow_allozymes]
 ```
 
-## 4.7 Ordered factors
 
-Since `"Male"` and `"Female"` are unordered (or nominal) factor levels, R returns a warning message, telling you that the greater than operator is not meaningful. As seen before, R attaches an equal value to the levels for such factors.
+You have to be careful using boolean operators like `>` and `<=` because they only work on ordered factors where some level is greater than or less than another level. Nominal factors are unordered so "greater than" and "less than" do not have any context. Study these example.
 
-But this is not always the case! Sometimes you will also deal with factors that do have a natural ordering between its categories. If this is the case, we have to make sure that we pass this information to R.
+```{r eval=TRUE, error=TRUE}
+# Show bacillus (unordered) and allozyme (ordered) factors for review
+bacillus_factor
 
-Let us say that you are leading a research team of five data analysts and that you want to evaluate their performance. To do this, you track their speed, evaluate each analyst as `"slow"`, `"medium"` or `"fast"`, and save the results in `speed_vector`.
+allozyme_factor
 
-#### Instructions
+# Extract allozymes that are faster than slow. This is just one method.
+not_slow_allozymes <- allozyme_factor > "Slow"
+allozyme_factor[not_slow_allozymes]
 
-As a first step, assign `speed_vector` a vector with 5 entries, one for each analyst. Each entry should be either `"slow"`, `"medium"`, or `"fast"`. Use the list below:
+# Test to see which is greater: medium or fast
 
-- Analyst 1 is medium,
-- Analyst 2 is slow,
-- Analyst 3 is slow,
-- Analyst 4 is medium and
-- Analyst 5 is fast.
+az1 <- allozyme_factor[1] # medium allozyme
+az3 <- allozyme_factor[3] # fast allozyme
 
-No need to specify these are factors yet.
+# FALSE because allozyme level is Slow < Medium < Fast.
+# Medium is less than Fast.
+az1 > az3   
+
+# The reverse is TRUE
+az3 > az1  # Could also test as az1 < az3
+
+
+## Now, test with underordered bacillus factor
+##
+# This works because there is a level for "cereus"
+bacillus_factor == "cereus"
+
+# This does not because one species is not greater than another
+bacillus_factor > "cereus"
+```
+
+#### 4.4 Instructions
+
+Add code to your script to do the following. <!--You do not have to save the final results to a variable but you will have to create boolean vectors to extract the elements from a factored vector (like the `not_slow_allozymes` vector in the example above).-->
+
+- Extract from `bee_visitors_factor` the elements that are *not* kirbiellus, using a boolean technique. If necessary, review [02_vectors](./vectors.html) to review different boolean operators. Try to use the shortest code possible.
+
+- Extract from `bee_visitors_factor` the second, and fourth through sixth elements. Use the `:` for the range. You do not have to save this result to a variable.
+
+- Test whether the first element of `proboscis_factor` is longer than the last element of `proboscis_factor`. Follow the example for `allozyme_factor` above. You do not have to save this result to a variable.
+
+- **Optional challenge:** Redo the previous test of the first and last elements but use `length()` to obtain the position of the last element in `proboscis_factor`. Remember you can look up help for functions using `?`. 
 
 ```{r}
-# Create speed_vector
+# Extract from `bee_visitors_factor` the elements that are *not* kirbiellus
+
+
+# Extract from `bee_visitors_factor` the second, and fourth through sixth elements. Use the colon for the range.
+
+
+# Test whether the first element of `proboscis_factor` is longer than the last element of `proboscis_factor`
+
+
+# CHALLENGE
 
 
 #
 ```
 
-```{r answer4.7, include=FALSE}
-# Create speed_vector
-speed_vector <- c("medium", "slow", "slow", "medium", "fast")
-```
+```{r answer4.4, eval=TRUE, include=FALSE}
+# Extract from `bee_visitors_factor` the elements that are *not* kirbiellus
+not_kirbiellus <- bee_visitors_factor != "kirbiellus"
+bee_visitors_factor[not_kirbiellus]
 
-## 4.8 Ordered factors (2)
+# Extract from `bee_visitors_factor` the second, and fourth through sixth elements. Use the colon for the range.
+bee_visitors_factor[c(2,4:6)]
 
-`speed_vector` should be converted to an ordinal factor since its categories have a natural ordering. By default, the function `factor()` transforms `speed_vector` into an unordered factor. To create an ordered factor, you have to add two additional arguments: `ordered` and `levels`.
+# Test whether the first element of `proboscis_factor` is longer than the last element of `proboscis_factor`
+pf_first <- proboscis_factor[1]
+pf_last <- proboscis_factor[7]
 
-```{r}
-factor(some_vector,
-       ordered = TRUE,
-       levels = c("lev1", "lev2" ...))
-```
+pf_first > pf_last
 
-By setting the argument `ordered` to `TRUE` in the function `factor()`, you indicate that the factor is ordered. With the argument `levels` you give the values of the factor in the correct order.
+# CHALLENGE
+pf_first <- proboscis_factor[1]
+pfl <- length(proboscis_factor)
+pf_last2 <- proboscis_factor[pfl]
 
-#### Instructions
-
-- From `speed_vector`, create an ordered factor vector: `factor_speed_vector`. Set `ordered` to `TRUE`, and set `levels` to `c("slow", "medium", "fast")`.
-- Print out `factor_speed_vector`
-- Use `summary()` to summarize `factor_speed_vector`
-
-```{r}
-# Create speed_vector
-speed_vector <- c("medium", "slow", "slow", "medium", "fast")
-
-# Convert speed_vector to ordered factor vector
-
-
-# Print and summarize factor_speed_vector
-
-
+pf_first > pf_last2
 #
 ```
 
-```{r answer4.8, include=FALSE}
-# Create speed_vector
-speed_vector <- c("medium", "slow", "slow", "medium", "fast")
-
-# Convert speed_vector to ordered factor vector
-factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("slow", "medium", "fast"))
-
-# Print and summarize factor_speed_vector
-factor_speed_vector
-summary(factor_speed_vector)
-```
-
-## 4.9 Comparing ordered factors
-
-Having a bad day at work, 'data analyst number two' enters your office and starts complaining that 'data analyst number five' is slowing down the entire project. Since you know that 'data analyst number two' has the reputation of being a smarty-pants, you first decide to check if his statement is true.
-
-The fact that `factor_speed_vector` is now ordered enables us to compare different elements (the data analysts in this case). You can simply do this by using the well-known operators.
-
-#### Instructions
-
-- Use `[2]` to select from `factor_speed_vector` the factor value for the second data analyst. Store it as `da2`.
-
-- Use `[5]` to select the `factor_speed_vector` factor value for the fifth data analyst. Store it as `da5`.
-
-- Check if `da2` is greater than `da5`; simply print out the result. Remember that you can use the `>` operator to check whether one element is larger than the other.
-
-```{r}
-# Create factor_speed_vector
-speed_vector <- c("medium", "slow", "slow", "medium", "fast")
-factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("slow", "medium", "fast"))
-
-# Factor value for second data analyst
-
-
-# Factor value for fifth data analyst
-
-
-# Is data analyst 2 faster than data analyst 5?
-
-
-#
-```
-
-```{r answer4.9, include=FALSE}
-# Create factor_speed_vector
-speed_vector <- c("medium", "slow", "slow", "medium", "fast")
-factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("slow", "medium", "fast"))
-
-# Factor value for second data analyst
-da2 <- factor_speed_vector[2]
-
-# Factor value for fifth data analyst
-da5 <- factor_speed_vector[5]
-
-# Is data analyst 2 faster than data analyst 5?
-2 > 5
-```
 
 
