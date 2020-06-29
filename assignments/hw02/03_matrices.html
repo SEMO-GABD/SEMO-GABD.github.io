@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -254,9 +254,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -270,7 +268,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -281,22 +278,81 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -306,7 +362,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">3: Matrices</h1>
-<h3 class="subtitle"><em>Introduction to R</em></h3>
+<h3 class="subtitle">Introduction to R</h3>
 
 </div>
 
@@ -320,54 +376,82 @@ $(document).ready(function () {
 <li>Data frames</li>
 <li>Lists</li>
 </ul>
-<p>If you haven’t already, <a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/03_matrices_answers.Rmd">download the answer sheet for this document</a> (<strong>Note:</strong> right-click and save the file with the <code>.Rmd</code> extension to your <code>hw02</code> folder.)</p>
-<p>After you complete each exercise, push the R Notebook to your remote repo. See <a href="./00_intro.html">Part 0</a> for instructions. Do <em>not</em> push this document.</p>
+<p>Create a script called <code>hw02-3.R</code> and save it in your <code>hw02</code> folder.</p>
+<p>After you complete each exercise, commit and push your R script to your remote repo. See <a href="./00_intro.html">Part 0</a> for instructions. Do <em>not</em> push this document.</p>
 <hr />
 <div id="whats-a-matrix" class="section level2">
 <h2>3.1 What’s a matrix?</h2>
 <p>In R, a matrix is a collection of elements of the same data type (numeric, character, or logical) arranged into a fixed number of rows and columns. Since you are only working with rows and columns, a matrix is called two-dimensional.</p>
 <p>You can construct a matrix in R with the <code>matrix()</code> function. Consider the following example:</p>
 <pre class="r"><code>matrix(1:9, byrow = TRUE, nrow = 3)</code></pre>
-<p>In the <code>matrix()</code> function:</p>
 <ul>
-<li>The first argument is the collection of elements that R will arrange into the rows and columns of the matrix. Here, we use <code>1:9</code> which is a shortcut for <code>c(1, 2, 3, 4, 5, 6, 7, 8, 9)</code>.</li>
-<li>The argument <code>byrow</code> indicates that the matrix is filled by the rows. If we want the matrix to be filled by the columns, we just place <code>byrow = FALSE</code>.</li>
-<li>The third argument <code>nrow</code> indicates that the matrix should have three rows.</li>
+<li>Type <code>?matrix</code> in the console and press the enter key. Notice that the help tab in the lower left panel of RStudio describes the <code>matrix()</code> function and how to use it. The <code>?</code> followed by the function name is a short cut to get help for a function. You can also get help by putting your cursor inside the function name in a script and press the <code>F1</code> key (if your keyboard has one).</li>
 </ul>
+<p>The information you provide in the parentheses of <code>matrix()</code> function are called arguments. For <code>matrix()</code>,</p>
+<ul>
+<li><p>The first argument is a vector of elements that <code>matrix()</code> will arrange into the rows and columns. Recall that <code>1:9</code> is a shortcut for <code>c(1, 2, 3, 4, 5, 6, 7, 8, 9)</code>.</p></li>
+<li><p>The argument <code>byrow = TRUE</code> tells the <code>matrix()</code> function to fill the matrix by rows. Change the argument to <code>byrow = FALSE</code> to fill the matrix by columns.</p></li>
+<li><p>The <code>nrow = 3</code> argument tells <code>matrix()</code> that the matrix should have three rows. You can use <code>nrow</code> or <code>ncol</code>.</p></li>
+</ul>
+<p>You must supply some arguments to a function but other arguments usually have a default. If you look at the help for <code>matrix()</code>, the first argument is <code>data = NA</code>. That means you must provide the data. Argument <code>nrow = 1</code> defaults to creating a matrix with one row. By giving a different value to the argument, such as <code>nrow = 3</code>, you override the default.</p>
 <div id="instructions" class="section level4">
 <h4>Instructions</h4>
+<p>Add code to your script to</p>
 <ul>
-<li>Construct a matrix with 3 rows containing the numbers 1 up to 9, filled row-wise.</li>
+<li><p>Construct a matrix with 4 rows containing the numbers 11 to 30, filled row-wise.</p></li>
+<li><p>Construct a matrix with 5 columns containing the numbers 11 to 30, filled column-wise.</p></li>
 </ul>
-<pre class="r"><code># Construct a matrix with 3 rows that contain the numbers 1 up to 9
+<pre class="r"><code># Construct a matrix with 4 rows containing the numbers 11 to 30, filled row-wise.
+
+
+# Construct a matrix with 5 cols containing the numbers 11 to 30, filled column-wise.
+
 
 
 #</code></pre>
+<p>If your result looks like this, you wrote your code correctly. If it doesn’t look like this, edit your code until you get the correct result. Notice the numbers increase across each row when <code>byrow = TRUE</code> and down each column when <code>byrow = FALSE</code>.</p>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   11   12   13   14   15
+## [2,]   16   17   18   19   20
+## [3,]   21   22   23   24   25
+## [4,]   26   27   28   29   30</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   11   15   19   23   27
+## [2,]   12   16   20   24   28
+## [3,]   13   17   21   25   29
+## [4,]   14   18   22   26   30</code></pre>
 </div>
 </div>
-<div id="analyze-matrices-you-shall" class="section level2">
-<h2>3.2 Analyze matrices, you shall</h2>
-<p>It is now time to get your hands dirty. In the following exercises you will analyze the box office numbers of the Star Wars franchise. May the force be with you!</p>
-<p>In the code chunk, three vectors are defined. Each one represents the box office numbers from the first three Star Wars movies. The first element of each vector indicates the US box office revenue, the second element refers to the Non-US box office (source: Wikipedia).</p>
-<p>In this exercise, you’ll combine all these figures into a single vector. Next, you’ll build a matrix from this vector.</p>
+<div id="construct-a-matrix" class="section level2">
+<h2>3.2 Construct a matrix</h2>
+<p>R contains many built-in data sets. One of them is called <code>chickwts</code> that contains the weights of six-week old chickens that were raised on different diets. Enter <code>chickwts</code> in the console to see the entire data set. You’ll use the first 10 observations from the first three diet types (horsebean, linseed, or soybean) for this set of exercises.</p>
 <div id="instructions-1" class="section level4">
 <h4>Instructions</h4>
+<p>Add code to your script to create the array.</p>
 <ul>
-<li><p>Use <code>c(new_hope, empire_strikes, return_jedi)</code> to combine the three vectors into one vector. Call this vector <code>box_office</code>.</p></li>
-<li><p>Construct a matrix with 3 rows, where each row represents a movie. Use the <code>matrix()</code> function to do this. The first argument is the <code>vector box_office</code>, containing all box office figures. Next, you’ll have to specify <code>nrow = 3</code> and <code>byrow = TRUE</code>. Name the resulting matrix <code>star_wars_matrix</code>.</p></li>
+<li><p>Enter <code>chick_weights &lt;- chickwts$weight[c(1:20, 23:32)]</code> to create a vector with the weight data from the data set. You may copy and paste this line to be sure you get the correct data.</p></li>
+<li><p>Create a matrix column-wise with three columns and ten rows from the <code>chick_weights</code> vector. Save the matrix in a variable called <code>weights</code>. Creating the matrix column-wise will be chicks raised on the same diet in the same column. This is the most common way that data are formatted.</p></li>
+<li><p>Display the results stored in the <code>weights</code> matrix.</p></li>
 </ul>
-<pre class="r"><code># Box office Star Wars (in millions!)
-new_hope &lt;- c(460.998, 314.4)
-empire_strikes &lt;- c(290.475, 247.900)
-return_jedi &lt;- c(309.306, 165.8)
-
-# Create box_office
+<pre class="r"><code># Create a column-wise matrix called `weights` with three columns and ten rows from the `chick_weights` vector.
 
 
-# Construct star_wars_matrix
+# Display the values contained in the `weights` matrix.
 
 
 #</code></pre>
+<p>Your results should look like this.</p>
+<pre><code>##       [,1] [,2] [,3]
+##  [1,]  179  309  243
+##  [2,]  160  229  230
+##  [3,]  136  181  248
+##  [4,]  227  141  327
+##  [5,]  217  260  329
+##  [6,]  168  203  250
+##  [7,]  108  148  193
+##  [8,]  124  169  271
+##  [9,]  143  213  316
+## [10,]  140  257  267</code></pre>
 </div>
 </div>
 <div id="naming-a-matrix" class="section level2">
@@ -628,6 +712,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

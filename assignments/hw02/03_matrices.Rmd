@@ -2,8 +2,8 @@
 title: "3: Matrices"
 subtitle: Introduction to R
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 editor_options:
   chunk_output_type: inline
 urlcolor: blue
@@ -22,9 +22,10 @@ This assignment consists of six parts:
 - Data frames
 - Lists
 
-If you haven't already, [download the answer sheet for this document](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/03_matrices_answers.Rmd) (**Note:** right-click and save the file with the `.Rmd` extension to your `hw02` folder.)
 
-After you complete each exercise, push the R Notebook to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
+Create a script called `hw02-3.R` and save it in your `hw02` folder.
+
+After you complete each exercise, commit and push your R script to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
 
 ***
 
@@ -32,490 +33,422 @@ After you complete each exercise, push the R Notebook to your remote repo. See [
 
 In R, a matrix is a collection of elements of the same data type (numeric, character, or logical) arranged into a fixed number of rows and columns. Since you are only working with rows and columns, a matrix is called two-dimensional.
 
-You can construct a matrix in R with the `matrix()` function. Consider the following example:
+You can construct a matrix in R with the `matrix()` function. Consider the following example that creates a matrix called `first_matrix`.
 
 ```{r}
-matrix(1:9, byrow = TRUE, nrow = 3)
+first_matrix <- matrix(1:9, byrow = TRUE, nrow = 3)
+
+first_matrix
 ```
 
-In the `matrix()` function:
+- Type `?matrix` in the console and press the enter key. Notice that the help tab in the lower left panel of RStudio describes the `matrix()` function and how to use it. The `?` followed by the function name is a short cut to get help for a function. You can also get help by putting your cursor inside the function name in a script and press the `F1` key (if your keyboard has one).
 
-- The first argument is the collection of elements that R will arrange into the rows and columns of the matrix. Here, we use `1:9` which is a shortcut for `c(1, 2, 3, 4, 5, 6, 7, 8, 9)`.
-- The argument `byrow` indicates that the matrix is filled by the rows. If we want the matrix to be filled by the columns, we just place `byrow = FALSE`.
-- The third argument `nrow` indicates that the matrix should have three rows.
+The information you provide in the parentheses of `matrix()` function are called arguments. For `matrix()`,
+
+- The first argument is a vector of elements that `matrix()` will arrange into the rows and columns. Recall that `1:9` is a shortcut for `c(1, 2, 3, 4, 5, 6, 7, 8, 9)`.
+
+- The argument `byrow = TRUE` tells the `matrix()` function to fill the matrix by rows. Change the argument to `byrow = FALSE` to fill the matrix by columns.
+
+- The `nrow = 3` argument tells `matrix()` that the matrix should have three rows. You can use `nrow` or `ncol`.
+
+You must supply some arguments to a function but other arguments usually have a default.  If you look at the help for `matrix()`, the first argument is `data = NA`.  That means you must provide the data. Argument `nrow = 1` defaults to creating a matrix with one row. By giving a different value to the argument, such as `nrow = 3`, you override the default.
 
 #### Instructions
 
-- Construct a matrix with 3 rows containing the numbers 1 up to 9, filled row-wise.
+Add code to your script to
+
+- Construct a matrix with 4 rows containing the numbers 11 to 30, filled row-wise.
+
+ - Construct a matrix with 5 columns containing the numbers 11 to 30, filled column-wise.
 
 ```{r}
-# Construct a matrix with 3 rows that contain the numbers 1 up to 9
+# Construct a matrix with 4 rows containing the numbers 11 to 30, filled row-wise.
+
+
+# Construct a matrix with 5 cols containing the numbers 11 to 30, filled column-wise.
+
 
 
 #
 ```
 
-```{r answer3.1, include=FALSE}
-# Construct a matrix with 3 rows that contain the numbers 1 up to 9
-matrix(1:9, byrow = TRUE, nrow = 3)
+If your result looks like this, you wrote your code correctly. If it doesn't look like this, edit your code until you get the correct result. Notice the numbers increase across each row when `byrow = TRUE` and down each column when `byrow = FALSE`.
 
+```{r answer3.1, eval=TRUE, echo=FALSE}
+# ANSWER
+
+# Construct a matrix with 4 rows containing the numbers 11 to 30, filled row-wise.
+
+matrix(11:30, byrow = TRUE, nrow = 4)
+
+# Construct a matrix with 5 columns containing the numbers 11 to 30, filled column-wise.
+
+# byrow = FALSE is optional
+# Could use nrow = 4 to get same result
+matrix(11:30, byrow = FALSE, ncol = 5)
 ```
 
-## 3.2 Analyze matrices, you shall
+## 3.2 Construct a matrix
 
-It is now time to get your hands dirty. In the following exercises you will analyze the box office numbers of the Star Wars franchise. May the force be with you!
-
-In the code chunk, three vectors are defined. Each one represents the box office numbers from the first three Star Wars movies. The first element of each vector indicates the US box office revenue, the second element refers to the Non-US box office (source: Wikipedia).
-
-In this exercise, you'll combine all these figures into a single vector. Next, you'll build a matrix from this vector.
+R contains many built-in data sets. One of them is called `chickwts` that contains the weights of six-week old chickens that were raised on different diets. Enter `chickwts` in the console to see the entire data set. You'll use the first 10 observations from the first three diet types (horsebean, linseed, or soybean) for this set of exercises.
 
 #### Instructions
 
-- Use `c(new_hope, empire_strikes, return_jedi)` to combine the three vectors into one vector. Call this vector `box_office`.
+Add code to your script to do the following. 
 
-- Construct a matrix with 3 rows, where each row represents a movie. Use the `matrix()` function to do this. The first argument is the `vector box_office`, containing all box office figures. Next, you'll have to specify `nrow = 3` and `byrow = TRUE`. Name the resulting matrix `star_wars_matrix`.
+- Enter `chick_weights <- chickwts$weight[c(1:20, 23:32)]` to create a vector with the weight data from the data set. You may copy and paste this line to be sure you get the correct data.
+
+- Create a matrix column-wise with three columns and ten rows from the `chick_weights` vector. Save the matrix in a variable called `three_diets`. Creating the matrix column-wise will put chicks raised on the same diet in the same column. 
+
+- Display the results stored in the `weights` matrix.
+
 
 ```{r}
-# Box office Star Wars (in millions!)
-new_hope <- c(460.998, 314.4)
-empire_strikes <- c(290.475, 247.900)
-return_jedi <- c(309.306, 165.8)
-
-# Create box_office
+# Create a column-wise matrix called `weights` with three columns and ten rows from the `chick_weights` vector.
 
 
-# Construct star_wars_matrix
+# Display the values contained in the `weights` matrix.
 
 
 #
 ```
 
-```{r answer3.2, include=FALSE}
-# Box office Star Wars (in millions!)
-new_hope <- c(460.998, 314.4)
-empire_strikes <- c(290.475, 247.900)
-return_jedi <- c(309.306, 165.8)
+Your results should look like this.
 
-# Create box_office
-box_office <- c(new_hope, empire_strikes, return_jedi)
+```{r answer3.2, eval = TRUE, echo=FALSE}
+# Get the data from chickwts
+chick_weights <- chickwts$weight[c(1:20, 23:32)]
 
-# Construct star_wars_matrix
-star_wars_matrix <- matrix(box_office, byrow = TRUE, nrow = 3)
+# Create a column-wise matrix called `three_diets` with three columns and ten rows from the `chick_weights` vector.
+
+three_diets <- matrix(chick_weights, byrow = FALSE, ncol = 3)
+
+# Display the values contained in the `three_diets` matrix.
+
+three_diets
+#
 ```
 
-## 3.3 Naming a matrix
+## 3.3 Name the columns and rows
 
-To help you remember what is stored in `star_wars_matrix`, you would like to add the names of the movies for the rows. Not only does this help you to read the data, but it is also useful to select certain elements from the matrix.
+You can name the rows and columns of your matrix just like you named the elements of a vector. Like vectors, accessing individual columns, rows, or elements is easier with names. Study this example that names the rows and columns from the `first_matrix` example above.
 
-Similar to vectors, you can add names for the rows and the columns of a matrix
 
 ```{r}
-rownames(my_matrix) <- row_names_vector
-colnames(my_matrix) <- col_names_vector
+row_names_vector <- c("Row 1", "Row 2", "Row 3")
+col_names_vector <- c("Col 1", "Col 2", "Col 3")
+
+rownames(first_matrix) <- row_names_vector
+colnames(first_matrix) <- col_names_vector
+
+first_matrix
 ```
 
-I prepared two vectors for you: `region`, and `titles`. You will need these vectors to name the columns and rows of `star_wars_matrix`, respectively.
+Your data has 10 chicks ("Replicates", in rows) raised on one of three diets (columns).
 
 #### Instructions
 
-- Use `colnames()` to name the columns of `star_wars_matrix` with the region vector.
+- Use `colnames()` to name the columns `horsebean`, `linseed`, and `soybean`. You can first create a vector with the column names or use them directly with the `c()` function. If necessary, review your options from the [Vector exercise](./02_vectors.html).
 
-- Use `rownames()` to name the rows of `star_wars_matrix` with the titles vector.
+- Use `rownames()` to name the rows with the pattern `Replicate #` where `#` is the replicate number 1 through 10. 
 
-- Print out `star_wars_matrix` to see the result of your work.
+**Tip:** You could type "Replicate 1", "Replicate 2" and so on, but this gets tedious quickly.  Use the following code to take advantage of R's ability to work efficiently with vectors. `paste("Replicate", 1:10)`. This code creates 10 copies of the word "Replicate " followed by the numbers 1 through 10. I'll leave it to you to figure out how to use the code properly but you have the knowledge. Use `?paste()` to get help on using the `paste()` function.
+
 
 ```{r}
-# Box office Star Wars (in millions!)
-new_hope <- c(460.998, 314.4)
-empire_strikes <- c(290.475, 247.900)
-return_jedi <- c(309.306, 165.8)
-
-# Construct matrix
-star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)
-
-# Vectors region and titles, used for naming
-region <- c("US", "non-US")
-titles <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
-
-# Name the columns with region
+# Use `colnames()` to name the columns `horsebean`, `linseed`, and `soybean`.
 
 
-# Name the rows with titles
-
-
-# Print out star_wars_matrix
+# Use `rownames()` to name the rows with the pattern `Replicate #` Use the `paste()` function for efficiency.
 
 
 #
 ```
 
 ```{r answer3.3, include=FALSE}
-# Box office Star Wars (in millions!)
-new_hope <- c(460.998, 314.4)
-empire_strikes <- c(290.475, 247.900)
-return_jedi <- c(309.306, 165.8)
+# Use `colnames()` to name the columns `horsebean`, `linseed`, and `soybean`.
+colnames(three_diets) <- c("horsebean", "linseed", "soybean")
 
-# Construct matrix
-star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)
-
-# Vectors region and titles, used for naming
-region <- c("US", "non-US")
-titles <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
-
-# Name the columns with region
-colnames(star_wars_matrix) <- region
-
-# Name the rows with titles
-rownames(star_wars_matrix) <- titles
-
-
-# Print out star_wars_matrix
-star_wars_matrix
+# Use `rownames()` to name the rows with the pattern `Replicate #` 
+rownames(three_diets) <- paste("Replicate", 1:10)
 
 ```
 
-## 3.4 Calculating the worldwide box office
+## 3.4 Calculations on matrices
 
-The single most important thing for a movie to become an instant legend in Tinseltown is its worldwide box office figures.
+Like vectors, you can perform some calculations on rows and columns.  
 
-To calculate the total box office revenue for the three Star Wars movies, you have to take the sum of the US revenue column and the non-US revenue column.
+- The functions `rowSums()` and `colSums()` returns a vector of sums for each row or column, respectively, in a matrix. The number of elements in the vector depends on the number of rows or columns.  
 
-In R, the function `rowSums()` conveniently calculates the totals for each row of a matrix. This function creates a new vector:
+- The functions `rowMeans()` and `colMeans()` returns a vector of averages for each row or column, respectively, in a matrix. The number of elements in the vector depends on the number of rows or columns. 
 
-```{r}
-rowSums(my_matrix)
+```{r eval=TRUE}
+rowSums(first_matrix)
+
+colMeans(first_matrix)
+
 ```
+
 
 #### Instructions
 
-- Calculate the worldwide box office figures for the three movies and put these in the vector named `worldwide_vector`.
+- Calculate the average chick weight for each diet type (columns) in the `three_diets` matrix. Store the result in a vector called `mean_weights`.
 
-- Print the value of `worldwide_vector`.
+- Print the values stored in `mean_weights`.
+
+- Calculate the mean weight of all 30 chicks in the matrix. You can do this at least one of two ways. Do at least one but try to find at least two. You do not have to save this calculation in a variable.
 
 
 ```{r}
-# Construct star_wars_matrix
-box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
-star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
-                           dimnames = list(c("A New Hope", "The Empire Strikes Back", "Return of the Jedi"), 
-                                           c("US", "non-US")))
-
-# Calculate worldwide box office figures
+# Store the the average chick weight for each diet type in `mean_weights`
 
 
-# Print out worldwide_vector
+# Print the values in mean_weights
 
+
+# Calculate the mean weight of all 30 chicks in the matrix.
 
 #
 ```
 
 ```{r answer3.4, include=FALSE}
-# Construct star_wars_matrix
-box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
-star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
-                           dimnames = list(c("A New Hope", "The Empire Strikes Back", "Return of the Jedi"), 
-                                           c("US", "non-US")))
+# Store the the average chick weight for each diet type in `mean_weights`
 
-# Calculate worldwide box office figures
-worldwide_vector <- rowSums(star_wars_matrix)
+mean_weights <- colMeans(three_diets)
 
-# Print out worldwide_vector
-worldwide_vector
+# Print the values in mean_weights
+
+mean_weights
+
+# Calculate the mean weight of all 30 chicks in the matrix.
+mean(mean_weights) # one way
+
+mean(three_diets)  # another way
 ```
 
 
-## 3.5 Adding a column for the Worldwide box office
+## 3.5 Add a column with another diet type.
 
-In the previous exercise you calculated the vector that contained the worldwide box office receipt for each of the three Star Wars movies. However, this vector is not yet part of `star_wars_matrix`.
+Sometimes you have to add a new row or column to an existing matrix. R provides the functions `cbind()` and `rbind()` to add (bind) columns and rows to an existing matrix. The first example in this assignment created the `first_matrix` matrix with the values 1 to 9 stored in three rows.
 
-You can add a column or multiple columns to a matrix with the `cbind()` function, which merges matrices and/or vectors together by column. For example:
+This example uses `rbind()` to add a new row (a vector) with three values.
+
+```{r eval=TRUE}
+# Review the contents of first_matrix
+first_matrix
+
+# Create a vector with the new data to add
+new_row <- c(10, 11, 12)
+
+# Bind the new row
+second_matrix <- rbind(first_matrix, new_row)
+
+# Inspect the contents of second_matrix
+second_matrix
+```
+
+Notice that R automatically created a name for the row from the vector name. That name doesn't match the other row names so let's change it. You could do something like `rownames(second_matrix) <- c("Row 1", "Row 2", etc)` but this again grows tiresome. You could use the `paste()` trick, too.  
+
+Instead, this code allows you to rename a specific row, in this case the fourth row. The row names are effectively a vector of names for each row, so the `[4]` accesses the fourth element and gives it the name.
 
 ```{r}
-big_matrix <- cbind(matrix1, matrix2, vector1 ...)
+rownames(second_matrix)[4] <- "Row 4"
+
+second_matrix
 ```
 
 #### Instructions
 
-- Add `worldwide_vector` as a new column to the `star_wars_matrix` and assign the result to `all_wars_matrix`. Use the `cbind()` function.
+If you inspected the built-in `chickwts` data set back in section 3.2, you know that six diet types were tested. Let's add the first 10 chicks from the casein diet and recalculate the mean weights.
+
+- Use `chickwts$weight[60:69]` to access the first 10 chicks raised on casein diet. Save it to a variable of a suitable name.
+
+- Use `cbind()` to add this new column of data to your `three_diets` matrix. Save this new matrix in a variable called `four_diets`. **Hint:** Choosing the variable name wisely in the previous step will save you some coding in the next step.  **Work smart, not hard!**
+
+- Be sure the four columns are named "horsebean," "linseed," "soybean," and "casein." If not, write the code to rename the new column (or, edit your code from the first step).
+
+- Calculate the mean weights of each of the four diet types. You do not have to save these results to a variable.
 
 ```{r}
-# Construct star_wars_matrix
-box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
-star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
-                           dimnames = list(c("A New Hope", 
-                                             "The Empire Strikes Back",
-                                             "Return of the Jedi"), 
-                                           c("US", "non-US")))
+# Use `chickwts$weight[60:69]` to access the first 10 chicks raised on casein diet.
 
-# The worldwide box office figures
-worldwide_vector <- rowSums(star_wars_matrix)
 
-# Bind the new variable worldwide_vector as a column to star_wars_matrix
+# Use `cbind()` to add this new column of data to your `weights` matrix. Save as `four_diets`
+
+
+# Rename the columns if necessary
+
+
+# Calculate the mean weights of chicks for each diet type.
 
 
 #
 ```
 
-```{r answer3.5, include=FALSE}
-# Construct star_wars_matrix
-box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
-star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
-                           dimnames = list(c("A New Hope", 
-                                             "The Empire Strikes Back",
-                                             "Return of the Jedi"), 
-                                           c("US", "non-US")))
 
-# The worldwide box office figures
-worldwide_vector <- rowSums(star_wars_matrix)
+```{r eval=TRUE, include=FALSE}
+# ANSWERS
+# Use `chickwts$weight[60:69]` to access the first 10 chicks raised on casein diet.
 
-# Bind the new variable worldwide_vector as a column to star_wars_matrix
-all_wars_matrix <- cbind(star_wars_matrix, worldwide_vector)
-```
+casein <- chickwts$weight[60:69]
+# Use `cbind()` to add this new column of data to your `weights` matrix. Save as `four_diets`
 
-## 3.6 Adding a row
+four_diets <- cbind(three_diets, casein)
 
-Just like every action has a reaction, every `cbind()` has an `rbind()`. (Yeah, pretty bad metaphor.)
+# Rename the columns if necessary
+four_diets # Not necessary
 
-Your R workspace, where all variables you defined 'live' (check out what a workspace is), has already been initialized and contains two matrices:
 
-- `star_wars_matrix` that we have used all along, with data on the original trilogy,
-- `star_wars_matrix2`, with similar data for the prequels trilogy.
-
-Type the name of these matrices in the console and hit Enter if you want to have a closer look. If you want to check out the contents of the workspace, you can type `ls()` in the console.
-
-#### Instructions
-
-- Use `rbind()` to paste together `star_wars_matrix` and `star_wars_matrix2`, in this order. Assign the resulting matrix to `all_wars_matrix`.
-
-```{r}
-# star_wars_matrix and star_wars_matrix2 are available in your workspace
-box_office2 <- c(474.5, 552.5, 310.7, 338.7, 380.3, 468.5)
-star_wars_matrix2 <- matrix(box_office2, nrow = 3, byrow = TRUE,
-                            dimnames = list(c("The Phantom Menace", 
-                                              "Attack of the Clones", 
-                                              "Revenge of the Sith"), 
-                                            c("US", "non-US")))
-
-# Combine both Star Wars trilogies in one matrix
-
+# Calculate the mean weights of chicks for each diet type.
+colMeans(four_diets)
 
 #
 ```
 
-```{r answer3.6, include=FALSE}
-# star_wars_matrix and star_wars_matrix2 are available in your workspace
-box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
-box_office2 <- c(474.5, 552.5, 310.7, 338.7, 380.3, 468.5)
-star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
-                           dimnames = list(c("A New Hope", 
-                                             "The Empire Strikes Back",
-                                             "Return of the Jedi"), 
-                                           c("US", "non-US")))
-star_wars_matrix2 <- matrix(box_office2, nrow = 3, byrow = TRUE,
-                            dimnames = list(c("The Phantom Menace", 
-                                              "Attack of the Clones", 
-                                              "Revenge of the Sith"), 
-                                            c("US", "non-US")))
-
-# Combine both Star Wars trilogies in one matrix
-all_wars_matrix <- rbind(star_wars_matrix, star_wars_matrix2)
-```
-
-## 3.7 The total box office revenue for the entire saga
-
-Just like `cbind()` has `rbind()`, `colSums()` has `rowSums()`. The code chunk already contains the `all_wars_matrix` that you constructed in the previous exercise; type `all_wars_matrix` to have another look. Let's now calculate the total box office revenue for the entire saga.
-
-#### Instructions
-
-- Calculate the total revenue for the US and the non-US region and assign `total_revenue_vector`. You can use the `colSums()` function.
-- Print out `total_revenue_vector` to have a look at the results.
-
-```{r}
-# all_wars_matrix is available in your Notebook
-all_wars_matrix
-
-# Total revenue for US and non-US
+The same logic applies for adding rows to a matrix, which I will leave for you to try on your own.
 
 
-# Print out total_revenue_vector
 
+## 3.6 Selecting matrix elements
 
-#
-```
+Like vectors (see a pattern here?), you can use the square brackets `[ ]` to select one or multiple elements from a matrix. Whereas vectors have one dimension, matrices have two dimensions. You should therefore use a comma to separate the rows you want to select from the columns. 
 
-```{r answer3.7, include=FALSE}
-# all_wars_matrix is available in your Notebook
-all_wars_matrix
+The key to extract elements from a matrix is to remember the `[r,c]`  pattern, where `r` is the row number and `c` is the column number. For example:
 
-# Total revenue for US and non-US
-total_revenue_vector <- colSums(all_wars_matrix)
-  
-# Print out total_revenue_vector
-total_revenue_vector
-```
+- `first_matrix[1,2]` selects the element at the first row and second column.
 
-## 3.8 Selection of matrix elements
-
-Similar to vectors, you can use the square brackets `[ ]` to select one or multiple elements from a matrix. Whereas vectors have one dimension, matrices have two dimensions. You should therefore use a comma to separate the rows you want to select from the columns. For example:
-
-- `my_matrix[1,2]` selects the element at the first row and second column.
-- `my_matrix[1:3,2:4]` results in a matrix with the data on the rows 1, 2, 3 and columns 2, 3, 4.
+- `second_matrix[1:3,2:4]` results in a matrix with the data on the rows 1, 2, 3 and columns 2, 3, 4.
 
 If you want to select all elements of a row or a column, no number is needed before or after the comma, respectively:
 
-- `my_matrix[,1]` selects all elements of the first column.
-- `my_matrix[1,]` selects all elements of the first row.
+- `first_matrix[,1]` selects all elements of the first column.
+- `second_matrix[1,]` selects all elements of the first row.
 
-Back to Star Wars with this newly acquired knowledge! As in the previous exercise, `all_wars_matrix` is already available in your workspace.
+You can also use row and column names to select rows, columns, and individual elements.
+
+- `first_matrix[,"Col 2"]` selects all elements of the second column.
+- `second_matrix["Row 4",]` selects all elements of the fourth row.
+- `second_matrix["Row 3", "Col 1"]` selects the element from the third row, first column.
+
+- You can combine names and numbers such as `first_matrix[2, "Col 2"]` although it is best to be consistent. Remember that using names instead of positions makes your code easier to read.
 
 ### Instructions
 
-- Select the non-US revenue for all movies (the entire second column of `all_wars_matrix`), store the result as `non_us_all`.
+Add code to your script to obtain the following from the `four_diets` matrix.
 
-- Use `mean()` on `non_us_all` to calculate the average non-US revenue for all movies. Simply print out the result.
+- Select the entire linseed column by column number.
 
-- This time, select the non-US revenue for the first two movies in `all_wars_matrix`. Store the result as `non_us_some`.
+- Select the entire soybean column by name.
 
-- Use `mean()` again to print out the average of the values in `non_us_some`.
+- Select the entire nineth row by row number.
+
+- Select the entire third row by row name.
+
+- Select the fifth replicate from the horsebean column. Use whatever method you which to extract that specific element.
+
 
 ```{r}
-# all_wars_matrix is available in your workspace
-all_wars_matrix
+# Select the entire linseed column by column number.
 
-# Select the non-US revenue for all movies
 
-  
-# Average non-US revenue
+# Select the entire soybean column by name.
 
-  
-# Select the non-US revenue for first two movies
 
-  
-# Average non-US revenue for first two movies
+# Select the entire ninth row by row number.
+
+
+# Select the entire third row by row name.
+
+
+# Select the fifth replicate from the horsebean column with any method.
 
 
 #
 ```
 
 
-```{r answer3.8, include=FALSE}
-# all_wars_matrix is available in your workspace
-all_wars_matrix
+```{r answer3.6, include=FALSE}
+# Select the entire linseed column by column number.
+# Linseed is the second column
+four_diets[,2]
 
-# Select the non-US revenue for all movies
-non_us_all <- all_wars_matrix[,2]
-  
-# Average non-US revenue
-mean(non_us_all)
-  
-# Select the non-US revenue for first two movies
-non_us_some <- all_wars_matrix[1:2, 2]
-  
-# Average non-US revenue for first two movies
-mean(non_us_some)
+# Select the entire soybean column by name.
+four_diets[,"soybean"]
+
+# Select the entire ninth row by row number.
+four_diets[9,]
+
+# Select the entire third row by row name.
+four_diets["Replicate 3",]
+
+# Select the fifth replicate from the horsebean column with any method.
+four_diets["Replicate 5", "horsebean"]
+four_diets[5, "horsebean"]
+four_diets[5, 1]
+
 ```
 
-## 3.9 A little arithmetic with matrices
+## 3.7 A little arithmetic with matrices
 
-Similar to what you have learned with vectors, the standard operators like `+`, `-`, `/`, `*`, etc. work in an element-wise way on matrices in R.
+Once again, like vectors, you can do math and apply functions to matrices. The basic math operators  like `+`, `-`, `*`, `/`, and so work on every element in a matrix.
 
-For example, `2 * my_matrix` multiplies each element of `my_matrix` by two.
+For example, `3 + first_matrix` adds 3 to  each element of `first_matrix`. `second_matrix / 3` divides every element of `second_matrix` by 3.
 
-As a newly-hired data analyst for Lucasfilm, it is your job to find out how many visitors went to each movie for each geographical area. You already have the total revenue figures in `all_wars_matrix`. Assume that the price of a ticket was 5 dollars. Simply dividing the box office numbers by this ticket price gives you the number of visitors.
+You can also apply functions, such as `sum` and `mean` to entire matrices.
+
 
 #### Instructions
 
-- Divide `all_wars_matrix` by 5, giving you the number of visitors in millions. Assign the resulting matrix to `visitors`.
-- Print out `visitors` so you can have a look.
+Add code to your script to do the following. Use the weights in `four_diets`. You do not have to save the results, just display them.
+
+- The chick weights are measured in grams. You have a terrible supervisor who wants the results in ounces (gack!). Convert the grams to ounces. Use 0.035 ounces per gram or 28.35 grams per ounce as needed to make the conversion. The conversion values are approximate so one method will not give you exactly the same values as the other method. **You only have to apply one method.** 
+
+- Use the `log()` function to calculate the logarithm of the each weight.
+
+- Use the `dim()` (dimension) function to count the total number of rows and columns in your matrix.
+
+- Use the `length()` function to count the total number of chicks weighed.
+
 
 ```{r}
-# all_wars_matrix is available in your workspace
-all_wars_matrix
-
-# Estimate the visitors
+# Convert grams to ounces
 
 
-# Print the estimate to the console
+# Apply the log() function.
+
+
+# Apply the count() function.
+
+
+# Apply the dim() function.
+
+
+# Apply the length() function.
 
 
 #
 ```
 
-```{r answer3.9, include=FALSE}
-# all_wars_matrix is available in your workspace
-all_wars_matrix
+```{r answer3.7, eval=TRUE, include=FALSE}
+# Convert grams to ounces
+four_diets * 0.035  # OR
+four_diets / 28.35
 
-# Estimate the visitors
-visitors <- all_wars_matrix / 5
-  
-# Print the estimate to the console
-visitors
+# Apply the log() function.
+log(four_diets)
+
+# Apply the dim() function.
+dim(four_diets)
+
+# Apply the length() function.
+length(four_diets)
+
+
+
 ```
 
 
-## 3.10 A little arithmetic with matrices (2)
+## Save to GitHub
 
-Just like `2 * my_matrix` multiplied every element of `my_matrix` by two, `my_matrix1 * my_matrix2` creates a matrix where each element is the product of the corresponding elements in `my_matrix1` and `my_matrix2`.
-
-After looking at the result of the previous exercise, big boss Lucas points out that the ticket prices went up over time. He asks to redo the analysis based on the prices you can find in `ticket_prices_matrix` (source: imagination).
-
-Those who are familiar with matrices should note that this is not the standard matrix multiplication for which you should use `%*%` in R.
-
-#### Instructions
-
-- Divide `all_wars_matrix` by `ticket_prices_matrix` to get the estimated number of US and non-US visitors for the six movies. Assign the result to `visitors`.
-- From the `visitors` matrix, select the entire first column, representing the number of visitors in the US. Store this selection as `us_visitors`.
-- Calculate the average number of US visitors; print out the result.
-
-```{r}
-# all_wars_matrix and ticket_prices_matrix are available for you
-all_wars_matrix
-ticket_prices <- c(5.0, 5.0, 6.0, 6.0, 7.0, 7.0, 4.0, 4.0, 4.5, 4.5, 4.9, 4.9)
-ticket_prices_matrix <- matrix(ticket_prices, ncol = 2, byrow = TRUE,
-                               dimnames = list(c("A New Hope",
-                                                 "The Empire Strikes Back",
-                                                 "Return of the Jedi",
-                                                 "The Phantom Menace", 
-                                                 "Attack of the Clones", 
-                                                 "Revenge of the Sith"),
-                                               c("US", "non-US")))
-
-
-# Estimated number of visitors
-
-
-# US visitors
-
-
-# Average number of US visitors
-
-
-#
-```
-
-
-```{r answer3.10, include=FALSE}
-# all_wars_matrix and ticket_prices_matrix are available for you
-all_wars_matrix
-ticket_prices <- c(5.0, 5.0, 6.0, 6.0, 7.0, 7.0, 4.0, 4.0, 4.5, 4.5, 4.9, 4.9)
-ticket_prices_matrix <- matrix(ticket_prices, ncol = 2, byrow = TRUE,
-                               dimnames = list(c("A New Hope",
-                                                 "The Empire Strikes Back",
-                                                 "Return of the Jedi",
-                                                 "The Phantom Menace", 
-                                                 "Attack of the Clones", 
-                                                 "Revenge of the Sith"),
-                                               c("US", "non-US")))
-
-
-# Estimated number of visitors
-visitors <- all_wars_matrix / ticket_prices_matrix
-
-# US visitors
-us_visitors <- visitors[,1]
-
-# Average number of US visitors
-mean(us_visitors)
-```
-
+Be sure you have used comments throughout your code to identify sections and to describe what you are doing, then commit and push your `hw02-2\3.R` script to GitHub.
 
