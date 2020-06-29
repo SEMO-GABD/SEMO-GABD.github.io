@@ -5,21 +5,21 @@ Here is the schedule of assignments, with links to appear after
 assignments are released. Your completed assignments are due by 23:55 of
 the scheduled due date.
 
-Follow links in the Reading column for background information. The
-Reading webpage will have a link to a PDF file with the same content.
+Follow links in the Reading column for notes with background
+information. The Reading web pages will have a link to a PDF file with
+the same content.
 
 Assignments are available in HTML and PDF formats. They have the same
 content so you only need to complete one. Resources has links to places
 necessary to complete an assignment or to supporting information. The
-readings listed in the Notes and Assignments pages are the officially
+readings listed in the Readings and Assignments pages are the officially
 assigned readings that you *must* complete.
 
 **Note:** Click on blue links in PDF files to visit those web sites.
 
 **Warning:** I am still changing this schedule\! Order and content is
-highly susceptible to change. Note that due dates listed for December
-and January are old dates and will be
-updated.
+highly susceptible to
+change.
 
 | Reading                                                              | Assignment                                                                | Due (23:55) | Resources                                                                                                                                                                                      |
 | :------------------------------------------------------------------- | :------------------------------------------------------------------------ | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
