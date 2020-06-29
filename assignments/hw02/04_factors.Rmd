@@ -1,5 +1,5 @@
 ---
-title: "4: Factors"
+title: "Part 4: Factors"
 subtitle: Introduction to R
 output:
   html_document: default
@@ -22,192 +22,201 @@ This assignment consists of six parts:
 - Data frames
 - Lists
 
-If you haven't already, [download the answer sheet for this document](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/04_factors_answers.Rmd) (**Note:** right-click and save the file with the `.Rmd` extension to your `hw02` folder.)
+Create a script called `hw02-4.R` and save it in your `hw02` folder.
 
-After you complete each exercise, push the R Notebook to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
+After you complete each exercise, commit and push your R script to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
 
 ***
 
-## 4.1 What's a factor and why would you use it?
+## 4.1 What is a factor?
 
-In this part you dive into the wonderful world of factors.
+In R, a **factor** is vector data used for categorical variables, also called discrete data. Discrete data can belong only to one of a limited number of categories, such as plant, animal, fungus, or bacteria. The Linnean classification hierarchy used by biologists is another example of categorical data.  A species can belong to only one genus, one family, one order, and so on. Factors are different from continuous data that can have an unlimited number of possible values. R handles factors and continuous variables differently as you will learn during this course.
 
-The term **factor** refers to a statistical data type used to store categorical variables. The difference between a categorical variable and a continuous variable is that a categorical variable can belong to a limited number of categories. A continuous variable, on the other hand, can correspond to an infinite number of values.
+To create factors in R, you first create a vector with the names of your discrete categories. You then pass that vector to the `factor()` function. Study this example.
 
-It is important that R knows whether it is dealing with a continuous or a categorical variable, as the statistical models you will develop in the future treat both types differently. (You will see later why this is the case.)
+```{r eval=TRUE}
+# Genotype can be homozygous or heterozyous. This vector contains
+# the genotype of six individuals.
+genotype_vector <- c("Heterozygote", "Heterozygote", "Homozygote", "Heterozygote", "Homozygote", "Heterozygote")
 
-A good example of a categorical variable is sex. In many circumstances you can limit the sex categories to "Male" or "Female". (Sometimes you may need different categories. For example, you may need to consider chromosomal variation, hermaphroditic animals, or different cultural norms, but you will always have a finite number of categories.)
+genotype_factor <- factor(genotype_vector)
 
-#### 4.1 Instructions
+genotype_factor
+```
 
-- Assign to variable `theory` the value "factors for categorical variables".
+The output lists the elements of the vector and also **Levels.** Levels are the unique categories that `factor()` found in the vector. 
+
+
+#### Instructions
+
+For this exercise, you will assume that you counted the number and species of bumble bees (genus *Bombus*) that visitied a single flowering plant in one hour.  Your notes show the order of the visitors:
+
+- kirbiellus
+- kirbiellus 
+- flavifrons 
+- kirbiellus 
+- bifarius
+- flavifrons 
+- kirbiellus
+
+Add code to your script to
+
+- Make a character vector called `bee_visitors_vector` with these seven visitors. Your vector must reflect the visiting order listed above.
+
+- Use `factor()` to make a factor from `bee_visitors_vector`. Assign the new factor to `bee_visitors_factor` 
+
+- Print out `bee_visitors_factor` to be sure you have the order and three levels. A incorrect number of levels suggests you might have spelled a name incorrectly.
 
 ```{r}
-# Assign to the variable theory what this chapter is about!
+# Make a character vector called `bee_visitors_vector`
+
+
+# Make a `bee_visitors_factor` factor from `bee_visitors_vector`. 
+
+
+# Print out bee_visitors_factor
 
 
 #
 ```
 
-```{r answer4.1, include=FALSE}
-# Assign to the variable theory what this chapter is about!
-theory <- "factors for categorical variables"
+Your results should look like this. Notice that the levels are arranged alphabetically. R does this automatically, which may not be what you want. You'll learn later how to arrange factors in the order you want.
+
+```{r answer4.1, eval=TRUE, include=TRUE, echo=FALSE}
+# Make a character vector called `bee_visitors_vector`
+bee_visitors_vector <- c("kirbiellus", "kirbiellus", "flavifrons", "kirbiellus", "bifarius", "flavifrons", "kirbiellus")
+
+# Make a `bee_visitors_factor` factor from `bee_visitors_vector`. 
+bee_visitors_factor <- factor(bee_visitors_vector)
+
+# Print out bee_visitors_factor
+bee_visitors_factor
 ```
 
-## 4.2 What's a factor and why would you use it? (2)
 
-To create factors in R, you make use of the function `factor()`. First thing that you have to do is create a vector that contains all the observations that belong to a limited number of categories. For example, `sex_vector` contains the sex of 5 different individuals:
+
+## 4.2 Factor types
+
+Categorical variables can be **ordinal** or **nominal.** Ordinal categories are ordered. For example, the bee species listed above have proboscis lengths that can be categorized as short, intermediate, or long An order is implied because short < intermediate < long lengths. You can choose to order the categories from short to long or long to short. What's important is that an order is implied. 
+
+Nominal categories (nomen = name) do not have an implied order. The three species of bees are nominal categories. There is no implied order to the names of the three species. *Bombus kirbiellus* is not any more or less a bumble bee than *B. flavifrons* or *B. bifarius.* They're just different.
+
+Study the example below. The *Bacillus* factor is nominal because no order is implied for the bacteria. `factor()` defaults to alphabetical order for the levels. The [allozyme](https://en.wikipedia.org/wiki/Alloenzyme) factor is ordinal because allozymes move through an electrophoretic gel at different speeds (here, slow, medium, fast). Notice that the order of the levels is shown as `Slow < Medium < Fast`.
+
+```{r eval=TRUE}
+# Bacillus bacteria
+bacillus_vector <- c("subtilus", "cereus", "pasteurii", "sphaericus")
+bacillus_factor <- factor(bacillus_vector)
+bacillus_factor
+
+# Allozymes are slow, medium, or fast
+allozyme_vector <- c("Medium", "Slow", "Fast", "Slow", "Medium")
+allozyme_factor <- factor(allozyme_vector, order = TRUE, levels = c("Slow", "Medium", "Fast"))
+allozyme_factor
+
+```
+
+Pay attention to the arguments for `factor()` in the allozyme example. In addition to the vector, the `order = TRUE` argument tells the function that order matters. The `levels = c("Slow", "Medium", "Fast")` argument tells the function the specific order of the levels. 
 
 ```{r}
-sex_vector <- c("Male","Female","Female","Male","Male")
+allozyme_vector <- c("Medium", "Slow", "Fast", "Slow", "Medium")
+allozyme_factor <- factor(allozyme_vector, order = TRUE, levels = c("Slow", "Medium", "Fast"))
 ```
 
-It is clear that there are two categories, or in R-terms 'factor levels', at work here: "Male" and "Female".
+How would you rewrite the call to `factor()` to arrange the allozyme levels from fast to slow?
 
-The function `factor()` will encode the vector as a factor:
-
-```{r}
-factor_sex_vector <- factor(sex_vector)
-```
 
 #### Instructions
 
-- Convert the character vector `sex_vector` to a factor with `factor()` and assign the result to `factor_sex_vector`
+Here are the proboscis lengths for the three species of *Bombus* you surveyed.
 
-- Print out `factor_sex_vector` and assert that R prints out the factor levels below the actual values.
+- kirbiellus: Long
+- flavifrons: Intermediate
+- bifarius: Short
+
+Add code to your script to
+
+- Create a vector of seven lengths that matches the order of the bees in your nominal vector above (the order you observed them). Name that vector `proboscis_vector`.
+
+- Create an ordinal factor called `proboscis_factor`, with the lengths ordered from long to short.
+
+- Display `proboscis factor` to be sure you have it correct.
+
+**Hint:** Remember that case matters. 
+
 
 ```{r}
-# Sex vector
-sex_vector <- c("Male", "Female", "Female", "Male", "Male")
-
-# Convert sex_vector to a factor
+# Create `proboscis_vector` with seven elements
 
 
-# Print out factor_sex_vector
+# Create an ordered `proboscis_factor` ordered from long to short.
+
+
+# Display the contents of `proboscis_factor
 
 
 #
 ```
 
-```{r answer4.2, include=FALSE}
-# Sex vector
-sex_vector <- c("Male", "Female", "Female", "Male", "Male")
+```{r eval=TRUE}
+# Create `proboscis_vector` with seven elements
+proboscis_vector <- c("Long", "Long", "Intermediate", "Long", "Short", "Intermediate", "Long")
 
-# Convert sex_vector to a factor
-factor_sex_vector <- factor(sex_vector)
+# Create an ordered `proboscis_factor` ordered from long to short.
+proboscis_factor <- factor(proboscis_vector, ordered = TRUE, levels = c("Long", "Intermediate", "Short"))
 
-# Print out factor_sex_vector
-factor_sex_vector
-```
-
-## 4.3 What's a factor and why would you use it? (3)
-
-There are two types of categorical variables: a **nominal** categorical variable and an **ordinal** categorical variable.
-
-A nominal variable is a categorical variable without an implied order. This means that it is impossible to say that 'one is worth more than the other'. For example, think of the categorical variable `animals_vector` with the categories "Elephant", "Giraffe", "Donkey" and "Horse". Here, it is impossible to say that one stands above or below the other. (Note that some of you might disagree ;-) ).
-
-In contrast, ordinal variables do have a natural ordering. Consider for example the categorical variable `temperature_vector` with the categories: "Low", "Medium" and "High". Here it is obvious that "Medium" stands above "Low", and "High" stands above "Medium".
-
-#### Instructions
-
-Run the script below to check how R constructs and prints nominal and ordinal variables. Do not worry if you do not understand all the code just yet, we will get to that.
-
-
-```{r}
-# Animals
-animals_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
-factor_animals_vector <- factor(animals_vector)
-factor_animals_vector
-
-# Temperature
-temperature_vector <- c("High", "Low", "High","Low", "Medium")
-factor_temperature_vector <- factor(temperature_vector, order = TRUE, levels = c("Low", "Medium", "High"))
-factor_temperature_vector
-```
-
-## 4.4 Factor levels
-
-When you first get a data set, you will often notice that it contains factors with specific factor levels. However, sometimes you will want to change the names of these levels for clarity or other reasons. R allows you to do this with the function `levels()`:
-
-`levels(factor_vector) <- c("name1", "name2",...)`
-
-A good illustration is the raw data that is provided to you by a survey. A common question for every questionnaire is the sex of the respondent. Here, for simplicity, just two categories were recorded, "M" and "F". (You usually need more categories for survey data; either way, you use a factor to store the categorical data.)
-
-```{r}
-survey_vector <- c("M", "F", "F", "M", "M")
-```
-
-Recording the sex with the abbreviations "M" and "F" can be convenient if you are collecting data with pen and paper, but it can introduce confusion when analyzing the data. At that point, you will often want to change the factor levels to "Male" and "Female" instead of `"M"` and `"F"` for clarity.
-
-*Watch out:* the order with which you assign the levels is important. If you type `levels(factor_survey_vector)`, you'll see that it outputs `[1] "F" "M"`. If you don't specify the levels of the factor when creating the vector, R will automatically assign them alphabetically. To correctly map `"F"` to `"Female"` and `"M"` to `"Male"`, the levels should be set to `c("Female", "Male")`, in this order.
-
-#### Instructions
-
-- Check out the code that builds a factor vector from `survey_vector`. You should use `factor_survey_vector` in the next instruction.
-
-- Change the factor levels of `factor_survey_vector` to `c("Female", "Male")`. Mind the order of the vector elements here.
-
-```{r}
-# Code to build factor_survey_vector
-survey_vector <- c("M", "F", "F", "M", "M")
-factor_survey_vector <- factor(survey_vector)
-
-# Specify the levels of factor_survey_vector
-levels(factor_survey_vector) <- c("F", "M")
-
-factor_survey_vector
-```
-
-```{r answer 4.4, include=FALSE}
-# Code to build factor_survey_vector
-survey_vector <- c("M", "F", "F", "M", "M")
-factor_survey_vector <- factor(survey_vector)
-
-# Specify the levels of factor_survey_vector
-levels(factor_survey_vector) <- c("Female", "Male")
-
-factor_survey_vector
-```
-
-## 4.5 Summarizing a factor
-
-After finishing this course, one of your favorite functions in R will be `summary()`. This will give you a quick overview of the contents of a variable:
-
-`summary(my_var)`
-
-Going back to our survey, you would like to know how many `"Male"` responses you have in your study, and how many `"Female"` responses. The `summary()` function gives you the answer to this question.
-
-#### Instructions
-
-- Ask for a `summary()` of the `survey_vector` and `factor_survey_vector`. Interpret the results of both vectors. Are they both equally useful in this case?
-
-```{r}
-# Build factor_survey_vector with clean levels
-survey_vector <- c("M", "F", "F", "M", "M")
-factor_survey_vector <- factor(survey_vector)
-levels(factor_survey_vector) <- c("Female", "Male")
-
-# Generate summary for survey_vector
-
-
-# Generate summary for factor_survey_vector
-
+# Display the contents of `proboscis_factor
+proboscis_factor
 
 #
 ```
 
-```{r answer4.5, include=FALSE}
-# Build factor_survey_vector with clean levels
-survey_vector <- c("M", "F", "F", "M", "M")
-factor_survey_vector <- factor(survey_vector)
-levels(factor_survey_vector) <- c("Female", "Male")
+## 4.3 Adding or changing factor levels
 
-# Generate summary for survey_vector
-summary(survey_vector)
+What if you have nominal data that is unordered but you decide an order would be appropriate for your analysis? What if you want to change the order of ordinal data? The `levels()` function allows you to change the order of a factor without redefining the factor.  
 
-# Generate summary for factor_survey_vector
-summary(factor_survey_vector)
+For example, say that you were studying photoperiod (light availability) on flowering time in [*Asclepias tuberosa.*](https://www.fs.fed.us/wildflowers/plant-of-the-week/asclepias_tuberosa.shtml) You sampled plants from Louisiana, Arkansas, Missouri, Iowa, and Wisconsin.  At first, you think a state is a state so you categorize the data as nominal; order doesn't matter.  Then, you realize that the more northerly a state, the shorter the photoperiod. Study this code.
+
+```{r eval=TRUE}
+## Original nominal factor
+state_vector <- c("Louisiana", "Arkansas", "Missouri", "Iowa", "Wisconsin")
+state_factor <- factor(state_vector)
+
+# Levels defaults to alphabetical order
+state_factor
+
+
+# Use levels to reorder the states from south to north.
+levels(state_factor) <- c("Louisiana", "Arkansas", "Missouri", "Iowa", "Wisconsin")
+
+# The state now appear in latitudinal order from south to north
+state_factor
 ```
+
+#### Instructions
+
+Add code (and comments, right?) to your script to 
+
+- Use `levels()` to change proboscis length order from short to long.
+
+*Be careful:* If you do not specify the new order as a vector, then `levels()` changes the factor to unordered nominal. This is useful if you need to change an ordinal factor to nominal but if you are changing order, then be sure you provide the new order as a vector.
+
+
+## 4.4 Summarizing a factor
+
+A useful function that you will use often is `summary()` which provides a summary of the information contained in a variable. For example, `summary(allozyme_factor)` summarizes how many observations of each level are stored in the variable.
+
+```{r eval=TRUE, echo=FALSE}
+summary(allozyme_factor)
+```
+
+#### Instructions
+
+Add code to your script to 
+
+- Use the `summary()` function on the `bee_visitors_factor` and the `proboscis_factor`. You do not have to save the results to a variable.
+
+
 
 ## 4.6 Battle of the sexes
 
