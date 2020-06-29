@@ -2,8 +2,8 @@
 title: "3: Matrices"
 subtitle: Introduction to R
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 editor_options:
   chunk_output_type: inline
 urlcolor: blue
@@ -35,7 +35,7 @@ In R, a matrix is a collection of elements of the same data type (numeric, chara
 
 You can construct a matrix in R with the `matrix()` function. Consider the following example that creates a matrix called `first_matrix`.
 
-```{r}
+```{r eval=TRUE}
 first_matrix <- matrix(1:9, byrow = TRUE, nrow = 3)
 
 first_matrix
@@ -134,7 +134,7 @@ three_diets
 You can name the rows and columns of your matrix just like you named the elements of a vector. Like vectors, accessing individual columns, rows, or elements is easier with names. Study this example that names the rows and columns from the `first_matrix` example above.
 
 
-```{r}
+```{r eval=TRUE}
 row_names_vector <- c("Row 1", "Row 2", "Row 3")
 col_names_vector <- c("Col 1", "Col 2", "Col 3")
 
@@ -247,11 +247,11 @@ second_matrix <- rbind(first_matrix, new_row)
 second_matrix
 ```
 
-Notice that R automatically created a name for the row from the vector name. That name doesn't match the other row names so let's change it. You could do something like `rownames(second_matrix) <- c("Row 1", "Row 2", etc)` but this again grows tiresome. You could use the `paste()` trick, too.  
+Notice that R automatically created a name for the row from the vector name but it doesn't match the other row names. You could name all of the rows again with `rownames(second_matrix) <- c("Row 1", "Row 2", ..., "Row 4")` but this again grows tiresome. You could use the `paste()` trick, too.  
 
 Instead, this code allows you to rename a specific row, in this case the fourth row. The row names are effectively a vector of names for each row, so the `[4]` accesses the fourth element and gives it the name.
 
-```{r}
+```{r eval=TRUE}
 rownames(second_matrix)[4] <- "Row 4"
 
 second_matrix
@@ -311,9 +311,9 @@ The same logic applies for adding rows to a matrix, which I will leave for you t
 
 ## 3.6 Selecting matrix elements
 
-Like vectors (see a pattern here?), you can use the square brackets `[ ]` to select one or multiple elements from a matrix. Whereas vectors have one dimension, matrices have two dimensions. You should therefore use a comma to separate the rows you want to select from the columns. 
+How might you select rows, columns, or individual elements from a matrix? If you thought about using square brackets `[]` like you did with vectors, you are correct. Whereas vectors have one dimension, matrices have two dimensions. You should therefore use a comma to separate the rows you want to select from the columns. 
 
-The key to extract elements from a matrix is to remember the `[r,c]`  pattern, where `r` is the row number and `c` is the column number. For example:
+**Tip:** The key to extract elements from a matrix is to remember the `[r,c]`  pattern, where `r` is the row number and `c` is the column number. For example:
 
 - `first_matrix[1,2]` selects the element at the first row and second column.
 

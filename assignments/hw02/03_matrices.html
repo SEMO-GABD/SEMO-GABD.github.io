@@ -382,8 +382,14 @@ summary {
 <div id="whats-a-matrix" class="section level2">
 <h2>3.1 What’s a matrix?</h2>
 <p>In R, a matrix is a collection of elements of the same data type (numeric, character, or logical) arranged into a fixed number of rows and columns. Since you are only working with rows and columns, a matrix is called two-dimensional.</p>
-<p>You can construct a matrix in R with the <code>matrix()</code> function. Consider the following example:</p>
-<pre class="r"><code>matrix(1:9, byrow = TRUE, nrow = 3)</code></pre>
+<p>You can construct a matrix in R with the <code>matrix()</code> function. Consider the following example that creates a matrix called <code>first_matrix</code>.</p>
+<pre class="r"><code>first_matrix &lt;- matrix(1:9, byrow = TRUE, nrow = 3)
+
+first_matrix</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
 <ul>
 <li>Type <code>?matrix</code> in the console and press the enter key. Notice that the help tab in the lower left panel of RStudio describes the <code>matrix()</code> function and how to use it. The <code>?</code> followed by the function name is a short cut to get help for a function. You can also get help by putting your cursor inside the function name in a script and press the <code>F1</code> key (if your keyboard has one).</li>
 </ul>
@@ -427,10 +433,10 @@ summary {
 <p>R contains many built-in data sets. One of them is called <code>chickwts</code> that contains the weights of six-week old chickens that were raised on different diets. Enter <code>chickwts</code> in the console to see the entire data set. You’ll use the first 10 observations from the first three diet types (horsebean, linseed, or soybean) for this set of exercises.</p>
 <div id="instructions-1" class="section level4">
 <h4>Instructions</h4>
-<p>Add code to your script to create the array.</p>
+<p>Add code to your script to do the following.</p>
 <ul>
 <li><p>Enter <code>chick_weights &lt;- chickwts$weight[c(1:20, 23:32)]</code> to create a vector with the weight data from the data set. You may copy and paste this line to be sure you get the correct data.</p></li>
-<li><p>Create a matrix column-wise with three columns and ten rows from the <code>chick_weights</code> vector. Save the matrix in a variable called <code>weights</code>. Creating the matrix column-wise will be chicks raised on the same diet in the same column. This is the most common way that data are formatted.</p></li>
+<li><p>Create a matrix column-wise with three columns and ten rows from the <code>chick_weights</code> vector. Save the matrix in a variable called <code>three_diets</code>. Creating the matrix column-wise will put chicks raised on the same diet in the same column.</p></li>
 <li><p>Display the results stored in the <code>weights</code> matrix.</p></li>
 </ul>
 <pre class="r"><code># Create a column-wise matrix called `weights` with three columns and ten rows from the `chick_weights` vector.
@@ -454,245 +460,209 @@ summary {
 ## [10,]  140  257  267</code></pre>
 </div>
 </div>
-<div id="naming-a-matrix" class="section level2">
-<h2>3.3 Naming a matrix</h2>
-<p>To help you remember what is stored in <code>star_wars_matrix</code>, you would like to add the names of the movies for the rows. Not only does this help you to read the data, but it is also useful to select certain elements from the matrix.</p>
-<p>Similar to vectors, you can add names for the rows and the columns of a matrix</p>
-<pre class="r"><code>rownames(my_matrix) &lt;- row_names_vector
-colnames(my_matrix) &lt;- col_names_vector</code></pre>
-<p>I prepared two vectors for you: <code>region</code>, and <code>titles</code>. You will need these vectors to name the columns and rows of <code>star_wars_matrix</code>, respectively.</p>
+<div id="name-the-columns-and-rows" class="section level2">
+<h2>3.3 Name the columns and rows</h2>
+<p>You can name the rows and columns of your matrix just like you named the elements of a vector. Like vectors, accessing individual columns, rows, or elements is easier with names. Study this example that names the rows and columns from the <code>first_matrix</code> example above.</p>
+<pre class="r"><code>row_names_vector &lt;- c(&quot;Row 1&quot;, &quot;Row 2&quot;, &quot;Row 3&quot;)
+col_names_vector &lt;- c(&quot;Col 1&quot;, &quot;Col 2&quot;, &quot;Col 3&quot;)
+
+rownames(first_matrix) &lt;- row_names_vector
+colnames(first_matrix) &lt;- col_names_vector
+
+first_matrix</code></pre>
+<pre><code>##       Col 1 Col 2 Col 3
+## Row 1     1     2     3
+## Row 2     4     5     6
+## Row 3     7     8     9</code></pre>
+<p>Your data has 10 chicks (“Replicates”, in rows) raised on one of three diets (columns).</p>
 <div id="instructions-2" class="section level4">
 <h4>Instructions</h4>
 <ul>
-<li><p>Use <code>colnames()</code> to name the columns of <code>star_wars_matrix</code> with the region vector.</p></li>
-<li><p>Use <code>rownames()</code> to name the rows of <code>star_wars_matrix</code> with the titles vector.</p></li>
-<li><p>Print out <code>star_wars_matrix</code> to see the result of your work.</p></li>
+<li><p>Use <code>colnames()</code> to name the columns <code>horsebean</code>, <code>linseed</code>, and <code>soybean</code>. You can first create a vector with the column names or use them directly with the <code>c()</code> function. If necessary, review your options from the <a href="./02_vectors.html">Vector exercise</a>.</p></li>
+<li><p>Use <code>rownames()</code> to name the rows with the pattern <code>Replicate #</code> where <code>#</code> is the replicate number 1 through 10.</p></li>
 </ul>
-<pre class="r"><code># Box office Star Wars (in millions!)
-new_hope &lt;- c(460.998, 314.4)
-empire_strikes &lt;- c(290.475, 247.900)
-return_jedi &lt;- c(309.306, 165.8)
-
-# Construct matrix
-star_wars_matrix &lt;- matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)
-
-# Vectors region and titles, used for naming
-region &lt;- c(&quot;US&quot;, &quot;non-US&quot;)
-titles &lt;- c(&quot;A New Hope&quot;, &quot;The Empire Strikes Back&quot;, &quot;Return of the Jedi&quot;)
-
-# Name the columns with region
+<p><strong>Tip:</strong> You could type “Replicate 1”, “Replicate 2” and so on, but this gets tedious quickly. Use the following code to take advantage of R’s ability to work efficiently with vectors. <code>paste(&quot;Replicate&quot;, 1:10)</code>. This code creates 10 copies of the word “Replicate” followed by the numbers 1 through 10. I’ll leave it to you to figure out how to use the code properly but you have the knowledge. Use <code>?paste()</code> to get help on using the <code>paste()</code> function.</p>
+<pre class="r"><code># Use `colnames()` to name the columns `horsebean`, `linseed`, and `soybean`.
 
 
-# Name the rows with titles
-
-
-# Print out star_wars_matrix
+# Use `rownames()` to name the rows with the pattern `Replicate #` Use the `paste()` function for efficiency.
 
 
 #</code></pre>
 </div>
 </div>
-<div id="calculating-the-worldwide-box-office" class="section level2">
-<h2>3.4 Calculating the worldwide box office</h2>
-<p>The single most important thing for a movie to become an instant legend in Tinseltown is its worldwide box office figures.</p>
-<p>To calculate the total box office revenue for the three Star Wars movies, you have to take the sum of the US revenue column and the non-US revenue column.</p>
-<p>In R, the function <code>rowSums()</code> conveniently calculates the totals for each row of a matrix. This function creates a new vector:</p>
-<pre class="r"><code>rowSums(my_matrix)</code></pre>
+<div id="calculations-on-matrices" class="section level2">
+<h2>3.4 Calculations on matrices</h2>
+<p>Like vectors, you can perform some calculations on rows and columns.</p>
+<ul>
+<li><p>The functions <code>rowSums()</code> and <code>colSums()</code> returns a vector of sums for each row or column, respectively, in a matrix. The number of elements in the vector depends on the number of rows or columns.</p></li>
+<li><p>The functions <code>rowMeans()</code> and <code>colMeans()</code> returns a vector of averages for each row or column, respectively, in a matrix. The number of elements in the vector depends on the number of rows or columns.</p></li>
+</ul>
+<pre class="r"><code>rowSums(first_matrix)</code></pre>
+<pre><code>## Row 1 Row 2 Row 3 
+##     6    15    24</code></pre>
+<pre class="r"><code>colMeans(first_matrix)</code></pre>
+<pre><code>## Col 1 Col 2 Col 3 
+##     4     5     6</code></pre>
 <div id="instructions-3" class="section level4">
 <h4>Instructions</h4>
 <ul>
-<li><p>Calculate the worldwide box office figures for the three movies and put these in the vector named <code>worldwide_vector</code>.</p></li>
-<li><p>Print the value of <code>worldwide_vector</code>.</p></li>
+<li><p>Calculate the average chick weight for each diet type (columns) in the <code>three_diets</code> matrix. Store the result in a vector called <code>mean_weights</code>.</p></li>
+<li><p>Print the values stored in <code>mean_weights</code>.</p></li>
+<li><p>Calculate the mean weight of all 30 chicks in the matrix. You can do this at least one of two ways. Do at least one but try to find at least two. You do not have to save this calculation in a variable.</p></li>
 </ul>
-<pre class="r"><code># Construct star_wars_matrix
-box_office &lt;- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
-star_wars_matrix &lt;- matrix(box_office, nrow = 3, byrow = TRUE,
-                           dimnames = list(c(&quot;A New Hope&quot;, &quot;The Empire Strikes Back&quot;, &quot;Return of the Jedi&quot;), 
-                                           c(&quot;US&quot;, &quot;non-US&quot;)))
-
-# Calculate worldwide box office figures
+<pre class="r"><code># Store the the average chick weight for each diet type in `mean_weights`
 
 
-# Print out worldwide_vector
+# Print the values in mean_weights
 
+
+# Calculate the mean weight of all 30 chicks in the matrix.
 
 #</code></pre>
 </div>
 </div>
-<div id="adding-a-column-for-the-worldwide-box-office" class="section level2">
-<h2>3.5 Adding a column for the Worldwide box office</h2>
-<p>In the previous exercise you calculated the vector that contained the worldwide box office receipt for each of the three Star Wars movies. However, this vector is not yet part of <code>star_wars_matrix</code>.</p>
-<p>You can add a column or multiple columns to a matrix with the <code>cbind()</code> function, which merges matrices and/or vectors together by column. For example:</p>
-<pre class="r"><code>big_matrix &lt;- cbind(matrix1, matrix2, vector1 ...)</code></pre>
+<div id="add-a-column-with-another-diet-type." class="section level2">
+<h2>3.5 Add a column with another diet type.</h2>
+<p>Sometimes you have to add a new row or column to an existing matrix. R provides the functions <code>cbind()</code> and <code>rbind()</code> to add (bind) columns and rows to an existing matrix. The first example in this assignment created the <code>first_matrix</code> matrix with the values 1 to 9 stored in three rows.</p>
+<p>This example uses <code>rbind()</code> to add a new row (a vector) with three values.</p>
+<pre class="r"><code># Review the contents of first_matrix
+first_matrix</code></pre>
+<pre><code>##       Col 1 Col 2 Col 3
+## Row 1     1     2     3
+## Row 2     4     5     6
+## Row 3     7     8     9</code></pre>
+<pre class="r"><code># Create a vector with the new data to add
+new_row &lt;- c(10, 11, 12)
+
+# Bind the new row
+second_matrix &lt;- rbind(first_matrix, new_row)
+
+# Inspect the contents of second_matrix
+second_matrix</code></pre>
+<pre><code>##         Col 1 Col 2 Col 3
+## Row 1       1     2     3
+## Row 2       4     5     6
+## Row 3       7     8     9
+## new_row    10    11    12</code></pre>
+<p>Notice that R automatically created a name for the row from the vector name but it doesn’t match the other row names. You could name all of the rows again with <code>rownames(second_matrix) &lt;- c(&quot;Row 1&quot;, &quot;Row 2&quot;, ..., &quot;Row 4&quot;)</code> but this again grows tiresome. You could use the <code>paste()</code> trick, too.</p>
+<p>Instead, this code allows you to rename a specific row, in this case the fourth row. The row names are effectively a vector of names for each row, so the <code>[4]</code> accesses the fourth element and gives it the name.</p>
+<pre class="r"><code>rownames(second_matrix)[4] &lt;- &quot;Row 4&quot;
+
+second_matrix</code></pre>
+<pre><code>##       Col 1 Col 2 Col 3
+## Row 1     1     2     3
+## Row 2     4     5     6
+## Row 3     7     8     9
+## Row 4    10    11    12</code></pre>
 <div id="instructions-4" class="section level4">
 <h4>Instructions</h4>
+<p>If you inspected the built-in <code>chickwts</code> data set back in section 3.2, you know that six diet types were tested. Let’s add the first 10 chicks from the casein diet and recalculate the mean weights.</p>
 <ul>
-<li>Add <code>worldwide_vector</code> as a new column to the <code>star_wars_matrix</code> and assign the result to <code>all_wars_matrix</code>. Use the <code>cbind()</code> function.</li>
+<li><p>Use <code>chickwts$weight[60:69]</code> to access the first 10 chicks raised on casein diet. Save it to a variable of a suitable name.</p></li>
+<li><p>Use <code>cbind()</code> to add this new column of data to your <code>three_diets</code> matrix. Save this new matrix in a variable called <code>four_diets</code>. <strong>Hint:</strong> Choosing the variable name wisely in the previous step will save you some coding in the next step. <strong>Work smart, not hard!</strong></p></li>
+<li><p>Be sure the four columns are named “horsebean,” “linseed,” “soybean,” and “casein.” If not, write the code to rename the new column (or, edit your code from the first step).</p></li>
+<li><p>Calculate the mean weights of each of the four diet types. You do not have to save these results to a variable.</p></li>
 </ul>
-<pre class="r"><code># Construct star_wars_matrix
-box_office &lt;- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
-star_wars_matrix &lt;- matrix(box_office, nrow = 3, byrow = TRUE,
-                           dimnames = list(c(&quot;A New Hope&quot;, 
-                                             &quot;The Empire Strikes Back&quot;,
-                                             &quot;Return of the Jedi&quot;), 
-                                           c(&quot;US&quot;, &quot;non-US&quot;)))
+<pre class="r"><code># Use `chickwts$weight[60:69]` to access the first 10 chicks raised on casein diet.
 
-# The worldwide box office figures
-worldwide_vector &lt;- rowSums(star_wars_matrix)
 
-# Bind the new variable worldwide_vector as a column to star_wars_matrix
+# Use `cbind()` to add this new column of data to your `weights` matrix. Save as `four_diets`
+
+
+# Rename the columns if necessary
+
+
+# Calculate the mean weights of chicks for each diet type.
 
 
 #</code></pre>
+<p>The same logic applies for adding rows to a matrix, which I will leave for you to try on your own.</p>
 </div>
 </div>
-<div id="adding-a-row" class="section level2">
-<h2>3.6 Adding a row</h2>
-<p>Just like every action has a reaction, every <code>cbind()</code> has an <code>rbind()</code>. (Yeah, pretty bad metaphor.)</p>
-<p>Your R workspace, where all variables you defined ‘live’ (check out what a workspace is), has already been initialized and contains two matrices:</p>
+<div id="selecting-matrix-elements" class="section level2">
+<h2>3.6 Selecting matrix elements</h2>
+<p>How might you select rows, columns, or individual elements from a matrix? If you thought about using square brackets <code>[]</code> like you did with vectors, you are correct. Whereas vectors have one dimension, matrices have two dimensions. You should therefore use a comma to separate the rows you want to select from the columns.</p>
+<p><strong>Tip:</strong> The key to extract elements from a matrix is to remember the <code>[r,c]</code> pattern, where <code>r</code> is the row number and <code>c</code> is the column number. For example:</p>
 <ul>
-<li><code>star_wars_matrix</code> that we have used all along, with data on the original trilogy,</li>
-<li><code>star_wars_matrix2</code>, with similar data for the prequels trilogy.</li>
-</ul>
-<p>Type the name of these matrices in the console and hit Enter if you want to have a closer look. If you want to check out the contents of the workspace, you can type <code>ls()</code> in the console.</p>
-<div id="instructions-5" class="section level4">
-<h4>Instructions</h4>
-<ul>
-<li>Use <code>rbind()</code> to paste together <code>star_wars_matrix</code> and <code>star_wars_matrix2</code>, in this order. Assign the resulting matrix to <code>all_wars_matrix</code>.</li>
-</ul>
-<pre class="r"><code># star_wars_matrix and star_wars_matrix2 are available in your workspace
-box_office2 &lt;- c(474.5, 552.5, 310.7, 338.7, 380.3, 468.5)
-star_wars_matrix2 &lt;- matrix(box_office2, nrow = 3, byrow = TRUE,
-                            dimnames = list(c(&quot;The Phantom Menace&quot;, 
-                                              &quot;Attack of the Clones&quot;, 
-                                              &quot;Revenge of the Sith&quot;), 
-                                            c(&quot;US&quot;, &quot;non-US&quot;)))
-
-# Combine both Star Wars trilogies in one matrix
-
-
-#</code></pre>
-</div>
-</div>
-<div id="the-total-box-office-revenue-for-the-entire-saga" class="section level2">
-<h2>3.7 The total box office revenue for the entire saga</h2>
-<p>Just like <code>cbind()</code> has <code>rbind()</code>, <code>colSums()</code> has <code>rowSums()</code>. The code chunk already contains the <code>all_wars_matrix</code> that you constructed in the previous exercise; type <code>all_wars_matrix</code> to have another look. Let’s now calculate the total box office revenue for the entire saga.</p>
-<div id="instructions-6" class="section level4">
-<h4>Instructions</h4>
-<ul>
-<li>Calculate the total revenue for the US and the non-US region and assign <code>total_revenue_vector</code>. You can use the <code>colSums()</code> function.</li>
-<li>Print out <code>total_revenue_vector</code> to have a look at the results.</li>
-</ul>
-<pre class="r"><code># all_wars_matrix is available in your Notebook
-all_wars_matrix
-
-# Total revenue for US and non-US
-
-
-# Print out total_revenue_vector
-
-
-#</code></pre>
-</div>
-</div>
-<div id="selection-of-matrix-elements" class="section level2">
-<h2>3.8 Selection of matrix elements</h2>
-<p>Similar to vectors, you can use the square brackets <code>[ ]</code> to select one or multiple elements from a matrix. Whereas vectors have one dimension, matrices have two dimensions. You should therefore use a comma to separate the rows you want to select from the columns. For example:</p>
-<ul>
-<li><code>my_matrix[1,2]</code> selects the element at the first row and second column.</li>
-<li><code>my_matrix[1:3,2:4]</code> results in a matrix with the data on the rows 1, 2, 3 and columns 2, 3, 4.</li>
+<li><p><code>first_matrix[1,2]</code> selects the element at the first row and second column.</p></li>
+<li><p><code>second_matrix[1:3,2:4]</code> results in a matrix with the data on the rows 1, 2, 3 and columns 2, 3, 4.</p></li>
 </ul>
 <p>If you want to select all elements of a row or a column, no number is needed before or after the comma, respectively:</p>
 <ul>
-<li><code>my_matrix[,1]</code> selects all elements of the first column.</li>
-<li><code>my_matrix[1,]</code> selects all elements of the first row.</li>
+<li><code>first_matrix[,1]</code> selects all elements of the first column.</li>
+<li><code>second_matrix[1,]</code> selects all elements of the first row.</li>
 </ul>
-<p>Back to Star Wars with this newly acquired knowledge! As in the previous exercise, <code>all_wars_matrix</code> is already available in your workspace.</p>
-<div id="instructions-7" class="section level3">
-<h3>Instructions</h3>
+<p>You can also use row and column names to select rows, columns, and individual elements.</p>
 <ul>
-<li><p>Select the non-US revenue for all movies (the entire second column of <code>all_wars_matrix</code>), store the result as <code>non_us_all</code>.</p></li>
-<li><p>Use <code>mean()</code> on <code>non_us_all</code> to calculate the average non-US revenue for all movies. Simply print out the result.</p></li>
-<li><p>This time, select the non-US revenue for the first two movies in <code>all_wars_matrix</code>. Store the result as <code>non_us_some</code>.</p></li>
-<li><p>Use <code>mean()</code> again to print out the average of the values in <code>non_us_some</code>.</p></li>
+<li><code>first_matrix[,&quot;Col 2&quot;]</code> selects all elements of the second column.</li>
+<li><code>second_matrix[&quot;Row 4&quot;,]</code> selects all elements of the fourth row.</li>
+<li><p><code>second_matrix[&quot;Row 3&quot;, &quot;Col 1&quot;]</code> selects the element from the third row, first column.</p></li>
+<li><p>You can combine names and numbers such as <code>first_matrix[2, &quot;Col 2&quot;]</code> although it is best to be consistent. Remember that using names instead of positions makes your code easier to read.</p></li>
 </ul>
-<pre class="r"><code># all_wars_matrix is available in your workspace
-all_wars_matrix
+<div id="instructions-5" class="section level3">
+<h3>Instructions</h3>
+<p>Add code to your script to obtain the following from the <code>four_diets</code> matrix.</p>
+<ul>
+<li><p>Select the entire linseed column by column number.</p></li>
+<li><p>Select the entire soybean column by name.</p></li>
+<li><p>Select the entire nineth row by row number.</p></li>
+<li><p>Select the entire third row by row name.</p></li>
+<li><p>Select the fifth replicate from the horsebean column. Use whatever method you which to extract that specific element.</p></li>
+</ul>
+<pre class="r"><code># Select the entire linseed column by column number.
 
-# Select the non-US revenue for all movies
 
-  
-# Average non-US revenue
+# Select the entire soybean column by name.
 
-  
-# Select the non-US revenue for first two movies
 
-  
-# Average non-US revenue for first two movies
+# Select the entire ninth row by row number.
+
+
+# Select the entire third row by row name.
+
+
+# Select the fifth replicate from the horsebean column with any method.
 
 
 #</code></pre>
 </div>
 </div>
 <div id="a-little-arithmetic-with-matrices" class="section level2">
-<h2>3.9 A little arithmetic with matrices</h2>
-<p>Similar to what you have learned with vectors, the standard operators like <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, etc. work in an element-wise way on matrices in R.</p>
-<p>For example, <code>2 * my_matrix</code> multiplies each element of <code>my_matrix</code> by two.</p>
-<p>As a newly-hired data analyst for Lucasfilm, it is your job to find out how many visitors went to each movie for each geographical area. You already have the total revenue figures in <code>all_wars_matrix</code>. Assume that the price of a ticket was 5 dollars. Simply dividing the box office numbers by this ticket price gives you the number of visitors.</p>
-<div id="instructions-8" class="section level4">
+<h2>3.7 A little arithmetic with matrices</h2>
+<p>Once again, like vectors, you can do math and apply functions to matrices. The basic math operators like <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, and so work on every element in a matrix.</p>
+<p>For example, <code>3 + first_matrix</code> adds 3 to each element of <code>first_matrix</code>. <code>second_matrix / 3</code> divides every element of <code>second_matrix</code> by 3.</p>
+<p>You can also apply functions, such as <code>sum</code> and <code>mean</code> to entire matrices.</p>
+<div id="instructions-6" class="section level4">
 <h4>Instructions</h4>
+<p>Add code to your script to do the following. Use the weights in <code>four_diets</code>. You do not have to save the results, just display them.</p>
 <ul>
-<li>Divide <code>all_wars_matrix</code> by 5, giving you the number of visitors in millions. Assign the resulting matrix to <code>visitors</code>.</li>
-<li>Print out <code>visitors</code> so you can have a look.</li>
+<li><p>The chick weights are measured in grams. You have a terrible supervisor who wants the results in ounces (gack!). Convert the grams to ounces. Use 0.035 ounces per gram or 28.35 grams per ounce as needed to make the conversion. The conversion values are approximate so one method will not give you exactly the same values as the other method. <strong>You only have to apply one method.</strong></p></li>
+<li><p>Use the <code>log()</code> function to calculate the logarithm of the each weight.</p></li>
+<li><p>Use the <code>dim()</code> (dimension) function to count the total number of rows and columns in your matrix.</p></li>
+<li><p>Use the <code>length()</code> function to count the total number of chicks weighed.</p></li>
 </ul>
-<pre class="r"><code># all_wars_matrix is available in your workspace
-all_wars_matrix
-
-# Estimate the visitors
+<pre class="r"><code># Convert grams to ounces
 
 
-# Print the estimate to the console
+# Apply the log() function.
+
+
+# Apply the count() function.
+
+
+# Apply the dim() function.
+
+
+# Apply the length() function.
 
 
 #</code></pre>
 </div>
 </div>
-<div id="a-little-arithmetic-with-matrices-2" class="section level2">
-<h2>3.10 A little arithmetic with matrices (2)</h2>
-<p>Just like <code>2 * my_matrix</code> multiplied every element of <code>my_matrix</code> by two, <code>my_matrix1 * my_matrix2</code> creates a matrix where each element is the product of the corresponding elements in <code>my_matrix1</code> and <code>my_matrix2</code>.</p>
-<p>After looking at the result of the previous exercise, big boss Lucas points out that the ticket prices went up over time. He asks to redo the analysis based on the prices you can find in <code>ticket_prices_matrix</code> (source: imagination).</p>
-<p>Those who are familiar with matrices should note that this is not the standard matrix multiplication for which you should use <code>%*%</code> in R.</p>
-<div id="instructions-9" class="section level4">
-<h4>Instructions</h4>
-<ul>
-<li>Divide <code>all_wars_matrix</code> by <code>ticket_prices_matrix</code> to get the estimated number of US and non-US visitors for the six movies. Assign the result to <code>visitors</code>.</li>
-<li>From the <code>visitors</code> matrix, select the entire first column, representing the number of visitors in the US. Store this selection as <code>us_visitors</code>.</li>
-<li>Calculate the average number of US visitors; print out the result.</li>
-</ul>
-<pre class="r"><code># all_wars_matrix and ticket_prices_matrix are available for you
-all_wars_matrix
-ticket_prices &lt;- c(5.0, 5.0, 6.0, 6.0, 7.0, 7.0, 4.0, 4.0, 4.5, 4.5, 4.9, 4.9)
-ticket_prices_matrix &lt;- matrix(ticket_prices, ncol = 2, byrow = TRUE,
-                               dimnames = list(c(&quot;A New Hope&quot;,
-                                                 &quot;The Empire Strikes Back&quot;,
-                                                 &quot;Return of the Jedi&quot;,
-                                                 &quot;The Phantom Menace&quot;, 
-                                                 &quot;Attack of the Clones&quot;, 
-                                                 &quot;Revenge of the Sith&quot;),
-                                               c(&quot;US&quot;, &quot;non-US&quot;)))
-
-
-# Estimated number of visitors
-
-
-# US visitors
-
-
-# Average number of US visitors
-
-
-#</code></pre>
-</div>
+<div id="save-to-github" class="section level2">
+<h2>Save to GitHub</h2>
+<p>Be sure you have used comments throughout your code to identify sections and to describe what you are doing, then commit and push your <code>hw02-2\3.R</code> script to GitHub.</p>
 </div>
 
 
