@@ -1,5 +1,5 @@
 ---
-title: "2: Vectors"
+title: "Part 2: Vectors"
 subtitle: Introduction to R
 output:
   pdf_document: default
@@ -301,7 +301,7 @@ Add code to your script to do the following.
 
 **Math refresher:** Before continuing with the instructions, let's recall that the cell counts in your vectors are logarithms (base 10). Logs are exponents (power) that raise the base (10 in this case) to get specific values. For example, if you have a logarithm value of 2, then 10^2^ = `r 10^2`.
 
-The first value in each of your vectors is 4.6 (day 0); therefore the average number of cells in both culture types is 10^4.6^ or about 39,811 cells.
+The first value (Day 0) in each of your vectors is 4.6; therefore the average number of cells in both culture types on Day 0 is 10^4.6^ or about 39,811 cells.
 
 - Use exponentiation (`^`) to raise 10 to each value in your vectors to calculate the actual number of cells. Store the results in `cell_counts_without_pplo` and `cell_counts_with_pplo` variables, respectively.
 
