@@ -12,11 +12,16 @@ linkcolor: blue
 mainfont: Linux Libertine O
 ---
 
-By the end of this assignment, you should
+By the end of this assignment, you should achieve the following.
 
 - have a GitHub account;
 - installed Git, R, and R Studio; and
 - edited your README.md file with Markdown.
+- use Git to push your README.md file to GitHub.
+
+*These achievements are part of Learning Outcomes 5 and 6.*
+
+***
 
 Click on any blue text to visit the external website.
 
