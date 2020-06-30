@@ -12,7 +12,7 @@ linkcolor: blue
 mainfont: Linux Libertine O
 ---
 
-By the end of this assignment, you should achieve the following.
+By the end of this assignment, you should achieve the following:
 
 - have a GitHub account;
 - installed Git, R, and R Studio; and
