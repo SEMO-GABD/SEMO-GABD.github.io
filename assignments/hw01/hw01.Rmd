@@ -147,7 +147,7 @@ Edit the README.md file in your local repo to include the requirements below.
 
 If none of the requirements seem familiar, then take (or re-take) the [markdown tutorial](https://commonmark.org/help/tutorial/) and reference the [markdown cheatsheet.](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) Also, the `Help` menu in R Studio has a `Markdown Quick Reference` help item. `Help > Cheatsheets` has a link to an R Markdown cheatsheet PDF.
 
-1. Replace the line that says "This repo belongs to \<user_name\> with your first and last name. Use a Heading 1 size for your name.
+1. Replace the line that says "This repo belongs to \<user_name\> with your first and last name. Use a Heading 1 size for your name. **NOTE for 2020: Do to a Taylor Screwup (patent pending), it may just have `lastname_first`. Replace that line instead.**
 
 2. On the next line use a Heading 2 size for your institution, e.g.,
 
