@@ -23,7 +23,7 @@ Graphical Analysis of Biological Data will teach you how to
 
 - explore, groom, and visualize data;
 - make all of that reproducible, reusable, and shareable;
-- use R to accomplish these tasks; and
+- use R, RStudio, and the "Tidyverse" to accomplish these tasks; and
 - use basic Git functions to maintain your code and data.
 
 This course is built on and emphasizes [open access](https://en.wikipedia.org/wiki/Open_access) to data, analysis, and reproducible results.
@@ -32,12 +32,14 @@ This course is built on and emphasizes [open access](https://en.wikipedia.org/wi
 
 ## Learning outcomes
 
-By the end of this course, you will be able to
+By the end of this course, you will be able to write code in [R](http://www.r-project.org) and [RStudio IDE](http://www.rstudio.com/products/rstudio/) to
 
-- Import, manage, and prepare data for analyses using [R](http://www.r-project.org) and [RStudio IDE](http://www.rstudio.com/products/rstudio/); 
-- use [ggplot2](http://ggplot2.org) to display data using appropriate graphical techniques, such as boxplots, histograms, and Cleveland plots; 
-- create reports with reproducible analyses using [R Markdown](http://rmarkdown.rstudio.com); and
-- manage your data and R scripts via the Git version control system.
+1. create and manipulate basic R data structures,
+2. import data from a variety of sources,
+3. wrangle data into format suitable for efficient analysis.
+4. display data using appropriate graphical techniques, such as boxplots, histograms, and Cleveland plots with [ggplot2](http://ggplot2.org);
+5. create reports with reproducible analyses using [R Markdown](http://rmarkdown.rstudio.com); and
+6. manage your data and R scripts via the Git version control system.
 
 
 ## Prerequisites
