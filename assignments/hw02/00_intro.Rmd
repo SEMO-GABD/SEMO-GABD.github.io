@@ -1,8 +1,8 @@
 ---
 title: "0: How to do this assignment"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 editor_options:
   chunk_output_type: inline
 ---
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(eval=FALSE, include=TRUE)
 <!-- UNCOMMENT WHEN READY
 I adapted this exercise from the Free Introduction to R tutorial from DataCamp (http://datacamp.com/courses/free-introduction-r). It was free but they just started charging for five of the modules.-->
 
-This exercise will teach you basic commands and types of data objects in R. By the end, you will be able to perform the following tasks in R.
+The six parts of this assignment will teach you basic commands and types of data objects in R. By the end, you will be able to achieve the following tasks in R:
 
 - Create and save a new R script;
 - assign values to variables;
@@ -23,7 +23,9 @@ This exercise will teach you basic commands and types of data objects in R. By t
 - create, subset, and compare factors;
 - create data frames, extract data from rows, columns, and cells; and
 - create and manipulate lists.
+- commit your work to Git and push it to GitHub.
 
+*These achievements belong to Learning Outcomes 1 and 6.*
 
 ***
 
