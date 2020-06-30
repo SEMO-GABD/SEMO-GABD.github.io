@@ -207,7 +207,7 @@ You decide that you could display the data more effectively. You want to show th
     - `fun.y = median`
     - `geom = "point"`
     - `size = 2.2`
-- Add another `stat_summary()`. Change the y function to `mean`, size to 3, and add the `color = "15"maroon"` argument.
+- Add another `stat_summary()`. Change the y function to `mean`, size to 3, and add the `color = "maroon"` argument.
 - Facet, label, and flip the graph as you did above.
 
 ```{r}
