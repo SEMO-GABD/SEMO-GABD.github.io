@@ -1,5 +1,5 @@
 ---
-title: "5: Data frames"
+title: "Part 5: Data frames"
 subtitle: Introduction to R
 output:
   pdf_document: default
@@ -22,445 +22,448 @@ This assignment consists of six parts:
 - Data frames (this document)
 - Lists
 
-If you haven't already, [download the answer sheet for this document](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/05_data_frames_answers.Rmd) (**Note:** right-click and save the file with the `.Rmd` extension to your `hw02` folder.)
+Create a script called `hw02-5.R` and save it in your `hw02` folder.
 
-After you complete each exercise, push the R Notebook to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
+After you complete each exercise, commit and push your R script to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
+
 
 ***
 
-## 5.1 What is a data frame?
+## 5.1 Data frames
 
-You may remember from the chapter about matrices that all the elements that you put in a matrix should be of the same type. Back then, your data set on Star Wars only contained numeric elements.
+Recall that a[matrix](./03_matrices.html) in R is a collection of elements of *one data type* arranged in rows and columns. **Data frames** also have the elements arranged in rows and columns but with one important difference: the elements can be *different* data types.
 
-When doing a market research survey, however, you often have questions such as:
+If you have used a spreadsheet before, then you are familiar with the concept of a data frame. A row has data related to a single instance or observation. A column is a variable with one type of data shared among the observations. Consider these hypothetical plant data:
 
-- 'Are you married?' or 'yes/no' questions (logical)
-- 'How old are you?' (numeric)
-- 'What is your opinion on this product?' or other 'open-ended' questions (character)
-- ...
+| Genus | Species | Number | Flowering | 
+|:------|:--------|:------:|:----------|
+| Asclepias | tuberosa | 4 | FALSE |
+| Asclepias | viridis | 1 | TRUE |
+| Baptisia | australis | 7 | TRUE |
+| Rudbeckia | hirta | 2 | FALSE |
 
-The output, namely the respondents' answers to the questions formulated above, is a data set of different data types. You will often find yourself working with data sets that contain different data types instead of only one.
+Each row represents the data for a single observation, in this case plant species. Each column represents one variable shared among observations, such as the number of individual plants observed and whether the plants were flowering.
 
-A data frame has the variables of a data set as columns and the observations as rows. This will be a familiar concept for those coming from different statistical software packages such as SAS or SPSS.
+Each row (observation) can have multiple data types, such as text, numeric, *and* logical in this case.  Each column (variable) has just one data type, such as text, numeric, *or* logical.
 
-#### Instructions
+Data frames are the objects that you will use most often (probably) as a scientist. You will most often use data from spreadsheets, which import easily into R as data frames. Data frames are required for most types of analyses and visualization. You will therefore work extensively with data frames throughout this course so *be sure to learn this information well!*
 
-Run the code below. The data from the built-in example data frame `mtcars` will be printed.
+#### 5.1 Instructions
+
+R comes installed with many data sets. To see the list of available data sets, enter `data()` into the console. Scroll through the list. The vast majority of those data sets are data frames. Look for `chickwts`. You may recall that you used data from `chickwts` in the [vectors](./02_vectors.html) exercise.
+
+Enter `class(chickwts)` in the console. It is `data.frame` class. Do the same for 2-3 other data sets in the list that look interesting to you.
+
+*You do not need to include this code in your script.*
+
+## 5.2 Viewing data frames
+
+To view a built-in data set like chickwts, you use the `data()` function to load the data set into memory. You then type the name of the data set to view it. Study this example and run this code in your console. (In most but not all cases, you do not have to use the `data()` function to load the data set but it is a best practice to do so.)
 
 ```{r}
-# Print out built-in R data frame
-mtcars 
+data(chickwts)
+
+chickwts
 ```
 
-## 5.2 Quick, have a look at your data set
+The data probably scrolled by quickly in your console. Scroll back up to see the column headers, "weight" and "feed." The unlabeled first column has row numbers automatically added by R when viewed.
 
-Wow, that is a lot of cars!
+Most data sets will be large, often hundreds or thousands of rows (millions of rows in so-called "big data".) You do not want to scroll up hundreds of rows to see the column headers. R provides several functions that allow you to inspect the contents and structure of your data frame.
 
-Working with large data sets is not uncommon in data analysis. When you work with data sets and data frames, your first task as a data analyst is to develop a clear understanding of its structure and main elements. Therefore, it is often useful to show only a small part of the entire data set.
+- `head()` displays the column headers and first five (default) rows of a data frame. You can change the number of rows to display, as you'll see in the example code below.
 
-So how to do this in R? Well, the function `head()` enables you to show the first observations of a data frame. Similarly, the function `tail()` prints out the last observations in your data set.
+- `tail()` is similar to `head()` but displays the last rows of the data frame.
 
-Both `head()` and `tail()` print a top line called the 'header', which contains the names of the different variables in your data set.
+- `nrow()` and `ncol()` returns the number of rows or columns of a data frame, respectively. `dim()` displays the number of rows *and* columns (dimensions) of the data frame. Each has its use.
 
-#### Instructions
+- `str()` displays the structure of your data frame. `str()` displays the class type, the dimensions, the column headers, and the data type of each column.  `str()` *is a very handy function.* You will probably use it often.
 
-Call `head()` on the `mtcars` data set to have a look at the header and the first observations.
+Study this example code to see the differences. Feel free to run the code in your console (not script).
+
+
+
+```{r eval=TRUE}
+# Use `head()` to show the head of the data frame. Default is first six rows.
+head(chickwts)
+
+# Use head() with a numeric argument to change the number of rows displayed
+head(chickwts, n = 4)
+
+# `tail()` with argument to view last 3 rows
+tail(chickwts, n = 3)
+
+# `nrow()` displays the number of rows
+nrow(chickwts)
+
+# `ncol()` displays the number of columns
+ncol(chickwts)
+length(chickwts) # Another way to get the number of columns
+
+# dim() returns the number of rows and columns
+dim(chickwts)  # Notice result is rows then columns
+
+# `str()` is very useful. You get most of the above info (not tail) in a single, small function.
+str(chickwts)
+```
+
+#### 5.2 Instructions
+
+The `iris` data set is another built-in data set. It's much larger than `chickwts`.  Add code to your script to do the following
+
+- Use `data()` to load the `iris` data frame.
+- Enter `iris` on a line by itself to see the entire data set scroll by. Scroll back to the top to see the column headers. Annoying, isn't it. We'll fix that later.
+- Display the first 10 rows of the data frame.
+- Display the last rows of the data frame, using the default settings.
+- Display the dimensions of the data frame. Use the least amount of code possible.
+- Display the struture of the data frame.
 
 ```{r}
-# Call head() on mtcars
+# Use `data()` to load the `iris` data frame.
+
+
+# Enter `iris` on a line by itself to display the full data frame.
+
+
+# Display the first 10 rows of the data frame.
+
+
+# Display the last rows of the data frame, 
+
+
+# Display the dimensions using the least amount of code (9 characters).
+
+
+# Display the structure of the data frame.
 
 
 #
 ```
 
 ```{r answer5.2, include=FALSE}
-# Call head() on mtcars
-head(mtcars)
+# Use `data()` to load the `iris` data frame.
+data(iris)
+
+# Enter `iris` on a line by itself to display the full data frame.
+iris
+
+# Display the first 10 rows of the data frame.
+head(iris, 10)
+
+# Display the last rows of the data frame, 
+tail(iris)
+
+# Display the dimensions using the least amount of code (9 characters).
+dim(iris)
+
+# Display the structure of the data frame.
+str(iris)
+
 ```
 
-## 5.3 Have a look at the structure
+The `str()` function will often by the first thing you do when you first load or import a data set.  *Remember this function!*
 
-Another method that is often used to get a rapid overview of your data is the function `str()`. The function `str()` shows you the structure of your data set. For a data frame it tells you:
 
-- The total number of observations (e.g. 32 car types)
-- The total number of variables (e.g. 11 car features)
-- A full list of the variables names (e.g. mpg, cyl ... )
-- The data type of each variable (e.g. num)
-- The first observations
+## 5.3 Extracting elements from a data frame
 
-Applying the `str()` function will often be the first thing that you do when receiving a new data set or data frame. It is a great way to get more insight in your data set before diving into the real analysis.
-
-#### Instructions
-
-Investigate the structure of `mtcars`. Make sure that you see the same numbers, variables and data types as mentioned above.
+How do you think you would select elements from a data frame?  If you thought about square brackets `[]`, then you would be correct.  Recall from the [matrix](./03_matrices.html) exercise the `[r,c]` format to extract data from a specific row and column. Specify the row first, then the column, separated by a column. If you specify only a row or column and leave the other number blank (still with the comma), you will get the contents of the row or column specified.
 
 ```{r}
-# Investigate the structure of mtcars
+# Extract the 10th row from the first column
+chickwts[10,1]
 
 
-#
+# Extract rows 9-12 of the first two columns.
+chickwts[9:12,1:2]
+
+# Dipslay all columns for rows 21-24. Notice the comma is present after the row numbers.
+chickwts[21:24,]
+
+# Display all rows for the second column. Notice the comma is present before the column number.
+chickwts[,2]
 ```
 
-```{r answer 5.3, include=FALSE}
-# Investigate the structure of mtcars
-str(mtcars)
-```
-
-## 5.4 Creating a data frame
-
-Since using built-in data sets is not even half the fun of creating your own data sets, the rest of this chapter is based on your personally developed data set. Put your jet pack on because it is time for some space exploration!
-
-As a first goal, you want to construct a data frame that describes the main characteristics of eight planets in our solar system. According to your good friend Buzz, the main features of a planet are:
-
-- The type of planet (Terrestrial or Gas Giant).
-- The planet's diameter relative to the diameter of the Earth.
-- The planet's rotation across the sun relative to that of the Earth.
-- If the planet has rings or not (TRUE or FALSE).
-
-After doing some high-quality research on Wikipedia, you feel confident enough to create the necessary vectors: `name`, `type`, `diameter`, `rotation` and `rings`; these vectors have already been coded up below. The first element in each of these vectors correspond to the first observation.
-
-You construct a data frame with the `data.frame()` function. As arguments, you pass the vectors from before: they will become the different columns of your data frame. Because every column has the same length, the vectors you pass should also have the same length. But don't forget that it is possible (and likely) that they contain different types of data.
-
-#### Instructions
-
-Use the function `data.frame()` to construct a data frame. Pass the vectors `name`, `type`, `diameter`, `rotation` and `rings` as arguments to `data.frame()`, in this order. Call the resulting data frame `planets_df`.
+You can also use the names of the column headers to extract a column. This is better than using column numbers because you don't have to count the columns to find out what is the number of the column you want to display. Just use it's name.
 
 ```{r}
-# Definition of vectors
-name <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
-type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
-          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
-diameter <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
-rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
-rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
+# Display the contents of all rows for the "weight" column.
+chickwts[,"weight"]
 
-# Create a data frame from the vectors
-
-
-#
+# Display rows 7-14 for the "feed" column.
+chickwts[7:14,"feed"]
 ```
 
-```{r answer5.4, include=FALSE}
-# Definition of vectors
-name <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
-type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
-          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
-diameter <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
-rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
-rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
-
-# Create a data frame from the vectors
-planets_df <- data.frame(name, type, diameter, rotation, rings)
-
-```
-
-## 5.5 Creating a data frame (2)
-
-The `planets_df` data frame should have 8 observations and 5 variables. It is in your workspace now, so you do not have to recreate it again.
-
-#### Instructions
-
-Use `str()` to investigate the structure of the new `planets_df` variable.
-
-```{r}
-# Check the structure of planets_df
-
-
-#
-```
-
-```{r answer5.5, include=FALSE}
-# Check the structure of planets_df
-str(planets_df)
-```
-
-## 5.6 Selection of data frame elements
-
-Similar to vectors and matrices, you select elements from a data frame with the help of square brackets `[ ]`. By using a comma, you can indicate what to select from the rows and the columns respectively. For example:
-
-- `my_df[1,2]` selects the value at the first row and second column in `my_df`
-
-- `my_df[1:3,2:4]` selects rows 1, 2, 3 and columns 2, 3, 4 in my_df
-
-Sometimes you want to select all elements of a row or column. For example, `my_df[1, ]` selects all elements of the first row. Let us now apply this technique on `planets_df`!
-
-#### Instructions
-
-- From `planets_df`, select the diameter of Mercury: this is the value at the first row and the third column. Simply print out the result.
-
-- From `planets_df`, select all data on Mars (the fourth row). Simply print out the result.
-
-```{r}
-# The planets_df data frame from the previous exercise is pre-loaded
-
-# Print out diameter of Mercury (row 1, column 3)
-
-
-# Print out data for Mars (entire fourth row)
-
-
-#
-```
-
-
-```{r answer5.6, include=FALSE}
-# The planets_df data frame from the previous exercise is pre-loaded
-
-# Print out diameter of Mercury (row 1, column 3)
-planets_df[1,3]
-
-# Print out data for Mars (entire fourth row)
-planets_df[4,]
-
-```
-
-## 5.7 Selection of data frame elements (2)
-
-Instead of using numerics to select elements of a data frame, you can also use the variable names to select columns of a data frame.
-
-Suppose you want to select the first three elements of the type column. One way to do this is
-
-```{r eval=FALSE}
-planets_df[1:3,2]
-```
-
-A possible disadvantage of this approach is that you have to know (or look up) the column number of type, which gets hard if you have a lot of variables. It is often easier to just make use of the variable name:
-
-```{r eval=FALSE}
-planets_df[1:3,"type"]
-```
-
-#### Instructions
-
-Select and print out the first 5 values in the `"diameter"` column of `planets_df`.
-
-```{r}
-# The planets_df data frame from the previous exercise is available
-
-# Select first 5 values of diameter column
-
-
-#
-```
-
-
-```{r answer5.7, include=FALSE}
-# The planets_df data frame from the previous exercise is available
-
-# Select first 5 values of diameter column
-planets_df[1:5, "diameter"]
-```
-
-## 5.8 Only planets with rings
-
-You will often want to select an entire column, namely one specific variable from a data frame. If you want to select all elements of the variable diameter, for example, both of these will do the trick:
-
-```{r eval=FALSE}
-planets_df[,3]
-planets_df[,"diameter"]
-```
-
-However, there is a short-cut. If your columns have names, you can use the `$` sign:
-
-```{r eval=FALSE}
-planets_df$diameter
-```
-
-#### Instructions
-
-- Use the `$` sign to select the rings variable from `planets_df`. Store the vector that results as `rings_vector`.
-
-- Print out `rings_vector` to see if you got it right.
-
-```{r}
-# planets_df is pre-loaded in your workspace
-
-# Select the rings variable from planets_df
-
-  
-# Print out rings_vector
-
-
-#
-```
-
-```{r answer5.8, include=FALSE}
-# planets_df is pre-loaded in your workspace
-
-# Select the rings variable from planets_df
-rings_vector <- planets_df$rings
-  
-# Print out rings_vector
-rings_vector
-```
-
-## 5.9 Only planets with rings (2)
-
-You probably remember from high school that some planets in our solar system have rings and others do not. Unfortunately you can not recall their names. Could R help you out?
-
-If you type `rings_vector` in the console, you get:
-
-```{r eval=TRUE, echo=FALSE}
-# Definition of vectors
-name <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
-type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
-          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
-diameter <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
-rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
-rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
-
-# Create a data frame from the vectors
-planets_df <- data.frame(name, type, diameter, rotation, rings)
-rings_vector <- planets_df$rings
-rings_vector
-```
-
-This means that the first four observations (or planets) do not have a ring (`FALSE`), but the other four do (`TRUE`). However, you do not get a nice overview of the names of these planets, their diameter, etc. Let's try to use `rings_vector` to select the data for the four planets with rings.
-
-#### Instructions
-
-The code below selects the `name` column of all planets that have rings. Adapt the code so that instead of only the `name` column, all columns for planets that have rings are selected.
-
-```{r}
-# planets_df and rings_vector are pre-loaded in your workspace
-
-# Adapt the code to select all columns for planets with rings
-planets_df[name, ]
-```
-
-```{r answer5.9, include=FALSE}
-# planets_df and rings_vector are pre-loaded in your workspace
-
-# Adapt the code to select all columns for planets with rings
-planets_df[rings_vector, ]
-```
-
-## 5.10 Only planets with rings but shorter
-
-So what exactly did you learn in the previous exercises? You selected a subset from a data frame (`planets_df`) based on whether or not a certain condition was true (rings or no rings), and you managed to pull out all relevant data. Pretty awesome! By now, NASA is probably already flirting with your CV ;-).
-
-Now, let us move up one level and use the function `subset()`. You should see the `subset()` function as a short-cut to do exactly the same as what you did in the previous exercises.
-
-```{r eval=FALSE}
-subset(my_df, subset = some_condition)
-```
-
-The first argument of `subset()` specifies the data set for which you want a subset. By adding the second argument, you give R the necessary information and conditions to select the correct subset.
-
-The code below will give the exact same result as you got in the previous exercise, but this time, you didn't need the `rings_vector`!
-
-```{r eval=FALSE}
-subset(planets_df, subset = rings)
-```
-
-#### Instructions
-
-Use `subset()` on `planets_df` to select planets that have a diameter smaller than Earth. Because the `diameter` variable is a relative measure of the planet's diameter w.r.t that of planet Earth, your condition is `diameter < 1`.
-
-```{r}
-# planets_df is pre-loaded in your workspace
-
-# Select planets with diameter < 1
-
-
-#
-```
-
-```{r answer5.10, include=FALSE}
-# planets_df is pre-loaded in your workspace
-
-# Select planets with diameter < 1
-subset(planets_df, diameter < 1)
-```
-
-
-## 5.11 Sorting
-
-Making and creating rankings is one of mankind's favorite affairs. These rankings can be useful (best universities in the world), entertaining (most influential movie stars) or pointless (best 007 look-a-like).
-
-In data analysis you can sort your data according to a certain variable in the data set. In R, this is done with the help of the function `order()`.
-
-`order()` is a function that gives you the ranked position of each element when it is applied on a variable, such as a vector for example:
+You will soon see that you will often need to extract one or two columns from a data frame for analysis or visualization. R uses the dollar sign `$` as a short cut. Take a look again at the structure of the `chickwts` data set.  Notice the `$` is shown before each variable (column).
 
 ```{r eval=TRUE}
-a <- c(100, 10, 1000)
-order(a)
+str(chickwts)
 ```
 
-10, which is the second element in `a`, is the smallest element, so 2 comes first in the output of `order(a)`. 100, which is the first element in `a` is the second smallest element, so 1 comes second in the output of `order(a)`.
-
-This means we can use the output of `order(a)` to reshuffle `a`:
-
-```{r eval=TRUE}
-a[order(a)]
-```
-
-More often, you might save the order to a variable, and then use the variable to set the order, as in this example. Here, I am using the `head()` function to show only the first 8 rows of the data frame.
-
-```{r eval=TRUE}
-mpg_rank <- order(mtcars$mpg)
-head(mtcars[mpg_rank, ], 8)
-```
-
-Clearly, the Cadillac and Lincoln are good gas guzzlers. What if you want a more economical option?
-
-#### Instructions
-
-- Read and run this example. What does the argument `decreasing = TRUE` do?
+Instead of using `chickwts[,1]` or `chickwts[,"weight"]`, you can use
 
 ```{r}
-mpg_rank <- order(mtcars$mpg, decreasing = TRUE)
-head(mtcars[mpg_rank, ], 8)
+chickwts$weight
 ```
 
+Type `chickwts$` in your console. As soon as you type `$`, RStudio pops up a list of columns (variables) from the data frame. Just choose the variable you want to display and press enter. **Note: the columns must have names for this to work.** Otherwise, you must use column numbers.
 
-## 5.12 Sorting your data frame
+#### 5.3 Instructions
 
-Alright, now that you understand the `order()` function, let us do something useful with it. You would like to rearrange your data frame such that it starts with the smallest planet and ends with the largest one. A sort on the diameter column.
+Add code to your script to extract the following information from the `iris` data set.
 
-#### Instructions
+- Display the 101st row of the `Petal.Length` column, using column numbers.
 
-- Call `order()` on `planets_df$diameter` (the diameter column of planets_df). Store the result as `positions.`
+- Display the first six rows of all columns (mimic the `head()` function without using `head()`).
 
-- Sort `planets_df` with the positions vector as row indexes inside square brackets. Keep all columns. Simply print out the result.
+- Display rows 48-52 of the second column, using the column header name in square brackets.
 
-- Call `order()` again on `planets_df$rotation`, with the highest value first. Store the result in `rot_position`.
+- Display the entire contents of the `Sepal.Width` column using the `$`.
 
-- Sort `planets_df` as you did above, but use `rot_position` as the row index. Print out the result.
+- **Optional challenge:** Use a combination of dollar sign and square brackets in one line of code to show rows 50 and 51 from the `Species` column. *Hint:* The `$` returns a vector. How would you get the 50th and 51st elements from a vector?
 
 ```{r}
-# planets_df is pre-loaded in your workspace
-
-# Use order() to create positions
+# Display the 101st row of the `Petal.Length` column, using column numbers.
 
 
-# Use positions to sort planets_df
+# Display the first six rows of all columns (mimic head ())
 
 
-# Use order() to create rotation positions
+# Display rows 48-52 of the fourth column, using the column header name in square brackets.
 
 
-# Use rot_position to sort planets_df
+# Display the contents of the `Sepal.Width` column using the `$`
+
+
+# Optional challenge
+
 
 
 #
 ```
 
-```{r answer5.12, include=FALSE}
-# planets_df is pre-loaded in your workspace
 
-# Use order() to create positions
-positions <-  order(planets_df$diameter)
+```{r answer5.3, include=FALSE}
+# Display the 101st row of the `Petal.Length` column, using column numbers.
+iris[101,3]
 
-# Use positions to sort planets_df
-planets_df[positions,]
+# Display the first six rows of all columns (mimic `head()`)
+iris[1:6,]
 
-# Use order() to create rotation positions
-rot_position <-  order(planets_df$rotation, decreasing = TRUE)
+# Display rows 48-52 of the fourth column, using the column header name in square brackets.
+iris[48:52, "Petal.Width"]
 
-# Use rot_position to sort planets_df
-planets_df[rot_position,]
+# Display the contents of the `Sepal.Width` column using the `$`
+iris$Sepal.Width
+
+# Optional challenge
+iris$Species[50:51]
 ```
+
+By now, you should be comfortable extracting elements from vectors, matrices, and data frames.  If not, you should practice until you do get comfortable. 
+
+## 5.4 Extracting elements with boolean vectors
+
+You can extract data from a data frame using boolean vectors, just like you did for vectors and matrices. Study these examples.
+
+```{r eval=TRUE}
+# Extract data for chicks raised on meatmeal feed.
+meatmeal_chicks <- chickwts$feed == "meatmeal"
+chickwts[meatmeal_chicks,]  # Note the comma to get rows
+
+
+# Extract data for all chicks that weigh 325g or more.
+# Seems like sunflower produces heavier chicks at 6 weeks
+heavy_chicks <- chickwts$weight >= 325
+chickwts[heavy_chicks,]
+```
+
+#### 5.4 Instructions
+
+Add code to your script to extract the following data from the `iris` data set. The instructions for the first two problems especially are somewhat vague because you have to 1) problem-solve and 2) there are at least two possible approaches I can think of to the problem.
+
+- Extract sepal lengths less than or equal to 5.5. Save a vector of the results to a suitably-named variable. 
+
+- Apply the `min()` and `max()` functions to the variable you just created to find the minimum and maximum sepal lengths in your extracted data.
+
+- Display rows where sepal width is less than 3.2 *and* species is setosa. Remember `ampersand` is the logical `AND`. You do not have to save results.
+
+- Displays rows where sepal width is less than 2.5 *or* petal width is greater than 2.0. Use the vertical pipe `|` (usually near the right side of a keyboard, perhaps with the backslash key) for logical `OR`. It works like `&` except it finds records that matching one condition *OR* the other condition *OR* both.
+
+
+```{r}
+# Extract rows where sepal length less than or equal to 5.5. Save the result.
+
+
+# Apply the `min()` and `max()` functions to your result from above.
+
+
+# Display rows where sepal width is less than 3.2 AND species is setosa.
+
+
+# Display rows where sepal width is less than 2.5 OR petal width is greater than 2.0.
+
+
+#
+```
+
+```{r answers5.4, eval=TRUE, include=FALSE}
+# Extract rows where sepal length less than or equal to 5.5. Save the result.
+short_sepals_boolean <- iris$Sepal.Length <= 5.5
+short_sepals <- iris$Sepal.Length[short_sepals_boolean]
+
+
+# Apply the `min()` and `max()` functions to your result from above.
+min(short_sepals)
+max(short_sepals)
+
+# Display rows where sepal width is less than 3.2 AND species is setosa.
+narrow_setosa <- iris$Sepal.Width < 3.2 & iris$Species == "setosa"
+iris[narrow_setosa,]
+
+# Display rows where sepal width is less than 2.5 *or* petal width is greater than 2.0.
+logical_or <- iris$Sepal.Width < 2.5 | iris$Petal.Width > 2.0
+iris[logical_or,]
+
+#
+```
+
+## 5.5 Use subset to extract data from a data frame
+
+Extracting data from data frames a very common task. You can extract data more quickly using the `subset()` function. Let's use `subset()` to extract the same data from `chickwts` we did earlier. I've shown the code from above, followed by the equivalent result with `subset()`.
+
+```{r eval=TRUE}
+## Extract data for chicks raised on meatmeal feed.
+# meatmeal_chicks <- chickwts$feed == "meatmeal"
+# chickwts[meatmeal_chicks,]  # Note the comma to get rows
+
+subset(chickwts, feed == "meatmeal")
+
+
+## Extract data for all chicks that weigh 325g or more.
+# heavy_chicks <- chickwts$weight >= 325
+# chickwts[heavy_chicks,]
+
+subset(chickwts, weight >= 325)
+```
+
+#### 5.5 Instructions
+
+Add code to your script to use `subset()` on the `iris` data to display the following. You do not have to save your results to a variable.
+
+- Display rows for petal length between and including 4.0 and 5.0.
+
+- Display rows for sepal length < 5.2 and species is versicolor.
+
+```{r}
+# Display rows for petal length between and including 4.0 and 5.0.
+
+
+# Display rows for sepal length < 5.2 and species is versicolor.
+
+
+#
+```
+
+```{r eval=TRUE, include=FALSE}
+# Display rows for petal length between and including 4.0 and 5.0.
+subset(iris, Petal.Length >= 4.5 & Petal.Length <= 5.0)
+
+# Display rows for sepal length < 5.2 and species is versicolor.
+subset(iris, Sepal.Length < 5.2 & Species == "versicolor")
+
+```
+
+## 5.6 Sort 
+
+Functions like `min()` and `max()` show you the minimum and maximum values in a data frame column but sorting a column from low to high (or reverse) is often useful. This is accomplished with the `order()` function. 
+
+The `order()` does not actually sort the data frame. Instead, `order()` function returns a ranked position for each element in a vector. Study this example carefully. The first element of `some_vector` is `30`, the second element is `10` and the third element is `20`.
+
+```{r eval=TRUE}
+# Create `some_vector` with three elements
+some_vector <- c(30, 10, 20)
+
+# Display the order of the elements in `some_vector`
+order(some_vector)
+```
+Order determines that the second element of `some_vector` (`10`) will be first when sorted because it is lower than the other two elements.  Likewise, the third element 3 (`20`) should be second, and the first element (`30`) will be third. However, at this point, `some_vector` is not yet sorted.  Here the steps needed to display the sorted vector. Notice the use of the square brackets in the final step.
+
+```{r eval=TRUE}
+# Create `some_vector` with three elements
+some_vector <- c(30, 10, 20)
+
+# Sve the order of the elements in `sort_order` variable
+sort_order <- order(some_vector)
+
+# Display the sorted result
+some_vector[sort_order]
+
+# THe original vector is unchanged
+some_vector
+
+# Permanently sort the vector
+some_vector <- some_vector[sort_order]
+
+# Show that `some_vector` has been updated
+some_vector
+```
+
+You sort data frames the same way, recalling that a variable (column) is just a vector. Enter the following code into your console (not script) to see the results. (I did not want to include the entire output of ordered `chickwts` in this exercise).
+
+```{r}
+# Sort chick weights from lightest to heaviest
+sort_order <- order(chickwts$weight)
+
+# Display the order. Show just the "weight" column. How would you show all columns?
+chickwts[sort_order,"weight"]
+
+# Use the argument `decreasing = TRUE` to sort from high to low. Show all columns.
+sort_order <- order(chickwts$weight, decreasing = TRUE)
+chickwts[sort_order,]
+```
+
+
+#### 5.6 Instructions
+
+Add code to your script to do the following with the `iris` data set.
+
+- Order the data frame from shortest to longest sepal length. Display the entire data frame sorted.
+
+- Order the data frame from widest to narrowest petal width (decreasing order). Display *only* the species and petal width columns. Display the species column *first*, before the petal width column. Think through the problem; you have the skills to do this. It is better to use column names rather than numbers.
+
+
+```{r}
+# Order the data frame from shortest to longest sepal length.
+
+
+# Display the species and petal width columns in decreasing order of petal width.
+
+
+#
+```
+
+
+```{r include=FALSE}
+# Order the data frame from shortest to longest sepal length.
+sort_order <- order(iris$Sepal.Length)
+iris[sort_order,]
+
+# Display the species and petal width columns in decreasing order of petal width.
+sort_order <- order(iris$Petal.Width, decreasing = TRUE)
+iris[sort_order, c("Species", "Petal.Width")]
+
+# acceptable
+# iris[sort_order, c(5, 4)]
+#
+```
+
+## Save to GitHub
+
+Be sure you have used comments throughout your code to identify sections and to describe what you are doing, then commit and push your `hw02-5.R` script to GitHub.
+
+
+The skills you learned in this exercise are fundamental to working with data frames so be sure you really understand them. However, you will later learn more efficient techniques to extract and sort data frames.
+
+
 
 
 
