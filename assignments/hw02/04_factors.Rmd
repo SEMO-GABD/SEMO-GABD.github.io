@@ -328,4 +328,8 @@ pf_first > pf_last2
 ```
 
 
+## Save to GitHub
+
+Be sure you have used comments throughout your code to identify sections and to describe what you are doing, then commit and push your `hw02-4.R` script to GitHub.
+
 
