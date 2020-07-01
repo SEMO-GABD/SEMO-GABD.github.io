@@ -450,5 +450,5 @@ length(four_diets)
 
 ## Save to GitHub
 
-Be sure you have used comments throughout your code to identify sections and to describe what you are doing, then commit and push your `hw02-2\3.R` script to GitHub.
+Be sure you have used comments throughout your code to identify sections and to describe what you are doing, then commit and push your `hw02-3.R` script to GitHub.
 
