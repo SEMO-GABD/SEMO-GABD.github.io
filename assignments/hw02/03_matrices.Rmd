@@ -417,9 +417,6 @@ Add code to your script to do the following. Use the weights in `four_diets`. Yo
 # Apply the log() function.
 
 
-# Apply the count() function.
-
-
 # Apply the dim() function.
 
 
