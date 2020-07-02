@@ -437,12 +437,12 @@ first_matrix</code></pre>
 <ul>
 <li><p>Enter <code>chick_weights &lt;- chickwts$weight[c(1:20, 23:32)]</code> to create a vector with the weight data from the data set. You may copy and paste this line to be sure you get the correct data.</p></li>
 <li><p>Create a matrix column-wise with three columns and ten rows from the <code>chick_weights</code> vector. Save the matrix in a variable called <code>three_diets</code>. Creating the matrix column-wise will put chicks raised on the same diet in the same column.</p></li>
-<li><p>Display the results stored in the <code>weights</code> matrix.</p></li>
+<li><p>Display the results stored in the <code>three_diets</code> matrix.</p></li>
 </ul>
-<pre class="r"><code># Create a column-wise matrix called `weights` with three columns and ten rows from the `chick_weights` vector.
+<pre class="r"><code># Create a column-wise matrix called `three_diets` with three columns and ten rows from the `chick_weights` vector.
 
 
-# Display the values contained in the `weights` matrix.
+# Display the values contained in the `three_diets` matrix.
 
 
 #</code></pre>
@@ -478,7 +478,7 @@ first_matrix</code></pre>
 <div id="instructions-2" class="section level4">
 <h4>Instructions</h4>
 <ul>
-<li><p>Use <code>colnames()</code> to name the columns <code>horsebean</code>, <code>linseed</code>, and <code>soybean</code>. You can first create a vector with the column names or use them directly with the <code>c()</code> function. If necessary, review your options from the <a href="./02_vectors.html">Vector exercise</a>.</p></li>
+<li><p>Use <code>colnames()</code> to name the columns <code>horsebean</code>, <code>linseed</code>, and <code>soybean</code> (the three diets). You can first create a vector with the column names or use them directly with the <code>c()</code> function. If necessary, review your options from the <a href="./02_vectors.html">Vector exercise</a>.</p></li>
 <li><p>Use <code>rownames()</code> to name the rows with the pattern <code>Replicate #</code> where <code>#</code> is the replicate number 1 through 10.</p></li>
 </ul>
 <p><strong>Tip:</strong> You could type “Replicate 1”, “Replicate 2” and so on, but this gets tedious quickly. Use the following code to take advantage of R’s ability to work efficiently with vectors. <code>paste(&quot;Replicate&quot;, 1:10)</code>. This code creates 10 copies of the word “Replicate” followed by the numbers 1 through 10. I’ll leave it to you to figure out how to use the code properly but you have the knowledge. Use <code>?paste()</code> to get help on using the <code>paste()</code> function.</p>
