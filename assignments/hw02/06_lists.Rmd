@@ -1,5 +1,5 @@
 ---
-title: "6: Lists"
+title: "Part 6: Lists"
 subtitle: Introduction to R
 output:
   pdf_document: default
@@ -22,288 +22,249 @@ This assignment consists of six parts:
 - Data frames
 - Lists (this document)
 
-If you haven't already, [download the answer sheet for this document](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw02/answer_sheets/06_lists_answers.Rmd) (**Note:** right-click and save the file with the `.Rmd` extension to your `hw02` folder.)
+Create a script called `hw02-6.R` and save it in your `hw02` folder.
 
-After you complete each exercise, push the R Notebook to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
+After you complete each exercise, commit and push your R script to your remote repo. See [Part 0](./00_intro.html) for instructions. Do *not* push this document. 
 
 ***
 
-## 6.1 Lists, why would you need them?
+## 6.1 Introduction to Lists
 
-Congratulations! At this point in the course you are already familiar with:
+Lists are the most complex type of data object in R. You also will not use them much in this course so this exercise will be relatively brief. 
 
-- **Vectors** (one dimensional array): can hold numeric, character or logical values. The elements in a vector all have the same data type.
-- **Matrices** (two dimensional array): can hold numeric, character or logical values. The elements in a matrix all have the same data type.
-- **Data frames** (two-dimensional objects): can hold numeric, character or logical values. Within a column all elements have the same data type, but different columns can be of different data type.
+A list in R is similar to a list of chores you have to do around the house. You may have to mow the lawn, wash and put away the dishes, and feed your pet. Each item on the list is unrelated to the others but they fit together logically on a list of chores you have to do.
 
-Pretty sweet for an R newbie, right? ;-)
+In R, a list collects objects of different types into a single object. The collected objects can include vectors, matrices, data frames, and even lists. In fact, lists are used for the output of many R functions. The output contains information that you can extract with techniques similar to those you learned for vectors and data frames.
 
-A list in R is similar to your to-do list at work or school: the different items on that list most likely differ in length, characteristic, and type of activity that has to be done.
+## 6.2 Create a list
 
-A list in R allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects can be matrices, vectors, data frames, even other lists, etc. It is not even required that these objects are related to each other in any way.
+The `list()` function in R creates a list from objects that you pass to the function. You can and should name each object as you pass it to the `list()` function. In the example below, `object1` will be named `name1`,  `object2` will be named `name2`, and so on, as shown in the output.
 
-You could say that a list is some kind super data type: you can store practically any piece of information in it!
+```{r eval=TRUE}
+object1 <- c(1:10)
+object2 <- letters[1:6]
+my_list <- list(name1 = object1, name2 = object2) #Repeat for each object
 
-## 6.2 Creating a list
-
-Let us create our first list! To construct a list you use the function `list()`:
-
-```{r}
-my_list <- list(comp1, comp2, ...)
-```
-
-The arguments to the `list` function are the list components. Remember, these components can be matrices, vectors, other lists, ...
-
-#### Instructions
-
-Construct a list, named `my_list`, that contains the variables `my_vector`, `my_matrix` and `my_df` as list components.
-
-```{r}
-# Vector with numerics from 1 up to 10
-my_vector <- 1:10 
-
-# Matrix with numerics from 1 up to 9
-my_matrix <- matrix(1:9, ncol = 3)
-
-# First 10 elements of the built-in data frame mtcars
-my_df <- mtcars[1:10,]
-
-# Construct list with these different elements:
-
-
-#
-```
-
-```{r answer6.2, include=FALSE}
-# Vector with numerics from 1 up to 10
-my_vector <- 1:10 
-
-# Matrix with numerics from 1 up to 9
-my_matrix <- matrix(1:9, ncol = 3)
-
-# First 10 elements of the built-in data frame mtcars
-my_df <- mtcars[1:10,]
-
-# Construct list with these different elements:
-my_list <- list(my_vector, my_matrix, my_df)
-```
-
-## 6.3 Creating a named list
-
-Well done, you're on a roll!
-
-Just like on your to-do list, you want to avoid not knowing or remembering what the components of your list stand for. That is why you should give names to them:
-
-```{r eval=FALSE}
-my_list <- list(name1 = your_comp1, 
-                name2 = your_comp2)
-```
-
-This creates a list with components that are named `name1`, `name2`, and so on. If you want to name your lists after you've created them, you can use the `names()` function as you did with vectors. The following commands are fully equivalent to the assignment above:
-
-```{r eval=FALSE}
-my_list <- list(your_comp1, your_comp2)
-names(my_list) <- c("name1", "name2")
-```
-
-#### Instructions
-
-- Change the code of the previous exercise (see below) by adding names to the components. Use for `my_vector` the name `vec`, for `my_matrix` the name `mat` and for `my_df` the name `df`.
-
-- Print out my_list so you can inspect the output.
-
-```{r}
-# Vector with numerics from 1 up to 10
-my_vector <- 1:10 
-
-# Matrix with numerics from 1 up to 9
-my_matrix <- matrix(1:9, ncol = 3)
-
-# First 10 elements of the built-in data frame mtcars
-my_df <- mtcars[1:10,]
-
-# Adapt list() call to give the components names
-my_list <- list(my_vector, my_matrix, my_df)
-
-# Print out my_list
-
-
-#
-```
-
-```{r answer6.3, include=FALSE}
-# Vector with numerics from 1 up to 10
-my_vector <- 1:10 
-
-# Matrix with numerics from 1 up to 9
-my_matrix <- matrix(1:9, ncol = 3)
-
-# First 10 elements of the built-in data frame mtcars
-my_df <- mtcars[1:10,]
-
-# Adapt list() call to give the components names
-my_list <- list(vec = my_vector, mat = my_matrix, df = my_df)
-
-# Print out my_list
 my_list
-
 ```
 
-## 6.4 Creating a named list (2)
+Notice that the name of each object has `$` prefixed to it, followed by the contents of the object.
 
-Being a huge movie fan (remember your job at LucasFilms), you decide to start storing information on good movies with the help of lists.
+#### 6.2 Instructions
 
-Start by creating a list for the movie "The Shining". We have already created the variables mov, act and rev in your R workspace. Feel free to check them out in the console.
+Add the following code to your script.
 
-#### Instructions
+- Create the four objects shown below: a numeric vector, a logical vector, a matrix, and a data frame. Use the code as shown.
 
-Complete the code below to create `shining_list`; it contains three elements:
+- Use the `list()` function to create `the_list` with the objects `numeric_vector`, `logical_vector`,  `letter_matrix`, and `chicks_df`. Use the following names for each object in the `list()` function. 
+    - Use the name `numbers` for `numeric_vector`
+    - Use the name `boolean` for `logical_vector`
+    - Use the name `letters` for `letter_matrix`
+    - Use the name `chicks` for `chicks_df`
 
-- moviename: a character string with the movie title (stored in `mov`)
-- actors: a vector with the main actors' names (stored in `act`)
-- reviews: a data frame that contains some reviews (stored in `rev`)
+- Enter `the_list` on a line by itself to display the contents.
 
-Do not forget to name the list components accordingly. The names to use are are `moviename`, `actors` and `reviews`).
+- Use the `str()` function to display the structure of the list.
+
 
 ```{r}
-# The variables mov, act and rev are available
-mov <- "The Shining"
-act <- c("Jack Nicholson", 
-         "Shelley Duvall", 
-         "Danny Lloyd", 
-         "Scatman Crothers", 
-         "Barry Nelson" )
+# Numeric vector with numerics from 1 to 6
+numeric_vector <- 1:6
 
-scores <- c(4.5, 4, 5.0)
-sources <- c("IMDb1", "IMDb2", "IMDb3")
-comments <- c("Best Horror Film I Have Ever Seen",
-              "A truly brilliant and scary film from Stanley Kubrick",
-              "A masterpiece of psychological horror")
-rev <- data.frame(scores, sources, comments)
+# Logical vector with TRUE and FALSE
+# The `rep` function replicates objects you pass to it.
+# In this case, you're replicating TRUE FALSE four times.
+logical_vector <- rep(c(TRUE, FALSE), 4)
 
-# Finish the code to build shining_list
+# letter Matrix with the first nine letters of the English alphabet
+letter_matrix <- matrix(LETTERS[1:9], ncol = 3)
+
+# First 10 elements of the chickwts data frame
+chicks_df <- chickwts[1:10,]
+
+# Use the `list()` function to create `the_list` with the above objects. Use the names of the objects to name the objects. 
+
+
+# Display the contents of `the_list`
+
 
 
 #
 ```
 
-```{r answer6.4, include=FALSE}
-# The variables mov, act and rev are available
-mov <- "The Shining"
-act <- c("Jack Nicholson", 
-         "Shelley Duvall", 
-         "Danny Lloyd", 
-         "Scatman Crothers", 
-         "Barry Nelson" )
+If correct, the contents of `the_list` should like this this:
+```{r answer6.2, eval=TRUE, echo=FALSE}
+# Numeric vector with numerics from 1 to 6
+numeric_vector <- 1:6 
 
-scores <- c(4.5, 4, 5.0)
-sources <- c("IMDb1", "IMDb2", "IMDb3")
-comments <- c("Best Horror Film I Have Ever Seen",
-              "A truly brilliant and scary film from Stanley Kubrick",
-              "A masterpiece of psychological horror")
-rev <- data.frame(scores, sources, comments)
+# Logical vector with TRUE and FALSE
+# The `rep` function replicates objects you pass to it.
+# In this case, you're replicating TRUE FALSE four times.
+logical_vector <- rep(c(TRUE, FALSE), 4)
 
-# Finish the code to build shining_list
-shining_list <- list(moviename = mov, actors = act, reviews = rev)
+# letter Matrix with the first nine letters of the English alphabet
+letter_matrix <- matrix(LETTERS[1:9], ncol = 3)
+
+# First 20 elements of the chickwts data frame
+chicks_df <- chickwts[1:10,]
+
+# Use the `list()` function to create `the_list` with the above objects
+the_list <- list(
+  numbers = numeric_vector, 
+  boolean = logical_vector, 
+  letters = letter_matrix, 
+  chicks = chicks_df)
+
+# Display the contents of `the_list`
+the_list
 ```
 
+The struction should look like this:
 
-## 6.5 Selecting elements from a list
-
-Your list will often be built out of numerous elements and components. Therefore, getting a single element, multiple elements, or a component out of it is not always straightforward.
-
-One way to select a component is using the numbered position of that component. For example, to "grab" the first component of `shining_list` you type
-
-```{r eval=FALSE}
-shining_list[[1]]
+```{r answer6.2str, eval=TRUE, echo=FALSE}
+str(the_list)
 ```
 
-A quick way to check this out is typing it in the console. *Important to remember:* to select elements from vectors, you use single square brackets: `[ ]`. Don't mix them up!
+## 6.3 Extract elements from a list
 
-You can also refer to the names of the components, with `[[ ]]` or with the `$` sign. Both will select the data frame representing the reviews:
+You are by now familiar with using square brackets `[]` to extract items from vectors, matrices, and data frames. Lists are similar but with an important difference.  In lists, `[]` returns the object name *and* the contents of the object. A pair of square brackets `[[]]` returns just the contents of the object. 
 
-```{r eval=FALSE}
-shining_list[["reviews"]]
-shining_list$reviews
+Look at the structure for `my_list`, the example list made above.
+
+```{r eval=TRUE, echo=FALSE}
+
+str(my_list)
 ```
 
-Besides selecting components, you often need to select specific elements out of these components. For example, with `shining_list[[2]][1]` you select from the second component, actors (`shining_list[[2]]`), the first element (`[1]`). When you type this in the console, you will see the answer is Jack Nicholson.
+If exact the first object in the list (`name1`) using a single pair of square brackets (`[]`), you get the object name *and* the contents. In most cases, you will need *only* the contents so use two pairs of square brackets `[[]]`. `name1` is included with the single brackets but not with two pairs, as shown with this example.
 
-#### Instructions
+```{r eval=TRUE, results="hold"}
+# Extract the first object with one pair of brackets
+my_list[1]
 
-- Select from `shining_list` the vector representing the actors. Simply print out this vector.
+# Extract the first object with two pairs of brachets
+my_list[[1]]
 
-- Select from `shining_list` the second element in the vector representing the actors. Do a printout like before.
+# The same applies if you use the name of the object in backets.
+# Here, extract the second object.
+my_list["name2"]
+my_list[["name2"]]
+```
+
+Recall that the object name is prefixed with a `$`. Recall too that you can use the `$` to extract a variable from a data frame with the `$` symbol.  You can do the same with a list.
+
+```{r eval=TRUE}
+my_list$name1
+```
+
+Typing the `$` and the object name saves typing: `$name1` versus `[["name"]]`.  *If the items in a list are not named, you have to use the pairs of square brackets.*
+
+Often, you need one element from an object in the list. You use combinations of `$` and square brackets, as necessary.  Look at the structure of `the_list` you made with your code above.
+
+```{r eval=TRUE}
+str(the_list)
+```
+
+If you need the letter "D" for example from the `letters` object, you could do this one of three ways.
+
+
+- `the_list[[3]][4]         # Get fourth element from third object`
+- `the_list[["letters"]][4] # Get fourth element from named object`
+- `the_list$letters[4]      # Use the dollar sign`
+
+The third method is clear and requires less typing. **Work smart, not hard.**
+
+Look again at the structure of `the_list`. How would you get the fifth element from the `weight` column of the `chicks` data frame, which is the fourth object in the list?
+
+Remember that you can use the `$` to exact inforamtion from data frames and you use the `$` to extracte named objects from lists. You can use `$` multiple times to get the information you need.
+
+```{r eval=TRUE}
+# Get the fifth element from the weights column of the chicks object.
+the_list$chicks$weight[5]
+```
+
+This will be the primary way you will use lists in this course so get comfortable with these methods to get the elements you need from a list. 
+
+#### 6.3 Instructions
+
+I said above that many functions create lists. One such function is `t.test()`, which performs a statistical comparison of the means of two groups.  You'll compare the average weights of chicks raised on two different types of feed. The two values most often reported from a t-test are the "t" statistic and the probability ("p value") that the null hypothesis is true (i.e., the two groups have the same mean). 
+
+Add code to your script to do the following. The first two lines create the data vectors you will compare. The third line runs the t-test. Do not worry if you don't understand right now what the t-test is doing (although you should understand if you took BI 163).
+
+- Add the line `hb_chicks <- chickwts$weight[1:10]`. This vector holds weights of 10 chicks raised on horsebean.
+
+- Add the line `ls_chicks <- chickwts$weight[11:20]`. This vector holds weights of 10 chicks raised on linseed.
+
+- Add this line to create a list object with the results of the t-test.
+    `chicks_t <- t.test(hb_chicks, ls_chicks, var.equal = TRUE)`
+
+- Run the `str()` function on `chicks_t` to see the structure of the list that is returned from the analysis. The first line should say `list of 10`.
+
+- Use the most efficient method to display the numeric value contained in the `statistic` object. The `statistic` is the t-value.
+
+- Use the most efficient method to display the numeric `p.value`. This is the probability that the null hypothesis is supported. 
+
+It is also common to display the upper and lower 95% confidence limits of the difference between the two means. The `conf.int` object is a vector with two values. The first value is the lower limit. The second value is the upper limit.
+
+- Add code to display the lower and upper confidence limits on two separate lines. In other words, extract and display the individual elements, not the vector.
 
 ```{r}
-# shining_list is already pre-loaded in the workspace
+# Add the line to create the horsebean vector
+hb_chicks <- chickwts$weight[1:10]
 
-# Print out the vector representing the actors
+# Add the line to create the linseed vector
+ls_chicks <- chickwts$weight[11:20]
+
+# Create a list object with the results of the t-test.
+chicks_t <- t.test(hb_chicks, ls_chicks, var.equal = TRUE)
+
+# Run the `str()` function on `chicks_t` 
 
 
-# Print the second element of the vector representing the actors
+# Display the numeric value of the `statistic` object from `chicks_t`
 
+
+# Display the numeric value of the `p.value` object from `chicks_t`
+
+
+# Display the lower confidence limit
+
+
+# Display the upper confidence limit
+
+
+# Create a text string called `Whew` with the value "I did it!"
 
 #
 ```
 
-```{r answer6.5, include=FALSE}
-# shining_list is already pre-loaded in the workspace
+```{r eval=TRUE, include=FALSE}
+# Add the line to create the horsebean vector
+hb_chicks <- chickwts$weight[1:10]
 
-# Print out the vector representing the actors
-shining_list$actors
+# Add the line to create the linseed vector
+ls_chicks <- chickwts$weight[11:20]
 
-# Print the second element of the vector representing the actors
-shining_list$actors[2]
-```
+# Create a list object with the results of the t-test.
+chicks_t <- t.test(hb_chicks, ls_chicks, var.equal = TRUE)
 
-## 6.6 Adding more movie information to the list
+# Run the `str()` function on `chicks_t` 
+str(chicks_t)
 
-Being proud of your first list, you shared it with the members of your movie hobby club. However, one of the senior members, a guy named M. McDowell, noted that you forgot to add the release year. Given your ambitions to become next year's president of the club, you decide to add this information to the list.
+# Display the numeric value of the `statistic` object from `chicks_t`
+chicks_t$statistic
 
-To conveniently add elements to lists you can use the `c()` function, that you also used to build vectors:
+# Display the numeric value of the `p.value` object from `chicks_t`
+chicks_t$p.value
 
-```{r eval=FALSE}
-ext_list <- c(my_list , my_val)
-```
+# Display the lower confidence limit
+chicks_t$conf.int[1]
 
-This will simply extend the original list, `my_list`, with the component `my_val`. This component gets appended to the end of the list. If you want to give the new list item a name, you just add the name as you did before:
+# Display the upper confidence limit
+chicks_t$conf.int[2]
 
-```{r eval=FALSE}
-ext_list <- c(my_list, my_name = my_val)
-```
-
-#### Instructions
-
-- Complete the code below such that an item named `year` is added to the `shining_list` with the value `1980`. Assign the result to `shining_list_full`.
-
-- Finally, have a look at the structure of `shining_list_full` with the `str()` function.
-
-```{r}
-# shining_list, the list containing movie name, actors and reviews, is pre-loaded in the workspace
-
-# We forgot something; add the year to shining_list
-
-
-# Have a look at shining_list_full
-
+# Create a text string called `Whew` with the value "I did it!"
+Whew <- "I did it!"
 
 #
 ```
-
-```{r answer6.6, include=FALSE}
-# shining_list, the list containing movie name, actors and reviews, is pre-loaded in the workspace
-
-# We forgot something; add the year to shining_list
-shining_list_full <- c(shining_list, year = 1980)
-
-# Have a look at shining_list_full
-str(shining_list_full)
-```
-
-***
-
-You now know how to make, use, and modify the basic structures in R: vectors, matrices, data frames, and lists using base R commands. 
-
-Upcoming exercises will expand on your new knowledge base. It will also make some of the tasks (e.g., sorting), much easier.
-
