@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -235,7 +235,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -1525,9 +1525,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -1541,7 +1539,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1552,22 +1549,81 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -1577,7 +1633,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Introduction to R Markdown and Notebooks</h1>
-<h3 class="subtitle"><em>Graphical Analysis of Biological Data</em></h3>
+<h3 class="subtitle">Graphical Analysis of Biological Data</h3>
 
 </div>
 
@@ -1615,15 +1671,16 @@ $(document).ready(function () {
 </div>
 <div id="git" class="section level4">
 <h4>Git</h4>
-<p>Before you read through these, read the notes below and complete the assignment. Then refer back to these as reference.</p>
+<p>Read the notes below and complete the assignment. Then refer back to these resources as reference.</p>
 <p>Basic <a href="http://happygitwithr.com/usage-git-cmds.html">Git commands:</a> You will not use all of these but you should be familiar with <code>git add</code>, <code>git commit</code>, <code>git push</code>, and <code>git status</code>. You will do most of these in RStudio by pushing buttons.</p>
 <p><a href="http://happygitwithr.com/branches.html">Git branches:</a> This where you start to harness the power of Git. See also the official <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">Git Branching</a> page.</p>
 </div>
 </div>
 <div id="r-notebooks-and-r-markdown" class="section level2">
 <h2>R Notebooks and R Markdown</h2>
-<p>You used R Notebooks in <a href="http://../hw/hw02.html">HW02</a>. R Notebooks are interactive documents that allows you to use the markdown commands that you learned in <a href="http://../hw/hw01.html">HW01</a>. R Notebooks use <strong>R Markdown</strong>, an enhanced version of markdown with additional features. These features allow you to produce reports that include tables and graphs from your analyses in RStudio. You can use R Markdown and RStudio together to perform analyses that can be shared and reproduced by anyone. These tools have even been used to write <a href="http://tysonbarrett.com/jekyll/update/2018/02/11/r_dissertation/">thesis and dissertations!</a></p>
-<p>For this course, you will use R Notebook documents for the rest of your assignments, starting now. In RStudio, choose <code>File &gt; New File &gt; R Notebook</code> from the menu. RStudio creates a new document with example R Markdown text. You will see familiar markdown commands, like <code>##</code> for section headers and <code>** … **</code> for <strong>bold text.</strong></p>
+<!--You used R Notebooks in [HW02](http://../hw/hw02.html). -->
+<p>R Notebooks are interactive documents that allows you to use the markdown commands that you learned in <a href="http://../hw/hw01.html">HW01</a>. R Notebooks use <strong>R Markdown</strong>, an enhanced version of markdown with additional features. These features allow you to produce reports that include R code, tables and graphs from your analyses in RStudio. You can use R Markdown and RStudio together to perform analyses that can be shared and reproduced by anyone. These tools have even been used to write <a href="http://tysonbarrett.com/jekyll/update/2018/02/11/r_dissertation/">thesis and dissertations!</a></p>
+<p>For this course, you will use R Notebook documents for many of your assignments, starting now. In RStudio, choose <code>File &gt; New File &gt; R Notebook</code> from the menu. RStudio creates a new document with example R Markdown text. You will see familiar markdown commands, like <code>##</code> for section headers and <code>** … **</code> for <strong>bold text.</strong></p>
 <p>You probably noticed the header at the top of the document.</p>
 <pre><code>---
 title: &quot;R Notebook&quot;
@@ -1645,17 +1702,25 @@ editor_options:
 a complete code chunk is from:
 https://yihui.name/en/2017/11/knitr-verbatim-code-chunk/ -->
 <pre><code>```{r} 
-summary(cars)  
+summary(iris)  
 ```</code></pre>
-<p>This is an R code chunk. A code chunk begins with three back ticks <code>```{r}</code> on a line, followed by your R code, then three more back ticks <code>```</code> to end the chunk. When you make your document, the code will be evaluated in R, and the output will be included after the chunk (as specified by the <code>editor_options:</code> in the YAML header). In the case of <code>summary(cars)</code>, the <code>summary()</code> function calculates basic statistics for each variable in the data from the <code>cars</code> data set, which is then shown below the chunk.</p>
-<pre class="r"><code> summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
+<p>This is an R code chunk. A code chunk begins with three back ticks <code>```{r}</code> on a line, followed by your R code, then three more back ticks <code>```</code> to end the chunk. When you make your document, the code will be evaluated in R, and the output will be included after the chunk (as specified by the <code>editor_options:</code> in the YAML header). In the case of <code>summary(iris)</code>, the <code>summary()</code> function calculates basic statistics for each variable in the data from the <code>iris</code> data set, which is then shown below the chunk.</p>
+<pre class="r"><code>data(&quot;iris&quot;)
+ summary(iris)</code></pre>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## </code></pre>
 <p>You will use R code chunks extensively in your assignment documents. You can type them manually but the easier way is to press <code>cmd + option + i</code> (Mac) or <code>ctrl + alt + i</code> (PC) while in your R Markdown document. RStudio will automatically insert a blank chunk, ready for you to enter your code.</p>
 <p>Your R Notebook is an interactive document. You can run blocks of code separately or all at once. For example, click the right-most icon (green arrow; <img src="data:image/png;base64,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Hv9WWpyF+XwtMuIaMR9nZ98rA4BrBeCrcHZ25tDs7NdjSLMPAWhPnfflc8Ii/v2IzBx1q2z+D3/8L+5FBjs6w9MsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGL2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDAgNzkuMTYwNDUxLCAyMDE3LzA1LzA2LTAxOjA4OjIxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIGV4aWY6UGl4ZWxYRGltZW5zaW9uPSI3OSIgZXhpZjpQaXhlbFlEaW1lbnNpb249IjMwIiB4bXA6Q3JlYXRlRGF0ZT0iMjAxOC0xMC0xNlQxMzozNTozOS0wNTowMCIgeG1wOk1vZGlmeURhdGU9IjIwMTgtMTAtMTZUMTM6Mzc6NDUtMDU6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMTgtMTAtMTZUMTM6Mzc6NDUtMDU6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0iRGlzcGxheSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1OTdiYjY3OS0zZDI5LTQxZjQtYTNkMy0yODcxZjQzZTc1MGUiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo3M2QxNGVlYS0wZDg3LWUxNGItOTU2My0wNjdhMGQ1NDEzZjMiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4YzI0YTJjZS0yNDdkLTQxMTAtOGE4OC04MjE0OTAzMzk4MTEiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo4YzI0YTJjZS0yNDdkLTQxMTAtOGE4OC04MjE0OTAzMzk4MTEiIHN0RXZ0OndoZW49IjIwMTgtMTAtMTZUMTM6Mzc6NDUtMDU6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChNYWNpbnRvc2gpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo1OTdiYjY3OS0zZDI5LTQxZjQtYTNkMy0yODcxZjQzZTc1MGUiIHN0RXZ0OndoZW49IjIwMTgtMTAtMTZUMTM6Mzc6NDUtMDU6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChNYWNpbnRvc2gpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgY95hAAAAKRSURBVFjD7Zdda9NgFMf3MaxXXot+Grt6IegmCF54Na/UG5WBILtQQb3yali1Qy+UsRUZfUu7rqS0sL6kSdomaZI2r23Xdmu7Nvp3QdluZjoWka2HQzj9Qx6e3znPOU868+M82czOebIprTNjy+UUmeZ4/izT8jxvEzIsi04oMQxiThBUVT1rtI1GA2B1VS0WKU03LMuSJIlmWUVVaZoxDOP415vNZnY7l0yRSfKIb5HpaCwuy7LTbZjap+KG67SiKGJPKOnIGo8tazQeD4bD/mAARRBFTdP+voIsRxOboSgRiv32KLG6FqQoaoKkm+rVwPyrzIrrJzlfKIytMTi7vZ5uNPcGfcSdbrdQKjlNmSRFE0lwhgl4/AC1NNEeFFO/HJjz+L1vsl/coqVopsrzZrOJqgKvRGNO/bLh/v5evw8GdHKJZpwshc4PE4kQEf+2vp7LFSbNOGivBOY9H2Yv+n2vs59b7fbp026R5J9rWq7X7S4tUlS709kfjWw9nck4nXYcH/y+kdvOnaD9bNoL771wVPhrIXL6tIIgoJyNhgIqJBPDqVarYSbbteUR0zSG1vGLyIYqaHVBlUW9zsqCqDcQQ4E+cW39Xs/H2btrz2VNcatvgQdaC8DtNkZxb3cXP3G8KYp28vqDzbc3Io9vRp/eii3OEYt4IoYCfTLalduegO9ecAlz3q0pValUdNMEHiDt04unHVQ5ru2gfxaIl9cSD33xR4cdCvSJaC8tX7+z+qzVark4kwVBrOJAi1KhWDQOsAFJM6xqGKi5kzQvJZYXIi/uh484FOjOtyHrypPIO9M0Xb+BcN/an00cx+GmZZgy4nKlqijKzn9vJ/9OzufzKZIURWn6H2hKO6X9x/YTZ2RPf7J4qvMAAAAASUVORK5CYII=" />) in the upper right of the code chunk to plot the cars data set. The plot will appear below the code chunk. You can also click the Preview button just above your R Notebook source document.</p>
 <p>In many cases, you will want to run some code that depends on the results of code earlier in your document. In that case, click on the downward-pointed arrow in your code chunk, just left of the green arrow you just clicked. That runs all chunks above the current chunk. You can learn the function of these buttons if you hold your cursor over the button without clicking.</p>
@@ -1669,7 +1734,7 @@ summary(cars)
 <div id="repositories" class="section level4">
 <h4>Repositories</h4>
 <p>A repository is a folder or directory that you have asked Git to track. Any files or folders inside a repository (repo, for short) can be tracked by Git. Git does not <em>automatically</em> keep track of files inside the repository folder, but it knows they are there, ready to be tracked if you want. Once you tell Git to track a file or folder inside a repo, Git will track it forever, or until you tell it to stop tracking the file. You can also instruct Git to ignore certain files, folders, or types of files, such as files that end with <code>.tmp</code>.</p>
-<p>When you used RStudio to claim your &lt;lastname_firstname&gt; repository from GitHub on the first day of class, you created, or <code>initialized</code> a local repo in the folder you made for this course. For example, let’s say you made a <code>~/Documents/bi485</code> or <code>C:\Documents\bi485</code> folder for this course, where your R Project file lives. That folder is actually a local Git repo! When you added your <code>hw02</code> folder and put your certification of completition inside, Git was ready to start tracking them. In RStudio, you clicked checkboxes and pressed buttons that told Git to start tracking that folder and file.</p>
+<p>When you used RStudio to claim your &lt;lastname_firstname&gt; repository from GitHub on the first day of class, you created, or <code>initialized</code> a local repo in the folder you made for this course. For example, let’s say you made a <code>~/Documents/bi485</code> or <code>C:\Documents\bi485</code> folder for this course, where your R Project file lives. That folder is actually a local Git repo! When you added your <code>hw02</code> folder and added your R scripts, Git was ready to start tracking them. In RStudio, you clicked checkboxes and pressed buttons that told Git to start tracking that folder and files.</p>
 </div>
 <div id="github" class="section level4">
 <h4>GitHub</h4>
@@ -1734,6 +1799,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

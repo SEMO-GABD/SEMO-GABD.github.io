@@ -44,7 +44,7 @@ RStudio's [R Markdown page](https://rmarkdown.rstudio.com)
 
 #### Git
 
-Before you read through these, read the notes below and complete the assignment. Then refer back to these as reference.
+Read the notes below and complete the assignment. Then refer back to these resources as reference.
 
 Basic [Git commands:](http://happygitwithr.com/usage-git-cmds.html) You will not use all of these but you should be familiar with `git add`, `git commit`, `git push`, and `git status`. You will do most of these in RStudio by pushing buttons.
 
@@ -54,9 +54,10 @@ Basic [Git commands:](http://happygitwithr.com/usage-git-cmds.html) You will not
 
 ## R Notebooks and R Markdown
 
-You used R Notebooks in [HW02](http://../hw/hw02.html). R Notebooks are interactive documents that allows you to use the markdown commands that you learned in [HW01](http://../hw/hw01.html). R Notebooks use **R Markdown**, an enhanced version of markdown with additional features. These features allow you to produce reports that include tables and graphs from your analyses in RStudio. You can use R Markdown and RStudio together to perform analyses that can be shared and reproduced by anyone. These tools have even been used to write [thesis and dissertations!](http://tysonbarrett.com/jekyll/update/2018/02/11/r_dissertation/)
+<!--You used R Notebooks in [HW02](http://../hw/hw02.html). -->
+R Notebooks are interactive documents that allows you to use the markdown commands that you learned in [HW01](http://../hw/hw01.html). R Notebooks use **R Markdown**, an enhanced version of markdown with additional features. These features allow you to produce reports that include R code, tables and graphs from your analyses in RStudio. You can use R Markdown and RStudio together to perform analyses that can be shared and reproduced by anyone. These tools have even been used to write [thesis and dissertations!](http://tysonbarrett.com/jekyll/update/2018/02/11/r_dissertation/)
 
-For this course, you will use R Notebook documents for the rest of your assignments, starting now. In RStudio, choose `File > New File > R Notebook` from the menu.  RStudio creates a new document with example R Markdown text. You will see familiar markdown commands, like `##` for section headers and `** … **` for **bold text.** 
+For this course, you will use R Notebook documents for many of your assignments, starting now. In RStudio, choose `File > New File > R Notebook` from the menu.  RStudio creates a new document with example R Markdown text. You will see familiar markdown commands, like `##` for section headers and `** … **` for **bold text.** 
 
 You probably noticed the header at the top of the document. 
 
@@ -90,15 +91,16 @@ https://yihui.name/en/2017/11/knitr-verbatim-code-chunk/ -->
 
 ````
 ```{r}`r ''` 
-summary(cars)  
+summary(iris)  
 ```
 ````
 
-This is an R code chunk. A code chunk begins with three back ticks ` ```{r} ` on a line, followed by your R code, then three more back ticks ` ``` ` to end the chunk. When you make your document, the code will be evaluated in R, and the output will be included after the chunk (as specified by the `editor_options:` in the YAML header). In the case of `summary(cars)`, the `summary()` function calculates basic statistics for each variable in the data from the `cars` data set, which is then shown below the chunk.
+This is an R code chunk. A code chunk begins with three back ticks ` ```{r} ` on a line, followed by your R code, then three more back ticks ` ``` ` to end the chunk. When you make your document, the code will be evaluated in R, and the output will be included after the chunk (as specified by the `editor_options:` in the YAML header). In the case of `summary(iris)`, the `summary()` function calculates basic statistics for each variable in the data from the `iris` data set, which is then shown below the chunk.
 
 
-```{r plot_cars}
- summary(cars)
+```{r plot_iris}
+data("iris")
+ summary(iris)
 ```
 
 You will use R code chunks extensively in your assignment documents.  You can type them manually but the easier way is to press `cmd + option + i` (Mac) or `ctrl + alt + i` (PC) while in your R Markdown document. RStudio will automatically insert a blank chunk, ready for you to enter your code.
@@ -122,7 +124,7 @@ Git is a version control system (VCS) that tracks changes to files over time. As
 
 A repository is a folder or directory that you have asked Git to track. Any files or folders inside a repository (repo, for short) can be tracked by Git. Git does not *automatically* keep track of files inside the repository folder, but it knows they are there, ready to be tracked if you want. Once you tell Git to track a file or folder inside a repo, Git will track it forever, or until you tell it to stop tracking the file. You can also  instruct Git to ignore certain files, folders, or types of files, such as files that end with `.tmp`. 
 
-When you used RStudio to claim your \<lastname_firstname\> repository from GitHub on the first day of class, you created, or `initialized` a local repo in the folder you made for this course. For example, let's say you made a `~/Documents/bi485` or `C:\Documents\bi485` folder for this course, where your R Project file lives. That folder is actually a local Git repo! When you added your `hw02` folder and put your certification of completition inside, Git was ready to start tracking them. In RStudio, you clicked checkboxes and pressed buttons that told Git to start tracking that folder and file.
+When you used RStudio to claim your \<lastname_firstname\> repository from GitHub on the first day of class, you created, or `initialized` a local repo in the folder you made for this course. For example, let's say you made a `~/Documents/bi485` or `C:\Documents\bi485` folder for this course, where your R Project file lives. That folder is actually a local Git repo! When you added your `hw02` folder and added your R scripts, Git was ready to start tracking them. In RStudio, you clicked checkboxes and pressed buttons that told Git to start tracking that folder and files.
 
 #### GitHub
 
