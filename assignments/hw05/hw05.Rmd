@@ -1,5 +1,5 @@
 ---
-title: "HW 04: Data Visualization"
+title: "HW 05: Data Visualization"
 subtitle: 'Graphical Analysis of Biological Data'
 output:
   pdf_document: default
@@ -15,9 +15,14 @@ knitr::opts_chunk$set(include = FALSE, eval = FALSE)
 ```
 
 
-By the end of this assignment, you should demonstrate an ability to
+By the end of this assignment, you should be able to achieve the following tasks in R:
 
-- produce graphs in `ggplot2`, including boxplots, scatterplots, and line graphs.
+- use R notebooks and R markdown;
+- insert, write, and evaluate code chucks; 
+- produce plots with `ggplot2`, including boxplots, scatterplots, and line graphs; and
+- confidently stage, commit, and push with Git.
+
+*These achievements belong to Learning Outcomes 4, 5, 6.*
 
 Click on any blue text to visit the external website.
 

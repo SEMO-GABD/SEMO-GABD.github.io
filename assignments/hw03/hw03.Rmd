@@ -10,11 +10,15 @@ output:
 urlcolor: blue
 ---
 
-By the end of this assignment, you should be able to demonstrate an ability to
+By the end of this assignment, you should be able to achieve the following tasks in R:
 
 - use R notebooks and R markdown;
-- insert, write, and evaluate code chucks; and
+- insert, write, and evaluate code chucks; 
+- use `ggplot` to produce different types of plots; and
 - confidently stage, commit, and push with Git.
+
+*These achievements belong to Learning Outcomes 4, 5, 6.*
+
 
 Click on any blue text to visit the external website.
 

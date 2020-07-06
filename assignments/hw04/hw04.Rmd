@@ -15,10 +15,12 @@ knitr::opts_chunk$set(include = FALSE, eval = FALSE)
 ```
 
 
-By the end of this assignment, you should demonstrate an ability to
+By the end of this assignment, you should be able to achieve the following tasks in R:
 
-- explain the principles of the layered grammar of graphics; 
-- produce graphs in `ggplot2`, including boxplots, scatterplots, and line graphs.
+- use R notebooks and R markdown;
+- insert, write, and evaluate code chucks; 
+- produce plots with `ggplot2`, including boxplots, scatterplots, and line graphs; and
+- confidently stage, commit, and push with Git.
 
 Click on any blue text to visit the external website.
 
