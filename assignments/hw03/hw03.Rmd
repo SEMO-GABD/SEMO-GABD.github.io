@@ -22,6 +22,8 @@ This assignment has two parts.
 
 ## Part 1: An R Notebook case study
 
+Be sure to read the [notes](https://semo-gabd.github.io/notes/notes03.html) before starting this assignment.
+
 The following simple example highlights the steps typical of the early stages of data analysis.
 
 Use the new R Notebook document that you just created to complete both parts of this assignment. Delete all of the example information **except for the YAML header and the first code block.**
@@ -42,7 +44,9 @@ If you no longer have the R Notebook file you created reading the [notes](https:
 ```
 
 
-As you work through both parts of this assignment, enter all of the code you see in this document into code chunks, like you did in the previous exercise. *Run each chunk after entering your code to be sure it runs correctly.* After you have each chunk working correctly, then do a stage and commit, too. I'll remind you early on to stage and commit. After awhile, the steps should become habit. During this assignment, I will show you three ways to stage and commit. After that, you can decide which method you want to use.
+As you work through both parts of this assignment, enter all of the code you see in this document into code chunks. *Run each chunk after entering your code to be sure it runs correctly.* After you have each chunk working correctly, then do a stage and commit, too. I'll remind you early on to stage and commit. After awhile, the steps should become habit. During this assignment, I will show you three ways to stage and commit. After that, you can decide which method you want to use.
+
+**Note:** Saving a file and committing a file are different things. Save your file often. When you save your file, then Git is able to see your changes. You do not have to commit every time you save. You commit when you have a section of working code (e.g., after you complete an exercise). Commit a snapshop of your code, then move to the next chunk of code.
 
 You will be required to submit your completed R Markdown document to your remote repo on GitHub by the due date.
 
@@ -53,7 +57,7 @@ You will be required to submit your completed R Markdown document to your remote
 
 **You must do this step only once.**
   
-  We will spend the remaining time of this course in the [Tidyverse](https://www.tidyverse.org), which is a series of **packages** that adds functionality to the base R program.^[Packages are one reason R is such a powerful analytical tool] You must install the packages from the internet so you need internet access. To install `tidyverse`, choose `Tools > Install Packages...` from the menu. Type `tidyverse` into the space provided. Be sure that `Repository (CRAN)` is selected and that the `Install dependencies` box is checked. Click the `Install` button. RStudio will automatically install everything you need from the Tidyverse. You only need to install packages once. 
+  We will spend the remaining time of this course in the [Tidyverse](https://www.tidyverse.org), which is a series of **packages** that adds functionality to the base R program.^[Packages are one reason R is such a powerful analytical tool] You must install the packages from the internet so you need internet access. To install `tidyverse`, choose `Tools > Install Packages...` from the menu. Type `tidyverse` into the space provided. Be sure that `Repository (CRAN)` is selected and that the `Install dependencies` box is checked. Click the `Install` button. RStudio will automatically install everything you need from the Tidyverse. You only need to install packages once so if you installed `tidyverse` already, then you do not have to do this again.
   
 We will use another package for this exercise too but, this time, use the command line in the RStudio console to install the package. The console is located in the lower left panel of RStudio. You can also choose `View > Move Focus to Console` from the menu or type `ctrl + 2`.
 
@@ -77,7 +81,7 @@ library(tidyverse)
 ```
 ````
 
-Run this chunk by pressing the small green arrow at the upper right of the code chunk. You should see a list of eight tidyverse packages that were loaded. The packages could be loaded separately, such as `library(ggplot2)` and `library(dplyr)`. Loading `tidyverse` loads them all at once, which is OK because we will use most of these packages for the remaining assignments.
+Run this chunk by pressing the small green arrow at the upper right of the code chunk. You should see a list of eight tidyverse packages that were loaded. The packages could be loaded separately, such as `library(ggplot2)` and `library(dplyr)`. Loading `tidyverse` loads them all at once, which is OK because we will use most of these packages for the remaining assignments. *The version numbers displayed when your packages load might be different from those shown above.*
 
 ```{r echo=FALSE}
 library(tidyverse)
