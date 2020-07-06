@@ -13,7 +13,7 @@ Assignments are available in HTML and PDF formats. They have the same content so
 
 **Warning:** I am still changing this schedule! Order and content is highly susceptible to change. 
 
-| Reading   | Assignment     | Due&nbsp;(23:55) | Resources |
+| Notes   | Assignment     | Due&nbsp;(23:55) | Reading and Resources |
 |:----------|:---------------|:---------|:----------|
 | [01 Install software;<br/> Markdown](../notes/notes01.html) | [HTML](hw01/hw01.html) / [PDF](hw01/hw01.pdf) | 2 Jul (R) | [R4ds Chapter 1](https://r4ds.had.co.nz/introduction.html)<br/> [R4ds Chapter 2](http://r4ds.had.co.nz/communicate-intro.html)<br/> [Markdown](https://commonmark.org/help/tutorial/) tutorial |
 | [02 Learn R!](../notes/notes02.html) <br/> Assignment Intro (Pt. 0) | [HTML](hw02/00_intro.html) / [PDF](hw02/00_intro.pdf) |  5 Jul (Su)  | Read this first!  | 
