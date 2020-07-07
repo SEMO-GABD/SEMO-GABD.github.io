@@ -57,7 +57,9 @@ Basic [Git commands:](http://happygitwithr.com/usage-git-cmds.html) You will not
 <!--You used R Notebooks in [HW02](http://../hw/hw02.html). -->
 R Notebooks are interactive documents that allows you to use the markdown commands that you learned in [HW01](http://../hw/hw01.html). R Notebooks use **R Markdown**, an enhanced version of markdown with additional features. These features allow you to produce reports that include R code, tables and graphs from your analyses in RStudio. You can use R Markdown and RStudio together to perform analyses that can be shared and reproduced by anyone. These tools have even been used to write [thesis and dissertations!](http://tysonbarrett.com/jekyll/update/2018/02/11/r_dissertation/)
 
-For this course, you will use R Notebook documents for many of your assignments, starting now. In RStudio, choose `File > New File > R Notebook` from the menu.  RStudio creates a new document with example R Markdown text. You will see familiar markdown commands, like `##` for section headers and `** … **` for **bold text.** 
+For this course, you will use R Notebook documents for many of your assignments, starting now. To use R Notebooks, you must install the `rmarkdown` package. In RStudio, choose `Tools > Install Packages...` from the menu. Enter `rmarkdown` into the space under `Packages`, be sure `Install dependencies` is checked, and then press the "Install" button. Installing `rmarkdown` will install several additional packages so installation may take a few minutes. *You only have to do this once.*
+
+After the packages are isntalled, choose `File > New File > R Notebook` from the menu.  RStudio creates a new document with example R Markdown text. You will see familiar markdown commands, like `##` for section headers and `** … **` for **bold text.** 
 
 You probably noticed the header at the top of the document. 
 
