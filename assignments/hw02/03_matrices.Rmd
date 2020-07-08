@@ -57,9 +57,9 @@ You must supply some arguments to a function but other arguments usually have a 
 
 Add code to your script to
 
-- Construct a matrix with 4 rows containing the numbers 11 to 30, filled row-wise.
+- Construct a matrix with 4 rows containing the numbers 11 to 30, filled row-wise, and using the `nrow` argument.
 
- - Construct a matrix with 5 columns containing the numbers 11 to 30, filled column-wise.
+ - Construct a matrix with 5 columns containing the numbers 11 to 30, filled column-wise, and using the `ncol` argument.
 
 ```{r}
 # Construct a matrix with 4 rows containing the numbers 11 to 30, filled row-wise.
