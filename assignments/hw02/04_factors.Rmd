@@ -320,8 +320,13 @@ pf_first > pf_last
 
 # CHALLENGE
 pf_first <- proboscis_factor[1]
-pfl <- length(proboscis_factor)
+
+# Fine
+pfl <- length(proboscis_factor) 
 pf_last2 <- proboscis_factor[pfl]
+
+# better
+pf_last2 <- proboscis_factor[length(proboscis_factor)]
 
 pf_first > pf_last2
 #
