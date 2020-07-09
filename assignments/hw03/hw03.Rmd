@@ -157,6 +157,8 @@ ansc <-
   select(-key) %>% 
   mutate(dataset = gsub("x", "", dataset)) %>%  
   as_tibble()
+
+ansc
 ```
 
 View the wrangled data set. If you entered the code correctly, you should see the following table. If you have an error instead, review the code *carefully* to find the error and fix it. Also, if you click on the `Environment` tab (or press `ctrl-8`), you'll see `ansc` listed as an environmental variable.
