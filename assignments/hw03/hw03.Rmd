@@ -328,8 +328,7 @@ summary(chicks_lm)
 
 The summary includes a *lot* of information. You only need the `Coefficients` data to make a table. 
 
-- Insert a code chunk and run `kable()` on `chicks_lm`. What happens? Write a 1-2 sentence summary of the results.
-
+- Insert a code chunk and run `kable()` on `chicks_lm`. What happens? Write a 1-2 sentence summary of your interpretation of the error message. In other words, why do you think you get the error message? 
 
 `xtable()` is a function from the `xtable` package that "knows" how to extract information from many types of summaries, which can then be given to `kable`, as shown here.
 
@@ -346,7 +345,7 @@ xtable(chicks_lm) %>% kable()
 
 ### Equations
 
-You can type set math equations easily, once you learn the format. R Markdown uses LaTeX ^[LaTeX is pronounced `lah-teck` or `lay-teck` and is really what you should be using instead of MS Word. But, baby steps$\dots$. ] to typeset [math symbols.](http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html), which means you can type set beautiful, complex equations. Type LaTex math commands between `$`$\dots$`$` (backslash and parentheses) for inline equations ($e = mc^2$) or between  `$$`$\dots$`$$` (backslashes and brackets) for a centered, standalone equation, 
+You can type set math equations easily, once you learn the format. R Markdown uses LaTeX ^[LaTeX is pronounced `lah-teck` or `lay-teck` and is really what you should be using instead of MS Word. But, baby steps$\dots$. ] to typeset [math symbols.](https://www.caam.rice.edu/~heinken/latex/symbols.pdf), which means you can type set beautiful, complex equations. Type LaTex math commands between `$`$\dots$`$` (backslash and parentheses) for inline equations ($e = mc^2$) or between  `$$`$\dots$`$$` (backslashes and brackets) for a centered, standalone equation, 
 
 $$\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).$$
 
@@ -364,7 +363,7 @@ $$\mathrm{CO}_2 + \mathrm{H_2O} \longleftrightarrow \mathrm{H_2CO_3} \Longleftri
 
 (I used different types of arrows in the equilibrium equation for demonstration, a typographical no-no.)
 
-I want you to use the LaTeX math commands ([link again](http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html)) to typeset a math equation from of one of these four options:
+I want you to use the LaTeX math commands ([link again](https://www.caam.rice.edu/~heinken/latex/symbols.pdf)) to typeset a math equation from of one of these four options:
 
 1. The Michaelis-Menten equation at top of this [Wikipedia page.](https://en.wikipedia.org/wiki/Michaelis–Menten_kinetics), which is used to model enzyme kinematics.
 

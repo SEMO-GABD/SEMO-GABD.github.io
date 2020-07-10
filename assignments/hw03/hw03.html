@@ -1973,7 +1973,7 @@ summary(chicks_lm)</code></pre>
 ## F-statistic: 15.36 on 5 and 65 DF,  p-value: 5.936e-10</code></pre>
 <p>The summary includes a <em>lot</em> of information. You only need the <code>Coefficients</code> data to make a table.</p>
 <ul>
-<li>Insert a code chunk and run <code>kable()</code> on <code>chicks_lm</code>. What happens? Write a 1-2 sentence summary of the results.</li>
+<li>Insert a code chunk and run <code>kable()</code> on <code>chicks_lm</code>. What happens? Write a 1-2 sentence summary of your interpretation of the error message. In other words, why do you think you get the error message?</li>
 </ul>
 <p><code>xtable()</code> is a function from the <code>xtable</code> package that “knows” how to extract information from many types of summaries, which can then be given to <code>kable</code>, as shown here.</p>
 <pre class="r"><code>xtable(chicks_lm) %&gt;% kable()</code></pre>
@@ -2043,7 +2043,7 @@ summary(chicks_lm)</code></pre>
 </div>
 <div id="equations" class="section level3">
 <h3>Equations</h3>
-<p>You can type set math equations easily, once you learn the format. R Markdown uses LaTeX <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> to typeset <a href="http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html">math symbols.</a>, which means you can type set beautiful, complex equations. Type LaTex math commands between <code>$</code><span class="math inline">\(\dots\)</span><code>$</code> (backslash and parentheses) for inline equations (<span class="math inline">\(e = mc^2\)</span>) or between <code>$$</code><span class="math inline">\(\dots\)</span><code>$$</code> (backslashes and brackets) for a centered, standalone equation,</p>
+<p>You can type set math equations easily, once you learn the format. R Markdown uses LaTeX <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> to typeset <a href="https://www.caam.rice.edu/~heinken/latex/symbols.pdf">math symbols.</a>, which means you can type set beautiful, complex equations. Type LaTex math commands between <code>$</code><span class="math inline">\(\dots\)</span><code>$</code> (backslash and parentheses) for inline equations (<span class="math inline">\(e = mc^2\)</span>) or between <code>$$</code><span class="math inline">\(\dots\)</span><code>$$</code> (backslashes and brackets) for a centered, standalone equation,</p>
 <p><span class="math display">\[\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).\]</span></p>
 <p>Here are the commands I used to typeset Einstein’s equation for special relativity and for logistic population growth.</p>
 <pre><code>$e = mc^2$
@@ -2052,7 +2052,7 @@ $$\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right).$$</code></pre>
 <p>You can typeset chemical equations, like the bicarbonate buffering system so vital to oceans and your blood,</p>
 <p><span class="math display">\[\mathrm{CO}_2 + \mathrm{H_2O} \longleftrightarrow \mathrm{H_2CO_3} \Longleftrightarrow \mathrm{H^+ + HCO_3^- \leftrightharpoons 2H^+ + CO_3^{2-}}. \]</span></p>
 <p>(I used different types of arrows in the equilibrium equation for demonstration, a typographical no-no.)</p>
-<p>I want you to use the LaTeX math commands (<a href="http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html">link again</a>) to typeset a math equation from of one of these four options:</p>
+<p>I want you to use the LaTeX math commands (<a href="https://www.caam.rice.edu/~heinken/latex/symbols.pdf">link again</a>) to typeset a math equation from of one of these four options:</p>
 <ol style="list-style-type: decimal">
 <li><p>The Michaelis-Menten equation at top of this <a href="https://en.wikipedia.org/wiki/Michaelis–Menten_kinetics">Wikipedia page.</a>, which is used to model enzyme kinematics.</p></li>
 <li><p>The Chi-square equation shown near the top of <a href="https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/chi-square/">this page.</a>, a commonly used statistical test in Biology and other sciences. Note: You must use the Greek letter Chi (<span class="math inline">\(\chi\)</span>), not the letter X.</p></li>
