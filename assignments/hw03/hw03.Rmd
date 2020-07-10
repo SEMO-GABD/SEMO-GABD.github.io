@@ -1,7 +1,7 @@
 ---
 title: "Graphical Analysis of Biological Data"
 subtitle: 'Homework 03: R Markdown'
-output:
+output: 
   pdf_document: default
   html_document:
     df_print: paged
@@ -140,11 +140,11 @@ Do not worry right now about what the code means. You will learn more later. For
 <!--The code adds a `dataset` column to track the four sets (pairs) 
 of values. #The rearranged data are stored in a new dataframe variable called `ansc.` -->
 
-Carefully type in the following code chunk (you should know how to insert an empty code chunk by now). Remember that spelling and punctuation matter. When you press the Enter key after typing each line, RStudio should automatically indent the lines as shown below. The indentations make the code much easier to read.
+Carefully type in the following code chunk (you should know how to insert an empty code chunk by now). Remember that spelling and punctuation matter. When you press the Enter key after typing each line, RStudio should automatically indent the lines as shown below. The indentations make the code much easier to read. You do not have to enter the comment line.
 
 *Hint:* Typing `option/alt + -` (dash) will enter the ` <- ` with suitable spacing. Typing `Cmd/ctrl-shift-m` will enter the ` %>% ` pipe combination in a single stroke. You will learn more about pipes later in this exercise. You will learn more about the other commands in upcoming exercises.
 
-```{r}
+```{r results='hide'}
 ansc <-
   bind_cols(
     anscombe %>% 
@@ -158,12 +158,13 @@ ansc <-
   mutate(dataset = gsub("x", "", dataset)) %>%  
   as_tibble()
 
+# Display the wrangled data
 ansc
 ```
 
-View the wrangled data set. If you entered the code correctly, you should see the following table. If you have an error instead, review the code *carefully* to find the error and fix it. Also, if you click on the `Environment` tab (or press `ctrl-8`), you'll see `ansc` listed as an environmental variable.
+If you entered the code correctly, you should see the following table. If you have an error instead, review the code *carefully* to find the error and fix it. Also, if you click on the `Environment` tab (or press `ctrl-8`), you'll see `ansc` listed as an environmental variable. If you click on `ansc` in the Environment tab, RStudio will display the contents in the upper left pane. 
 
-```{r}
+```{r echo=FALSE}
 ansc
 ```
 
@@ -185,7 +186,7 @@ Time to do your second stage and commit.
 
 - *Optional 1:* If you want, you can push this snapshot to your remote repo on GitHub. To do so, click the `Push` button with the green, upward-pointing arrow. After a moment, you should see a series of letters and numbers (the SHA number), indicating the file was successfully pushed.
 
-- *Optional 2:* If you pushed the file to your remote repo, open your web browser and go to http://gabd-students.github.io, find your repository (\<lastname_firstname\>) and look inside. You should see your `hw03/hw03.Rmd` file.
+- *Optional 2:* If you pushed the file to your remote repo, open your web browser and go to https://github.com/gabd-students/, find your repository (\<lastname_firstname\>) and look inside. You should see your `hw03/hw03.Rmd` file.
 
 - Close the large window so that you you see your normal RStudio layout
 
