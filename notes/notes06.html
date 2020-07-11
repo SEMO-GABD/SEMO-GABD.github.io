@@ -1641,15 +1641,15 @@ summary {
 <ul>
 <li><a href="#reading-and-resources">Reading and Resources</a></li>
 <li><a href="#tibbles">Tibbles</a></li>
-<li><a href="#data-transformation">Data transformation</a></li>
 <li><a href="#importing-data">Importing data</a></li>
 <li><a href="#pipes">Pipes</a></li>
 <li><a href="#tidy-data">Tidy Data</a></li>
+<li><a href="#data-transformation">Data transformation</a></li>
 </ul>
 </div>
 
 <p>This web page is available as a <a href="./notes06.pdf">PDF file</a></p>
-<p>These notes cover homeworks 6 and 7. For Homework 6, you will focus on data transformation from tibbles, the tidyverse version of data frames. For Homework 7, you will focus on importing, transforming, and wrangling data.</p>
+<p>These notes cover homeworks 6 and 7.</p>
 <div id="reading-and-resources" class="section level2">
 <h2>Reading and Resources</h2>
 <p>I’ve spread the reading assignments and related resources throughout these notes. <em>Read these notes carefully and thoroughly.</em> These notes provide answers for most of your questions. But, ask questions if you don’t find the answer here.</p>
@@ -1658,19 +1658,6 @@ summary {
 <h2>Tibbles</h2>
 <p><a href="https://r4ds.had.co.nz/tibbles.html">R4ds Chapter 10: Tibbles</a>, sections 1-3.</p>
 <p>Tibbles are enhanced data frames that make coding in the <code>tidyverse</code> much easier.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> We will work with tibbles throughout this course. You can convert any data frame to a tibble using the <code>as_tibble()</code> function. functions like <code>read_csv()</code> automatically create tibbles from your data so you will not usually have to think in tibble terms.</p>
-</div>
-<div id="data-transformation" class="section level2">
-<h2>Data transformation</h2>
-<p>Read <a href="https://r4ds.had.co.nz/transform.html">R4ds Chapter 5: Data Transformation</a> sections 1-4.</p>
-<p>Cheatsheet <a href="https://www.rstudio.com/resources/cheatsheets/#dplyr">Data Transformation</a></p>
-<p>An important step in data wrangling is transforming the data to suit the needs of your analysis. “Transforming” does not mean you are changing the data to get a particular result. Instead, transformation refers to everything from summarizing your data (e.g., counts, means, standard deviations), to recording your data (e.g., 1 = “female”, 2 = “male”), to performing statistical transformations (e.g., log or arcsine transformation) that improve your analysis and interpretation.</p>
-<p>Chapter 5 of R4ds covers many tools that you will use frequently for data analysis. This assignment will cover four of them.</p>
-<ul>
-<li><code>arrange()</code> sorts the data in an order you specify,</li>
-<li><code>rename()</code> renames columns,</li>
-<li><code>filter()</code> chooses rows based on criteria you specify, and</li>
-<li><code>select()</code> chooses columns based on criteria you specify.</li>
-</ul>
 </div>
 <div id="importing-data" class="section level2">
 <h2>Importing data</h2>
@@ -1962,6 +1949,19 @@ beetles2_tidy</code></pre>
   </script>
 </div>
 <p>The <code>tidyr</code> package from the <code>tidyverse</code> provides many functions besides <code>gather()</code> but we will focus on “gathering” untidy data to make it tidy.</p>
+</div>
+<div id="data-transformation" class="section level2">
+<h2>Data transformation</h2>
+<p>Read <a href="https://r4ds.had.co.nz/transform.html">R4ds Chapter 5: Data Transformation</a> sections 1-4.</p>
+<p>Cheatsheet <a href="https://www.rstudio.com/resources/cheatsheets/#dplyr">Data Transformation</a></p>
+<p>An important step in data wrangling is transforming the data to suit the needs of your analysis. “Transforming” does not mean you are changing the data to get a particular result. Instead, transformation refers to everything from summarizing your data (e.g., counts, means, standard deviations), to recording your data (e.g., 1 = “female”, 2 = “male”), to performing statistical transformations (e.g., log or arcsine transformation) that improve your analysis and interpretation.</p>
+<p>Chapter 5 of R4ds covers many tools that you will use frequently for data analysis. This assignment will cover four of them.</p>
+<ul>
+<li><code>arrange()</code> sorts the data in an order you specify,</li>
+<li><code>rename()</code> renames columns,</li>
+<li><code>filter()</code> chooses rows based on criteria you specify, and</li>
+<li><code>select()</code> chooses columns based on criteria you specify.</li>
+</ul>
 <hr />
 <p>For this assignment, you will run some of the examples in the text and anwer the questions. You will also practice importing, wrangling, and graphing of several data sets.</p>
 </div>

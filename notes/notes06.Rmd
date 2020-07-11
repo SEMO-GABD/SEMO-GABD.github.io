@@ -16,7 +16,7 @@ mainfont: Linux Libertine O
 
 This web page is available as a [PDF file](./notes06.pdf)
 
-These notes cover homeworks 6 and 7. For Homework 6, you will focus on data transformation from tibbles, the tidyverse version of data frames. For Homework 7, you will focus on importing, transforming, and wrangling data.
+These notes cover homeworks 6 and 7. 
 
 ## Reading and Resources
 
@@ -32,21 +32,6 @@ library(tidyverse)
 
 Tibbles are enhanced data frames that make coding in the `tidyverse` much easier.^[A tibble is an R class called "tbl" so "tibble"" is word-play on "table" and the pronunciation of "tbl."] We will work with tibbles throughout this course. You can convert any data frame to a tibble using the `as_tibble()` function. functions like `read_csv()` automatically create tibbles from your data so you will not usually have to think in tibble terms.
 
-
-## Data transformation
-
-Read [R4ds Chapter 5: Data Transformation](https://r4ds.had.co.nz/transform.html) sections 1-4.
-
-Cheatsheet [Data Transformation](https://www.rstudio.com/resources/cheatsheets/#dplyr)
-
-An important step in data wrangling is transforming the data to suit the needs of your analysis. "Transforming" does not mean you are changing the data to get a particular result. Instead, transformation refers to everything from summarizing your data (e.g., counts, means, standard deviations), to recording your data (e.g., 1 = "female", 2 = "male"), to performing statistical transformations (e.g., log or arcsine transformation) that improve your analysis and interpretation.
-
-Chapter 5 of R4ds covers many tools that you will use frequently for data analysis. This assignment will cover four of them.
-
-- `arrange()` sorts the data in an order you specify,
-- `rename()` renames columns,
-- `filter()` chooses rows based on criteria you specify, and
-- `select()` chooses columns based on criteria you specify.
 
 ## Importing data
 
@@ -453,6 +438,20 @@ beetles2_tidy
 The `tidyr` package from the `tidyverse` provides many functions besides `gather()` but we will focus on "gathering" untidy data to make it tidy.  
 
 
+## Data transformation
+
+Read [R4ds Chapter 5: Data Transformation](https://r4ds.had.co.nz/transform.html) sections 1-4.
+
+Cheatsheet [Data Transformation](https://www.rstudio.com/resources/cheatsheets/#dplyr)
+
+An important step in data wrangling is transforming the data to suit the needs of your analysis. "Transforming" does not mean you are changing the data to get a particular result. Instead, transformation refers to everything from summarizing your data (e.g., counts, means, standard deviations), to recording your data (e.g., 1 = "female", 2 = "male"), to performing statistical transformations (e.g., log or arcsine transformation) that improve your analysis and interpretation.
+
+Chapter 5 of R4ds covers many tools that you will use frequently for data analysis. This assignment will cover four of them.
+
+- `arrange()` sorts the data in an order you specify,
+- `rename()` renames columns,
+- `filter()` chooses rows based on criteria you specify, and
+- `select()` chooses columns based on criteria you specify.
 
 ***
 
