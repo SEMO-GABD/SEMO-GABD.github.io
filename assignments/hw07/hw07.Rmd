@@ -1,0 +1,325 @@
+---
+title: "HW 07: Data Importing and Wrangling 1"
+subtitle: "Graphical Analysis of Biological Data"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+    toc: yes
+#    latex_engine: lualatex
+urlcolor: blue
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(include = FALSE, eval = TRUE)
+```
+
+By the end of this assignment, you should be able to achieve the following tasks in R:
+
+- use R notebooks and R markdown;
+- insert, write, and evaluate code chucks; 
+- import data stored in a variety of text file formats; 
+- make untidy data tidy;
+- arrange, filter, and select data;
+- use pipes; 
+- produce plots with `ggplot2`;
+- use a typical workflow to wrangle and plot data; and
+- confidently stage, commit, and push with Git.
+
+*These achievements belong to Learning Outcomes 2, 3, 4, 5, 6.*
+
+Click on any blue text to visit the external website.
+
+**Note:** If you contact me for help or (better yet) open an issue in the [public discussion forum,](https://github.com/SEMO-GABD/public_discussion) please include the code that is not working and also tell me what you have tried.
+
+## Preparation
+
+- Open your `.Rproj` project file in RStudio.
+
+- Create an `hw07` folder in the same folder as your project file.
+
+- Create a `data` folder in the same folder as your `Rproj` file, at the same level as your other `hw` folders. Do *not* put this folder in your `hw07` or another homework folder. 
+
+    You will store all your data files that you use for this course in this folder. That allows everyone in class to have a common path to the data. You will use some data sets multiple times during this course so you want the data in a common folder accessible to all assignments.
+
+```{r include=FALSE}
+library(tidyverse)
+```
+
+- **Stage and commit regularly!**  A good habit would be to stage and commit after you complete each section. You should also push each time but at least push your completed notebook to your remote repo.
+
+
+## Assignment
+
+Your task here is simple. Write code chunks that 
+
+- import data,
+- wrangle the data as specified, and
+- graph the data.
+
+Then, describe the results briefly. Identify patterns and trends, potential outliers, and other results you find interesting. Think like the scientist you are! 
+
+You may need to review your Introduction to R coding exercise to meet some requirements, especially factors and how to select one column from a dataframe, and how to change one value to another. 
+
+Remember to put all the data files in your `data` folder. 
+
+A few things:
+
+- Create a new notebook file called `<lastname>_07.Rmd`. Edit the YAML file as you have for previous assignments.
+- Load the `tidyverse` package.
+- In this same code chunk, you can define a variable with the path to your `data` folder, as discussed in the notes.
+
+  You only need to load `tidyverse` and define your path variable once at the top of your notebook. You do not do this for each chunk.
+  
+- [Download this zip file](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw07/data.zip) of data. Unzip the file and place all of the files in your `data` folder. If you find yourself asking, "What data folder?", then (1) shame on you for not reading the notes and (2) go read the notes or the information above.
+
+- Each data file has one of the following types. 
+    - Comma separated
+    - Tab separated
+    - Fixed width
+
+  *You must always open the file in a text editor* to inspect the file. You should inspect the file to determine the separation type (comma, tab, fixed width), look for column headers or comments that need to be skipped, and get an overall sense of the data size and types, such as number of rows and columns, numeric and text variables, and so on. *You have to know the data you are going to use!*
+
+- Commit early. Commit often.  Push regularly but at least push your completed assignment.
+
+
+*Hint:* `tbl$x <- factor(tbl$x, levels = c(...), ordered = TRUE/FALSE)`. Just sayin'$\dots$.
+
+
+```{r include=FALSE}
+library(tidyverse)
+file_path <- "data/"
+```
+
+### Limpets
+
+Let's begin gently.
+
+[Fenberg and Roy 2012](https://www.jstor.org/stable/pdf/10.1086/666613.pdf) studied how human harvesting of the [owl limpet](https://commons.wikimedia.org/wiki/File:Lottia_gigantea.jpg) (*Lottia gigantea*) affected its life history. The study sites are along the coast of California.
+
+Requirements:
+
+- Data file: `limpets.csv`. 
+- Are the data tidy?
+- Use the `col_types` argument. The three column types are numeric, character, and character.
+- Make the `Sites` column an ordered factor with these levels:
+    - PBL, KNRM, VBG, WP, PF, DP, SIO, CTZ1, CTZ2, CNM
+    - PBL is the northern most site (Pebble Beach). CNM is the southernmost site (Cabrillo National Monument).
+- Make a boxplot of length (in millimeters) for each site, colored by protected status.
+- Change the axis labels so they begin with capital letters. The y-axis should include the unit of measurement in parentheses.
+- In your description, tell which two sites have outliers and whether the protected sites tend to have larger or smaller limpets.
+
+```{r}
+limpets <- read_csv(file.path(file_path, "limpets.csv"),
+                    col_types = "ncc")
+
+limpets$Site = factor(limpets$Site, levels = c("PBL", "KNRM", "VBG", "WP", "PF", "DP", "SIO", "CTZ1", "CTZ2", "CNM"), ordered = TRUE)
+
+limpets %>% 
+  ggplot() +
+  geom_boxplot(aes(x = Site,
+                   y = Length,
+                   color = Protected))
+```
+
+
+### Roseate Terns
+
+[Seward et al. 2018](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2656.12904) studied metapopulation dynamics of [roseate terns](https://commons.wikimedia.org/wiki/File:Roseate_terns_Palometas.jpg) (*Sterna dougallii*) in northwestern Europe to determine how abundance changed at nine sites. The number of individuals was counted at each site every year between 1992 and 2016.
+
+- Data: roseate_terns.txt
+- Are the data tidy?
+- Use filter to remove sites with missing counts.
+- Make a line plot of population size over time.
+- Change the axis labels as appropriate (you have to start thinking about what is appropriate).
+- Which population(s) obviously increased in size between 1992 and 2016? Which population(s) obviously decreased in size during that time?
+- Some lines have breaks in them. That is, they are not continuous across all years. Why?
+
+```{r}
+terns <- read_tsv(file.path(file_path, "roseate_terns.txt"))
+
+terns <- terns %>% 
+  gather(key = pop, value = size, -1)
+
+terns %>% 
+  ggplot() +
+  geom_line(aes(x = year,
+                y = size,
+                color = pop,
+                group = pop))
+```
+
+
+
+### Blacklip Abalone
+
+[Warwick et al. 1994](https://trove.nla.gov.au/work/11326142?selectedversion=NBD10642215) studied the population biology of [Blacklip Abalone](https://commons.wikimedia.org/wiki/File:Blacklip_abalone.jpg) (*Haliotis rubra*) from the north coast and [Bass Strait Islands](https://www.australia.com/en-ie/places/tas/tas-bass-strait-islands.html) of [Tasmania](https://www.google.com/maps/place/Tasmania,+Australia/@-42.2689226,139.1667911,5.91z/data=!4m5!3m4!1s0xaa7aed277e34facf:0x2a8fa5dd29404064!8m2!3d-41.4545196!4d145.9706647).
+
+- Data: abalone.csv (ab-ah-LOW-knee; rhymes with bologne)
+- Follow the instructions carefully. This exercise walks through a few steps of a "typical" analysis. Make a separate code chunk for each instruction.
+
+**Chunk 1:** Import, remove the first column, then make a boxplot of height differences among the three types.
+
+```{r}
+abalone <- read_csv(file.path(file_path, "abalone.csv"))
+
+abalone <- abalone %>% 
+  select(-X1)
+
+# Plot height with a boxplot. This really shows the
+# outlier for female and male.
+
+ggplot(data = abalone) +
+  geom_boxplot(aes(x = Type,
+                   y = Height))
+
+```
+
+**Chunk 2:** The boxplot for height shows a female and a
+male outlier. Perhaps the samples contained two very large,
+old individuals. Make a scatterplot to see if height appears to correlate with rings. Rings is a measure used to estimate age. Based on the graph, are the extraordinarily large individuals really old individuals?
+
+```{r}
+ggplot(data = abalone) +
+  geom_point(aes(x = Rings,
+                 y = Height,
+                 color = Type))
+```
+
+
+
+**Chunk 3:** Let's assume the outliers are coding errors so remove them by filtering. Filter the data to remove the two large individuals. Change Type to an ordered factor. Immatures must be first, as that 
+makes sense in terms of age. The order of female and male after immature
+is up to you. Then, redo the scatterplot that you just made with the newly wrangled data.
+
+```{r}
+abalone <- abalone %>% 
+  filter(Height <= 0.4)
+
+abalone$Type <- factor(abalone$Type, 
+                       levels = c("I", "F", "M"),
+                       ordered = TRUE,
+                       labels = c("Immature", "Female", "Male"))
+
+ggplot(data = abalone) +
+  geom_point(aes(x = Rings,
+                 y = Height,
+                 color = Type))
+```
+
+What patterns emerge? Which type is the largest? Are all females and males larger than immatures? 
+
+**Chunk 4:**
+Are there really immatures with more than five rings with zero height? Srsly? 
+- Print the records of the individuals with zero height.
+- Most likely, the two zero height values are mistakes made during data recording. This time, instead of filtering them, assign `NA` (missing data) to those two records. Repolot the data to ensure the two observations are not included in the graph.
+
+```{r}
+hgt <- abalone$Height < 0.01
+abalone[hgt,]
+
+abalone$Height[abalone$Height==0] <- NA
+
+ggplot(data = abalone) +
+  geom_point(aes(x = Rings,
+                 y = Height,
+                 color = Type))
+```
+
+
+ **Chunk 5:** Make two scatterplots of your choice, between any two pairs of continuous variables that make sense to show as scatterplots. Color, shape, or both should distinguish the three types.
+
+
+### Darters
+
+This will be your most challenging import. *Inspect the file!* Think through the problem. If necessary, jot some notes on paper to outline the information you need to consider, such as how many lines to skip, the position of columns, etc. Use chunks logically and appropriately to accomplish the tasks described below.
+
+Taylor (unpublished) studied the microhabitat use of darters in the [genus *Etheostoma*](https://en.wikipedia.org/wiki/Etheostoma) (Family Percidae) from the Niangua River watershed in Missouri. 
+
+- Data: darters.txt
+- Column names and widths are included in the file. You can use whatever column names you want but adjust accordingly for info below.
+- Make `riffle` an unordered factor with levels 1 and 2.
+- Make `major_type` an ordered factor with levels s, fg, sg, lg, c
+
+Do these four steps together with the pipe.
+
+- Filter to remove rows with "zonale" and "tetrazonum".
+- Remove `mintype` and `minsub` columns. 
+- Rename `majsub` and `majtype` to `major_substrate` and `major_type`, respectively.
+- Arrange the data by `id`.
+
+```{r}
+widths <- c(3, 11, 1, 1, 1, 3, 4, 4, 4, 3, 3, 2, 2)
+names <- c("id",
+           "species",
+           "riffle",
+           "age",
+           "sex",
+           "length",
+           "depth",
+           "velocity",
+           "temperature",
+           "majsub",
+           "minsub",
+           "majtype",
+           "mintype")
+
+darter <- read_fwf(file.path(file_path, "darters.txt"), 
+                   skip = 13,
+                   fwf_widths(widths,
+                   col_names = names))
+
+
+darter$riffle <- factor(darter$riffle, levels = c(1,2), ordered = FALSE)
+darter$majtype <- factor(darter$majtype, levels = c("s", "fg", "sg", "lg", "c"), ordered = TRUE)
+
+darter <- darter %>% 
+  filter(species != "tetrazonum" & species != "zonale") %>% 
+  select(-minsub, -mintype) %>% 
+  rename(major_substrate = majsub, major_type = majtype) %>% 
+  arrange(id)
+```
+
+Data were collected from two riffles, separated by several hundred meters. The plots below explore differences between riffles. Use `facet_wrap()` to make pairs of plots separated by riffle.
+
+**Plot 1** Plot length as a function of depth. Map species to color and shape. What differences do you see between the two riffles?
+
+*Plot 1 chunk here.*
+
+```{r}
+darter %>% 
+  ggplot() +
+  geom_point(aes(x = depth, 
+                 y = length,
+                 shape = species,
+                 color = species)) + 
+  facet_wrap(~ riffle)
+```
+
+**Plot 2:** Make a boxplot of length for each of the three species. Which riffle shows the greatest number of outliers? 
+
+*Plot 2 chunk here.*
+
+```{r}
+darter %>% 
+  ggplot() +
+  geom_boxplot(aes(x = species, 
+                   y = length)) +
+  facet_wrap(~ riffle)
+
+```
+
+**Plot 3:** Make a boxplot of length for major substrate types for each species for each riffle. This will actually be six plots in one! To do this, use `facet_grid(species ~ riffle)` in place of  `facet_wrap()`. How does the plot change if you switch the order of the argument (`riffle ~ species`) in the `facet_grid()` function?
+
+*Plot 3 chunk here.*
+
+```{r}
+darter %>% 
+  ggplot() +
+  geom_boxplot(aes(x = major_type,
+                   y = length)) +
+  labs(x = "Substrate",
+       y = "Length (cm)") +
+  facet_grid(species ~ riffle)
+```
+
