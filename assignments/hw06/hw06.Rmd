@@ -48,7 +48,7 @@ Click on any blue text to visit the external website.
 
 Read the following sections. As you read the assigned sections, insert a code chunk in your notebook and recreate *every* example in that section, except for those I tell you in the notebook to skip. *Type the code!*  In the next assignment, you will have to type the code from scratch so typing the code will help you remember it better. The point here is *learn* how to do this! 
 
-- Answer the questions in each section, except where I tell you to skip them. You will have to enter code chunks to answer the quwstions and also to write text outside of the code chunks. In other words, you will take advantage of R Notebook features.
+- Answer the questions in each section, except where I tell you to skip them. You will have to enter code chunks to answer the questions and also to write text outside of the code chunks. In other words, you will take advantage of R Notebook features.
 
 - For each code chunk you add, write a brief description of what that chunk does. That includes examples and questions. Writing these descriptions will help you learn and understand the code.
 
