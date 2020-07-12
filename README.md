@@ -1,5 +1,3 @@
-Graphical Analysis of Biological Data
-================
 
 <!--
 NOTE to MST: Have you create a team for the year and add students to the
