@@ -1,3 +1,8 @@
+<!--
+NOTE to MST: Have you create a team for the year and add students to the
+team, then give team access to this repo for it to work.
+-->
+
 This is the course outline and schedule for the 2020 Summer 
 course Graphical Analysis of Biological Data (BI 485 / 685).
 
