@@ -27,7 +27,7 @@ If you get an error, then you did not install the `tidyverse` package like you w
 
 ### Section 3.2: First steps
 
-Enter your code chunks for Section 3.2 here.
+Enter your code chunks for Section 3.2 here. **Do not enter the graphing template shown in 3.2.3.**
 
 Get in the habit of entering a brief description of what each chunk of code does. Enter this above the chunk, like I did in Section 3.1.
 
