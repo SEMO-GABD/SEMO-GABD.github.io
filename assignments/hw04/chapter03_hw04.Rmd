@@ -159,15 +159,20 @@ Answer the questions *completely.* Some answers will require you to write code i
 **2:** What parameters to `geom_jitter()` control the amount of jittering?
 
 
-**3:** Compare and contracts `geom_jitter()` with `geom_count()`.
+**3:** Skip this question.
 
 
-**4:** What is the default position adjustement for `geom_boxplot()`? Create a visualization of the `mpg` dataset that demonstrates it.
+**4:** Skip this question.
 
 
 ### Section 3.9: Coordinate systems
 
 **Note:** Read about and do only the code chunk associated with `coord_flip()`. `coord_flip()` is a great layer to use when you have categorical data with longish names as it makes the text easier to read.
+
+#### Section 3.9 Questions
+
+**2:** What does `labs()` do? Read the documentation. Include a code chunk where you use `labs()` to change the name of the variables from the default `hwy` to "Highway MPG" and and the default `class` to "Car Class" for the flipped coordinate boxplot you just made in 3.9. 
+
 
 ### Section 3.10: The layered grammar of graphics
 
