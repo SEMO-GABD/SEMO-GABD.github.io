@@ -65,17 +65,20 @@ covid_mo$mo_opened <- covid_mo$date == as.Date("2020-06-16")
 mo_opens <- covid_mo[mo_opened,]
 mo_opens$total_cases <- z_avg[mo_opened]
 
+southeast_red <- "#C8102E"
+cardiac_red <- "#9D2235"
+
 ggplot(data = covid_mo,
        aes(x = date, y = z)) +
   geom_col(aes(fill = mo_opened),
            color = "gray75") +
   geom_line(aes(x = date, y = z_avg),
-          color = "black",
+          color = cardiac_red,
           size = 0.5) +
   scale_x_date(date_labels = "%b %d", 
                date_breaks = "2 weeks",
                limits = c(as.Date("2020-03-08"), NA)) +
-  scale_fill_manual(values = c("gray85", "maroon"),
+  scale_fill_manual(values = c("#A4A9AD", southeast_red),
                     guide = NULL) +
   labs(x = "Date",
        y = "Daily New Cases") +
@@ -85,7 +88,7 @@ ggplot(data = covid_mo,
            y = 440, 
            label = "Missouri reopened\n16 June 2020",
            hjust = 1,
-           color = "maroon") #+
+           color = cardiac_red) #+
   # annotate(geom = "curve", 
   #          x = as.Date("2020-06-01"),
   #          y = 550,
