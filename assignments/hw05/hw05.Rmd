@@ -146,6 +146,10 @@ ggplot(data = msleep) +
               fill = "gray70")
 ```
 
+#### Plot 6
+
+There is no plot 6. And, [there is no spoon.](https://www.youtube.com/watch?v=uAXtO5dMqEI)
+
 #### Plot 7
 
 - Plot type: boxplot
