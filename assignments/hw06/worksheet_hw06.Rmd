@@ -1,9 +1,11 @@
 ---
-title: "HW06 Part 1: Complete the sections"
+title: 'HW06 Part 1: Complete the sections'
 author: "your name"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-output: html_notebook
-editor_options: 
+output:
+  html_document:
+    df_print: paged
+editor_options:
   chunk_output_type: inline
 ---
 
@@ -22,6 +24,11 @@ Read [R4ds Chapter 10: Tibbles](https://r4ds.had.co.nz/tibbles.html), sections 1
 ### 10.1: Introduction
 
 Load the tidyverse package. 
+
+```{r echo=FALSE}
+library(tidyverse)
+```
+
 
 ### 10.2: Creating tibbles
 
@@ -135,19 +142,19 @@ You do not have to run any of the examples in this section.
 
 ### 12.3
 
-Read and run the examples through section 12.3.1 (gathering), including the example with `left_join()`. We'll cover joins later.
+Read from the start of the chapter through 12.3.1. Run the examples in section 12.3.1 (Longer), including the example with `left_join()`. We'll cover joins later. Skip section 12.3.2.
 
-#### 12.3 Questions
+#### 12.3.3 Questions
 
 **2:** Why does this code fail? Fix it so it works.
 
-```{r}
+```{r error=TRUE}
 table4a %>% 
-  gather(1999, 2000, key = "year", value = "cases")
+  pivot_longer(c(1999,2000), names_to = "year", values_to = "cases")
 #> Error in inds_combine(.vars, ind_list): Position must be between 0 and n
 ```
 
-That is all for Chapter 12. On to the last chapter.
+Skip the rest of Chapter 12. On to the last chapter.
 
 
 ## Chapter 5: Data transformation
