@@ -393,20 +393,20 @@ beetles
 ```
 
 
-The years (2012, 2013, 2014) are values of a single "Year" variable. These data are not tidy but can be made tidy with the `gather()` function.
+The years (2012, 2013, 2014) are values of a single "year" variable. These data are not tidy but can be made tidy with the `pivot_longer()` function.
 
 ```{r}
 beetles_tidy <- beetles %>% 
-  gather(key = year, 
-         value = abundance, 
-         `2012`:`2014`)
+  pivot_longer(`2012`:`2014`,
+               names_to = "year",
+               values_to = "abundance")
 
 beetles_tidy
 ```
 
-The three years are now under a single column (the `key` argument gives this column its name), with the abundance of each species in the `abundance` column (the `value` argument gives this column its name). The ``2012`:`2014`` argument tells the `gather()` function which columns to gather. You'll learn more about the many ways to specify the columns when you read the text.
+The three years are now under a single column (the `names_to` argument gives this column its name), with the abundance of each species in the `abundance` column (the `values_to` argument gives this column its name). The ``2012`:`2014`` argument tells the `pivot_longer()` function which columns to pivot. You'll learn more about the many ways to specify the columns when you read the text.
 
-The trick to remember gathering is that the `key` argument will make a column filled with the column names; the `value` argument will make a column filled with the data that originally were in the separate columns. See Figure 12.2 of [R4ds](https://r4ds.had.co.nz/tidy-data.html#spreading-and-gathering).
+The key to remember when pivoting longer is that the `names_to` argument will make a column filled with the column names; the `values_to` argument will make a column filled with the data that originally were in the separate columns. See Figure 12.2 of [R4ds](https://r4ds.had.co.nz/tidy-data.html#spreading-and-gathering).
 
 Here are similar data but with species as column names.
 
@@ -424,18 +424,18 @@ beetles2 <- tibble(plot, sample, Pasi, Lebi, Csexg, Cunip, Gale)
 beetles2
 ```
 
-This time, each species name is a value of a single "Species" variable. The data need to be made tidy.
+This time, each species name is a value of a single "species" variable. The data need to be made tidy.
 
 ```{r}
 beetles2_tidy <- beetles2 %>% 
-  gather(key = species, 
-         value = abundance, 
-         -c(plot, sample))
+  pivot_longer(-c(plot, sample),
+               names_to = "species",
+               values_to = "abundance")
 
 beetles2_tidy
 ```
 
-The `tidyr` package from the `tidyverse` provides many functions besides `gather()` but we will focus on "gathering" untidy data to make it tidy.  
+The `tidyr` package from the `tidyverse` provides many functions besides `pivot_longer()` but we will focus on "wide", untidy data to make it longer and tidy.  
 
 
 ## Data transformation
