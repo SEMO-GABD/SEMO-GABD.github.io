@@ -1,5 +1,5 @@
 ---
-title: "HW 06 Part 1: Complete the sections"
+title: "HW 08: More Data Wrangling"
 author: "your name"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output: html_notebook
@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Read [R4ds Chapter 5: Data transformation](https://r4ds.had.co.nz/transform.html), sections 5-7.
 
-You do not answer any of the questions this week. Just read and run all of the examples.
+**You do not answer any of the questions this week.** Just read and run all of the examples as noted below. Pay attention to the code you enter for the examples. You will be applying the information in future assignments.
 
 ### Section 5.5: Add new variables with `mutate()`
 
