@@ -1711,6 +1711,10 @@ Jet,Egyptian Mau,Black,Spoiled rotten</code></pre>
 </div>
 <div id="file-paths" class="section level4">
 <h4>File paths</h4>
+<p><strong>Update, Summer 2020</strong> You should everything in this section but use this code in your notebooks (.Rmd) to set the file path to your data.</p>
+<pre class="r"><code>file_path &lt;- &quot;../data&quot;</code></pre>
+<p>The relationship between the working directory and the project file is different than the working directly and notebooks files. I use a common path for the data files so that I can run your code without incident.</p>
+<hr />
 <p>You have to tell R where your data is located to import it. The location, or path, of a file is handled somewhat differently between Macs, Linux, and PCs. Macs and Linux use the unix system. PCs use the DOS system.</p>
 <ul>
 <li><p>Mac/Linux: <code>~/Documents/folder1/folder2/file.txt</code></p></li>
@@ -1731,13 +1735,14 @@ Jet,Egyptian Mau,Black,Spoiled rotten</code></pre>
 <p>Let’s look more closely at methods to access your data. Assume, for this example, that you have a folder called <code>bi485</code> in your Documents folder. Your <code>Rproj</code> and various homework folders are in the <code>bi485</code> folder. If you want to import data from <code>my_file.csv</code>, you could use this command.</p>
 <pre class="r"><code>dat &lt;- read_csv(&quot;~/Documents/bi485/lastname_firstname/data/my_file.csv&quot;)  # Mac or
 dat &lt;- read_csv(&quot;C:/Documents/bi485/lastname_firstname/data/my_file.csv&quot;) # PC</code></pre>
-<p>This works fine, but what if have to open more than one data file? You would have to type the full path for each file. You can copy and paste the path, and change the name for each file. That is not efficient. Plus, if you change the location of the files, you have to to edit every path.</p>
+<p>This works fine, but what if have to open more than one data file? You would have to type the full path for each file. You can copy and paste the path, and change the name for each file. That is not efficient. Plus, if you change the location of the files, you have to to edit every path. What if you have to share your results with someone else, such as your instructor? If you are careful about file path specification, everyone can run your code, as long as the directory structure is the same.</p>
 <p>A better method is to store the path to the <em>folder</em> in an R variable, and then use the <code>file.path()</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> function, which appends your file name to your path, and then opens the file. The path is a character vector so it must be quoted.</p>
 <pre class="r"><code>file_path &lt;- &quot;~/Documents/bi485/lastname_firstname/data/&quot;  # Mac or
 file_path &lt;- &quot;C:/Documents/bi485/lastname_firstname/data/&quot; # PC
 
 dat &lt;- read_csv(file.path(file_path, &quot;my_file.csv&quot;))</code></pre>
 <p><strong>The best method</strong> takes advantage of your <code>Rproj</code> file. When opened, the project file changes the working directory of R to the same folder as the project file. This step is equivalent to running <code>setwd(&quot;~/Documents/bi485/lastname_firstname/&quot;)</code> in the console. You can then use the “relative” file path, as shown here. R will automatically append your path to the working directory path set by your project file. Brilliant!</p>
+<p><strong>Use the file.path shown at the start of this section, not below.</strong></p>
 <pre class="r"><code>## Not recommended but OK for Mac, PC, and Linux
 dat &lt;- read_csv(&quot;data/my_file.csv&quot;))
 

@@ -110,6 +110,16 @@ The data you import for this assignment will use only these arguments. In future
 
 #### File paths
 
+**Update, Summer 2020** You should everything in this section but use this code in your notebooks (.Rmd) to set the file path to your data. 
+
+```{r}
+file_path <- "../data"
+```
+
+The relationship between the working directory and the project file is different than the working directly and notebooks files. I use a common path for the data files so that I can run your code without incident.
+
+***
+
 You have to tell R where your data is located to import it. The location, or path, of a file is handled somewhat differently between Macs, Linux, and PCs. Macs and Linux use the unix system. PCs use the DOS system. 
 
 - Mac/Linux: `~/Documents/folder1/folder2/file.txt`
@@ -141,7 +151,7 @@ dat <- read_csv("~/Documents/bi485/lastname_firstname/data/my_file.csv")  # Mac 
 dat <- read_csv("C:/Documents/bi485/lastname_firstname/data/my_file.csv") # PC
 ```
 
-This works fine, but what if have to open more than one data file? You would have to type the full path for each file. You can copy and paste the path, and change the name for each file. That is not efficient. Plus, if you change the location of the files, you have to to edit every path.
+This works fine, but what if have to open more than one data file? You would have to type the full path for each file. You can copy and paste the path, and change the name for each file. That is not efficient. Plus, if you change the location of the files, you have to to edit every path. What if you have to share your results with someone else, such as your instructor? If you are careful about file path specification, everyone can run your code, as long as the directory structure is the same.
 
 A better method is to store the path to the *folder* in an R variable, and then use the `file.path()`^[`file.path()` is a base R function.] function, which appends your file name to your path, and then opens the file. The path is a character vector so it must be quoted.
 
@@ -153,6 +163,8 @@ dat <- read_csv(file.path(file_path, "my_file.csv"))
 ```
 
 **The best method** takes advantage of your `Rproj` file. When opened, the project file changes the working directory of R to the same folder as the project file. This step is equivalent to running `setwd("~/Documents/bi485/lastname_firstname/")` in the console. You can then use the "relative" file path, as shown here. R will automatically append your path to the working directory path set by your project file. Brilliant!
+
+**Use the file.path shown at the start of this section, not below.**
 
 ```{r eval=FALSE}
 ## Not recommended but OK for Mac, PC, and Linux
