@@ -88,7 +88,8 @@ A few things:
 
 ```{r include=FALSE}
 library(tidyverse)
-file_path <- "data/"
+library(here)
+#file_path <- "data/"
 ```
 
 ### Limpets
@@ -110,7 +111,7 @@ Requirements:
 - In your description, tell which two sites have outliers and whether the protected sites tend to have larger or smaller limpets.
 
 ```{r}
-limpets <- read_csv(file.path(file_path, "limpets.csv"),
+limpets <- read_csv(here("data", "limpets.csv"),
                     col_types = "ncc")
 
 limpets$Site = factor(limpets$Site, levels = c("PBL", "KNRM", "VBG", "WP", "PF", "DP", "SIO", "CTZ1", "CTZ2", "CNM"), ordered = TRUE)
@@ -136,10 +137,11 @@ limpets %>%
 - Some lines have breaks in them. That is, they are not continuous across all years. Why?
 
 ```{r}
-terns <- read_tsv(file.path(file_path, "roseate_terns.txt"))
+terns <- read_tsv(here("data", "roseate_terns.txt"))
 
 terns <- terns %>% 
-  gather(key = pop, value = size, -1)
+  pivot_longer(names_to = "pop", values_to = "size", -1) %>% 
+  drop_na()
 
 terns %>% 
   ggplot() +
@@ -161,7 +163,7 @@ terns %>%
 **Chunk 1:** Import, remove the first column, then make a boxplot of height differences among the three types.
 
 ```{r}
-abalone <- read_csv(file.path(file_path, "abalone.csv"))
+abalone <- read_csv(here("data", "abalone.csv"))
 
 abalone <- abalone %>% 
   select(-X1)
@@ -264,7 +266,7 @@ names <- c("id",
            "majtype",
            "mintype")
 
-darter <- read_fwf(file.path(file_path, "darters.txt"), 
+darter <- read_fwf(here("data", "darters.txt"), 
                    skip = 13,
                    fwf_widths(widths,
                    col_names = names))
