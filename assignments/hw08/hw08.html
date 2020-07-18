@@ -1667,50 +1667,47 @@ summary {
 <h2>Preparation</h2>
 <ul>
 <li><p>Open your <code>.Rproj</code> project file in RStudio.</p></li>
-<li><p>Create an <code>hw08</code> folder inside the same folder as your project file.</p></li>
-<li><p>Create an <code>hw09</code> folder inside the same folder as your project file.</p>
-<ul>
-<li>You need two homework folders this week. You’ll save your worksheet from part 1 in the <code>hw08</code> folder. You’ll save your R script from part 2 in the <code>hw09</code> folder.</li>
-</ul></li>
+<li><p>Create an <code>hw08</code> folder inside the same folder as your project file. You’ll save your worksheet from part 1 in the <code>hw08</code> folder.</p></li>
+<li><p>Create a <code>scripts</code> folder inside the same folder as your project file. You’ll save your R script from part 2 in the <code>scripts</code> folder.</p></li>
 </ul>
 <div id="part-1-read-chapter-5-sections-5-7." class="section level3">
 <h3>Part 1: Read chapter 5, sections 5-7.</h3>
 <ul>
 <li>Download this <a href="https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw08/worksheet_hw08.Rmd">R Notebook file</a>. Right-click to save the file as <code>&lt;lastname&gt;_hw08.Rmd</code> inside the <code>hw08</code> folder. Make sure the file ends with <code>.Rmd</code> and not <code>.txt</code>.</li>
 </ul>
-<p>Read the sections assigned in the worksheet. As you read the asigned sections, insert a code chunk in your notebook and recreate <em>every</em> example in that section, except for those I tell you in the notebook to skip. <em>Type the code!</em> In the next assignment, you will have to type the code from scratch so typing the code will help you remember it better. The point here is <em>learn</em> how to do this!</p>
+<p>Read the sections assigned in the worksheet. As you read the assigned sections, insert a code chunk in your notebook and recreate <em>every</em> example in that section, except for those I tell you in the notebook to skip. <em>Type the code!</em> In the next assignment, you will have to type the code from scratch so typing the code will help you remember it better. The point here is <em>learn</em> how to do this!</p>
 <ul>
-<li><p>Enter and run all examples for these three sections of the chapter. <strong>Do not answer any of the questions this week.</strong></p></li>
-<li><p><strong>Stage and commit regularly!</strong> A good habit would be to stage and commit after you complete each section. You should also push each time but at least push your completed notebook to your remote repo.</p></li>
-<li><p><strong>Note:</strong> If you have a problem with your code that you want to ask about, commit and push your notebook, including your non-working code, to your Github repo. I can pull your notebook to run your code chunks. That helps me help you.</p></li>
+<li><p><strong>Do not answer any of the questions this week.</strong></p></li>
+<li><p><strong>Stage and commit regularly!</strong> A good habit would be to stage and commit after you complete each section. You should also push each time but at least push your completed notebook to your remote repo.</p>
+<p><strong>Note:</strong> If you have a problem with your code that you want to ask about, commit and push your notebook, including your non-working code, to your Github repo. I can pull your notebook to run your code chunks. That helps me help you because I can see what you have tried.</p></li>
 </ul>
 </div>
 <div id="part-2-write-two-functions" class="section level3">
 <h3>Part 2: Write Two Functions</h3>
 <ul>
 <li><p>Review the notes on how to write a function.</p></li>
-<li><p>Create a new R Script (not notebook) from the <code>File &gt; New File</code> menu. Save the script as <code>my_functions.R</code> in the <code>hw09</code> folder. This will make your functions available for use with the next assignment. You do not need to load any packages in your script.</p></li>
+<li><p>Create a new R Script (not notebook) from the <code>File &gt; New File</code> menu. Save the script as <code>my_functions.R</code> in the <code>scripts</code> folder. This will make your functions available for use with the next assignment. You do not need to load any packages in your script.</p></li>
 </ul>
 <div id="standard-error-function" class="section level4">
 <h4>Standard error function</h4>
 <ul>
 <li><p>Write a function called <code>std_err</code> that calculates <a href="http://www.biostathandbook.com/standarderror.html">standard error of the mean.</a> You did review the notes, right?</p></li>
-<li><p>Your <code>std_err()</code> function should have two arguments. The first argument is the vector of numeric values for which your function calculates the standard error. The second argument should default to <code>na.rm = FALSE</code>.</p></li>
-<li><p>Make R aware of your function. Use your cursor to highlight (select) your entire function, then press the <code>Run</code> button or press <code>cmd/ctrl + enter</code>. R will run your function code. If you have written a proper function, you will not get any feedback. If you click on the “Environment” tab of the upper right pane, you’ll see your function listed, indicating R did not find any errors.</p>
+<li><p>Your <code>std_err()</code> function must have two arguments. The first argument will accept the vector of numeric values for which your function calculates the standard error. The second argument should default to <code>na.rm = FALSE</code>.</p></li>
+<li><p>When finished, make R aware of your function. Use your cursor to highlight (select) your entire function, then press the <code>Run</code> button or press <code>cmd/ctrl + enter</code>. R will run your function code. If you have written a proper function, you will not get any feedback. If you click on the “Environment” tab of the upper right pane, you’ll see your function listed, indicating R did not find any errors.</p>
 <p>If you get an error, then something is wrong with your code. <em>Read the error message closely and compare against your code to help track down the mistake.</em> You will have to find and fix the error in your code and run it again. Repeat until until you don’t get an error.</p></li>
-<li><p>Test your function using the first 10 numbers of the <a href="https://www.mathsisfun.com/numbers/fibonacci-sequence.html">Fibonacci sequence:</a> 0, 1, 1, 2, 3, 5, 8, 13, 21, 34. If your function works correctly, your result should be 3.48903. <strong>Test your function from the console. Do not include the test code for this function or the next in your R script.</strong></p></li>
-<li><p>Add an <code>NA</code> to your fibonacci sequence and test your function again, with <code>na.rm = FALSE</code> and again with <code>na.rm = TRUE</code>. Remember that the function default is <code>na.rm = FALSE</code>. You override it by passing <code>na.rm = TRUE</code> when you call the function.</p></li>
+<li><p>Test your function using a vector of the first 10 numbers of the <a href="https://www.mathsisfun.com/numbers/fibonacci-sequence.html">Fibonacci sequence:</a> 0, 1, 1, 2, 3, 5, 8, 13, 21, 34. If your function works correctly, your result should be 3.48903. <strong>Test your function from the console. Do not include the test code for this function or the next in your R script.</strong></p></li>
+<li><p>Add an <code>NA</code> to your fibonacci sequence and test your function again, with <code>na.rm = FALSE</code> and with <code>na.rm = TRUE</code>. Remember that the function default is <code>na.rm = FALSE</code>. You override it by passing <code>na.rm = TRUE</code> when you call the function.</p></li>
 </ul>
 </div>
 <div id="scaled-mass-index-function" class="section level4">
 <h4>Scaled mass index function</h4>
 <ul>
-<li><p>Write a function called <code>scaled_mass</code> that calculates the <em>scaled mass index</em> (SMI). You’ll learn more about this index in the next assignment when you use your function.</p>
-<p>The equation to calculate SMI for each individual (<span class="math inline">\(i\)</span>) is,</p>
+<li><p>Write a function called <code>scaled_mass</code> that calculates the <em>scaled mass index</em> (SMI). The index scales the mass of the bird to the length of the tarsus (part of the leg) so that birds of different sizes can be compared fairly.</p>
+<p>The equation to calculate SMI for each individual bird (<span class="math inline">\(i\)</span>) is,</p>
 <p><span class="math display">\[\mathrm{SMI}_i = M_i \times (L_0/L_i)^b,\]</span></p>
-<p>where <span class="math inline">\(L_0\)</span> is the mean tarsus length of all birds in the sample, <span class="math inline">\(M_i\)</span> and <span class="math inline">\(L_i\)</span> are the mass and tarsus<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> length of each individual, and <span class="math inline">\(b\)</span> is the slope estimate of the standardized major axis regression on the log-transformed mass and log-transformed tarsus length.</p></li>
+<p>where <span class="math inline">\(L_0\)</span> is the mean tarsus length of all birds in the sample, <span class="math inline">\(M_i\)</span> and <span class="math inline">\(L_i\)</span> are the mass and tarsus length of each individual, and <span class="math inline">\(b\)</span> is the slope estimate of the regression line on the log-transformed mass and log-transformed tarsus length.</p></li>
 <li><p>Your function should have three arguments. Use <code>mass</code> for mass, <code>tarsus</code> for tarsus length, and <code>slope</code> for the slope. Set the default for <em>each</em> argument to zero. You do this just like you set the default for <code>na.rm</code> to <code>FALSE</code> in your <code>std_err</code> function.</p></li>
-<li><p>Make R aware of your <code>scaled_mass</code> function.</p></li>
+<li><p>Make R aware of your <code>scaled_mass</code> function as you did for the <code>std_err</code> function.</p></li>
 <li><p>For data, use <code>mass &lt;- c(26.7, 22.8, 25.7, 26.1, 23.9)</code> and <code>tarsus &lt;- c(18.4, 17.5, 18.4, 18.0, 18.2)</code>. These values are the first five values from the data set you will use in the next assignment.</p></li>
 <li><p>Use <code>slope = 1.5</code>. <em>Do not hard-code this value</em> into your function. Pass it as an argument. You’ll see why next week.</p></li>
 <li><p>Your working function will return a vector of</p></li>
@@ -1735,12 +1732,6 @@ my_function &lt;- function(arg1, arg2 = FALSE) {
 }</code></pre>
 </div>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>The tarsus looks like <a href="https://en.wikipedia.org/wiki/Bird_anatomy">part of the bird’s leg</a> but is homologous to the tarsal bones in the vertebrate foot.<a href="#fnref1" class="footnote-back">↩</a></p></li>
-</ol>
 </div>
 
 
