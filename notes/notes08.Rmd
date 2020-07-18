@@ -1,73 +1,459 @@
 ---
-title: '08: Dates'
-author: "Graphical Analysis of Biological Data"
+title: "08: Coding Style and Wrangling II"
+subtitle: Graphical Analysis of Biological Data
 output:
-  pdf_document: default
-  html_document: default
+  pdf_document:
+    latex_engine: lualatex
+  html_document:
+    df_print: paged
+    toc: yes
+urlcolor: blue
+linkcolor: blue
+editor_options:
+  chunk_output_type: inline
+mainfont: Linux Libertine O
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
+This web page is available as a [PDF file](./notes06.pdf)
 
-```{r echo=FALSE, message=FALSE}
+## Reading and resources
+
+I've spread the reading assignments and related resources throughout these notes.
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
-library(lubridate)
 ```
 
-## Dates and time
+## Coding Style
 
-Carefully read [R4ds Chapter 16: Dates and times](https://r4ds.had.co.nz/dates-and-times.html) sections 1-3. I suggest you run the examples but I am not requiring that you do so. The assignment will require you to use some of the functions.
+Good code not only runs error-free but is easy to read, too. The [Tidyverse style guide](https://style.tidyverse.org) has good recommendations on writing functional and *readable* code.  I expect you to follow the conventions used in the style guide.
 
-You will need to use the `lubridate` package. I believe it was installed when you installed the `tidyverse` package but `lubridate` is not loaded when you load the `tidyverse` library. You will have to load `lubridate` separately.  If you get an error, then install it first.
+### Coding style: files
 
-As you will learn from the text, dates are tricky, in part because of the many ways in which dates are formatted. In the US, we tend to use MM/DD/YY, such as 11/19/1863. Europeans tend to use a format that switches the order of the month and year, like 19/11/1863. Other variations are common, such as 19 November 1863, Nov. 11th, 1863, and 19-11-63.  If a date is given as 11/5/1605, is it November 5th or May 11th?
+**Chapter 1** of the style guide covers names and the structure of your file. Start organizing your code into sections. I tend to use the following sections for most of my R scripts.
 
-Different date formats have been developed for computers, but R and `lubridate` follow the ISO 8601 format of YYYY-MM-DD, e.g., 1863-11-19. However, this is just a way of representing the date, but not how dates are stored internally. Usually, dates are stored as the number of days since some particular reference point. For example, some UNIX systems use 1970-01-01 00:00:00 (hour minute seconds) as the reference point.
+- Load libraries
+- Make global variables used through the script.
+    - `file_path <- "data/"` is a good example.
+- Custom functions. You will learn to write functions below.
+- Data import
+- Data wrangling
+- Main analysis (if needed)
+- Graphing
 
-Computer systems also have to make assumptions about the century if it is not explicitly stated.  For example, load lubridate and run this code.
+If you are writing a script that is not using markdown (files that are nothing but R code, and have a `.R` extension), the `Code > Insert Section...` from the menu inserts the nice section dividers shown in section 1.2 of the style guide. I am writing this in a notebook so
+that option is not available. 
+
+The section divider shown in the style guide begins with a `#`, which creates a header line in markdown format. If you used that divider, it would create a big bold line, which you wouldn't want in your notebook. You can mimic a section divider by using `***` followed by a `####` header, like that shown here. `***` draws a rule across the page, followed by a small header.
+
+```
+***
+#### Load libraries
+```
+
+A good reason to use section dividers is that you can use them for "code folding. You can show and hide sections separated by the dividers by clicking on small triangles between the line number and the `#` of the section divider^[You may have noticed these arrows in your previous notebooks]. Hiding code you are not working on makes it much easier to navigate around your file.  Here is an example.
+
+***
+#### Load libraries
+
+```{r eval=FALSE}
+library(tidyverse)
+library(smatr)
+```
+
+***
+#### Global variables
+
+```{r eval=FALSE}
+file_path <- "data/"
+```
+
+***
+#### Functions
+```{r eval=FALSE}
+sex_change <- function(x) {
+  ifelse(x == "f", "female", "male")
+}
+```
+
+This image shows the unfolded code. Notice the small triangles next to the line numbers point downward, indicating unfolded code.
+
+![Unfolded code.](../img/code_unfolded.png){width=50%}
+
+This image shows the first two sections folded. The triangle points to the right, indicating folded code. You click on the triangle or click on the two-headed arrow icon adjacent to your divider title to expand and view the code. You can also choose options from the `Edit > Folding >` menu.
+
+![Unfolded code.](../img/code_folded.png){width=50%}
+
+Unfolded code might not be an issue now but as your scripts grow longer, folded code is *very* nice. I encourage you to give it a try. When you write code outside of notebooks, use the section dividers provided by RStudio. 
+
+### Coding style: syntax
+
+**Chapter 2** covers the format of your code. Focus especially on object names, spacing, and the use of indents. The proper use of spaces and indents is one of the easist ways of improving the readability of your code. Consider these two examples. The first is hard to read and hard to find mistakes. In fact, can you find the mistake?
+
+```{r eval=FALSE}
+data(iris)
+ggplot(data=iris,aes(x=Petal.Length,y=Sepal.Length))+geom_point(aes(color=Species,shape=Species)+
+geom_smooth(aes(color=Species))
+```
+
+Here is the same code, nicely formatted, and with the missing parenthesis mistake fixed.
 
 ```{r}
-mdy(c("1/2/54","12/31/68","1/1/69","1/2/99","1/2/04"))
+ggplot(data = iris,
+       aes(x = Petal.Length,
+           y = Sepal.Length)) +
+  geom_point(aes(color = Species,
+                 shape = Species)) +
+  geom_smooth(aes(color = Species))
 ```
 
-We would naturally assume that the second and third dates in the vector are only one day apart. However, the POSIXct standard assumes that years less than or equal to "68" belong to the 21st century and years greater than 68 belong to the 20th century.
+The code and the *logic* of the code is much easier to read. Notice that I pressed the enter key after every comma, I have spaces around the equal signs, and that the `+` ends each line before I add another `geom`. Every time I pressed the Enter key, RStudio automatically indented the lines. 
 
-Despite the complexities of dates (and time), lubridate date provides several convenience functions for wrangling dates. Lubridate can convert date strings, such as "19 November 1863" and "11/19/1863" to date the proper ISO formats using the `dmy()` and `mdy()` functions. Notice the names of the functions. You can change the order of `d`, `m`, and `y` to convert nearly any date string to the ISO format.
+You can also highlight a code chunk, and then choose `Code > Reformat Code` or `Code > Reindent Lines` for help formatting you code. Neither of these options exactly match some of the recommendation made by the style guide. My example also did not correspond exactly to the guide. As long as you follow the guide reasonably close, you and I will be the happier for it. 
 
-For example,
+**Note:** By spreading your code across more lines, the length of your file grows longer, increasing the value of code folding. *Fold your code!*
+
+**I expect you to follow these formatting guidelines in your code chunks and scripts.** Writing code is just like writing text. Write legibly!
+
+
+### Coding style: pipes
+
+Pipe style closely mirrors syntax style, like spacing and breaking up long lines.
+
+
+***
+
+## Wranging II
+
+Read [R4ds Chapter 5: Data transformation](https://r4ds.had.co.nz/transform.html). This chapter covers most of the other important functions for wrangling data. The three functions covered with the greatest depth are
+
+- `mutate()`
+- `summarize()`
+- `group_by()`
+
+These few functions harness a lot of power. Take your time working through the assignment, and really think about what you are doing.  As usual, you will have to apply your newly learned skills in the next assignment.
+
+You can use `mutate()` to change variables depending on the values of the starting variables, using `ifelse()` and `case_when()`. If you have only two values, use `ifelse()`. `ifelse()` has this structure: `ifelse(eval, TRUE, FALSE)`. The first argument is the evalutation, The middle argument is returned if the evaluation is TRUE. The last argument is returned of the evaluation is FALSE.
+
+Assume you have a `sex` column that with values `f` and `m`. You want to change the column so that it reads `female` or `male`. To change this with `ifelse()`, use
+
+```{r eval=FALSE}
+data %>% 
+  mutate(new_column = ifelse(sex == "f", 
+                             "female", 
+                             "male"))
+```
+
+If sex equals `f`, then the `new_column` is assigned `female`. If not `f`, then the `new_column` is assigned `male`.
+
+If you have more than two choices, `case_when()` is a better option, but the structure is more complex. Let's use the `darter.csv` example from the previous assignment. Substrate (`majsub`) was defined as s, fg, sg, lg, and c, which stands for sand, fine gravel, small gravel, large gravel, and cobble. If you want to change the initials to the words, then use `case_when()`,
+
+```{r eval=FALSE}
+darter_data %>% mutate(new_sub = case_when(
+  majsub == "s" ~ "sand",
+  majsub == "sg" ~ "small_gravel",
+  TRUE ~ "other"))
+```
+
+This structure is different from typical R structures so some adjustment is required. `case_when` evaluates each option and assigns the value if it matches, and otherwise assigns the TRUE value. Walking through the example above, if `majsub` equals the value `s`, then  the `new_sub` column is assigned the value of `sand`. If not equal, then `case_when()` goes to the next argument. If `majsub` equals the value of `sg`, then the `new_sub` column is assigned the value of `small_gravel`. If `majsub` is not equal to `s` or `sg`, then the `new_sub` column is assigned the value of `other`. 
+
+You will have to use only `ifelse()` for this assignment but be prepared for `case_when` situations in upcoming assignments.
+
+***
+
+## A graphing tip
+
+As you learned before, you can pipe your data to `ggplot()` for graphing. I use this technique regularly.  Sometimes, you want to add a layer from another data set. You can do this, as shown below, because each geom can accept a separate `data = ` argument. 
+
+```{r eval=TRUE}
+# Create a new tibble summarizing data from the mtcars tibble.
+avg_mpg <- mtcars %>% 
+  group_by(cyl) %>% 
+  summarize(mean_mpg = mean(mpg))
+
+# Start with the mtcars tibble.
+mtcars %>% ggplot() +
+  geom_boxplot(aes(x = cyl,
+                   y = mpg,
+                   group = cyl)) +
+  geom_point(data = avg_mpg,  # Add data from ag_mpg tibble.
+             aes(x = cyl,
+                 y = mean_mpg),
+             color = "blue",
+             size = 3)
+```
+
+
+## Writing custom functions
+
+Writing functions in R is a powerful skill to own. Writing robust functions takes many years to master but you can learn to write basic functions with an hour or two of practice. Start the clock!
+
+Assume that you have three numbers, 5, 11, and 19.  You want to add them together to get the total and you also want to find their average.  You could accomplish those simple tasks in R with the following code.
+
+```{r, results='hold'}
+total <- 5 + 11 + 19
+average <- total/3
+
+# Display the results
+total
+average
+```
+
+That was not a lot of work. The amount of work would increase enormously if you had a vector with hundreds of numbers or hundreds of vectors with hundreds of numbers. 
+
+Fortunately, R provides **functions** called `sum()` and `mean()` that do the hard, repetitive, or tedious work for you. 
 
 ```{r}
-# Attestation clause, witnessing the U.S. constitution.
-# Actual text spells out all of the numbers so here modified so it works.
-attestation <- "17th Day of September in the Year of Our Lord 1787"
+# Create a vector of numbers
+numbers <- c(5, 11, 19)  # c() is a function!
 
-dmy(attestation)
+total <- sum(numbers)    # Use the sum function
+average <- mean(numbers) # Use the mean function
+
+# Display the results
+total
+average
 ```
 
-You can use `make_date` to assemble dates from numeric components, as shown here.
+R and its many packages provide useful functions to accomplish many common (and uncommon) tasks. You are familiar with some of these, including `mean()` `sum()`, `read_csv()`, `ggplot()`, and its associated geoms.  
+
+In the future, you will find a need for a custom function that is not built-in to R or available in an R package.  The steps below show you how to write a function called `average` to calculate the arithmetic mean ("average") of a vector of numbers. That is, you'll write a function to mimic R's built-in `mean()` function. You will compare the results of your function to the results of the `mean()` function so that you are confident your function (*ahem*) functions properly.
+
+*You will have to write two functions in the associated homework so be sure you get comfortable writing functions.* 
+
+### Format of a function
+
+Functions have this form, described below.
+
+```{r eval=FALSE}
+your_function_name <- function(arguments) {
+  code to do the work
+  return(result)
+}
+```
+
+`your_function_name` is the name you will use when you call your function, like `sum` or `mean`. `function()` is the build-in R function that tells R you are about to make a function. `arguments` accept any data that you pass to the function. In the example above, `5`, `11`, and `19`  are the arguments passed to the `c()` function to create the `numbers` variable. The `numbers` variable was the argument passed to the `sum()` function. Finally, "code to do the work" is the R code that performs the actual work of the function. *Notice that the code to do the work is between curly braces `{}`* `return()` makes the result available to you after the work of the function is done.
+
+### Your "average" function.
+
+The `average` function you are about to write will return the arithmetic mean from a vector of numbers. The arithmetic mean adds or sums together all of the numbers in a vector, and then divides the total by the number of elements in the vector. Your function must do these two steps to return the average.
+
+We'll begin with the basic form and then build on it.
+
+```{r eval=FALSE}
+average <- function(args) {
+  
+}
+```
+
+Sometimes, especially for complex functions, writing *pseudocode* is helpful. Pseudocode is regular (non-coding) sentences that outlines each step of the function. The pseudocode below outlines the two steps needed to aclculate the average, plus the final step to return the result.
+
+```{r eval=FALSE}
+average <- function(args) {
+  Add the numbers
+  divide by the number of elements in the vector
+  return the result
+}
+
+```
+
+Next, replace each line of pseudocode with real code. The addition of the numbers is handled by the `sum()` function. The sum is stored in the variable `total`. Notice I'm leaving the pseudocode in as comments to document the function.
+
+```{r eval=FALSE}
+average <- function(args) {
+  # Add the numbers, store in total
+  total <- sum(args)
+  divide by the number of elements in the vector
+  return the result
+}
+
+```
+
+Next, recall that `length()` returns the number of elements in a vector. Therefore, divide `total` by `length(args)` to calculate the average. Store the result in `avg`.
+
+```{r eval=FALSE}
+average <- function(args) {
+  # Add the numbers, store in total
+  total <- sum(args)
+  
+  # Divide total number the number of elements in the vector
+  # Store in variable called avg
+  avg <- total/length(args)
+  return the result
+}
+
+```
+
+Finally, use the `return()` function to return the result of `average()` for use elsewhere in your code.
 
 ```{r}
-gf <- tibble(Day = 5, Month = 11, Year = 1605)
-
-gf <- gf %>% mutate(Date = make_date(Year, Month, Day))
-gf
-
-# Date stored as date format.
-str(gf)
+average <- function(args) {
+  # Add the numbers, store in total
+  total <- sum(args)
+  
+  # Divide total number the number of elements in the vector
+  # Store in variable called avg
+  avg <- total/length(args)
+  
+  # Return the result.
+  return(avg)
+}
 ```
 
-You can extract months, weekdays, and more, too. Notice that the months are treated as ordered factors. Factored months ensures the months will appear in the proper order in plots.
+Let's test the function, first with 5, 11, and 19, then with a vector of sepal lengths from the `iris` data set. We'll also use the built-in `mean()` function on the iris sepal lengths to compare with our results.
+
+Notice that we use our `average()` function just as we do the `mean()` or any other function.
+
+```{r results='hold'}
+# Test with three numbers
+average(c(5, 11, 19))
+
+# Test with a vector of sepal lengths from the iris data frame.
+average(iris$Sepal.Length)
+
+# To be sure it works, use the built-in mean() function on iris sepal lengths.
+mean(iris$Sepal.Length)
+```
+
+It works!
+
+### Enhancing your function.
+
+The framework above is the minimum you need to write a function. If you're writing a custom function for a singular need, this may be all you need to do. But, let's go one step further to make a point.
+
+Consider the vector `c(5, 11, NA, 19)`. It's the same vector as above but an `NA` has been inserted. Recall that `NA` is how R represents missing data.  What happens if you pass this vector to your `average()` function?
 
 ```{r}
-# Short month name
-month(gf$Date, label = TRUE)
-
-# Full month name
-month(gf$Date, label = TRUE, abbr = FALSE)
-
+numbers <- c(5, 11, NA, 19)
+average(numbers)
 ```
 
-I've touched on some but not all of the functions you will need to complete this assignment. Read chapter 16, sections 1-3, then do the assignment.
+The result is `NA`. You get the same result with `mean(numbers)`. R does not know how you might want to handle `NA` so it returns `NA` as a result. If you look at the help for `mean()` (`?mean`), you will see this usage. 
+
+```
+Usage
+mean(x, ...)
+
+## Default S3 method:
+mean(x, trim = 0, na.rm = FALSE, ...)
+```
+
+Notice the `na.rm = FALSE` argument. `na.rm` is a boolean value that when `TRUE` causes all instances of `NA` to be removed from a vector. The default setting is `FALSE` so `NA`s are not removed by default. You must must specifically override the default with `na.rm = TRUE` to remove all `NA` elements from your vector. (Many R functions have the `na.rm = FALSE` argument.) 
+
+
+```{r results='hold'}
+numbers <- c(5, 11, NA, 19)
+
+# Default setting of na.rm = FALSE
+mean(numbers) # Returns NA
+
+# Override the default with na.rm = TRUE
+mean(numbers, na.rm = TRUE) # Returns the mean
+```
+
+Let's make two changes to our `average` function. First, you may have noticed from the help that the `mean()` function has several arguments. Our updated `average()` function will have two arguments, so `args` doesn't make sense as a name for *one* of the arguments. Change all instances of `args` to `values` to show that the first argument is a vector of values.
+
+```{r}
+# Comments removed for brevity. Your code must have comments.
+average <- function(values) {
+  total <- sum(values)
+  avg <- total/length(values)
+  return(avg)
+}
+```
+
+Easy enough. *Use argument names that help you understand what the arguments are for.* Next, let's add the `na.rm = FALSE` argument.
+
+```{r}
+average <- function(values, na.rm = FALSE) {
+  total <- sum(values)
+  avg <- total/length(values)
+  return(avg)
+}
+```
+
+Next, we have to add code that tests whether `na.rm` is `FALSE` or `TRUE`. We'll use the `ifelse()` function described in the notes above. We'll also use another function called `na.omit()` that removes all instances of `NA` from a vector.
+
+<!--To do this, we're going to use an R function called `ifelse()`. Enter `?ifelse` in the console to see the help. The usage is
+
+```{r eval=FALSE}
+ifelse(test, yes, no)
+```
+
+The `test` argument is the conditional (boolean) test. In this case, is `na.rm` `TRUE` or `FALSE`. If the result of the test is true, then the `yes` code is run. If the test result is false, then the `no` code is run. -->
+
+If `na.rm = TRUE`, then our code will pass the `values` argument to `na.omit()` to remove all instances of `NA`.  If `na.rm = FALSE`, then the vector passes untouched.  In pseudocode, the `ifelse()` function looks like this.
+
+```{r eval=FALSE}
+ifelse(na.rm is TRUE,                             # Test
+       use na.omit to remove NAs from the vector, # Yes
+       leave the vector alone)                    # No
+```
+
+In real code, the line would be
+
+```{r eval=FALSE}
+ifelse(na.rm, # TRUE (yes) or FALSE (no)?
+       values <- na.omit(values), # TRUE. Remove NAs.
+       values)                    # FALSE. Leave vector alone.
+```
+
+Notice that you do not have to ask if `na.rm == TRUE` or `na.rm == FALSE`. The function will look at the value of `na.rm` and know whether it is `TRUE` or `FALSE`. If `na.rm` is `FALSE` (our default), then the `FALSE` argument will run. If `na.rm` is `TRUE`, then the `TRUE` argument will run. 
+
+Our final function looks like this.
+
+
+```{r}
+average <- function(values, na.rm = FALSE) {
+  ifelse (na.rm,                     # Test
+          values <- na.omit(values), # Is TRUE
+          values)                    # IS FALSE
+  total <- sum(values)
+  avg <- total/length(values)
+  return(avg)
+}
+```
+
+
+Now, let's make sure it works.
+
+```{r}
+numbers <- c(5, 11, NA, 19)
+average(numbers) # na.rm = FALSE is the default
+average(numbers, na.rm = TRUE) # override the default
+```
+
+Your updated `average()` function is more robust than your first version because it does some basic *error checking* to ensure your data do not include `NA` among the elements. Other errors are still possible. What if you tried to pass data to your function that is *not* a vector of numbers?
+
+```{r error=TRUE}
+average(c())
+
+average(NULL)
+
+average(c("a", "b", "c"))
+```
+
+Well-written functions, even for your own use, include at least minimal error checking to ensure reliability of your results. For now though, the basic framework will serve our needs. 
+
+*Review the notes above to see where you should place custom functions in your code.*
+
+### Want to write another function?
+
+You're going to have to write two functions in the homework assignment. One of them will be for the standard error of the mean, which has the following forumla
+
+$$\frac{s}{\sqrt{n}},$$
+
+where *s* is the standard deviation of the sample and *n* is the sample size.  Use `sd()` to calculate standard deviation of a vector, `length()` to calculate sample size, and `sqrt()` to calculate the square root of the sample size.
+
+**Note:** You do not have to turn in this function as a separate assignment. You'll include the function as part of your homework assignment so I will see it then. But, writing it now lets you gauge your understanding now.
+
+**Another note:** When you run the code that contains the function, you should not get any visible feedback. R loads your function into memory so that it is available when you call it later. If you get an error, then something is wrong with the structure of your code. You'll have to fix it until it loads without error.
+
+  - A function that loads correctly is not guaranteed to return the correct result. That's a separate issue.
+
+**Yet another note:** Surprisingly, base R does not have a built-in function to calculate standard error of the mean.
+
+
+
 
