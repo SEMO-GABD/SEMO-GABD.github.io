@@ -2,11 +2,11 @@
 title: "HW08: Wrangling II and Function Writing"
 subtitle: "Graphical Analysis of Biological Data"
 output:
-  pdf_document: 
-    latex_engine: lualatex
   html_document:
     df_print: paged
     toc: yes
+  pdf_document: 
+    latex_engine: lualatex
 #    latex_engine: lualatex
 urlcolor: blue
 ---
