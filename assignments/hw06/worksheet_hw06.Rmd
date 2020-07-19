@@ -154,6 +154,16 @@ table4a %>%
 #> Error in inds_combine(.vars, ind_list): Position must be between 0 and n
 ```
 
+**4:** Tidy the simple tibble below using `pivot_longer()`. Use suitable names for `names_to` and `values_to` arguments. Enter your code to tidy the data in this chunk, after the code to create the `preg` tibble.
+
+```{r}
+preg <- tribble(
+  ~pregnant, ~male, ~female,
+  "yes",     NA,    10,
+  "no",      20,    12
+)
+```
+
 Skip the rest of Chapter 12. On to the last chapter.
 
 
