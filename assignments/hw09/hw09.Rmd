@@ -72,7 +72,7 @@ A few things:
 - Load the `tidyverse`, `here`, `knitr`, and `smatr` libraries.
 <!-- Define a variable with the path to your `data` folder. This should be the same data path you used last time. *If you have your data files in the same folder as your .Rmd file, skip this and the next step.*-->
 
-- Make sure the [feathers.csv]((https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/feathers.csv)) and [darters.csv]((https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/darters.csv)) files are in your `data` folder. This `darters.csv` file is not the same as `darters.txt` from a previous assignment.
+- Make sure the [feathers.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/feathers.csv))and [darters.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/darters.csv) files are in your `data` folder. This `darters.csv` file is not the same as `darters.txt` from a previous assignment.
 
 - Commit early. Commit often.  Push regularly but at least push your completed assignment.
 
