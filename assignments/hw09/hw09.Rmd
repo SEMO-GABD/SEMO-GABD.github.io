@@ -1,5 +1,5 @@
 ---
-title: "HW 06: Wrangling II"
+title: "HW 09: Wrangling II"
 subtitle: "Graphical Analysis of Biological Data"
 output:
   pdf_document: 
@@ -16,14 +16,22 @@ knitr::opts_chunk$set(include = FALSE, eval = FALSE)
 ```
 
 
-By the end of this assignment, you should demonstrate an ability to
+By the end of this assignment, you should be able to achieve the following tasks in R:
 
+- use R notebooks and R markdown;
+- insert, write, and evaluate code chucks; 
+- import data stored in a variety of text file formats; 
+- make untidy data tidy;
 - mutate, summarize, and group data;
-- Use a typical workflow to wrangle and plot data.
+- use pipes; 
+- produce plots with `ggplot2`;
+- use a typical workflow to wrangle and plot data; 
+- be able to source custom functions, and
+- confidently stage, commit, and push with Git.
+
+*These achievements belong to Learning Outcomes 2, 3, 4, 5, 6.*
 
 Click on any blue text to visit the external website.
-
-This assignment has two parts. 
 
 **Note:** If you contact me for help or (better yet) open an issue in the [public discussion forum,](https://github.com/SEMO-GABD/public_discussion) please include the code that is not working and also tell me what you have tried.
 
@@ -31,33 +39,21 @@ This assignment has two parts.
 
 - Open your `.Rproj` project file in RStudio.
 
-- Create an `hw06` folder inside the same folder as your project file.
+- If you haven't already, install the `here` package from `Tools > Install Packages...` or run `install.packages("here")` from the console.
+
+- Install the `smatr` package.
+
+- You should already have an `scripts` folder inside the same folder as your project file. If not, make it now and make sure your `my_functions.R` script from HW08 is inside the `scripts` folder.
 
 
 ```{r}
 library(tidyverse)
+library(here)
 library(smatr)
 library(knitr)
 ```
 
-- Right-click to save [this file](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw06/feathers.csv) as `feathers.csv` in your data folder. Make sure the file ends with `.csv` and not `.txt`.
-
-## Part 1
-
-- Download this [R Notebook file](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw06/worksheet_hw06a.Rmd). Right-click to save the file as `<lastname>_hw06a.Rmd` inside the `hw06` folder. Make sure the file ends with `.Rmd` and not `.txt`. 
-
-Read the following sections. As you read the asigned sections, insert a code chunk in your notebook and recreate *every* example in that section, except for those I tell you in the notebook to skip. *Type the code!*  In part 2, you will have to type the code from scratch so typing the code will help you remember it better. The point here is *learn* how to do this! 
-
-- Answer the questions in each section, except where I tell you to skip them. You will have to enter code chunks to answer the quwstions and also to write text outside of the code chunks. In other words, you will take advantage of R Notebook features.
-
-- For each code chunk you add, write a brief description of what that chunk does. That includes examples and questions. Writing these descriptions will help you learn and understand the code.
-
-- Some answers will require you to run code and enter text. Other questions will require only one or the other. The questions should give you the context you need.
-
-- **Stage and commit regularly!**  A good habit would be to stage and commit after you complete each section. You should also push each time but at least push your completed notebook to your remote repo.
-
-
-## Part 2: Wrangling II
+## Wrangling II
 
 Your task here is simple. Write code chunks that 
 
@@ -69,50 +65,53 @@ Then, describe the results briefly. Identify patterns and trends, potential outl
 
 You may need to review your Introduction to R coding exercise to meet some requirements, especially factors and how to select one column from a dataframe, and how to change one value to another. 
 
-Remember to put all the data files in your `data` folder. 
-
 A few things:
 
-- Create a new notebook file called `<lastname>_06b.Rmd`. Edit the YAML file as you have for previous assignments.
-- Load the `tidyverse` and `knitr` libraries.
-- **Install the `smatr` package and then load the `smatr` library.**
-- Define a variable with the path to your `data` folder. This should be the same data path you used last time.
-- Make sure the [feathers.csv]((https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw06/feathers.csv)) file is in your `data` folder. 
+- Remember to put all the data files in your `data` folder. 
+
+- Load the `tidyverse`, `here`, `knitr`, and `smatr` libraries.
+<!-- Define a variable with the path to your `data` folder. This should be the same data path you used last time. *If you have your data files in the same folder as your .Rmd file, skip this and the next step.*-->
+
+- Make sure the [feathers.csv]((https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/feathers.csv)) and [darters.csv]((https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/darters.csv)) files are in your `data` folder. This `darters.csv` file is not the same as `darters.txt` from a previous assignment.
+
 - Commit early. Commit often.  Push regularly but at least push your completed assignment.
 
+### Source your functions
+
+You can use R's `source()` function to run R code contained in an external file. Source your `my_functions.R` script that you wrote in the previous assignment by including this code chunk. You'll have to change the name of `my_functions.R` if you did not use that name for your scripts file.
 
 ```{r}
-file_path <- "~/Documents/teach/485_setup/data"
+source(here("scripts", "my_functions.R"))
 ```
+
+
+### Importing Data
+
+As a reminder, The `here` package automatically sets all search paths relative to the project file. We're keeping our files to import in a folder called `data`.  Thus, the general format you should use is
+
+```{r}
+my_data <- read_csv(here("data", "my_file.csv"))
+```
+
+`here` tells `read_csv` to look for your file in the `data` folder. Above, `here` told `source()` to look for the file in the `scripts` folder.  This is a simple and portable solution across all computers. **Use this format for this and all future assignments.**
+
+<!--
+```{r}
+file_path <- "../data"
+```
+-->
 
 ### Darters in riffles
 
 #### Import data
 
-- Read in `darters.txt` like you did for the last assignment. 
+- Read in `darters.csv`. These are the same data as an earlier assignment but in csv format.
 - Use `filter()` to remove `tetrazonum` and `zonale`.
 - Do *not* delete the `minsub` column like you did in the previous assignment. 
 
 ```{r}
-widths <- c(3, 11, 1, 1, 1, 3, 4, 4, 4, 3, 3, 2, 2)
-names <- c("id",
-           "species",
-           "riffle",
-           "age",
-           "sex",
-           "length",
-           "depth",
-           "velocity",
-           "temperature",
-           "majsub",
-           "minsub",
-           "majtype",
-           "mintype")
+darter_raw <- read_csv(here("data", "darters.csv"))
 
-darter_raw <- read_fwf(file.path(file_path, "darters.txt"), 
-                   skip = 13,
-                   fwf_widths(widths,
-                   col_names = names))
 ```
 
 #### Wrangle data
@@ -150,7 +149,7 @@ darter_mean <- darter %>%
 
 #### Table results
 
-- Use Make a table with the summary means.
+- Use `kable` to make a table with the summary means.
 
 ```{r}
 knitr::kable(darter_mean)
@@ -166,7 +165,7 @@ knitr::kable(darter_mean)
 
 - Remember that `ggplot2` uses a "layered grammar of graphics." Add a `geom_point()` layer to add the mean length of each species to the plot. Use a filled square shape. *You will have to use the summarized data set to get the mean for this geom.*
 
-**Note:** If you do not get a point in the next plot showing the mean for *E. blennioides,* then you did something wrong. What was it?
+**Note:** If you do not get a point in the next plot showing the mean for *E. blennioides,* then you did something wrong. What was it? Find your error and fix it.
 
 - Turn the plot so that the species are listed on the left axis and length on bottom axis.
 
@@ -202,7 +201,7 @@ You probably noticed that the location of the median is not centered between the
 
 You decide that you could display the data more effectively. You want to show the individual measurements and emphasize the mean over the median. You also decide you want to try a slightly different way of graphing the data.
 
-- Make a new plot with a `geom_point()` layer of length for each species. Change the point color to a lighter shade in the range of `gray50` to `gray70`. The points should contrast against the overall gray background but they are not the main point of the graph.
+- Make a new plot with a `geom_point()` layer of the length variable for each species. Change the point color to a lighter shade in the range of `gray50` to `gray70`. The points should contrast against the overall gray background but they are not the main visual focus of the graph.
 - Add a `stat_summary()` layer with these arguments:
     - `fun.y = median`
     - `geom = "point"`
@@ -238,14 +237,14 @@ darter %>%
 
 - load the `smatr` library when you load `tidyverse`.
 - Data file: `feathers.csv`. 
-- Are the data tidy?
+- Tidy the data if and as necessary. 
 - The data were recorded by a team of French scientists, so decimal numbers use a decimal comma instead of decimal point (e.g., 2,31 instead of 2.31). Use the `locale = locale(<argument>)` argument in the `read_csv()` function to specify the decimal mark. Type `?locale` to read the help file. The only argument you need to supply to `locale()` is for the decimal mark.
 - Their column names include spaces and units of measurement, generally not a good idea because you have to use backticks to reference the columns. Rename the columns when you import them, or rename them after you import the data using the `rename()` function. Use these names, in order from left to right: 
     - capture_date, day, site, urban_score, cortF, cortB, sex, smi, tarsus, mass, basal_cort, stress_cort
 - *Hint:* If you rename the columns when you read in the data, you will need to use the `skip` argument to remove the row of column names in the file.
 
 ```{r}
-feather <- read_csv(file.path(file_path, "feathers.csv"),
+feather <- read_csv(here("data", "feathers.csv"),
                     skip = 1,
                     locale = locale(decimal_mark = ","),
                     col_names = c("capture",
@@ -265,24 +264,31 @@ feather <- read_csv(file.path(file_path, "feathers.csv"),
 
 #### Wrangle data
 
-The authors use an index called the "scaled mass index" (SMI), included as a column. However, you will use R to recreate that value.  The equation to calculate SMI for each individual ($i$) is, 
+The authors use an index called the "scaled mass index" (SMI), included as a column. You will use your `scaled_mass` R function to recreate that value.  Recall that the equation to calculate SMI for each individual ($i$) is, 
 
 $$\mathrm{SMI}_i = M_i \times (L_0/L_i)^b,$$
 
 where $L_0$ is the mean tarsus length of all birds in the sample, $M_i$ and $L_i$ are the mass and tarsus^[The tarsus looks like [part of the bird's leg](https://en.wikipedia.org/wiki/Bird_anatomy) but is homologous to the tarsal bones in the vertebrate foot.] length of each individual, and $b$ is the slope estimate of the standardized major axis regression on the log-transformed mass and log-transformed tarsus length.
 
-Fortunately, you do not need to know the details of the analysis. You can get the values you need with a few easy steps. Let's first get $b,$ the slope of the regression.
+Fortunately, you do not need to know the details of the analysis. You have the tarsus lengths and mass from the individual birds in your tibble. You need to calculate $b,$ the slope of the regression. **Follow these steps carefully.**
 
-- Calculate the mean tarsus length of all individuals in the data set, and store it in av ariable called `mean_tarsus`. You should know how to calculate the mean of all values in a column. 
+- Calculate the mean tarsus length of all individuals in the data set, and store it in a variable called `mean_tarsus`. You should know how to calculate the mean of all values in a column. 
+
 - Use `mutate()` to log-transform (`log()`) the body mass (`mass`) and the tarsus length (`tarsus`). Save these in new columns as `log_mass` and `log_tarsus`, respectively.
-- Run the following function `major_axis <- sma(log_mass ~ log_tarsus, data = <data>)`. Substitute the name of your imported data for `<data>`. The `sma()` function calculates the standardized major axis regression.
-- Apply the `summary()` funciton to `major_axis`.
+
+- Run `major_axis <- sma(log_mass ~ log_tarsus, data = <data>)`. Substitute the name of your imported data for `<data>`. The `sma()` function calculates the standardized major axis regression.
+
+- Apply the `summary()` function to `major_axis` to see the results of the regression.
     - The value you want for $b$ is the slope of the estimate.
-- Apply the `coef()` function to `major_axis`. The output is a named numeric vector with two elements. The value you want is the second element. Store that value in the variable `b`.
+    
+- Apply the `coef()` function to `major_axis`. The output is a named numeric vector with two elements. The value you want is the second element. Store that value in the variable `b`. **Do not hard code the value.** Review Homework 1, Part 2 to recall how to get values from a named vector. Make R do the work for you!
 
-At this point, you now have the information you need to calculate "SMI" for each bird. $L_0$ = `mean_tarsus`, $b$ = `b`, and $M_i$ and $L_i$ are the mass and tarsus columns. **Note:** Do *not* use the log-transformed values for this calculation.
+<!--
+At this point, you now have the information you need to calculate "SMI" for each bird. $L_0$ = `mean_tarsus`, $b$ = `b`, and $M_i$ and $L_i$ are the mass and tarsus columns. **Note:** Do *not* use the log-transformed values for this calculation.-->
 
-- Use mutate to calculate SMI and store the values in a new column called `new_smi`. Compare your new column with the column you imported. Your values should be nearly identical, differing by no more than 0.1. *Hint (optional):* Use the `select()` function of `dplyr` to rearrange your columns so that `smi` and `new_smi` are side by side. Or, print them out together.  **Note:** If your numbers are not correct, figure out where you made a mistake and correct it.
+- Use mutate and your `scaled_mass` function to calculate SMI and store the values in a new column called `new_smi`. You need to pass the mass column, the tarsus column, and *b* to your function.  
+
+- Compare your new column with the column you imported. Your values should be nearly identical, differing by no more than 0.1. *Hint (optional):* Use the `select()` function of `dplyr` to rearrange your columns so that `smi` and `new_smi` are side by side. Or, print them out together.  **Note:** If your numbers are not correct, figure out where you made a mistake and correct it.
 
 ```{r}
 feather <- feather %>% 
@@ -296,27 +302,30 @@ summary(major_axis)
 b <- coef(major_axis)["slope"]  #or coef
 
 feather <- feather %>% 
-  mutate(new_smi = mass * (tarsus_mean/tarsus)^b)
+#  mutate(new_smi = mass * (tarsus_mean/tarsus)^b)
+   mutate(new_smi = scaled_index(mass, tarsus, b))
+
 ```
 
 #### Summarize data
 
 Next, summarize the basal and stress corticosterone data.
 
-- Group by site, and then use `summarize()` to calculate the mean and standard error of the mean $(SE_Y)$ for `basal_cort` and `stress_cort` for each site. Standard error of the mean is calculated as,
+- Group by site, and then use `summarize()` to calculate the mean and standard error of the mean $(SE_Y)$ for `basal_cort` and `stress_cort` for each site. Use your `std_err` function to calculate standard error of the mean. <!--Standard error of the mean is calculated as,
 
 $$SE_Y = \frac{s}{\sqrt{n}},$$
 
-where $s$ is the standard deviation and $n$ is the number of individuals. You can calculate the standard deviation in R with the `sd()` function. Do not forgot to include `na.rm = TRUE` in the arguments for `mean()` and `sd()`, as shown in the text.
+where $s$ is the standard deviation and $n$ is the number of individuals. You can calculate the standard deviation in R with the `sd()` function. Do not forgot to include `na.rm = TRUE` in the arguments for `mean()` and `sd()`, as shown in the text.-->
 
 ```{r}
 feather_sum <- feather %>%
   group_by(site) %>%
   summarize(n = n(),
             mean_basal = mean(basal_cort, na.rm = TRUE),
-            se_basal = sd(basal_cort, na.rm = TRUE)/sqrt(n),
+            se_basal = std_err(basal_cort, na.rm = TRUE),
             mean_stress = mean(stress_cort, na.rm = TRUE),
-            se_stress = sd(stress_cort, na.rm = TRUE)/sqrt(n))
+            se_stress = std_err(stress_cort, na.rm = TRUE)
+            )
 ```
 
 #### Graph data
@@ -372,7 +381,7 @@ You must modify one of the above graphs with the following requirements:
 
 - use size of 3 for the point located at the mean,
 - color the point maroon,
-- place the error bars behind the points so that a black line does not cur across the face of each point.
+- place the error bars behind the points so that a black line does not cut across the face of each point.
 - Assume you like the Tie Fighter look but you do not want them so exaggerated. Size them to something much smaller but still present. The exact size depends on your tastes. **Note:** I encourage undergrads to attempt this but this does not count for or against your grade.
 
 
