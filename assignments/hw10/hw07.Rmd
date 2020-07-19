@@ -38,19 +38,20 @@ This assignment has two parts.
 
 - Right-click and save [sparrows.txt](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw07/sparrows.txt) and [aegla_crabs.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw07/aegla_crabs.csv) to your data folder.
 
-- Load the `tidyverse` libraries.
+- Install the `GGally` and the `patchwork` packages. Do not include the installation code in your notebook. Install from the console or the `Tools` menu.
 
-- Install the `GGally` package and then load the `ggally` library.
+- Add a code chunk to load the `tidyverse`, `ggally`, and `patchwork` libraries.
+<!--
+- Install the `devtools` package. You do not have to load it. Do not include the installation code in your notebook. Install from the console or the `Tools` menu.
 
-- Install the devtools library.
-
-- After you have installed the `devtools` library, run the following code in your RStudio console to **install the `patchwork` library.** `patchwork` is not yet available on CRAN so we will install it directly from the development site on GitHub. Make sure you include two colons between `devtools` and `install_github`. 
+- After you have installed the `devtools` library, run the following code in your RStudio console (not the notebook) to **install the `patchwork` library.** `patchwork` is not yet available on CRAN so we will install it directly from the development site on GitHub. Make sure you include two colons between `devtools` and `install_github`. 
 
 ```{r eval=FALSE}
 devtools::install_github("thomasp85/patchwork")
 ```
 
 - Load the patchwork library.
+-->
 
 - Commit early. Commit often.  Push regularly but at least push your completed assignment.
 
@@ -71,7 +72,7 @@ We will recreate Figures 2, 3, 5, 10, and 11 from [Zuur et al. 2010.](https://be
 
 ### Import and wrangle
 
-- Import `sparrow.txt`. I will leave it to you to figure out if the data are comma-delimited or tab-delimited to choose the proper import function. i imported the raw data into a variable called `sparrow_raw`, which I leave unmodified. 
+- Import `sparrow.txt`. I will leave it to you to figure out if the data are comma-delimited or tab-delimited to choose the proper import function. I imported the raw data into a variable called `sparrow_raw`, which I leave unmodified. 
 
 - A good idea is to `View()` the imported data to be sure the data look like they were properly imported.
 
@@ -109,7 +110,7 @@ sparrows %>%
 
 ```
 
-The box plot identified at *possible* outliers. They were identified as outliers because they fall outside of the 1.5 \* interquartile range. But outliers are very different from most other values. The outlier points are just beyond the whiskers, suggesting that the "outliers" may not be that different from the other values. 
+The box plot identified at *possible* outliers. They were identified as outliers because they fall outside of the 1.5 \* interquartile range. Outliers are *very* different from most other values. The outlier points are just beyond the whiskers, suggesting that the "outliers" may not be that different from the other values. 
 
 The full range of values can be assessed with a Cleveland dot plot, as shown in the right panel.
 
@@ -152,13 +153,13 @@ We just substitute our two plot names in the same fashion.
 plot_box + plot_cleveland
 ```
 
-Bingo! We've recreated Figure 2. Unfortunately, the wing lengths are shown on the y-axis of the boxplot but the x-axis of the Cleveland plot. The authors note in the figure legend that it can be helpful to have the axes aligned. We will take advantage of `ggplots` layers to make a very simple improvement, by adding a `coord_flip` layer, which you have used before.
+Bingo! We've recreated Figure 2. Unfortunately, the wing lengths are shown on the y-axis of the boxplot but the x-axis of the Cleveland plot. The authors note in the figure legend that it can be helpful to have the axes aligned. We will take advantage of `ggplot` layers to make a very simple improvement, by adding a `coord_flip` layer, which you have used before.
 
 ```{r}
 plot_box + plot_cleveland + coord_flip()
 ```
 
-Comparison shows that the longest wing (row 536) is not very different at all from the other long wings.  Similarly, the shortest wing outlier is not very different from the other short wings.  That suggests these data are OK to include in subsequent analyses.  
+Comparison shows that the longest wing (row 536) is not very different at all from the other long wings.  Similarly, the shortest wing outlier is not very different from the other short wings.  That suggests these data are okay to include in subsequent analyses.  
 
 ### Figure 3: outliers
 
@@ -314,7 +315,7 @@ Scatterplots are useful for showing the relationship between two variables. The 
 
 Another essential step in any graphical analysis of data is to explore relationships among the variables, like that shown by Figure 10. The panels above the diagonal are scatterplots that show pairwise relationships between the continuous variables in the sparrow data. The intersection of a row with a column shows the scatterplot for a specific pair of variables. The panels below the diagonal shows the Pearson correlation coefficients, $r.$ The coefficients range from 0 to 1. Higher values indicate stronger relationships between the two variables.
 
-As you might imagine, writing the code for dozens of scatterplots could quickly grow tedious, even with copy and paste. You have to ensure you changed each of the variables exactly right. Fortunately, the [GGally](http://ggobi.github.io/ggally/) package provides the [ggscatmat](http://ggobi.github.io/ggally/#ggallyggscatmat) and  [ggpairs](http://ggobi.github.io/ggally/#ggallyggpairs) functions. Before you go farther, scroll down to browse through the examples for these functions. `ggscatmat` creates only a scatterplot matrix, which we will use. `ggpairs()` can produce many more types of plots in the matrix, as you saw looking through the examples.
+As you might imagine, writing the code for dozens of scatterplots could quickly grow tedious, even with copy and paste. You have to ensure you changed each of the variables exactly right. Fortunately, the [GGally](http://ggobi.github.io/ggally/) package provides the [ggscatmat](http://ggobi.github.io/ggally/articles/ggscatmat.html) and  [ggpairs](http://ggobi.github.io/ggally/articles/ggpairs.html) functions. Before you go farther, scroll down to browse through the examples for these functions. `ggscatmat` creates only a scatterplot matrix, which we will use. `ggpairs()` can produce many more types of plots in the matrix, as you saw looking through the examples.
 
 We will use the `columns` argument of `ggscatmat` to specify the first seven columns of data. If you want to plot all columns (helpful but not always wise), you do not have to supply the `columns` argument.
 
@@ -388,14 +389,20 @@ Your goal is simple but it will take time.
 
 - Create a `row_order` dummy variable like we did for the sparrows. 
 
+<!--
 - Its up to you whether to use the *more efficient* pipes or the less efficient method of creating new variables for each step.
+-->
+
+- You must use the pipe (`%>%`) to make efficient code.
 
 - **Explore the data.** There are three apparent outliers among the variables but only one that I think is an actual outlier. Find them and justify your choices.
 
 - Choose four variables to make Cleveland plots, and make a 2x2 grid with the four plots, using `patchwork`.
 
 - Choose three different variables to make histograms. Play with the `bins` or `binwidths` argument that you think reveals the data well. *Hint:* the default `bins = 30` that `geom_histogram` is usually not a suitable choice. Save each histogram to a unique variable.
+
 - Use the same three variables to produce density plots. Save each plot to a unique variable.
+
 - Use `patchwork to produce a 2 column matrix with the histograms in the left column and the corresponding density plots in the right column.
 
 - Use `ggpairs` to explore the relationships among all the variables. 
