@@ -44,6 +44,7 @@ Click on any blue text to visit the external website.
 
 ```{r include=FALSE}
 library(tidyverse)
+library(here)
 ```
 
 - **Stage and commit regularly!**  A good habit would be to stage and commit after you complete each section. You should also push each time but at least push your completed notebook to your remote repo.
@@ -220,7 +221,9 @@ Are there really immatures with more than five rings with zero height? Srsly?
 hgt <- abalone$Height < 0.01
 abalone[hgt,]
 
-abalone$Height[abalone$Height==0] <- NA
+#abalone$Height[abalone$Height==0] <- NA
+
+abalone <- abalone %>% na_if(height, 0)
 
 ggplot(data = abalone) +
   geom_point(aes(x = Rings,
