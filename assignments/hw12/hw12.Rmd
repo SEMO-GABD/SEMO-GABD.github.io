@@ -16,11 +16,22 @@ knitr::opts_chunk$set(include = FALSE, eval = TRUE, message=FALSE)
 ```
 -->
 
-By the end of this assignment, you should demonstrate an ability to 
+By the end of this assignment, you should be able to achieve the following tasks in R:
 
+- use R notebooks and R markdown;
+- insert, write, and evaluate code chucks; 
 - make dates from different input formats,
 - use the dates for calculations, and
 - extract date components for graphing, 
+- use pipes; 
+- produce plots with `ggplot2`;
+- use a typical workflow to wrangle and plot data; and
+- confidently stage, commit, and push with Git.
+
+*These achievements belong to Learning Outcomes 2, 3, 4, 5, 6.*
+
+By the end of this assignment, you should demonstrate an ability to 
+
 
 Click on any blue text to visit the external website.
 

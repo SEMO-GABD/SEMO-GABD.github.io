@@ -15,12 +15,22 @@ knitr::opts_chunk$set(include = TRUE, eval = TRUE, message=FALSE)
 ```
 
 
-By the end of this assignment, you should demonstrate an ability to visually analyze data for 
+By the end of this assignment, you should be able to achieve the following tasks in R:
 
-- outliers,
-- normality, 
-- relationships among variables, and
-- interactions.
+- use R notebooks and R markdown;
+- insert, write, and evaluate code chucks; 
+- use pipes; 
+- produce plots with `ggplot2`;
+- visually analyze data for 
+  - outliers,
+  - normality, 
+  - relationships among variables, and
+  - interactions.
+- use a typical workflow to wrangle and plot data; 
+- write custom functions, and
+- confidently stage, commit, and push with Git.
+
+*These achievements belong to Learning Outcomes 2, 3, 4, 5, 6.*
 
 Click on any blue text to visit the external website.
 
