@@ -1,12 +1,12 @@
 ---
-title: "HW 09: Strings and things"
+title: "HW 13: Strings and things"
 subtitle: "Graphical Analysis of Biological Data"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
     latex_engine: lualatex
-  pdf_document: default
 urlcolor: blue
 ---
 
@@ -14,11 +14,19 @@ urlcolor: blue
 knitr::opts_chunk$set(include = FALSE, eval = TRUE, echo=FALSE, message=FALSE)
 ```
 
-By the end of this assignment, you should demonstrate an ability to 
+By the end of this assignment, you should be able to achieve the following tasks in R:
 
+- use R notebooks and R markdown;
+- insert, write, and evaluate code chucks; 
+- use pipes; 
 - manipulate strings using string functions,
 - use regular expressions to work with complex strings, and
+- produce plots with `ggplot2`;
 - customize plots to improve visualization.
+- use a typical workflow to wrangle and plot data; 
+- confidently stage, commit, and push with Git.
+
+*These achievements belong to Learning Outcomes 2, 3, 4, 5, 6.*
 
 Click on any blue text to visit the external website.
 
@@ -40,25 +48,28 @@ This assignment has four parts.
 
 - Right-click and save these files to your `data` folder.
 
-    - [beta_gliadin.txt](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/beta_gliadin.txt)
-    - [ants.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/ants.csv)
-    - [flower_size.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw09/flower_size.csv)
-    - [flower_pollinators.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw09/flower_pollinators.csv)
+    - [beta_gliadin.txt](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw13/beta_gliadin.txt)
+    - [ants.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw13/ants.csv)
+    - [flower_size.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw13/flower_size.csv)
+    - [flower_pollinators.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw13/flower_pollinators.csv)
 
-- Create an `hw09` folder inside the same folder as your project file.
+- Create an `hw13` folder inside the same folder as your project file.
 
 - Add the YAML header as usual.
 
-- Load the `tidyverse` library. 
+- Install the `ggthemes` package. Do I have to tell you to not include the code in your notebook?
 
-- Install the `ggthemes` package, and then load the `ggthemes` library.
+- Load the `tidyverse`, `here`, and `ggthemes` libraries. 
 
 - Install the `RColorBrewer` and `viridis` packages. *Do not load them*. `ggplot` will use these for some color palettes.
 
 ```{r}
 library(tidyverse)
+library(here)
 library(ggthemes)
 ```
+
+- Be sure your code format follows the guidelines.
 
 - Commit early. Commit often.  Push regularly.
 
@@ -87,7 +98,7 @@ You will use `stringr` functions and regular expressions (regex) to identify the
 ```{r include=TRUE}
 # Use read_lines function, skip 1
 # dna_raw <- read_lines("data/beta_gliadin.txt", skip = 1)
-dna_raw <- read_lines("data/beta_gliadin.txt", skip = 1)
+dna_raw <- read_lines(here::here("data", "beta_gliadin.txt"), skip = 1)
 
 head(dna_raw)
 ```
@@ -260,7 +271,7 @@ While no code is perfect, regular expression are a powerful tool that allows you
 - Import `ants.csv` and print the first few rows.
 
 ```{r include=TRUE}
-ants_raw <- read_csv("data/ants.csv")
+ants_raw <- read_csv(here::here("data", "ants.csv"))
 
 head(ants_raw)
 ```
@@ -271,17 +282,17 @@ The species column names follow a distinct pattern: "Genus.species". The first l
 
 ### Wrangle the data
 
-The data are untidy, so gather the data. Your `gather()` statement should follow this framework:
+The data are untidy, so pivot the data to a longer format. Your `pivot_longer()` statement should follow this framework:
 
-`gather(key = species, value = abundance, matches(regex, ignore.case = FALSE))`
+`pivot_longer(names_to = "species", values_to = "abundance", matches(regex, ignore.case = FALSE))`
 
 I have given you everything you need except the `regex` pattern. You have to figure out the pattern to select all of the species columns. *Remember to use two backslashes to escape the period that separates Genus and species in the column name.*
 
 ```{r include=TRUE}
 
 ants <- ants_raw %>% 
-  gather(key = species, 
-         value = abundance, 
+  pivot_longer(names_to = "species", 
+         values_to = "abundance", 
          matches("[A-Z].+\\..+", 
                  ignore.case = FALSE))
 
@@ -297,7 +308,7 @@ ants <- ants %>%
 
 **This part might be the hardest part of the assignment.** Break it down into small chunks. Run the code without saving the results until you are satisified you have the correct results. Then, save the results to a variable.
 
-Later, you will plot abundances for each species. The species names are long, which will make the plot awkward. You will use `str_replace` and regex patterns to reduce the long species names to eight letter [CEP names.](http://cc.oulu.fi/~jarioksa/softhelp/vegan/html/make.cepnames.html) The CEP name is made from the first four letters of the genus and the first four letters of the species. For example, [*Mephitis mephitis*](https://animaldiversity.org/accounts/Mephitis_mephitis/) becomes Mephmeph.
+Later, you will plot abundances for each species. The species names are long, which will make the plot awkward. You will use `str_replace` and regex patterns to reduce the long species names to eight letter [CEP names.](https://www.rdocumentation.org/packages/vegan/versions/2.4-2/topics/make.cepnames) The CEP name is made from the first four letters of the genus and the first four letters of the species. For example, [*Mephitis mephitis*](https://animaldiversity.org/accounts/Mephitis_mephitis/) becomes Mephmeph.
 
 The `mutate()` framework to use is
 
@@ -338,9 +349,13 @@ ants_summary %>%
                  y = total,
              color = f_year,
              shape = f_year)) +
+  labs(y = "Abundance", x = "Species") +
   coord_flip() +
   scale_color_manual(values = c("darkorange", "blue"),
-                     name = "Year") 
+                     name = "Year") +
+  scale_shape_manual(values = c(19,17),
+                     name = "Year")
+
 ```
 
 ### Plot the data
@@ -381,7 +396,7 @@ ants_summary %>%
   theme_minimal()
 ```
 
-Cleveland plots are, in my opinion, one of the first types of plots that should be considered for data visualization. In this case, though, because we plotted all 21 species, the lower right corner of the plot is a big empty space.  The code below shows you how to make a [slope graph](https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0003nk). Slope graphs are great a [showing changes for many variables](http://charliepark.org/slopegraphs/) over distinct time periods or other categories. In the example here, I (arbitrarily) removed species with fewer than 30 total individuals. The plot still needs tweaks but it gives you a sense of what slope graphs can do. Notice how it leaves less of a void compared to the Cleveland plot.
+Cleveland plots are, in my opinion, one of the first types of plots that should be considered for data visualization. In this case, though, because we plotted all 21 species, the lower right corner of the plot is a big empty space.  The code below shows you how to make a [slope graph](https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0003nk). Slope graphs are great a [showing changes for many variables](http://charliepark.org/slopegraphs/) over distinct time periods or other categories. In the example here, I (arbitrarily) removed species with fewer than 30 total individuals. The plot still needs tweaks but it gives you a sense of what slope graphs can do. Notice how it leaves less empty space compared to the Cleveland plot.
 
 **You do not have to reproduce this code but I encourage you to think about what is happening at each step.**
 
@@ -429,7 +444,7 @@ For this part, you will import and wrangle to separate files, and then join them
 - Import `flower_size.csv`
 
 ```{r}
-flower_size_raw <- read_csv("data/flower_size.csv")
+flower_size_raw <- read_csv(here::here("data", "flower_size.csv"))
 ```
 
 - Filter out rows where `Flower number` is not `NA`.
@@ -512,7 +527,7 @@ The second data set lists many of the same species as the first data set. Where 
 - Save these last three steps in a variable called `pollinators`.
 
 ```{r include=TRUE, warning=FALSE}
-pollinators_raw <- read_csv("data/flower_pollinators.csv")
+pollinators_raw <- read_csv(here::here("data", "flower_pollinators.csv"))
 
 pollinators <- pollinators_raw %>% 
   select(-starts_with("Source"), -Color) %>% 
@@ -643,7 +658,7 @@ phlox %>%
                  color = syndrome_group))
 ```
 
-The patterns in the data are easier to see. Large flowers tend to be pollinated large animals. The smallest flowers tend to be self-pollinating, with the exception of the two large, autogamous species.
+The patterns in the data are easier to see. Large flowers tend to be pollinated by large animals. The smallest flowers tend to be self-pollinating, with the exception of the two large, autogamous species.
 
 - Stage, commit, push.
 
