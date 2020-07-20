@@ -1,12 +1,12 @@
 ---
-title: "HW 08: Dates"
+title: "HW 12: Dates"
 subtitle: "Graphical Analysis of Biological Data"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
     latex_engine: lualatex
-  pdf_document: default
 urlcolor: blue
 ---
 
@@ -36,22 +36,36 @@ This assignment has two parts.
 
 - Right-click and save these three files to your `data` folder.
 
-    - [lake_ice.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw08/lake_ice.csv)
-    - [soil_co2.txt](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw08/soil_co2.txt)
-    - [thebes_discharge.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw08/thebes_discharge.csv)
+    - [lake_ice.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw12/lake_ice.csv)
+    - [soil_co2.txt](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw12/soil_co2.txt)
+    - [thebes_discharge.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw12/thebes_discharge.csv)
 
-- Create an `hw08` folder inside the same folder as your project file.
+- Create an `hw12` folder inside the same folder as your project file.
 
-- Make a file called `lastname_08.Rmd` and save it in your `hw08` folder. Use this file for both parts of the assignment.
+- Make a file called `lastname_12.Rmd` and save it in your `hw12` folder. Use this file for both parts of the assignment.
 
 - Add the YAML header as usual.
 
-- Load the `tidyverse` and `lubridate` libraries. You *may* have to install the `lubridate` package first, but I do not think so.
+- Load the `tidyverse`, `here` and `lubridate` libraries. You *may* have to install the `lubridate` package first, but I do not think so. If you have to install it, do not include the installation code in your code chunks. Install from the console or the menu.
+
+- **Important note:** The `lubridate` package includes a deprecated function called `here()` that might cause conflict with the `here` library you use to open files. The conflict yields this error:
+
+```
+Error in here("data", "soil_co2.txt") : 
+  unused arguments ("data", "soil_co2.txt")
+```
+
+You can avoid this problem by using `here::here("folder","file")` when you import your data files. This format tells R to use the `here()` function specifically from the `here` library. You will see this error if you experience the conflict.
+
+- Source your `my_functions.R` script from the `scripts` folder. You'll need your `std_err` function again for the standard error of the mean.
 
 ```{r}
 library(tidyverse)
+library(here)
 library(lubridate)
 library(ggthemes)
+
+source(here::here("scripts", "my_functions.R"))
 ```
 
 - Commit early. Commit often.  Push regularly.
@@ -95,7 +109,7 @@ lederberg <- "December 18, 1922"
 # and developed staining techniques to study chromosomes
 mcclintock <- "16061902"
 
-# Martin Luther King's birthday is coming up. Let's remember a dream
+# Let's also remember a dream
 mlk_birth <- "1/15/29"
 mlk_dream <- "1963 August 28"
 
@@ -156,7 +170,7 @@ wday(birth_date, label = TRUE, abbr = FALSE)
 ```
 
 
-1. What day of the week will your birthday be on *this* year? Use lubridate's `update` function. You can hard code this year but you must figure out how to do it entirely by code for full points. In other words, you code should work just as well next year or five years in the future, without editing.
+1. What day of the week will your birthday be on *this* year? Use lubridate's `update` function. <!--You can hard code this year but --> You must figure out how to do it entirely by code for full points (no hard-coding). In other words, you code should work just as well next year or five years in the future, without editing.
 
 ```{r}
 this_year_bday <- update(iso_birth_date, year = year(today()))
@@ -185,7 +199,7 @@ iso_ball - iso_anderson
 as.duration(iso_mlk - iso_dream)
 ```
 
-Enter the eight POSIXct compatible birth dates into a vector, including your own, in the order they are given above. Name each element of the vector with the last name of each person (review Assignment 2, part 2). You can but do not have to enter the date of the *Dream* speech.
+Enter the eight POSIXct compatible birth dates, including your own, into a vector in the order they are given above. Name each element of the vector with the last name of each person (review Assignment 2, part 2). You can but do not have to enter the date of the *Dream* speech.
 
 1. Of the eight birth dates from above, including your own, which of them are leap years? You *must* 
     - start with the POSIXct dates in your vector, and
@@ -226,7 +240,7 @@ sort(iso_birth_date - all_years, decreasing = TRUE)
 - Your goal is to match this plot.
 
 ```{r eval=TRUE, include=TRUE, echo=FALSE}
-lakes_raw <- read_csv("data/lake_ice.csv", na = "-999")
+lakes_raw <- read_csv(here::here("data", "lake_ice.csv"), na = "-999")
 
 mendota <- lakes_raw %>% 
   filter(lakecode == "DMR1") %>%  # Or "LAKE MENDOTA" upper case
@@ -246,7 +260,7 @@ mendota %>%
 
 - Import `lake_ice.csv`. The data use "-999" to indicate data that are `NA`. You must handle this *as part of the import*, not part of the wrangling.
 
-- Filter the data to save only Lake Mendota. Use the lake code of `DMR1` or the lake name of `LAKE MENDOTA`. Case matters!
+- Filter the data to save only Lake Mendota. Use the lake code `DMR1` or the lake name `LAKE MENDOTA`. Case matters!
 
 - Select these six columns. You can do this in one of a few different ways but you should be able to do this very efficiently. Look back at [Section 5.4](https://r4ds.had.co.nz/transform.html#select) to review.
     - iceon_year
@@ -286,7 +300,7 @@ mendota %>%
 
 - Summarize mean CO<sub>2</sub> and standard error of the mean. You had to calculate standard error for a previous assignment so you can review your previous code.
 
-- Make a column chart of mean CO<sub>2</sub> for each month. Use either `geom_errorbar` or `geom_linerange` to plot the standard error of the mean. Use `facet_wrap` on Year to make plots the results by year. If you use `geom_errorbar`, then use the `width` argument to make reasonable horizontal lines.
+- Make a column chart of mean CO<sub>2</sub> for each month. Use either `geom_errorbar` or `geom_linerange` to plot the standard error of the mean. Use your `std_err` function in the `scripts` folder to calculate the standard error. Use `facet_wrap` on Year to make plots the results by year. If you use `geom_errorbar`, then use the `width` argument to make reasonable horizontal lines.
 
 - Make the same plot but use points instead of columns, and use only `geom_linerange`.
 
@@ -295,7 +309,8 @@ mendota %>%
 ```{r eval=TRUE, include=TRUE, echo=FALSE}
 reference_date <- ymd("2006-01-01")
 
-soil_raw <- read_tsv("data/soil_co2.txt")
+soil_raw <- read_tsv(here::here("data", "soil_co2.txt"))
+
 soil <- soil_raw %>% 
   rename(DayN = `DayN[]`,
          Datecode = `Datecode[]`,
@@ -317,9 +332,11 @@ soil_sum <- soil %>%
   group_by(Year, Month) %>% 
   summarize(n = n(),
             mean_co2 = mean(CorrCO2),
-            se_co2 = sd(CorrCO2)/sqrt(n),
+            se_co2 = std_err(CorrCO2),
+            #se_co2 = sd(CorrCO2)/sqrt(n),
             mean_temp = mean(SoilT),
-            se_temp = sd(SoilT)/sqrt(n))
+            se_temp = std_err(SoilT))
+            #se_temp = sd(SoilT)/sqrt(n))
 
 soil_sum  %>% 
   ggplot(aes(x = Month)) +
@@ -363,7 +380,7 @@ This exercise will help you plot data to show overall trends in a larger data se
 - Add an Event column using `mutate` and `case_when`. If the year equals 1993 or 2011, then the value should be "Flood". If the year equals 1988 or 2012, then the value should be "Drought". Otherwise, the value should be "Normal". 
 
 ```{r}
-msr_thebes <- read_csv("data/thebes_discharge.csv")
+msr_thebes <- read_csv(here::here("data", "thebes_discharge.csv"))
 
 thebes <- msr_thebes %>%
   gather(key = Year, value = discharge, -(1:2)) %>% 
