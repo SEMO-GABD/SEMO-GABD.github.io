@@ -43,7 +43,7 @@ For the DNA section, you will have to use the `read_lines()` function to import 
 - `str_extract_all()`
 - `str_which()`
 
-Here some things to remember:
+Here are some things to remember:
 
 - Read the sections listed above and practice the examples and questions. They are not required but regex patterns take practice.
 
@@ -156,13 +156,13 @@ This figure shows one of the pages from Zuur et al. that we used earlier. The pa
 
 ![](../img/typographic_color.png)
 
-Typographers believe that pages with more uniform color are easier to read and cause less straing. That is why `ggplot` defaults to a medium gray background. This is also one default that many people prefer to change for the final output, perhaps in part because we're used to graphs with white background. 
+Studies by typographers suggest that pages with more uniform color are easier to read and cause less straing. That is why `ggplot` defaults to a medium gray background. This is also one default that many people prefer to change for the final output, perhaps in part because we're used to graphs with white background. 
 
 `ggplot` can be customized with little to lots of effort, depending on what you want to accomplish. `ggplot` also comes with several [built-in "themes"](https://ggplot2.tidyverse.org/reference/ggtheme.html) that you can add to a plot to quickly change the appearane of the plots. I will often use `theme_minimal()`, `theme_bw()`, or `theme_classic`. 
 
-Additional themes are available via the [ggthemes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) package. I show an example with `theme_tufte()` in this assignment. We'll use `theme_map()` next week.  I encourage you to try different themes. Eventually, you will probably dig more deeply under the theme hood to tweak your plots even further.
+Additional themes are available via the [ggthemes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) package. I show an example with `theme_tufte()` in this assignment. We'll use `theme_map()` next assignment  I encourage you to try different themes. Eventually, you will probably dig more deeply under the theme hood to tweak your plots even further.
 
-The other thing I want to mention is color. Color is not always necessary. If you can [get it right in black and white](http://www.stonesc.com/wordpress/2010/03/get-it-right-in-black-and-white/), then your graph has the power to convey detailed information efficiently. However, color is often helpful and it is easier than ever to generate and publish color figures.  But, colors do convey information equally.
+The other thing I want to mention is color. Color is not always necessary. If you can [get it right in black and white](http://www.stonesc.com/wordpress/2010/03/get-it-right-in-black-and-white/), then your graph has the power to convey detailed information efficiently. However, color is often helpful and it is easier than ever to generate and publish color figures.  But, different colors do *not* convey information equally.
 
 Here are some references for you to reference and think about visualizing your data in the future.
 
