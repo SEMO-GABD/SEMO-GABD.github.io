@@ -1,5 +1,5 @@
 ---
-title: "HW 07: Data Visualization"
+title: "HW 10: Data Visualization I"
 subtitle: "Graphical Analysis of Biological Data"
 output:
   pdf_document: default
@@ -365,7 +365,7 @@ You are now armed with some of the skills and tools needed for the first stages 
 
 ### Data exploration: crabs
 
-*Aegla* is a genus of South American freshwater crabs. Satterlee et al., as part of his research, collected water quality parameters. Those data are included in [aegla_crabs.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw07/aegla_crabs.csv). 
+*Aegla* is a genus of South American freshwater crabs. Satterlee et al., as part of his research, collected water quality parameters. Those data are included in [aegla_crabs.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw11/aegla_crabs.csv). 
 
 The variables are
 - Site (sampling locations)
