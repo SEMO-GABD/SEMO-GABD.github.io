@@ -1,5 +1,5 @@
 ---
-title: "HW 10: Maps"
+title: "HW 14: Maps"
 subtitle: "Graphical Analysis of Biological Data"
 output:
   pdf_document: default
@@ -15,11 +15,23 @@ editor_options:
 knitr::opts_chunk$set(include = TRUE, eval = TRUE, echo=TRUE, message=FALSE)
 ```
 
+By the end of this assignment, you should be able to achieve the following tasks in R:
+
+- use R notebooks and R markdown;
+- insert, write, and evaluate code chucks; 
+- use pipes; 
+- use `ggplot2` to
+  - create outline and filled maps at different scales,
+  - obtain data from external databases, and
+  - plot sample locations and distributions on the maps;
+- customize plots to improve visualization;
+- use a typical workflow to wrangle and plot data;  and
+- confidently stage, commit, and push with Git.
+
+*These achievements belong to Learning Outcomes 2, 3, 4, 5, 6.*
+
 By the end of this assignment, you should demonstrate an ability to 
 
-- create outline and filled maps at different scales,
-- obtain data from external databases, and
-- plot sample locations and distributions on the maps.
 
 Click on any blue text to visit the external website.
 
@@ -35,32 +47,33 @@ This assignment has three parts.
 
 - Right-click and save these files to your `data` folder.
 
-    - [bears.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw10/bears.csv)
-    - [bigfoot.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw10/bigfoot.csv)
-    - [blennies.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw10/blennies.csv)
+    - [bears.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/bears.csv)
+    - [bigfoot.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/bigfoot.csv)
+    - [blennies.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/blennies.csv)
     
-- Create an `hw10` folder inside the same folder as your project file.
+- Create an `hw14` folder inside the same folder as your project file.
 
-- Create a new notebook file and save it as `<lastname>_hw10.Rmd` inside your `hw10` folder.
+- Create a new notebook file and save it as `<lastname>_hw14.Rmd` inside your `hw10` folder.
 
 - Add the YAML header as usual.
 
 - Change the Knit directory to "Project Directory".
 
-- Install these packages. **Do not install packages in a code chunk. Run the code in the console or `Tools > Install Packages...`** Including it in a code chunk would try to install the package every time you run the code.
+- Install these packages. **Do not install packages in a code chunk. Run the code in the console or `Tools > Install Packages...`** Including it in a code chunk would try to install the package every time you run the code. But then, you know that by now, right?
 
     - `maptools`
     - `maps`
     - `map_data`
     - `rgeos`
     - `sp`
-    - `ggmap`: Run `devtools::install_github("dkahle/ggmap")` in the console. Do not install the cran version. 
+    - `ggmap` <!--: Run `devtools::install_github("dkahle/ggmap")` in the console. Do not install the cran version. -->
     - `raster`
     - `marmap`
 
-- Load these libraries, in the order shown. `tidyverse` must be loaded after `raster` so you can use its `select()` function. **Note:** Do not load all of the packages you downloaded. Some, like `raster` and `sp` will be accessed when needed by some functions.
+- Load these libraries, in the order shown. `tidyverse` must be loaded after `raster` so you can use its `select()` function. **Note:** Do not load all of the packages you just installed Some, like `raster` and `sp` will be accessed when needed by some functions.
 
 ```{r}
+library(here)
 library(raster)
 library(tidyverse)
 library(ggthemes)
@@ -71,9 +84,11 @@ library(marmap)
 
 ```
 
+- Remember to following the code formatting guidelines.
+
 - Commit early. Commit often.  Push regularly.
 
-- This assignment is part tutorial and part assignment I will give you an example, which you *must* run, and then you will do something similar as instructed. *Read the instructions carefully*.
+- This assignment is part tutorial and part assignment I will give you an example, which you *must* run, and then you will do something similar as instructed. *Read the instructions carefully.* But then you knew that, right?
 
 ***
 
@@ -247,14 +262,14 @@ Wikipedia has [lists of counties for each state](https://en.wikipedia.org/wiki/L
 
 ### Example: Distribution of *Gigantopithecus* and *Ursus*
 
-Dot distribution maps show locations where a species has been sampled. This example is based on a publication from [Lozier et al. 2009](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1365-2699.2009.02152.x). They used [ecological niche modeling](https://pdfs.semanticscholar.org/e98a/80aeec9ab38373397aa11109572abbb77ce4.pdf) to predict the distribution of Bigfoot. Srsly. 
+Dot distribution maps show locations where a species has been sampled. This example is based on a publication by [Lozier et al. 2009](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1365-2699.2009.02152.x). They used [ecological niche modeling](https://pdfs.semanticscholar.org/e98a/80aeec9ab38373397aa11109572abbb77ce4.pdf) to predict the distribution of Bigfoot. Srsly. 
 
 The Bigfoot data were used to make some points about potential pitfalls of the technique, while also showing how well the "niche" of Bigfoot matches the "niche" of black bears [*Ursus americanus*](https://en.wikipedia.org/wiki/American_black_bear).
 
 The bigfoot data were obtained from the [Bigfoot Field Researchers Organization.](http://www.bfro.net/news/google_earth.asp) Srsly. Only [Class A](http://www.bfro.net/gdb/classify.asp) sightings were used. (I still have *some* standards.) The black bear data were obtained from the [Global Biodiversity Information Facility.](https://www.gbif.org)
 
 
-If you haven't already, right-click and save [bigfoot.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw10/bigfoot.csv) and [bears.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw10/bears.csv) to your `data` folder.
+If you haven't already, right-click and save [bigfoot.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/bigfoot.csv) and [bears.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/bears.csv) to your `data` folder.
 
 This example uses the following packages. If you loaded them for Part 1, then you do not have to load them now unless you quit and have now returned to continue working.
 
@@ -289,18 +304,19 @@ I filtered the data to restrict the distribution to the longitude and latitude v
 
 **Note:** the file paths assume that you have a `data` folder at the same level as your `Rproj` folder, and that the csv files are in that folder, per previous instructions.
 
+**Note:** You may have to use `dplyr::select()` for the same reason you had to use `here::here()`: package conflicts.
+
 ```{r}
 # Bigfoot data ------------------------------------------------------------
 
-bigfoot <- read_csv("data/bigfoot.csv")
+bigfoot <- read_csv(here::here("data", "bigfoot.csv"))
 
-bigfoot <- filter(bigfoot,
-                  long >= min_long & long <= max_long,
-                  lat >= min_lat & lat <= max_lat) %>% 
+bigfoot <- bigfoot %>% 
+  filter(long >= min_long & long <= max_long,
+         lat >= min_lat & lat <= max_lat) %>% 
   sample_n(300) %>% 
   mutate(name = "Gigantopithecus") %>% 
-  select(name, long, lat)
-
+  dplyr::select(name, long, lat)
 ```
 
 Next, read in the `bears.csv` data. I previously wrangled the data so it has only the lontitude and latitude in the range defined above.
@@ -308,7 +324,7 @@ Next, read in the `bears.csv` data. I previously wrangled the data so it has onl
 ```{r}
 # Bear data ---------------------------------------------------------------
 
-bears <- read_csv("data/bears.csv")
+bears <- read_csv(here::here("data", "bears.csv"))
 
 both_species <- bind_rows(bigfoot, bears)
 
@@ -545,7 +561,7 @@ Load `blennies.csv` into a `blennies` object. Use `getNOAA.bathy()` function lik
 - Save the results to a `carib_sea` object.
 
 ```{r}
-blennies <- read_csv("data/blennies.csv")
+blennies <- read_csv(here::here("data", "blennies.csv"))
 
 carib_sea <- getNOAA.bathy(lon1 = min_long, 
                            lon2 = max_long, 
