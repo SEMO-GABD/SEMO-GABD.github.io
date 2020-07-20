@@ -68,6 +68,8 @@ library(ggthemes)
 source(here::here("scripts", "my_functions.R"))
 ```
 
+- Remember to format your code properly.
+
 - Commit early. Commit often.  Push regularly.
 
 - [Lubridate cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf)
