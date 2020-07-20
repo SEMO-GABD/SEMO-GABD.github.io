@@ -38,6 +38,7 @@ This assignment has two parts.
 library(tidyverse)
 library(smatr)
 library(knitr)
+library(here)
 ```
 
 - Right-click to save [this file](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw06/feathers.csv) as `feathers.csv` in your data folder. Make sure the file ends with `.csv` and not `.txt`.
@@ -82,7 +83,7 @@ A few things:
 
 
 ```{r}
-file_path <- "~/Documents/teach/485_setup/data"
+file_path <- "data/"
 ```
 
 ### Darters in riffles
@@ -109,7 +110,8 @@ names <- c("id",
            "majtype",
            "mintype")
 
-darter_raw <- read_fwf(file.path(file_path, "darters.txt"), 
+#darter_raw <- read_fwf(file.path(file_path, "darters.txt"),
+darter_raw <- read_fwf(here("data", "darters.txt"), 
                    skip = 13,
                    fwf_widths(widths,
                    col_names = names))

@@ -38,6 +38,8 @@ Click on any blue text to visit the external website.
 
 - Add a code chunk to load the `tidyverse`, `here`, `ggally`, and `patchwork` libraries.
 
+- Remember to format your code properly.
+
 - Commit early. Commit often.  Push regularly but at least push your completed assignment.
 
 - Download and open [A protocol for data exploration to avoid common statistical problems](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2009.00001.x) (free access) by Zuur et al. 2010. 

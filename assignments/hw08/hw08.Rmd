@@ -2,11 +2,11 @@
 title: "HW08: Wrangling II and Function Writing"
 subtitle: "Graphical Analysis of Biological Data"
 output:
+  pdf_document: 
+    latex_engine: lualatex
   html_document:
     df_print: paged
     toc: yes
-  pdf_document: 
-    latex_engine: lualatex
 #    latex_engine: lualatex
 urlcolor: blue
 ---
@@ -45,6 +45,7 @@ This assignment has two parts.
 
 - Create a `scripts` folder inside the same folder as your project file. You'll save your R script from part 2 in the `scripts` folder.
 
+- Remember to format your code properly, as described in the notes.
 
 ```{r}
 library(tidyverse)

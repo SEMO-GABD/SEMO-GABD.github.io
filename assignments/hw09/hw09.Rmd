@@ -74,6 +74,8 @@ A few things:
 
 - Download [feathers.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/feathers.csv) and [darters.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/darters.csv) data files and put them in your `data` folder. You may have to right-click on each file to save as `.csv` files.  The `darters.csv` file is a different format than `darters.txt` from a previous assignment but the data is otherwise the same.
 
+- Remember to format your code properly.
+
 - Commit early. Commit often.  Push regularly but at least push your completed assignment.
 
 ### Source your functions
