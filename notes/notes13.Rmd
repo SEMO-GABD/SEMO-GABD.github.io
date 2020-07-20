@@ -1,5 +1,5 @@
 ---
-title: '09: Strings and things'
+title: '13: Strings and things'
 author: "Graphical Analysis of Biological Data"
 output:
   pdf_document: default
@@ -18,7 +18,7 @@ library(tidyverse)
 library(lubridate)
 ```
 
-This web page is available as a [PDF file](./notes09.pdf)
+This web page is available as a [PDF file](./notes13.pdf)
 
 ## Strings
 

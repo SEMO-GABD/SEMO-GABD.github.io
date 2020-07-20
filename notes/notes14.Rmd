@@ -1,5 +1,5 @@
 ---
-title: '10: Maps'
+title: '14: Maps'
 author: "Graphical Analysis of Biological Data"
 output:
   html_document: default
