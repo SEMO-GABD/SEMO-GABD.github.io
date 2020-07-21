@@ -52,7 +52,7 @@ This assignment has four parts.
     - [blennies.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/blennies.csv)
 -->
 
-- Right-click and download [hw14_data.zip](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/hw14.zip). Unzip the file and move all of the data files into your data folder.
+- Right-click and download [hw14_data.zip](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/hw14_data.zip). Unzip the file and move all of the data files into your data folder.
 
   *Optional:* If you want to keep your data folder a little more organized, create a folder called `shape_files` in your data folder. Move all of the files that begin with `cb_` into the `shape_files` folder.  *Do not put any other data files in that folder.  Then, in Part 2, use `here::here("data/shape_files", ""cb_2017_us_state_500k.shp")` when it comes time to import the shape files. You'll see where I did this in my code. If you don't want to do this, put all files in your `data` folder and delete the `/shape_files` from the `here()` argument.
 
