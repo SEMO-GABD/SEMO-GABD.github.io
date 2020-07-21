@@ -34,10 +34,9 @@ Assignments are available in HTML and PDF formats. They have the same content so
 | [11 Data Visualization II (cont't)](../notes/notes10.html)  | [HTML](hw11/hw11.html) / [PDF](hw11/hw11.pdf) |  28 Jul (T) | [Zuur et al.](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2009.00001.x) |
 | [12 Dates](../notes/notes12.html) | [HTML](hw12/hw12.html) / [PDF](hw12/hw12.pdf) |  30 Jul (R) | [R4ds Chapter 16](https://r4ds.had.co.nz/dates-and-times.html)<br/> [Lubridate cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf) |
 | [13 Strings and things](../notes/notes13.html) | [HTML](hw13/hw13.html) / [PDF](hw13/hw13.pdf) |  02 Aug (Su) | See notes and assignment. |
-<!--
 | [14 Maps](../notes/notes14.html) | [HTML](hw14hw14.html) / [PDF](hw14/hw14.pdf) | 04 Aug (T) | See notes and assignment. |
 | 15 Final | HTML / PDF | 07 Aug (F) | **Due date is last day of session**</br> This will be a project that requires you to apply select skills learned throughout the course. You will receive minimal guidance from me.  |
--->
+
 
 ## Logistics
 
