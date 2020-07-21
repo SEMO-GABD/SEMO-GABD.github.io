@@ -45,6 +45,10 @@ Click on any blue text to visit the external website.
 
 - You should already have an `scripts` folder inside the same folder as your project file. If not, make it now and make sure your `my_functions.R` script from HW08 is inside the `scripts` folder.
 
+- Create an `hw09` folder inside the same folder as your project file. 
+
+- Create a new notebook file called `<lastname>_09.Rmd`. Edit the YAML file as you have for previous assignments. Save this in the `hw09` folder.
+
 
 ```{r}
 library(tidyverse)
