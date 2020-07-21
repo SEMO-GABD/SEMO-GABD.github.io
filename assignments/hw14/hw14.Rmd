@@ -45,16 +45,17 @@ This assignment has four parts.
 
 - Open your `.Rproj` project file in RStudio.
 
-- Right-click and save these files to your `data` folder.
+<!--- Right-click and save these files to your `data` folder.
 
     - [bears.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/bears.csv)
     - [bigfoot.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/bigfoot.csv)
     - [blennies.csv](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/blennies.csv)
-    
-# Add data files
+-->
 
+- Right-click and download [hw14_data.zip](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw14/hw14.zip). Unzip the file and move all of the data files into your data folder.
 
-    
+  *Optional:* If you want to keep your data folder a little more organized, create a folder called `shape_files` in your data folder. Move all of the files that begin with `cb_` into the `shape_files` folder.  *Do not put any other data files in that folder.  Then, in Part 2, use `here::here("data/shape_files", ""cb_2017_us_state_500k.shp")` when it comes time to import the shape files. You'll see where I did this in my code. If you don't want to do this, put all files in your `data` folder and delete the `/shape_files` from the `here()` argument.
+
 - Create an `hw14` folder inside the same folder as your project file.
 
 - Create a new notebook file and save it as `<lastname>_hw14.Rmd` inside your `hw10` folder.
@@ -331,7 +332,7 @@ Next, we use the `st_read` function from the `sf` package to read the shape file
 `Filter` keeps only states in the `states` object that listed in the `lower_48` vector. Any region that does not match is removed. `states_df` is the tibble with the state shapes we will plot.
 
 ```{r}
-states <- st_read(here::here("data", "cb_2017_us_state_500k.shp"))
+states <- st_read(here::here("data/shape_files", "cb_2017_us_state_500k.shp"))
 states_df <- states %>%
   dplyr::filter(NAME %in% lower_48)
 
