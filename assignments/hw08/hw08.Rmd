@@ -130,7 +130,7 @@ my_function <- function(arg1, arg2 = FALSE) {
 }
 ```
 
-  
+**Be sure to commit and push your `scripts` folder and `my_functions.R` file so that I have access to it.** Failure to do so will indicate that you did not complete this part of the assignment.
   
   
   
