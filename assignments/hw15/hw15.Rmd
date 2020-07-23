@@ -1,0 +1,121 @@
+---
+title: "16: Analysis of COVID-19 data"
+author: Graphical Analyis of Biological Data
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+Install package `data.table`. You do not need to load it.  I'll give you the command to use when we need it.
+
+
+You will write a script (.R), not a notebook. Use comments liberally. Use section dividers (cmd/ctrl + shift + r) as appropriate.
+
+
+Write your code with the following structure.
+
+### Libraries
+
+Load the libraries here.  You will need at least
+
+- `tidyverse` 
+- `here`
+- `lubridate`
+- `sf`
+- `ggthemes`
+
+You may use others as you see fit as long as they don't circumvent the instructions.
+
+
+### Constants
+
+Define constants here.  For example, you would define the CDC regions here that you will need later.  If you are hard-coding a value, it is a constant and thus should be defined here.
+
+### Functions
+
+Write the code for your functions here. Do not include your functions in the `my_functions.R` script you wrote in an earlier exercise. 
+
+
+### Main code
+
+Organize your code into blocks of common goals as outlined by the requirements.
+
+- Goal one
+  - Import data
+  - Wrangle data
+  - Plot data
+
+- Goal 2
+  - Import data
+  - Wrangle data
+  - Plot data
+  
+- etc
+
+You may also write a separate script (separate .R files) for each of the goals outlined in the assignment.  Be sure your scripts are clearly named so I can tell what each is for.  Each script must stand alone. I should be able to run it without running another script unless you are confident you know what you are doing and you have my express permission. I have to know to expect and watch for something different.
+
+
+## Requirements
+
+### Write two functions
+
+
+Write a function that takes two columns of data and calculates the per capita rate.  This function has two arguments. One argument will be the raw numbers (e.g., total cases, new cases, or deaths). The second argument will be the popualtion size.  Divide the raw numbers by the population size to get a per capita rate.  **MST: Do I have them multply by 100 for percentage?**
+
+Write another function that calculate the number of daily new cases from a vector of daily total cases. 
+
+  - Take advantage of the R's vector-oriented approach. Hint:  `cases[12:13] - cases[11:12]`. **Do not hard code the vector length.**
+  
+  - You will need to pad the left side of the resulting vector with a single `0` to keep the length of the output the same as the length of the input.
+
+
+### Import the data
+
+Right-click and download [hw15_data.zip](https://github.com/SEMO-GABD/semo-gabd.github.io/raw/master/assignments/hw15/hw15_data.zip). Unzip the file and move all of the data files into your data folder.
+
+The three data files are the lastest (as of 20 July 2020) data on COVID-19 available from [USAFacts.org.](https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/)
+
+- `covid_confirmed_usafacts.csv`: This file lists the accumulated daily total number of confirmed covid cases for each county of each state in the U.S.
+
+- `covid_deaths_usafacts.csv`: This file lists the accumulated daily total number of deaths attributed to covid for each county of each state in the U.S.
+
+- `covid_county_population_usafacts.csv`: This file lists the population size of each county of each state in the U.S.
+
+Use lubridate to convert the date column (that was a hint) to `mdy` format (e.g., 06-July-2020). You can do this during import (better) or during wrangling 
+
+### Wrangle the data
+
+Make the data tidy as necessary.
+
+Remove rows with [FIPS code](https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code) equal to zero. Do not 
+
+**MST:** If using the state data from CDC, use the [FIPS codes](https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code) to keep only the lower 48 states. Remove Alasaka, Hawaii, and the territories.
+
+
+[Link to CDC regions](https://www2.census.gov/geo/pdfs/maps-data/maps/reference/us_regdiv.pdf)
+
+
+
+***
+
+Have students divide overall frame into regions, following the above link. They'll have to write code that adds a column to the tibble that uses the regions. Have them use:
+
+* Northeast
+* South
+* Midwest
+* West (inc. Alaska and Hawaii)
+
+Consider having them use the stateFIPS to filter. case_when?
+
+Make a line graph of indicidences over time? Solid line for total, and dashed for deaths?
+
+***
+
+Other ideas:
+
+State or county map of incidences
+
+Cleveland plot sorted by incidences, deaths, per capita, etc.
+
+Left-join to calculate per capita
+
