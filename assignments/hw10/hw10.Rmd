@@ -2,10 +2,10 @@
 title: "HW 10: Data Visualization I"
 subtitle: "Graphical Analysis of Biological Data"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
+  pdf_document: default
 #    latex_engine: lualatex
 urlcolor: blue
 ---
@@ -68,8 +68,7 @@ devtools::install_github("thomasp85/patchwork")
 
 - Download and open [A protocol for data exploration to avoid common statistical problems](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2009.00001.x) (free access) by Zuur et al. 2010. 
 
-
-```{r}
+```{r echo=FALSE}
 library(tidyverse)
 library(here)
 library(GGally)
