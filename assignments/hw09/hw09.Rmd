@@ -11,8 +11,8 @@ output:
 urlcolor: blue
 ---
 
-```{r include=FALSE}
-knitr::opts_chunk$set(include = FALSE, eval = FALSE)
+```{r include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(include = FALSE)
 ```
 
 
@@ -43,7 +43,7 @@ Click on any blue text to visit the external website.
 
 - Install the `smatr` package.
 
-- You should already have an `scripts` folder inside the same folder as your project file. If not, make it now and make sure your `my_functions.R` script from HW08 is inside the `scripts` folder.
+- You should already have an `scripts` folder inside the same folder as your project file. If not, make it now and make sure your *working* `my_functions.R` script from HW08 is inside the `scripts` folder.
 
 - Create an `hw09` folder inside the same folder as your project file. 
 
@@ -63,7 +63,7 @@ Your task here is simple. Write code chunks that
 
 - import data,
 - wrangle the data as specified, and
-- graph the data.
+- graph the data. Correct plots are shown throughout so you know your goal. Plots for the graduate/honors student section are not shown.
 
 Then, describe the results briefly. Identify patterns and trends, potential outliers, and other results you find interesting. Think like the scientist you are! 
 
@@ -71,35 +71,34 @@ You may need to review your Introduction to R coding exercise to meet some requi
 
 A few things:
 
-- Remember to put all the data files in your `data` folder. 
+- Download [feathers.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/feathers.csv) and [darters.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/darters.csv) data files and put them in your `data` folder. You may have to right-click on each file to save as `.csv` files.  The `darters.csv` file is a different format than `darters.txt` from a previous assignment but the data is otherwise the same.
 
 - Load the `tidyverse`, `here`, `knitr`, and `smatr` libraries.
 <!-- Define a variable with the path to your `data` folder. This should be the same data path you used last time. *If you have your data files in the same folder as your .Rmd file, skip this and the next step.*-->
 
-- Download [feathers.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/feathers.csv) and [darters.csv](https://raw.githubusercontent.com/SEMO-GABD/semo-gabd.github.io/master/assignments/hw09/darters.csv) data files and put them in your `data` folder. You may have to right-click on each file to save as `.csv` files.  The `darters.csv` file is a different format than `darters.txt` from a previous assignment but the data is otherwise the same.
-
-- Remember to format your code properly.
+- Remember to format your code properly. Review the notes from assignment 08 if necessary.
 
 - Commit early. Commit often.  Push regularly but at least push your completed assignment.
-
-### Source your functions
-
-You can use R's `source()` function to run R code contained in an external file. Source your `my_functions.R` script that you wrote in the previous assignment by including this code chunk. You'll have to change the name of `my_functions.R` if you did not use that name for your scripts file.
-
-```{r}
-source(here("scripts", "my_functions.R"))
-```
 
 
 ### Importing Data
 
 As a reminder, The `here` package automatically sets all search paths relative to the project file. We're keeping our files to import in a folder called `data`.  Thus, the general format you should use is
 
-```{r}
+```{r eval=FALSE, echo=TRUE, include=TRUE}
 my_data <- read_csv(here("data", "my_file.csv"))
 ```
 
-`here` tells `read_csv` to look for your file in the `data` folder. Above, `here` told `source()` to look for the file in the `scripts` folder.  This is a simple and portable solution across all computers. **Use this format for this and all future assignments.**
+`here` tells `read_csv` to look for your file in the `data` folder. This is a simple and portable solution across all computers. **Use this format for this and all future assignments.**
+
+### Source your functions
+
+You can use R's `source()` function to run R code contained in an external file. Source your `my_functions.R` script that you wrote in the previous assignment by including this code chunk. Use the same format you do with your data folder and `here()` but use your `scripts` folder instead. You'll have to change the name of `my_functions.R` if you did not use that name for your scripts file.
+
+```{r}
+source(here("scripts", "my_functions.R"))
+```
+
 
 <!--
 ```{r}
@@ -143,7 +142,7 @@ darter <- darter_raw %>%
 
 #### Summarize data
 
-Use `group_by()` and `summarize()` to summarize the mean length, depth, and velocity for each species for each riffle. *Save this summary to a different object* than the original data. You will need both in the following plot. Use `facet_wrap` on riffles like you did in the last assignment.
+Use `group_by()` and `summarize()` to summarize the mean length, depth, and velocity for each species for each riffle. *Save this summary to a different object* than the original data. You will need both in the following plot. 
 
 ```{r}
 darter_mean <- darter %>% 
@@ -169,7 +168,7 @@ knitr::kable(darter_mean)
 
     This will plot a point to show the [median](https://en.wikipedia.org/wiki/Median) length, and draw a line from the shortest (`min`) to the longest (`max`) length to show the range of lengths for each species.
 
-- Remember that `ggplot2` uses a "layered grammar of graphics." Add a `geom_point()` layer to add the mean length of each species to the plot. Use a filled square shape. *You will have to use the summarized data set to get the mean for this geom.*
+- Remember that `ggplot2` uses a "layered grammar of graphics." Add a `geom_point()` layer to add the mean length of each species to the plot. Use a filled square shape. *You will have to use the summarized data set to plot the mean for this geom.*
 
 **Note:** If you do not get a point in the next plot showing the mean for *E. blennioides,* then you did something wrong. What was it? Find your error and fix it.
 
@@ -179,17 +178,18 @@ knitr::kable(darter_mean)
 
 - Add `labs()` so that length includes the appropriate unit of measurement in parentheses and that the species axis is not labeled (`x = NULL`).
 
-How does the relationship of the median, mean, and range change between the two riffles? In other words, how does the size distribution change between the two riffles?
+How does the relationship of the median, mean, and range change between the two riffles? In other words, how does the size distribution change between the two riffles? A correct plot looks this this.
 
-```{r}
+```{r eval=TRUE, echo=FALSE, include=TRUE}
 darter %>% 
+  drop_na() %>% 
   ggplot() +
   stat_summary(
     mapping = aes(x = species,
                   y = length),
-    fun.ymin = min,
-    fun.ymax = max,
-    fun.y = median) +
+    fun.min = min,
+    fun.max = max,
+    fun = median) +
   labs(x = NULL,
       y = "Length (mm)") +
   geom_point(data = darter_mean,
@@ -209,21 +209,25 @@ You decide that you could display the data more effectively. You want to show th
 
 - Make a new plot with a `geom_point()` layer of the length variable for each species. Change the point color to a lighter shade in the range of `gray50` to `gray70`. The points should contrast against the overall gray background but they are not the main visual focus of the graph.
 - Add a `stat_summary()` layer with these arguments:
-    - `fun.y = median`
+    - `fun = median`
     - `geom = "point"`
     - `size = 2.2`
-- Add another `stat_summary()`. Change the y function to `mean`, size to 3, and add the `color = "maroon"` argument.
-- Facet, label, and flip the graph as you did above.
+    - Do not include `fun.min` or `fun.max` arguments.
+    
+- Add another `stat_summary()` with the same arguments but change the function to `mean`, size to 3, and add the `color = "maroon"` argument. If you get a really large point, then you didn't quite follow the instructions. Read them again carefully and fix it. Your maroon point should be just a bit larger than the other points.
 
-```{r}
+- Facet, label, and flip the graph as you did above. A correct plot looks like this.
+
+```{r include=TRUE, echo=FALSE}
 darter %>%
+  drop_na() %>% 
   ggplot(aes(x = species,
                  y = length)) +
   geom_point(color = "gray60") +
-  stat_summary(fun.y = median,
+  stat_summary(fun = median,
                geom = "point",
                size = 2.2) +
-  stat_summary(fun.y = mean,
+  stat_summary(fun = mean,
                geom = "point",
                size = 3,
 #               pch = 15,
@@ -340,20 +344,21 @@ feather_sum <- feather %>%
 
 - Make a boxplot of `new_smi` for each site. Do you see any clear differences among the four sites?
 
-```{r}
+```{r echo=FALSE, include=TRUE}
 feather %>% ggplot() +
   geom_boxplot(aes(x = site,
-                   y = new_smi))
+                   y = new_smi)) +
+  labs(x = "Site", y = "Scaled Mass Index")
 ```
 
 *Plot 2*
 A common graph is to plot the means with error bars based on the standard errors of the means. 
 
-- Make a plot of the basal corticosterone concentration (ng/ml) for each site. Use `geom_point()`. Add a `geom_errorbar()` layer. Use the `?` function and the interwebs if you need, but here are a few hints:
+- Make a plot of the basal corticosterone concentration (ng/mg) for each site. Use `geom_point()`. Add a `geom_errorbar()` layer. Use the `?` function and the interwebs if you need, but here are a few hints:
     - x should be the sites,
     - `geom_errorbar()` needs `ymin` and `ymax` to draw the lower and upper ends of the error bars. Here, `ymin` should be one standard error below the mean and `ymax` should be one standard error above the mean. How could you do that? Good. Now do it.
     
-```{r}
+```{r echo=FALSE, include=TRUE}
 feather_sum %>% ggplot() +
   geom_point(aes(x = site,
                  y = mean_basal)) +
@@ -368,7 +373,7 @@ I am not a fan of the Star Wars [Tie Fighter](https://www.starwars.com/databank/
 
 Repeat the above plot but with two differences. Use the `mean_stress` and its standard error, and use `geom_linerange()` instead of `geom_errorbar`. Linerange and errorbar use the same arguments.
 
-```{r}
+```{r echo=FALSE, include=TRUE}
 ggplot(feather_sum) +
   geom_linerange(aes(x = site,
                     ymax = mean_stress + se_stress,
@@ -378,7 +383,7 @@ ggplot(feather_sum) +
              size = 3,
              color = "maroon") +
   labs(x = "Site",
-       y = "Basal Corticosterone (ng/ml)")
+       y = "Basal Corticosterone (ng/mg)")
 ```
 
 #### Graduate and Honors students
