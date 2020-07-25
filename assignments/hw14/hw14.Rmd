@@ -332,7 +332,8 @@ Next, we use the `st_read` function from the `sf` package to read the shape file
 `Filter` keeps only states in the `states` object that listed in the `lower_48` vector. Any region that does not match is removed. `states_df` is the tibble with the state shapes we will plot.
 
 ```{r}
-states <- st_read(here::here("data/shape_files", "cb_2017_us_state_500k.shp"))
+states <- st_read(here::here("data/shape_files", "cb_2017_us_state_500k.shp"),
+                  stringsAsFactors = TRUE)
 states_df <- states %>%
   dplyr::filter(NAME %in% lower_48)
 
@@ -358,6 +359,7 @@ name_levels <- levels(states_df$NAME)
 Now we import the state FIPS, remove an unneeded column, rename the FIPS column to STATEFP, then use `mutate()` to change the `STATEFP` column to an unordered factor. 
 
 ```{r}
+library(tidyverse)
 fips <- read_csv(here::here("data", "state_fips.csv")) %>% 
   select(-abbr) %>% 
   rename(STATEFP = FIPS) %>% 
@@ -381,7 +383,7 @@ ggplot(states_df) +
   geom_sf(aes(fill = relative_mort)) +
   scale_fill_viridis_c(name = "Skin Cancer,\nRelative Mortality",
                        option = "inferno") +
-  coord_sf(crs = st_crs(102003)) +
+  coord_sf(crs = st_crs(5070)) +
   theme_bw() +
   theme(legend.position = "bottom")
 ```
@@ -448,7 +450,7 @@ ggplot(states_df) +
   scale_fill_viridis_c(name = "Lyme Disease\nMean Cases",
                        option = "viridis",
                        labels = c("<1", "10", "100", "1000", "5000")) +
-  coord_sf(crs = st_crs(102003)) +
+  coord_sf(crs = st_crs(5070)) +
   theme_bw() +
   theme(legend.position = "bottom")
 ```
