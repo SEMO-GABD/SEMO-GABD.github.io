@@ -300,7 +300,7 @@ Finally, we assemble the two plots into a single figure with `patchwork`.
 h1 + h2
 ```
 
-**Grad and Honors:** Recreate this figure using density plots. However, modify the right panel so that all three months are overlaid on the same plot. Go back to [the notes](../../notes/notes10.html) and follow the example code for guidance.
+**Grad and Honors:** Recreate this figure using density plots. However, modify the right panel so that all three months are overlaid on the same plot. Go back to [the notes](../../notes/notes10.html) and follow the example code for guidance. Ensure that the guide legend `Month` shows *only* for color, not alpha or other mappings.
 
 ### Figure 10: Relationships
 
