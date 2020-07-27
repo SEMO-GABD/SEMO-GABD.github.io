@@ -57,9 +57,9 @@ This assignment has four parts.
 
 - Add the YAML header as usual.
 
-- Install the `ggthemes` package. Do I have to tell you to not include the code in your notebook?
+- Install the `ggthemes` and `gghighlight` packages. Do I have to tell you to not include the code in your notebook?
 
-- Load the `tidyverse`, `here`, and `ggthemes` libraries. 
+- Load the `tidyverse`, `here`, `ggthemes`, and `gghighlight` libraries. 
 
 - Install the `RColorBrewer` and `viridis` packages. *Do not load them*. `ggplot` will use these for some color palettes.
 
@@ -67,6 +67,7 @@ This assignment has four parts.
 library(tidyverse)
 library(here)
 library(ggthemes)
+library(gghighlight)
 ```
 
 - Be sure your code format follows the guidelines.
@@ -580,7 +581,8 @@ phlox %>%
   ggplot() +
   geom_point(aes(x = mean_length,
                  y = mean_width,
-                 color = Syndrome))
+                 color = Syndrome)) +
+  labs(x = "Mean length", y = "Mean width")
 ```
 
 The legend lists "bee" and "bees", and "beetle" and "beetles". They were not coded consistently in the original data set. They need to be fixed. 
@@ -604,7 +606,8 @@ phlox %>%
   ggplot() +
   geom_point(aes(x = mean_length,
                  y = mean_width,
-                 color = Syndrome))
+                 color = Syndrome)) +
+  labs(x = "Mean length", y = "Mean width")
 ```
 
 The bees and beetles problem is fixed but that is still a long list of pollination syndromes.  If you run the following code, you see that there are not many species that are pollinated by bats, beetles, or flies. 
@@ -612,7 +615,7 @@ The bees and beetles problem is fixed but that is still a long list of pollinati
 ```{r echo = TRUE, include = TRUE}
 phlox %>% 
   group_by(Syndrome) %>% 
-  count(Syndrome)
+  count(Syndrome) 
 ```
 
 Bats are unusual pollinators (relative to other species on the list) so you want to keep them separate. You decide to lump beetles and flies together as `other insects`.
@@ -631,7 +634,8 @@ phlox %>%
   ggplot() +
   geom_point(aes(x = mean_length,
                  y = mean_width,
-                 color = Syndrome))
+                 color = Syndrome)) +
+  labs(x = "Mean length", y = "Mean width")
 ```
 
 Better but still not ideal. You decide you want to keep "autogamous" as a  distinct sydrome but you want to group the animal pollinators into "Mammal", "Bird", and "Insect".
@@ -655,24 +659,80 @@ phlox %>%
   ggplot() +
   geom_point(aes(x = mean_length,
                  y = mean_width,
-                 color = syndrome_group))
+                 color = syndrome_group)) +
+  labs(x = "Mean length",
+       y = "Mean width",
+       color = "Syndrome")
 ```
 
 The patterns in the data are easier to see. Large flowers tend to be pollinated by large animals. The smallest flowers tend to be self-pollinating, with the exception of the two large, autogamous species.
 
+
+### Highlighting groups with `gghighlight`
+
+The different pollination syndromes can be distinguished through the use of colors. You can also highlight one or more groups with the `gghighlight` package. `gghighlight()` will highlight groups based on your logical criteria. The other groups are automatically given a light shade of gray, although this can be customized.
+
+`gghighlight` works as a layer added to your `ggplot`. The basic format for adding a `gghighlight` layer is:
+
+```{r eval=FALSE}
+data %>% 
+  ggplot() +
+  geom_point(aes(x = x_axis_data,
+                 y = y_axis_data,
+                 color = group)) +
+  gghighlight(group = "Group to highlight")
+```
+
+For example, if I want to highlight just the insect syndrome group, I add the line `gghighlight(syndrome_group == "Insect")` to the ggplot commands. Note that you still need to use `color` mapping in your `geom_point` layer so that `gghighlight` can properly highlight your group of interest.
+
+```{r}
+phlox %>% 
+  ggplot() +
+  geom_point(aes(x = mean_length,
+                 y = mean_width,
+                 color = syndrome_group)) +
+  gghighlight(syndrome_group == "Insect") +
+  labs(x = "Mean Length (cm)",
+       y = "Mean Width (cm)",
+       color = "Syndrome")
+
+```
+
+Notice that the legend went away. This is a default behavior of `gghighlight` which can be overridden by adding the `use_direct_label = FALSE` argument to `gghighlight()`. This brings back the legend with only the highlighted group listed.
+
+```{r}
+phlox %>% 
+  ggplot() +
+  geom_point(aes(x = mean_length,
+                 y = mean_width,
+                 color = syndrome_group)) +
+  gghighlight(syndrome_group == "Insect",
+              use_direct_label = FALSE) +
+  labs(x = "Mean Length (cm)",
+       y = "Mean Width (cm)",
+       color = "Syndrome")
+
+```
+
+Read through the [gghighlight vignette](https://cran.r-project.org/web/packages/gghighlight/vignettes/gghighlight.html) to learn more about how to use it. 
+
+Change the above plot so that it highlights both the mammal and bird syndrome groups. Hint: `|`.
+
+For the rest of this assignment, do not use `gghighlight()`.
+
 - Stage, commit, push.
 
-### Improving the plots
+### Other improvements: colors and themes
 
-The display of the data is good, so now you want to improve the figure. One of the first things I change is the color. I often get rid of color but we'll keep it for this plot. The default colors used by `ggplot` are carefully chosen so that they do not emphasize some data over others and can be distinguished by people with the most common forms of color blindness. These qualities are very important when using colors in figures, but I am not a particular fan of the default `ggplot` colors. 
+One of the first things I change in a plot is default colors (when colors are needed). The default colors used by `ggplot` are carefully chosen so that they do not emphasize some data over others and can be distinguished by people with the most common forms of color blindness. These qualities are very important when using colors in figures, but I am not a particular fan of the default `ggplot` colors. 
 
-Other color sets are available with the desirable qualities of even emphasis and being distinguished by people with different visual abilities. 
+Other color sets are available with the desirable qualities of even emphasis and distinguishability by people with different visual abilities. 
 
 [Dr. Cynthia Brewer](http://personal.psu.edu/cab38/) developed several color palettes that are useful for plotting. The palettes were developing for [cartography](http://colorbrewer2.org/) but some qualitative palettes work well with `ggplot`. Her palettes are available via the [RColorBrewer package.]() [Dr. Simon Garnier](https://biology.njit.edu/faculty/garnier) and colleages developed another set of palettes available via the [viridis package](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html). 
 
 For plots that use discrete categories like the pollination syndromes, I prefer using the brewer palettes. You can see the available palettes in the last page of this [color cheatsheet](https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf). 
 
-You can access the brewer palettes by adding a `scale_color_brewer` layer like that shown here. I like the "Dark2" and "Set1" palettes but you should try different qualitative palettes to find what appeals to you. You should also try the diverging and sequential palettes to see why you should not use them for categorical data.
+You can access the brewer palettes by adding a `scale_color_brewer` layer like that shown here. I like the "Dark2" and "Set1" palettes but you should try different qualitative palettes to find what appeals to you. You should also try the diverging and sequential palettes to see why you should not use them for categorical data. 
 
 ```{r echo=TRUE, include=TRUE}
 phlox %>% 
@@ -681,12 +741,15 @@ phlox %>%
                  y = max_width,
                  color = syndrome_group)) +
 #  scale_color_viridis_d(option = "viridis") 
-  scale_color_brewer(type = "qual", palette = "Dark2")
+  scale_color_brewer(type = "qual", palette = "Dark2") +
+  labs(x = "Mean Length (cm)",
+       y = "Mean Width (cm)",
+       color = "Syndrome")
 ```
 
-You can access the discrete viridis palettes using `scale_color_viridis_d` (use `_c` instead of `_d` to access the continuous palettes). Replace `scale_color_brewer` with `scale_color_viridis_d` and try different options, like "magma", "inferno", and "plasma". For me, the viridis palettes include one color that is very hard to see in a discrete setting.
+You can access the discrete viridis palettes using `scale_color_viridis_d` (use `_c` instead of `_d` to access the continuous palettes). Replace `scale_color_brewer` with `scale_color_viridis_d` and try different options, like "magma", "inferno", and "plasma". For me, the viridis palettes include one color that is very hard to see in a discrete setting. The viridis palettes work well for maps, which you will see in a later assignment.
 
-Shapes are another way of distinguishing among categorical data.  Here, I use four of the "fillable" shapes available in R. You can change the fill color but leave that border black. That allows even light colors like yellow to stand out from the background.
+Shapes are another way of distinguishing categorical data.  Here, I use four of the "fillable" shapes available in R. You can change the fill color but leave that border black. That allows even light colors like yellow to stand out from the background.
 
 To change the fill color with the brewer or viridis palettes, you have to change `scale_color_...` to `scale_fill_...`, like that shown below. You can also use `scale_fill_manual` and specify your own colors, as shown below using [official Southeast colors.](https://semo.edu/university-marketing/brand-central/palette.html) Choose custom colors carefully because you must ensure they have equal emphasis and can be distinguished by as many people as possible.
 
@@ -704,7 +767,11 @@ phlox %>%
   scale_shape_manual(values = c(22:25)) +
 #  scale_fill_brewer(palette = "Dark2")
 #  scale_fill_viridis_d(option = "viridis")
-  scale_fill_manual(values = semo_palette)
+  scale_fill_manual(values = semo_palette) +
+  labs(x = "Mean Length (cm)",
+       y = "Mean Width (cm)",
+       shape = "Syndrome",
+       fill = "Syndrome")
 ```
 
 `ggplot` is highly customizable so you can make plots to suit very specific needs. `ggplot` includes several themes that change the overall look of the plot. Themes that I find useful are `theme_minimal`, `theme_bw` and `theme_classic.` The `ggthemes` library includes many additional themes. As I mentioned early in the course, I like the philosphy of [Edward Tufte](https://www.edwardtufte.com/tufte/). Here is our plot using `theme_tufte()`, the `Dark2` brewer palette, `size = 2` to enlarge the plotted points a bit, and some font size customization to increase slightly the fonts used for the axis titles and the numbers at the tick marks.
