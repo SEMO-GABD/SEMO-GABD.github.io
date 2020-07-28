@@ -2,10 +2,10 @@
 title: "HW 10: Data Visualization I"
 subtitle: "Graphical Analysis of Biological Data"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
     toc: yes
-  pdf_document: default
 #    latex_engine: lualatex
 urlcolor: blue
 ---
@@ -326,17 +326,18 @@ Scatterplots are useful for showing the relationship between two variables. The 
 
 Another essential step in any graphical analysis of data is to explore relationships among the variables, like that shown by Figure 10. The panels above the diagonal are scatterplots that show pairwise relationships between the continuous variables in the sparrow data. The intersection of a row with a column shows the scatterplot for a specific pair of variables. The panels below the diagonal shows the Pearson correlation coefficients, $r.$ The coefficients range from 0 to 1. Higher values indicate stronger relationships between the two variables.
 
-As you might imagine, writing the code for dozens of scatterplots could quickly grow tedious, even with copy and paste. You have to ensure you changed each of the variables exactly right. Fortunately, the [GGally](http://ggobi.github.io/ggally/) package provides the [ggscatmat](http://ggobi.github.io/ggally/articles/ggscatmat.html) and  [ggpairs](http://ggobi.github.io/ggally/articles/ggpairs.html) functions. Before you go farther, scroll down to browse through the examples for these functions. `ggscatmat` creates only a scatterplot matrix, which we will use. `ggpairs()` can produce many more types of plots in the matrix, as you saw looking through the examples.
+Writing the code for dozens of scatterplots could grow tedious quickly, even with copy and paste. You have to ensure you changed each of the variables correctly. Fortunately, the [GGally](http://ggobi.github.io/ggally/) package provides the <!--[ggscatmat](http://ggobi.github.io/ggally/articles/ggscatmat.html) and --> [ggpairs](http://ggobi.github.io/ggally/articles/ggpairs.html) function. <!--Before you go farther, scroll down to browse through the examples for this function. `ggscatmat()` creates only a scatterplot matrix, which we will use. `ggpairs()` can produce many more types of plots in the matrix, as you saw looking through the examples.-->
 
-We will use the `columns` argument of `ggscatmat` to specify the first seven columns of data. If you want to plot all columns (helpful but not always wise), you do not have to supply the `columns` argument.
+We will use the `columns` argument of `ggpairs` to specify the first seven columns of data. If you want to plot all columns (helpful but not always wise), you do not have to supply the `columns` argument.
 
-**Note:** `ggscatmat` and `ggpairs` do a lot of work so this step may take more than the usual time, depending on the speed of your computer. ``ggscatmat` is faster than `ggpairs` because it does less.
+<!--
+**Note:** `ggscatmat` and `ggpairs` do a lot of work so this step may take more than the usual time, depending on the speed of your computer. ``ggscatmat` is faster than `ggpairs` because it does less.-->
 
 ```{r}
-sparrows %>% ggscatmat(columns = 1:7)
+sparrows %>% ggpairs(columns = 1:7)
 ```
 
-`ggscatmat` includes a density plot on the diagonal and puts the scatterplots below the diagonal, but we otherwise recreated Figure 10 with a single line of code. Niiiice.
+`ggpairs` includes a density plot on the diagonal and puts the scatterplots below the diagonal, but we otherwise recreated Figure 10 with a single line of code. Niiiice.
 
 ### Figure 11: interactions
 
