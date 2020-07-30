@@ -18,8 +18,7 @@ assigned readings that you *must* complete.
 **Note:** Click on blue links in PDF files to visit those web sites.
 
 **Warning:** I am still changing this schedule\! Order and content is
-highly susceptible to
-change.
+highly susceptible to change.
 
 | Notes                                                                  | Assignment                                                                | Due (23:55) | Reading and Resources                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | :--------------------------------------------------------------------- | :------------------------------------------------------------------------ | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -43,7 +42,7 @@ change.
 | [12 Dates](../notes/notes12.html)                                      | [HTML](hw12/hw12.html) / [PDF](hw12/hw12.pdf)                             | 30 Jul (R)  | [R4ds Chapter 16](https://r4ds.had.co.nz/dates-and-times.html)<br/> [Lubridate cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf)                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | [13 Strings and things](../notes/notes13.html)                         | [HTML](hw13/hw13.html) / [PDF](hw13/hw13.pdf)                             | 02 Aug (Su) | See notes and assignment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | [14 Maps](../notes/notes14.html)                                       | [HTML](hw14hw14.html) / [PDF](hw14/hw14.pdf)                              | 04 Aug (T)  | See notes and assignment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| 15 Final                                                               | HTML / PDF                                                                | 07 Aug (F)  | **Due date is last day of session**</br> This will be a project that requires you to apply select skills learned throughout the course. You will receive minimal guidance from me.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 15 Final                                                               | HTML / PDF                                                                | 07 Aug (F)  | **Due date is last day of session**<br/> This will be a project that requires you to apply select skills learned throughout the course. You will receive minimal guidance from me. Assignment will be posted no later than 02 Aug.                                                                                                                                                                                                                                                                                                                                                                      |
 
 ## Logistics
 
@@ -82,8 +81,7 @@ relevant assignment itself).*
 A few assignments (exact number still to be determined) will have extra
 work for graduate and honors contract students that *must* be completed.
 Other students may attempt the extra work but I will not include your
-attempt in your
-grade.
+attempt in your grade.
 
 | Topic                                                                                | Excellent: 3                                                                                                                                                                                                                               | Satisfactory: 2                                                                                                                                                      | Needs work: 1                                                                                                                            |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -117,8 +115,7 @@ Grades are mapped as follows:
 |   0.0 |         0% |
 
 Intermediate points are allowed, and follow a linear scale in between
-each point, so that the full mapping is depicted in the following
-chart:
+each point, so that the full mapping is depicted in the following chart:
 
 <img src="README_files/figure-gfm/unnamed-chunk-1-1.png" style="display: block; margin: auto;" />
 
