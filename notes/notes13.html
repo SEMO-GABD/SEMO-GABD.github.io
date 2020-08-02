@@ -427,16 +427,60 @@ bacteria</code></pre>
 str_extract(strings, &quot;.*(this|that).*&quot;)</code></pre>
 <pre><code>## [1] &quot;String with this.&quot; &quot;String with that.&quot; NA</code></pre>
 <ul>
-<li>Use <code>str_count()</code> to count the number of times a pattern occurs. For example, how many times does a seqence of 2-4 As occur in this DNA sequence? Do not count overlapping sequences. Notice the use of <code>{...}</code> to find strings of minimum and maximum lengths. The text for variations of the <code>{min,max}</code> pattern.</li>
+<li><p>You can use <code>\s</code> or <code>[:blank:]</code> to represent whitespace. You can use <code>\d</code>, <code>[:digits:]</code>, or <code>[0-9]+</code> to represent a string of digits. They must be properly formatted as strings, as described in the text.</p></li>
+<li><p>Use <code>str_count()</code> to count the number of times a pattern occurs. For example, how many times does a seqence of 2-4 As occur in this DNA sequence? Do not count overlapping sequences. Notice the use of curly braces <code>{ }</code> and two numbers separated by a comma to find strings of minimum and maximum lengths. In this case, the search is for 2-4 repetitions of <code>A</code>. The general pattern is <code>{min,max}</code>. Section <a href="https://r4ds.had.co.nz/strings.html#repetition">14.3.4 Repetition</a> of your text uses <code>{n,m}</code> but I use <code>{min,max}</code> to emphasize the minimum and maximum amount of repeitition. You’ll see more on <code>{min,max}</code> below.</p></li>
 </ul>
 <pre class="r"><code>dna &lt;- &quot;ATCACTAAATATGATTTGTGTAAAACCAAAATAAGATCTACAAACGAATAGAAGCTAGAGCGAAAAATGG&quot;
 
 str_count(dna, &quot;[CGT]A{2,4}[CGT]&quot;)</code></pre>
 <pre><code>## [1] 6</code></pre>
 <ul>
-<li><p>You can use <code>\s</code> or <code>[:blank:]</code> to represent whitespace. You can use <code>\d</code>, <code>[:digits:]</code>, or <code>[0-9]+</code> to represent a string of digits. They must be properly formatted as strings, as described in the text.</p></li>
-<li><p>Run <code>example(str_c)</code> or <code>?str_c</code> for an example of how to <strong>c</strong>ombine separate strings into a single string. I recommend trying the first one. <code>example(function_name)</code> runs the examples shown when you enter <code>?function_name</code>.</p></li>
+<li>Run <code>example(str_c)</code> or <code>?str_c</code> for an example of how to <strong>c</strong>ombine separate strings into a single string. I recommend trying the first one. <code>example(function_name)</code> runs the examples shown when you enter <code>?function_name</code>.</li>
 </ul>
+</div>
+<div id="going-deeper-with-minmax" class="section level3">
+<h3>Going deeper with {min,max}</h3>
+<p>Consider the string <code>ABCDEFMSTGHIJKLMNOPQRBCDESTMSTUVWXYZ</code>. Assume we want to find a string that begins with <code>BCDE</code> and ends with <code>MST</code>. There are two short strings and one long string that match the pattern. I’ve used spaces to highlight the matches.</p>
+<div id="short-strings" class="section level4">
+<h4>Short strings</h4>
+<pre><code>A BCDEFMST GHIJKLMNOPQR BCDESTMST UVWXYZ</code></pre>
+</div>
+<div id="long-string" class="section level4">
+<h4>Long string</h4>
+<pre><code>A BCDEFMSTGHIJKLMNOPQRBCDESTMST UVWXYZ</code></pre>
+<p>The letters that separate <code>BCDE</code> from <code>MST</code> can be any letter. In regular expressions, the <code>.</code> represents any character and <code>+</code> represents 1 or more matches so we can begin to think of a search string with the pattern <code>BCDE.+MST</code>. This is <code>MST</code> is separated from <code>BCDE</code> by 1 or more characters.</p>
+<p>Say we know from other data that <code>MST</code> in our sequence of interest is at least 10 characters away from <code>BCDE</code> but no more than 25 characters. That means we would have to find the long string but neither of the two short strings.</p>
+<p>Therefore, we use <code>{min,max}</code> along with <code>.</code> to modify our search sequence. We want <code>BCDE.{10,25}MST</code>. That gives as a RegEx pattern of <code>BCDE</code> followed by a string of any characters (<code>.</code>) that is a minimum of 10 and maximum of 25 characters long, followed by <code>MST</code>.</p>
+<p>Run this code in your R console.</p>
+<pre class="r"><code># Starting sequence. Copy and paste this.
+my_seq &lt;- &quot;ABCDEFMSTGHIJKLMNOPQRBCDESTMSTUVWXYZ&quot;
+
+# Search string.  Notice the `.` after the E. The period (any character)
+# is being matched 10-25 times.
+search_seq &lt;- &quot;BCDE.{10,25}MST&quot;
+
+# Count number of times the matched string is found
+str_count(my_seq, search_seq)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code># Extract all instances, to show we&#39;re getting the right string.
+str_extract_all(my_seq, search_seq)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;BCDEFMSTGHIJKLMNOPQRBCDESTMST&quot;</code></pre>
+<p>To demonstrate that it works, change the search sequence to find all instances where MST is separated from BCDE by only 1-10 characters, and run again.</p>
+<pre class="r"><code># Search string
+search_seq &lt;- &quot;BCDE.{1,10}MST&quot;
+
+# Count number of times the matched string is found
+str_count(my_seq, search_seq)</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code># Extract all instances
+str_extract_all(my_seq, search_seq)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;BCDEFMST&quot;  &quot;BCDESTMST&quot;</code></pre>
+<p>Both short strings were found, not the long one.</p>
+<p>Now, some of you may have thought that you could just do <code>BCDE.+MST</code>. In the example above it would work but in the DNA exercise it would not. RegEx is greedy, meaning it would find the longest possible sequence that matches the pattern. Using <code>BCDE.+MST</code> for HW13 would return a string that is 3,224 characters long, which is nearly the entire sequence given to you. That would be incorrect.</p>
+<p>With careful use of <code>{min,max}</code>, you can control how you search for specific patterns in text.</p>
+</div>
 </div>
 </div>
 <div id="separating" class="section level2">
@@ -532,7 +576,7 @@ flowers</code></pre>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="https://ghr.nlm.nih.gov/condition/achromatopsia">Achromatopsia</a> is one form of true color blindness.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p><a href="https://ghr.nlm.nih.gov/condition/achromatopsia">Achromatopsia</a> is one form of true color blindness.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

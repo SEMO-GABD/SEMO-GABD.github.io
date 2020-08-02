@@ -79,7 +79,9 @@ strings = c("String with this.", "String with that.", "String with the other.")
 str_extract(strings, ".*(this|that).*")
 ```
 
-- Use `str_count()` to count the number of times a pattern occurs. For example, how many times does a seqence of 2-4 As occur in this DNA sequence? Do not count overlapping sequences.  Notice the use of `{...}` to find strings of minimum and maximum lengths. The text for variations of the `{min,max}` pattern.
+- You can use `\s` or `[:blank:]` to represent whitespace. You can use `\d`, `[:digits:]`, or `[0-9]+` to represent a string of digits. They must be properly formatted as strings, as described in the text.
+
+- Use `str_count()` to count the number of times a pattern occurs. For example, how many times does a seqence of 2-4 As occur in this DNA sequence? Do not count overlapping sequences.  Notice the use of curly braces `{ }` and two numbers separated by a comma to find strings of minimum and maximum lengths. In this case, the search is for 2-4 repetitions of `A`. The general pattern is `{min,max}`. Section [14.3.4 Repetition](https://r4ds.had.co.nz/strings.html#repetition) of your text uses `{n,m}` but I use `{min,max}` to emphasize the minimum and maximum amount of repeitition. You'll see more on `{min,max}` below.
 
 ```{r}
 dna <- "ATCACTAAATATGATTTGTGTAAAACCAAAATAAGATCTACAAACGAATAGAAGCTAGAGCGAAAAATGG"
@@ -87,9 +89,64 @@ dna <- "ATCACTAAATATGATTTGTGTAAAACCAAAATAAGATCTACAAACGAATAGAAGCTAGAGCGAAAAATGG"
 str_count(dna, "[CGT]A{2,4}[CGT]")
 ```
 
-- You can use `\s` or `[:blank:]` to represent whitespace. You can use `\d`, `[:digits:]`, or `[0-9]+` to represent a string of digits. They must be properly formatted as strings, as described in the text.
-
 - Run `example(str_c)` or `?str_c` for an example of how to **c**ombine separate strings into a single string. I recommend trying the first one. `example(function_name)` runs the examples shown when you enter `?function_name`.
+
+### Going deeper with {min,max}
+
+Consider the string `ABCDEFMSTGHIJKLMNOPQRBCDESTMSTUVWXYZ`. Assume we want to find a string that begins with `BCDE` and ends with `MST`.  There are two short strings and one long string that match the pattern. I've used spaces to highlight the matches.
+
+#### Short strings
+```
+A BCDEFMST GHIJKLMNOPQR BCDESTMST UVWXYZ
+```
+
+#### Long string
+```
+A BCDEFMSTGHIJKLMNOPQRBCDESTMST UVWXYZ
+```
+
+The letters that separate `BCDE` from `MST` can be any letter. In regular expressions, the `.` represents any character and `+` represents 1 or more matches so we can begin to think of a search string with the pattern `BCDE.+MST`.  This is `MST` is separated from `BCDE` by 1 or more characters. 
+
+Say we know from other data that `MST` in our sequence of interest is at least 10 characters away from `BCDE` but no more than 25 characters. That means we would have to find the long string but neither of the two short strings. 
+
+Therefore, we use `{min,max}` along with `.` to modify our search sequence.  We want `BCDE.{10,25}MST`.  That gives as a RegEx pattern of `BCDE` followed by a  string of any characters (`.`) that is a minimum of 10 and maximum of 25 characters long, followed by `MST`. 
+
+Run this code in your R console.
+
+```{r}
+# Starting sequence. Copy and paste this.
+my_seq <- "ABCDEFMSTGHIJKLMNOPQRBCDESTMSTUVWXYZ"
+
+# Search string.  Notice the `.` after the E. The period (any character)
+# is being matched 10-25 times.
+search_seq <- "BCDE.{10,25}MST"
+
+# Count number of times the matched string is found
+str_count(my_seq, search_seq)
+
+# Extract all instances, to show we're getting the right string.
+str_extract_all(my_seq, search_seq)
+```
+
+
+To demonstrate that it works, change the search sequence to find all instances where MST is separated from BCDE by only 1-10 characters, and run again.
+
+```{r}
+# Search string
+search_seq <- "BCDE.{1,10}MST"
+
+# Count number of times the matched string is found
+str_count(my_seq, search_seq)
+
+# Extract all instances
+str_extract_all(my_seq, search_seq)
+```
+
+Both short strings were found, not the long one.
+
+Now, some of you may have thought that you could just do `BCDE.+MST`. In the example above it would work but in the DNA exercise it would not. RegEx is greedy, meaning it would find the longest possible sequence that matches the pattern. Using `BCDE.+MST` for HW13 would return a string that is 3,224 characters long, which is nearly the entire sequence given to you. That would be incorrect.
+
+With careful use of `{min,max}`, you can control how you search for specific patterns in text.  
 
 ## Separating 
 
