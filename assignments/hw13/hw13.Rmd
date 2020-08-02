@@ -203,7 +203,7 @@ The CAAT box occurs `r str_count(dna, caat_box)` times. The TATA box occurs `r s
 
 Comparisons of multiple nuclear genes have shown that the CAAT box is usually within 100-150 nucleotides of the start codon.  The TATA box tends to be within 50-100 nucleotides of the start codon (at least in gliadin genes).
 
-- Make a regex search string called `caat_seq` that begins with "CCAAT", ends with "ATG"", and allows for a stretch of 100-150 nucleotides between the two. *Hint:* Remember `{start, stop}`.
+- Make a regex search string called `caat_seq` that begins with "CCAAT", ends with "ATG"", and allows for a stretch of 100-150 nucleotides between the two. Recall the `{min, max}` example [from the notes](../../notes/notes13.html).
 
 - Count how many times this possible sequence occurs.
 
