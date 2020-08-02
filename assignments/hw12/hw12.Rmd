@@ -167,7 +167,9 @@ iso_dream <- ymd(dream)
 
 1. Convert each date to POSIXct format, using `lubridate` functions, saving each to a unique variable. Print each result.
 
-1. Check yours dates to be sure they are correct. If you spot any errors, correct them now using the proper `lubridate` function(s).
+1. Check yours dates to be sure they are correct. If you spot any errors, do not change the date(s) and format(s) given. *Correct* them using other `lubridate` function(s). 
+
+# MST: Have students write a function that subtracts 100 years from any date prior to 1968? Could be problematic but consider.
 
 ```{r}
 # MLKjr will be 100 years too high.
