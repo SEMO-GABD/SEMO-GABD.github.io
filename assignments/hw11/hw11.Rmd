@@ -106,7 +106,11 @@ Your goal is simple but it will take time.
 
 - **Explore the data.** There are three apparent outliers among the variables but only one that I think is an actual outlier. Find them and justify your choices.
 
+- Use `ggpairs` to explore the relationships among all the variables. `ggpairs` is a great place to start looking for outliers but it's a start, not a destination. You must do more.
+
 - **Describe the results** that you see in your figures. Use the notebook to describe your interpretations of the data. Your descriptions must be more than single sentences although they do not have to be lengthy paragraphs. Two or three sentences is probably sufficient for most cases. I am looking for evidence that you studied and thought about the data.  *I want you to think like the scientist you are becoming.*
+
+- You do not need to describe every panel produced from `ggpairs`. Use it as a guide to help you understand the data.
 
 - Choose four variables to make Cleveland plots, and make a 2x2 grid with the four plots, using `patchwork`.
 
@@ -115,8 +119,6 @@ Your goal is simple but it will take time.
 - Use the same three variables to produce density plots. Save each plot to a unique variable.
 
 - Use `patchwork to produce a 2 column matrix with the histograms in the left column and the corresponding density plots in the right column.
-
-- Use `ggpairs` to explore the relationships among all the variables. 
 
 The *Aegla* crabs data is not suitable for testing for interactions. I'll see if I can find an opportunity to do that in a future assignment. I know you are thrilled.
 

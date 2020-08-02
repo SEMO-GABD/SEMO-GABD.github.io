@@ -1710,12 +1710,13 @@ library(patchwork)</code></pre>
 <li><p>Create a <code>row_order</code> dummy variable like we did for the sparrows.</p></li>
 <li><p>You must use the pipe (<code>%&gt;%</code>) to write efficient code.</p></li>
 <li><p><strong>Explore the data.</strong> There are three apparent outliers among the variables but only one that I think is an actual outlier. Find them and justify your choices.</p></li>
+<li><p>Use <code>ggpairs</code> to explore the relationships among all the variables. <code>ggpairs</code> is a great place to start looking for outliers but it’s a start, not a destination. You must do more.</p></li>
 <li><p><strong>Describe the results</strong> that you see in your figures. Use the notebook to describe your interpretations of the data. Your descriptions must be more than single sentences although they do not have to be lengthy paragraphs. Two or three sentences is probably sufficient for most cases. I am looking for evidence that you studied and thought about the data. <em>I want you to think like the scientist you are becoming.</em></p></li>
+<li><p>You do not need to describe every panel produced from <code>ggpairs</code>. Use it as a guide to help you understand the data.</p></li>
 <li><p>Choose four variables to make Cleveland plots, and make a 2x2 grid with the four plots, using <code>patchwork</code>.</p></li>
 <li><p>Choose three different variables to make histograms. Play with the <code>bins</code> or <code>binwidths</code> argument that you think reveals the data well. <em>Hint:</em> the default <code>bins = 30</code> that <code>geom_histogram</code> is usually not a suitable choice. Save each histogram to a unique variable.</p></li>
 <li><p>Use the same three variables to produce density plots. Save each plot to a unique variable.</p></li>
 <li><p>Use `patchwork to produce a 2 column matrix with the histograms in the left column and the corresponding density plots in the right column.</p></li>
-<li><p>Use <code>ggpairs</code> to explore the relationships among all the variables.</p></li>
 </ul>
 <p>The <em>Aegla</em> crabs data is not suitable for testing for interactions. I’ll see if I can find an opportunity to do that in a future assignment. I know you are thrilled.</p>
 <hr />
