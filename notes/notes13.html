@@ -478,7 +478,7 @@ str_extract_all(my_seq, search_seq)</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;BCDEFMST&quot;  &quot;BCDESTMST&quot;</code></pre>
 <p>Both short strings were found, not the long one.</p>
-<p>Now, some of you may have thought that you could just do <code>BCDE.+MST</code>. In the example above it would work but in the DNA exercise it would not. RegEx is greedy, meaning it would find the longest possible sequence that matches the pattern. Using <code>BCDE.+MST</code> for HW13 would return a string that is 3,224 characters long, which is nearly the entire sequence given to you. That would be incorrect.</p>
+<p>Now, some of you may have thought that you could just do <code>BCDE.+MST</code>. In the example above it would work but in the DNA exercise it would not. RegEx is greedy, meaning it searches for the <em>longest possible</em> sequence that matches the pattern. Using <code>BCDE.+MST</code> for HW13 would return a string that is 3,224 characters long, which is nearly the entire sequence given to you. That would be incorrect.</p>
 <p>With careful use of <code>{min,max}</code>, you can control how you search for specific patterns in text.</p>
 </div>
 </div>

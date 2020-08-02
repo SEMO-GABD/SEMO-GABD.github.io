@@ -144,7 +144,7 @@ str_extract_all(my_seq, search_seq)
 
 Both short strings were found, not the long one.
 
-Now, some of you may have thought that you could just do `BCDE.+MST`. In the example above it would work but in the DNA exercise it would not. RegEx is greedy, meaning it would find the longest possible sequence that matches the pattern. Using `BCDE.+MST` for HW13 would return a string that is 3,224 characters long, which is nearly the entire sequence given to you. That would be incorrect.
+Now, some of you may have thought that you could just do `BCDE.+MST`. In the example above it would work but in the DNA exercise it would not. RegEx is greedy, meaning it searches for the *longest possible* sequence that matches the pattern. Using `BCDE.+MST` for HW13 would return a string that is 3,224 characters long, which is nearly the entire sequence given to you. That would be incorrect.
 
 With careful use of `{min,max}`, you can control how you search for specific patterns in text.  
 
