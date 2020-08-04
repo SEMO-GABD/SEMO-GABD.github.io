@@ -358,10 +358,11 @@ name_levels <- levels(states_df$NAME)
 
 Now we import the state FIPS, remove an unneeded column, rename the FIPS column to STATEFP, then use `mutate()` to change the `STATEFP` column to an unordered factor. 
 
+Note the use of `dplyr::select(-abbr)`. The `raster` package also has a function called `select()` that can conflict with the `select` function from `dplyr`, one of the `tidyverse` packages. The `dplyr::` part of the code tells R to use `select()` from `dplyr`.
 ```{r}
 library(tidyverse)
 fips <- read_csv(here::here("data", "state_fips.csv")) %>% 
-  select(-abbr) %>% 
+  dplyr::select(-abbr) %>% 
   rename(STATEFP = FIPS) %>% 
   mutate(STATEFP = factor(STATEFP, levels = state_levels))
 ```
